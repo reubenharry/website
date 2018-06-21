@@ -29,11 +29,11 @@ weight                 = -110
 identifier             = "about"
 url                    = "/about/"
 
-[[menu.main]]
-name                   = "Code"
-weight                 = -100
-identifier             = "code"
-url                    = "/code/"
+# [[menu.main]]
+# name                   = "Code"
+# weight                 = -100
+# identifier             = "code"
+# url                    = "/code/"
 
 [params]
 include_rss            = true                          # include RSS <link> tag in <head> and show RSS icon
@@ -48,14 +48,14 @@ email                  = "reubenharry@gmail.com"
 extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
 faviconfile            = "img/leaf.ico"
 github                 = "//github.com/reubenharry"
-instagram              = "//instagram.com/you"
-px500                  = "//500px.com/username"
+# instagram              = "//instagram.com/you"
+# px500                  = "//500px.com/username"
 lang                   = "en"
-linkedin               = "//linkedin.com/in/you"
+# linkedin               = "//linkedin.com/in/you"
 noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
-selfintro              = ""                            # appears in the site header when set to a non-empty string
-twitter                = "//twitter.com/you"
-mastodon               = "//example.com/@you"
+selfintro              = "stanford linguistics graduate student"
+# twitter                = "//twitter.com/you"
+# mastodon               = "//example.com/@you"
 
 highlightjs            = true
 # highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
