@@ -53,7 +53,7 @@ github                 = "//github.com/reubenharry"
 lang                   = "en"
 # linkedin               = "//linkedin.com/in/you"
 noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
-selfintro              = "stanford linguistics graduate student"
+selfintro              = "Hello! I'm a graduate student in linguistics at Stanford. I think a lot about meaning, particularly using tools from functional programming and Bayesian probability. Click on my publications below for links to blog posts:"
 # twitter                = "//twitter.com/you"
 # mastodon               = "//example.com/@you"
 
