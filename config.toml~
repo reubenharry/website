@@ -1,5 +1,5 @@
 baseurl             = "https://reubenharry.github.io/"
-builddrafts         = false
+builddrafts         = true
 canonifyurls        = true
 contentdir          = "content"
 languageCode        = "en-GB"
@@ -53,7 +53,7 @@ github                 = "//github.com/reubenharry"
 lang                   = "en"
 # linkedin               = "//linkedin.com/in/you"
 noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
-selfintro              = "Hello! I'm doing a PhD in linguistics at Stanford. I think about meaning using tools from functional programming, Bayesian probability and machine learning:"
+selfintro              = "Hello! I'm a graduate student in linguistics at Stanford. I work on modelling meaning  (semantics and pragmatics) using tools from functional programming and Bayesian probability, as well as :"
 # twitter                = "//twitter.com/you"
 # mastodon               = "//example.com/@you"
 

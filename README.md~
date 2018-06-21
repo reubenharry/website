@@ -7,8 +7,6 @@ up Hugo documentation or the Cocoa-specific documentation for more on how to use
 It's deployed by Travis CI (travis-ci.org; log in with your GitHub), which runs Hugo every time you
 push to the repo and pushes the result to reubenharry.github.io.
 
-When you check out a clean copy, you need to do `git submodule update --init` as well to clone the themes.
-
 # New posts
 
 To make a new post do `hugo new blog/name-of-post.md`. Then edit
