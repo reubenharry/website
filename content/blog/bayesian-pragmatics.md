@@ -65,4 +65,4 @@ l n u = do
 -- prints out the first 5 listener depth probabilities of being in '1' on hearing 'blue'
 main = print . take 5 . fmap (\n -> mass (l n "blue") '1') $ [0..]
 > [0.5,0.7499999999999999,0.8999999999999999,0.9878048780487805,0.999847607436757]
-
+'''
