@@ -1,6 +1,6 @@
 ---
 title: "Research"
-author: "Reuben Cohn-Gordon
+author: "Reuben Cohn-Gordon"
 ---
 
 ### Computational Language Games
