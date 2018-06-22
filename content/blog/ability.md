@@ -4,7 +4,7 @@ date: 2018-06-22T18:05:57+01:00
 draft: true
 ---
 
-**About: [this project](docs/modals.pdf)**
+**About: [this project](/docs/modals.pdf)**
 
 **Prerequisites: formal semantics for natural language**
 

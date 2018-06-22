@@ -4,7 +4,7 @@ date: 2018-06-22T18:11:57+01:00
 draft: true
 ---
 
-**About: [this project](docs/amharic.pdf)**
+**About: [this project](/docs/amharic.pdf)**
 
 **Prerequisites: very basic syntax, morphology**
 
