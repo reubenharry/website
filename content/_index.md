@@ -1,4 +1,4 @@
-Hi! I'm a linguistic PhD at Stanford. I think about meaning using tools from functional programming, Bayesian probability and machine learning:
+Hi! I'm a linguistics PhD student at Stanford. I think about meaning using tools from functional programming, Bayesian probability and machine learning:
 
 ### [Computational Language Games](www.google.com)
 
