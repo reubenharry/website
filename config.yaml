@@ -1,6 +1,6 @@
 ---
 title: "Reuben Cohn-Gordon"
-baseURL: "https://example.org/"
+baseURL: "https://reubenharry.github.io"
 theme: "zen"
 languageCode: "en-GB"
 defaultContentLanguage: "en"
@@ -11,9 +11,9 @@ paginate: 10
 paginatePath: "page"
 rssLimit: 20
 author:
-  name: "Your Name"
-  url: "https://example.org/somepage"
-  avatar: "path/to/some-image.jpg"
+  name: "Reuben Cohn-Gordon"
+  url: "https://reubenharry.github.io"
+  avatar: "static/img/profile.png"
 
 outputs:
   home: ["HTML","RSS", "JSON"]
@@ -22,7 +22,7 @@ outputs:
 params:
   cacheBustCSS: false
   cacheBustJS: false
-  contact: "info@example.org"
+  contact: "reubencg@stanford.edu"
   description: ""
   dateformat: "2 January, 2006"
   favicon: "icon-64.png"
