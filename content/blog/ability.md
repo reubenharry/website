@@ -4,7 +4,7 @@ date: 2018-06-22T18:05:57+01:00
 draft: true
 ---
 
-**Explanation of [this project](www.google.com)**
+**About: [this project](docs/modals.pdf)**
 
 **Prerequisites: formal semantics for natural language**
 

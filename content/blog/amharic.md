@@ -4,11 +4,11 @@ date: 2018-06-22T18:11:57+01:00
 draft: true
 ---
 
-**About: [this project](www.google.com)**
+**About: [this project](docs/amharic.pdf)**
 
 **Prerequisites: very basic syntax, morphology**
 
-Most of my work errs on the more theoretical side, so this project was a particularly fun contrast.
+Most of my work errs on the more theoretical side, at least as far as linguistics is concerned, so this project was a particularly fun contrast.
 
 Amharic has object markers, morphemes which attach to verbs and mark objects. So you wouldn't expect to see them at all on intransitive verbs like "run" or "laugh". But you do, and *when* you do, they come with a whole host of unexpected meanings, like dares, warnings, rhetorical questions and exclamations of affect.
 

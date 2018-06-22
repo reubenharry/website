@@ -42,3 +42,6 @@ params:
 
 permalinks:
   blog: "blog/:slug/"
+
+staticDir:
+  - static
