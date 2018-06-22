@@ -10,7 +10,7 @@ But what about pragmatics? Recently, there's been some exciting work on two thin
 
 Two things first:
 1) Disclaimer: neither the idea of Bayesian pragmatics nor the code for probabilistic programming in Haskell is mine. What's mine is the code below for Bayesian pragmatics in Haskell.
-2) Context: the goal of this program is to model a speaker and a listener who are **pragmatic**. In brief, this means that they reason about each other's actions. Here they are playing a reference game, where the speaker chooses an expression which describes the world he and the listener are in. Dually, the listener tries to work out which world they are in from the expression. 
+2) Context: the goal of this program is to model a speaker and a listener who are **pragmatic**. In brief, this means that they reason about each other's actions. Here they are playing a reference game, where the speaker chooses an expression which describes the world he and the listener are in. Dually, the listener tries to work out which world they are in from the expression.
 
     To keep it simple (but note that it's easy to switch in another case in the code), there are two worlds, 0 and 1. Both worlds are blue, but only the first is square (these ``worlds'' are pretty abstract - think of them as pictures if that's helpful.). The speaker can only say two things: that he's in a blue world, or that he's in a square world.
 
@@ -40,7 +40,7 @@ meaning "square" '1'  = realToFrac 0.0
 
 
 --mutually recursive definitions of pragmatic speaker and listener
---n is the number of levels of recursion. (l 2) models (s 2) who models (l 1) who models (s 1) who... 
+--n is the number of levels of recursion. (l 2) models (s 2) who models (l 1) who models (s 1) who...
 s :: Speaker
 s 0 w = utterances
 s n w = do
@@ -65,4 +65,4 @@ l n u = do
 -- prints out the first 5 listener depth probabilities of being in '1' on hearing 'blue'
 main = print . take 5 . fmap (\n -> mass (l n "blue") '1') $ [0..]
 > [0.5,0.7499999999999999,0.8999999999999999,0.9878048780487805,0.999847607436757]
-'''
+```
