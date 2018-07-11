@@ -5,13 +5,13 @@ author: "Reuben Cohn-Gordon"
 
 ### Computational Language Games
 
-[Pragmatically Informative Image Captioning with Character-Level Inference](https://arxiv.org/abs/1804.05417) ([see slides](/docs/naacl_slides.pdf)) (Cohn-Gordon, Goodman and Potts)
+[Pragmatically Informative Image Captioning with Character-Level Inference](https://arxiv.org/abs/1804.05417) ([slides](/docs/naacl_slides.pdf)) <br/> (NAACL 2018 - Cohn-Gordon, Goodman and Potts)
 
 ### Social Meaning
 
-[Modeling "Non-literal" Social Meaning with Bayesian Pragmatics](/docs/socialmet.pdf) (Cohn-Gordon and Qing)
+[Modeling "Non-literal" Social Meaning with Bayesian Pragmatics](/docs/socialmet.pdf) ([slides](/docs/sub_slides.pdf)) <br/>(Sinn und Bedeutung 2018 - Cohn-Gordon and Qing)
 
-[Non-descriptive/use-conditional meaning in Rational Speech-Act models](/docs/usecond.pdf) (Qing and Cohn-Gordon)
+[Non-descriptive/use-conditional meaning in Rational Speech-Act models](/docs/usecond.pdf) <br/> (Sinn und Bedeutung 2018 - Qing and Cohn-Gordon)
 
 ### Past Work
 
