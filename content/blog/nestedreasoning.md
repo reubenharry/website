@@ -4,16 +4,7 @@ date: 2018-06-26T17:07:24+01:00
 draft: true
 ---
 
-style:
-
-	quite a lot of echo could be added
-
-things i think i could convey:
-
-	nested reasoning
-	that inference is great paradigm
-	that probabilistic programming is really helpful here
-	pragmatics and semantics unified
+include: diagram of the loop and some and all mappings to things and show how it levels in the equilibrium
 
 need to get a notion of conventional meaning, and then pragmatic meaning: a good example to hang on to for this
 		so first find funny implicature:
@@ -22,37 +13,115 @@ need to get a notion of conventional meaning, and then pragmatic meaning: a good
 
 	motivation:
 
-		Imagine the scene: Echo is scolding Narcissus for
+		Imagine the scene: it is midday, and Echo asks Narcissus:
+			do you love me?
 
-		So the *semantics* of blah tells us
-			but reasoning about what the speaker BLAH and the world, which is the concern of pragmatics, enriched this meaning.
+			He replies:
 
-		DIAGRAM
+		If context=foo, then narcissus' reply would
+			so how do we get the
 
-		The distinction was apparently described as follows by a student in a class I TA'ed: ``Semantics is about what things mean, and pragmatics is about what they like actually mean.''. I've always wanted to write a philosophy paper introducing a *like actually* operator LA, such that LA(P) iff P is like actually true.
-		maybe: this requires
+		something like this: If Narcissus had wanted to communicate that FOO, he would have said blah
 
-			I want to show how we can boil down to essence of this reasoning, and how it exemplifies the core blah of pragmatics.
-				I also want to convince you that the language of probability (and in particular, recursive agent models like TODO LINK) are the right tool for the job: they neatly incorporate and generalize a logical semantics, can be computationally modelled LINK, experimentally verified LINK, integrated with deep learning, and mathematically speaking, are quite beautiful. In short, they are for pragmatics what higher order logic (Montague grammar) is for semantics.
+		but sentences need to have some sort of fixed meaning, otherwise we wouldn't have any ground to stand on
+
+		This fixed, or conventional meaning, is what a linguist would term the semantic content, while the meaning derived from social reasoning is the pragmatic content.
+			(The distinction was apparently described as follows by a student in a class I TA'ed: ``Semantics is about what things mean, and pragmatics is about what they like actually mean.''. I've always wanted to write a philosophy paper introducing a *like actually* operator LA, such that LA(P) iff P is like actually true.)
+
+		DIAGRAM: u to w: two arrows, arrow between them
+
+		This diagram says quite a lot:
+
+			SMALL CAPTION TEXT:
+			The red arrow represents a listener only concerned with semantic content:
+
+				they hear an utterance, and reason that...
+
+			The COLOR arrow represents a listener that has undertaken the pragmatic process just described
+
+			Finally, the COLOR arrow between them is there to remind you of the fact that the pragmatic story is derived from the semantic one
+
+
+
+
+
+		I want to show how we can boil down to essence of this ??? reasoning, and get out a paradigm for formalizing pragmatics.
+
+			I also want to convince you that the language of probability (and in particular, recursive agent models like TODO LINK) are the right tool for the job: they neatly incorporate and generalize a logical semantics, can be computationally modelled LINK, experimentally verified LINK, integrated with machine learning, and what for my money matters most, are mathematically speaking quite beautiful. In short, *they are for pragmatics what higher order logic (Montague grammar) is for semantics*.
 
 		OK, so let's exchange our fun example from above for something much more prosaic TODO RIGHT WORD?
 
-		Echo and Narcissus are taking a post-prandial stroll and
+		Echo and Narcissus are taking a postprandial stroll and
 
-			Echo: ?
+			Echo:
 			Narcissus: . something overly literal
 
-		This example, or something similar, is the (drusophila)[link] of pragmatics: a scalar implicature. As above, Narcissus' utterance seems to suggest that
+		This example, or something similar, is the (drosophila)[link] of pragmatics: a scalar implicature:
+
+			semantics: saying "some" doesn't rule out
+				after all, if asked FOO you'd say, but more on this here
+
+			pragmatics: if you'd wanted to communicate that all
+				you'd have said...
+				so you must have not been able to truthfully communicate blah hence not all
+
+
+
+		As above, Narcissus' utterance seems to suggest that
 			since *if he had been trying to communicate BLAH, he would have said BLAH*.
 			but then again, suppose the context had been BLAH
 				so we probably don't want to put blah into the meaning of blah
 
-		OK, so let's build a model of this.
+		OK, so let's build a model of this. Here's the overview:
+
+			the act of interpreting (or listening) is going to be represented by
+
+			So we're going to want different conditional distributions for the literal and pragmatic listeners.
+			In fact, we're going to use the literal listener in the definition of the pragmatic listener.
+				we're going to define a conditional probability distribution L(w|u) which represents the act of hearing an utterance and updated your belief about the world according using not just the literal meaning of the utterance but also pragmatic reasoning.
+
+			Speakers are the dual of listeners: they...
 
 			General shape of model
 				brief mention of types
+			Here
 
-			We're going to define a conditional probability distribution L(w|u) which represents the act of hearing an utterance and updated your belief about the world according using not just the literal meaning of the utterance but also pragmatic reasoning.
+		 we're going to define a literal listener, which
+			then we'll define a speaker which
+
+			Graphically:
+
+			listeners: arrows one way, speakers: the other way: make it in keynote i think, or google slides: R use the ones you have!!
+
+
+			(digression: this arrow is a function from a to dist b: putting on the pointiest most arcane ivory tower shaped hat, this is a morphism in kleisli category of the giry monad, which is precisely why it makes sense to think of a conditional probability distribution as an arrow)
+
+		So let's start bottom up, with the literal listener. For this, we'll need a semantics. This is a (relation)[TODO LINK] which tells us which worlds are compatible with which utterances. The literal listener then...
+
+
+
+
+		To make things a bit more interactive, here's some code in a probabilistic programming language (WebPPL TODO LINK) which represents the L1
+
+		Probabilistic programming is particularly useful for defining the sort of nested inference models we'll want, and has a beautiful mathematical foundation relating to - *inhales and puts on technical hat* - the Kleisli category of the monad of probability distributions, but (that's another story)[TODO LINK TO GIRY]
+
+		OK, now for the pragmatic speaker:
+
+			maths and
+
+
+		FAQ:
+			why start with a literal listener, not a literal speaker?
+				No reason - the other way works too. In fact, we could also start with both. This is the most elegant version, in my opinion, but
+
+			can we add more layers? Yes! the more we add, the closer the model gets to a perfect equilibrium ??
+
+				but to model scalar implicature, we don't need more
+
+			Do we ever need more? Yes.
+
+
+
 
 		Recall that a conditional distribution is a function that...
 			So L takes (read: hears) an utterance u, and returns a distribution over the set W of possible ways the world could be.
@@ -81,26 +150,20 @@ need to get a notion of conventional meaning, and then pragmatic meaning: a good
 
 
 
-			Graphically:
-
-			listeners: arrows one way, speakers: the other way: make it in keynote i think, or google slides: R use the ones you have!!
 
 
-			(digression: this arrow is a function from a to dist b: putting on the pointiest most arcane ivory tower shaped hat, this is a morphism in kleisli category of the giry monad, which is precisely why it makes sense to think of a conditional probability distribution as an arrow)
 
 
-			This is a simple case, but the core idea is powerful. All sorts of pragmatic phenomena can be tackled with tools of this ilk: vagueness link  metaphor link  hyperbole link,  focus,  generic language,  politeness.
 
-			With a logical semantics, we had a way to get from utterances to compatible world states, but no way to handle pragmatic meaning formally. By making things probabilistic, we get to do inference,
-				now we have
+This is a simple case, but the core idea is powerful. All sorts of pragmatic phenomena can be tackled with tools of this ilk: vagueness link  metaphor link  hyperbole link,  focus,  generic language,  politeness.
 
-				upshot: pragmatic meaning same type as semantic meaning: not this vague think any more
+With a logical semantics, we had a way to get from utterances to compatible world states, but no way to handle pragmatic meaning formally. By making things probabilistic, we get to do semantics and pragmatics in a unified framework: pragmatic and semantic meanings exist in the same space. That's good.s
 
-			The more general takeaway point,
-				is that whenever we think about interpretation \
-					meaning arises from a recursive process, where the base case is a conventional association between world states and linguistic forms conventionally referred to as a *semantics*.
-						Next time, we'll see that the
-							takes on a different character for sociolinguistic phenomena
+The more general takeaway point,
+is that whenever we think about interpretation \
+	meaning arises from a recursive process, where the base case is a conventional association between world states and linguistic forms conventionally referred to as a *semantics*.
+		Next time, we'll see that the
+			takes on a different character for sociolinguistic phenomena
 
 
 
