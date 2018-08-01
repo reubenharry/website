@@ -4,9 +4,7 @@ date: 2018-06-22T18:11:57+01:00
 draft: true
 ---
 
-**About: [this project](/docs/amharic.pdf)**
-
-**Prerequisites: very basic syntax, morphology**
+**This is a description of [this project](/docs/amharic.pdf)**
 
 Most of my work errs on the more theoretical side, at least as far as linguistics is concerned, so this project was a particularly fun contrast.
 

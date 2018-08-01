@@ -4,92 +4,207 @@ date: 2018-07-03T10:42:56+02:00
 draft: true
 ---
 
-alt title: The Borgesification of Philosophy
+the challenge:
+
+	the two morals:
+
+		why the first one is wrong
+		why the second is different to the first
+
+todo:
+
+	try to add more of substance about machine learning or stuff you do
+
+		the question is whether the librarians are failing to find the meaning, or are nuts for looking for it at all
+
+a more fundamental problem:
+
+	i read borges' story exactly the opposite of what i'm saying:
+
+		it's an argument in favour of
 
 
-"Every block of stone has a statue inside it and it is the task of the sculptor to discover it." - Michelangelo
-
-Borges inhabits a genre I think of as ironic realism. This is characterized by a trope where he takes a philosophical idea and makes it parochially literal in a deliberately absurd way.
-
-	In the interest of coining long awkward words (it's a feature, not a bug), I'll call this trope *borgesification*.
+what thoughts could really bring out the interesting complexity that i want to think about?
 
 
-			(As such, I read Borges stories as lighthearted warnings about the perils of philosophical misconceptions regarding meaning.)
-
-Two examples from my favourite of his stories:
-
-1: Library of Babel: Creativity as Search
 
 
-	One of the key traditional ideas in AI is that creativity is just search in the appropriate search space.
+Borges inhabits a genre I think of as ironic realism. His stories are liberally sprinkled with a trope where he takes some abstraction of his choice and makes it parochially literal in a deliberately absurd way. As the first of two unwieldly neologisms in this post, I'll call it *borgesification*.
 
-	This applies both to problems that have an obvious search-like element (e.g. planning a route from 2 points that your roomba should take) but also creative tasks like writing a novel: there's a space of possible ways your novel could be, and **all you have to do** is to find the right one.
+>"Every block of stone has a statue inside it and it is the task of the sculptor to discover it." - Michelangelo
 
-	To take this seriously, one first has to define the space of possible
-		"answers"
-			have some measure of how good an answer is.
+For instance, I could imagine him writing a story in which the clearly figurative quote above is interpreted literally and sculptors spend their careers searching for certain blocks of stone which they think contain the desired statues. In the end, you'd be compelled to think that the dichotomy between the figurative and literal interpretations was uncomfortably blurry.
+
+But rather than talking about an imaginary short story (though I'm sure Borges would appreciate that concept), what about an actual one, *The Library of Babel*, and its borgesification of meaning.
+
+Since meaning is the intersection of artificial intelligence and linguistics that I care about, I can't help drawing some morals from it.
 
 
-	Of course, this reframing of the problem doesn't afford you any immediate gains: there's no easy way to search the space of possible novels.
+# Creativity as Search
 
-				abstract space of possible texts and creativity is merely finding points in the space.
+One of the really old ideas in AI is that creativity is just search in the appropriate search space.
 
-					This idea reminds me of three things:
+This applies both to problems that have an obvious search-like element (e.g. planning a route from 2 points that your roomba should take) but also creative tasks like writing a novel: there's a space of possible ways your novel could be, and *all you have to do* is to find the right one. Or to make a statue, you just have to find it: as the quote at the beginning of this post shows, this is an old idea. Actually a pretty recurrent one: Seferis...
+						the Greek poet Seferis' remark that "all poems written or unwritten exist...The special ability of the poet is to see them.".
 
-						the Greek poet Seferis' remark that ``all poems written or unwritten exist...The special ability of the poet is to see them.''.
+To take this idea seriously, one first has to define the space of possible solutions to the relevant problem (Dennett's [design space](TODO LINK) for instance), and then trawl through it.
 
-						Dan Dennett's notion of an abstract design space over which evolution performs a search.
 
-						echo, on michelangelo: "Every block of stone has a statue inside it and it is the task of the sculptor to discover it.""
 
-	### **Creativity as Search** Borgesified
+# *Creativity as Search* Borgesified
 
-		In The Library of Babel, all books exist, present in an enormous library which constitutes the known world. Every possible combination of words seems to be present in some book somewhere.
+In The Library of Babel, all books exist, present in an enormous library which constitutes the known world. Every possible combination of symbols seems to be present in some book somewhere.
 
-		"Everything: the minutely detailed history of the future, the archangels’ autobiographies, the faithful catalogues of the Library, thousands and thousands of false catalogues, the demonstration of the fallacy of those catalogues, the demonstration of the fallacy of the true catalogue, the Gnostic gospel of Basilides, the commentary on that gospel, the commentary on the commentary on that gospel, the true story of your death, the translation of every book in all languages, the interpolations of every book in all books, the treatise that Bede could have written (and did not) about the mythology of the Saxons, the lost works of Tacitus."
+>"Everything: the minutely detailed history of the future, the archangels’ autobiographies, the faithful catalogues of the Library, thousands and thousands of false catalogues, the demonstration of the fallacy of those catalogues, the demonstration of the fallacy of the true catalogue, the Gnostic gospel of Basilides, the commentary on that gospel, the commentary on the commentary on that gospel, the true story of your death, the translation of every book in all languages, the interpolations of every book in all books, the treatise that Bede could have written (and did not) about the mythology of the Saxons, the lost works of Tacitus."
 
-		In this universe, people search for truth by physically searching the library for the book that contains it.
-					In this universe, the search for new ideas happens over a design space which is the space of all possible book-length strings of characters
+In this universe, people search for truth by physically searching the library for the book that contains it.
+In the real world, the reframing of creativity as search doesn't make creativity one bit easier, but not so in Borges' imagined one. Forget thinking about proof and mathematics - to find the answer to Fermat's last theorem, just find the book it's written in.
 
-		what's the borgesification:
+The absurdity of this conceit is somewhat obvious, but instructive to spell out in detail.  Imputing meaning to a text seems reasonable in general: if I read a book, I take it to be conveying a message from its author
+	TODO CLARIFY
+but when that book is just one of the totality of possible combinations of symbols in an endless library, it becomes clear that any meaning you find in it is
+		meaning you put there.
+The [locus classisus](TODO link) of smart thinking about meaning as it pertains to intelligence is Douglas Hofstadter's *Godel, Escher, Bach* which makes a point precisely on these lines:
 
-			My claim was that Borges' trick was to take something literally in an absurd way; how exactly is that the case here?
+>"people often attribute meaning to words in themselves, without being in the slighest aware of the very complex "isomorphism" that imbues them with meanings. This is an easy enough error to make. It attributes all the meaning to the object (the word), rather than to the link between that object and the real world.".
 
-			The core of it is that strings of characters are the wrong space to be searching for meaning.
+Borges, in typical fashion, introduces what is actually the reasonable and correct position as a fringe belief of radicals:
 
-				You don't come across a proposition by rifling through sequences of letters that happen to spell one sentence representing it, just as you wouldn't learn to program by memorizing muscle movements corresponding to successful programs.
+>"(I know of an uncouth region whose librarians repudiate the vain and superstitious custom of finding a meaning in books and equate it with that of finding a meaning in dreams or in the chaotic lines of one’s palm . . . They admit that the inventors of this writing imitated the twenty-five natural symbols, but maintain that this application is accidental and that the books signify nothing in themselves. This dictum, we shall see, is not entirely fallacious.)"
 
-				Perhaps that analogy is stretched beyond its means. What I mean is that the search for, e.g. truths, should be happening at a higher level of abstraction: you should be searching ideas, not strings of characters.
+The librarians' confusion of texts with their meanings lead them to perform their search for meaning as a search for texts.
 
-				Moreover (most over) it is absurd to thing that any book in the library "means" anything, in the sense of being anything more than a random series of characters. If you find a book describing
-					FOO
-						then it describes that because of your interpretation (say the English alphabet and language)
+	If they were in a library constructed by an English speaker in which only truths were recorded, they'd be in luck
 
-				naturalizing the observations according to your world
+	the search for new ideas happens over the wrong space: that of all possible book-length strings of characters.
 
-					"(I know of an uncouth region whose librarians repudiate the vain and superstitious custom of finding a meaning in books and equate it with that of finding a meaning in dreams or in the chaotic lines of one’s palm . . . They admit that the inventors of this writing imitated the twenty-five natural symbols, but maintain that this application is accidental and that the books signify nothing in themselves. This dictum, we shall see, is not entirely fallacious.)"
+
+It would be like (to use a Hofstadterian analogy again) understanding ant colonies by dissecting ants, understanding a movie by watching individual pixels on the screen, or learning to program by memorizing muscle movements corresponding to successful programs.
+
+Borgesification is everywhere in Borges. Another story, **Pierre Menard, Author of the Quixote** is a borgesification of the idea that writing is just a changing of the context of a previous text.
+
+But I can think of examples outside Borges too. At one point in Lemony Snicket's **Series of Unfortunate Events**, Klaus has to open a door by entered a passcode. He's told this code is the sentence describing the central theme of Anna Karenina and accordingly enters the following words
+
+>"a rural life of moral simplicity, despite its monotony, is the preferable personal narrative to a daring life of impulsive passion, which only leads to tragedy."
+
+And the door opens. This is absurd because you could never expect someone to enter that exact sequence given the prompt: there might be one moral of the book, but there are countless strings of words which represent that moral. In other words, there might be a unique answer in concept space, but not in string space.
+
+Only in a world where symbols were somehow indistinct from their meanings could this security system be expected to work.
+
+# The moral
+
+A perennial criticism of modern statistical AI, particularly of machine translation, is that it does not engage with the correct level of abstraction, namely the *meanings* of the sentences it translates.
+
+For instance, critics regularly (and tediously) complain that neural machine translation systems don't manipulate representations of syntactic or semantic structure and as such, are just a sort of data-driven hack.
+	what they imagine is first the process of adducing the meaning of a sentence
+		then doing some finagling AT THIS LEVEL OF ABSTRACTION
+		and then producing a
+
+This leads to the second neologism, as promised, but this one not from me: *sphexishness*.
+import
+Dennett, Hofstadter and others discuss the notion of "sphexish" behaviour, a term coined in reference to the observe "algorithm" of the Sphex wasp when preparing food for its young. In short, "the wasp's routine is to bring the paralyzed cricket to the burrow, leave it on the threshold, go inside to see that all is well, emerge, and then drag the cricket in. If the cricket is moved a few inches away while the wasp is inside making her preliminary inspection, the wasp, on emerging from the burrow, will bring the cricket back to the threshold, but not inside, and will then repeat the preparatory procedure of entering the burrow to see that everything is all right." -(*Godel, Escher, Bach*).
+
+Although subsequently the biological facts have turned out to be more nuanced, the original example is still useful.
+
+The point is that the wasp's algorithm works just fine in normal circumstances, but needlessly repeats the burrow-checking step when one element of its routine is altered. It doesn't really understand the meaning of its actions, because if it did, it would act differently. In other words, *ths is an extensional failing which is taken to indicate an intensional problem.*
+
+And indeed, you might say that the librarians' pursuit of truth in the library of Babel is sphexish.
+	not dealing with the relevant latent variable
+	Just like in the library of Babel, where the inhabitants operate on too low a level of abstraction, making their work futile,
+		(critics of modern AI level that its adherents do the same.)
+
+
+The criticism of machine learning is that it too is sphexish. It works in a certain subset of cases, but by introducing
+	winograd schema is like wasp failing
+
+the worry is valid. For instance, [this well-known article](http://rocknrollnerd.github.io/ml/2015/05/27/leopard-sofa.html) nicely illustrates a failure mode of statistical image recognition where a leopard skin couch is recognized as a leopard. The problem seems to be that the decision process for leopard-hood used by the statistical classifier has no abstract notion of 3D shape.
+
+
+
+
+which may as well culminate in a motto that is the apex of the psuedo-nomenclature: **sphexishness is what you get when you borgesify intelligence**:
+
+# That said.
+
+
+	> Echo: the moral of ...
+
+
+
+I think you'd be wrong to agree with Echo here.
+
+
+	as: sphexish behaviour is a
+		blah of understanding: literal lemony reference
+
+Nor indeed do I think that's a good moral as regards machine learning and modern statistical AI.
+
+I don't think it's a good moral because you can only not be sphexish if you have
+	natural kinds
+
+I think you'd be wrong to read Borges' story as a warning against sphexish behaviour in humans. I think it's cleverer than that.
+
+The problem with the librarians is not that they're sphexish. In fact, we're all sphexish.
+	hot take: all intelligence is sphexish
+
+	it's that they believe meaning inheres in objects (here texts), not in the interpretation of those objects in their contexts.
+		parody of efforts to find structure: these observations (books) are not evidence of structure in the latent space, even if particular books appear very structured:
+
+How does THIS relate to AI???
+
+	well: the gofai desire to translate by taking a sentence
+		let's look at how image captioning used to work. I say "work", but
+			as the brain was believed to be: take image: parse it into objects, etc etc
+
+how do these two criticisms relate?
+
+	what would you need to change to make the librarians' actions reasonable?
+		you'd need the library to be man-made and the books to have the weird property that there's little to no junk interpretations: PUSH THIS FURTHER
+
+
+You might wonder, reading this slightly odd hagiography of Borges, whether I really believe his stories are *about* what I'm saying they're about.
+	facetious answer: reading into them
+	but yeah, I do
+
+It's sometimes
+	effective to communicate by story
+		Dan Dennett, Hofstadter
+
+
+
+
+
+
 
 
 
 			This leads to a question posed by Douglas Hofstadter as the jukebox question of meaning TODO CHECK
 				what part of the content of a book is in the physical object, and what part is in the system which interprets it?
-				Erring to far one way
+				Erring too far one way
 
-
-
-
-			WHAT's the AI parallel to searching the library assuming things have meaning?
-
-				oh it's there all right: sphexishness
 
 
 				QUOTE
 
 
-					parody of efforts to find structure: these observations (books) are not evidence of structure in the latent space, even if particular books appear very structured:
 
 					this is like?
 						: finding meaning in kaballah
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 MAYBE DROP ALL OF THE SECOND ONE
 	Philosophical Idea 2: Pierre Menard
@@ -133,7 +248,7 @@ MAYBE DROP ALL OF THE SECOND ONE
 
 					quotes:
 
-						The Cervantes text and the Menard text are verbally identical, but the second is almost infinitely richer. `..truth, whose mother is hostiry, rival of time, depository of deeds...'': written by the ``ingenious layman'' miguel de Cervantes, is mere rhetorical praise of history, [but for menard]: History, the mother of truth! - the idea is straggering. Menard, a contemporary of William James, defines history not as a delving into reality but as the ery fount of reality.The contrast in styles...
+						The Cervantes text and the Menard text are verbally identical, but the second is almost infinitely richer. `..truth, whose mother is hostiry, rival of time, depository of deeds...": written by the "ingenious layman" miguel de Cervantes, is mere rhetorical praise of history, [but for menard]: History, the mother of truth! - the idea is straggering. Menard, a contemporary of William James, defines history not as a delving into reality but as the ery fount of reality.The contrast in styles...
 
 				AH: (quix X context1) vs (quix X context2): tensor product
 
@@ -157,7 +272,7 @@ MAYBE DROP ALL OF THE SECOND ONE
 
 				for the former,
 					in one of many excellent Series of Unfortunate Events (surely the most postmodern children's books ever written), there is a door that can only be unlocked by entering on a keyboard the central theme of Anaa Karenina
-						this, is ``is that a rural life of moral simplicity, despite its monotony, is the preferable personal narrative to a daring life of impulsive passion, which only leads to tragedy.''
+						this, is "is that a rural life of moral simplicity, despite its monotony, is the preferable personal narrative to a daring life of impulsive passion, which only leads to tragedy."
 
 					This is a borgesification, because while Anna Karenina might indeed have a central theme, the premise of this situation is that the precise wording Klaus provides is somehow
 						is that the door requires to be provided a particular point in the sentence space, not the idea space

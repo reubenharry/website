@@ -1,276 +1,157 @@
 ---
-title: "That Bayesian Dialectic"
+title: "Bayesian Pragmatics in Arcadia"
 date: 2018-06-26T17:07:24+01:00
 draft: true
 ---
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
 
-include: diagram of the loop and some and all mappings to things and show how it levels in the equilibrium
 
-need to get a notion of conventional meaning, and then pragmatic meaning: a good example to hang on to for this
-		so first find funny implicature:
-			"that's actually a pretty good idea."
+This is an introduction to the nested reasoning models (*I think that you think that I think...*) that I use in my research. I've tried to make this light on mathematical detail (barring the occasional technical digression) because I'd rather focus on the big picture: *Bayesian inference and nested reasoning are really great tools for thinking about language and meaning*.
 
+----------------------------
 
-	motivation:
 
-		Imagine the scene: it is midday, and Echo asks Narcissus:
-			do you love me?
+Picture the scene: it's midday in Arcadia and Echo is waiting for Narcissus to finish his lengthy beauty routine:
 
-			He replies:
+>Echo: Will you be done soon?
 
-		If context=foo, then narcissus' reply would
-			so how do we get the
+>Narcissus: Don't hold your breath.
 
-		something like this: If Narcissus had wanted to communicate that FOO, he would have said blah
+We gather from Narcissus' response that the answer is no, but how? After all, if Echo had asked "what is a useful piece of advice when deep sea diving", Narcissus' reply would take on a totally different character. So it would seem that the meaning we infer from Narcissus' utterance depends not only on the utterance itself, but the context in which it is said.
 
-		but sentences need to have some sort of fixed meaning, otherwise we wouldn't have any ground to stand on
+We could venture to say that Narcissus' statement has **semantic** content (it's a recommendation to not hold your breath), and meanings in different contexts ("No I won't be ready any time soon.", "Holding your breath is a poor way to dive."), which is *inferred* from the context. (Deciding what content belongs to the statement as opposed to the context is often tricky. For instance, "don't hold your breath" is an idiom in English - the meaning "It will take a long time" is at least somewhat baked into its semantic content.)
 
-		This fixed, or conventional meaning, is what a linguist would term the semantic content, while the meaning derived from social reasoning is the pragmatic content.
-			(The distinction was apparently described as follows by a student in a class I TA'ed: ``Semantics is about what things mean, and pragmatics is about what they like actually mean.''. I've always wanted to write a philosophy paper introducing a *like actually* operator LA, such that LA(P) iff P is like actually true.)
+{{< figure src="img/diagram2.png" imageMaxWidth="1000px" width="750" >}}
 
-		DIAGRAM: u to w: two arrows, arrow between them
+The inference to obtain this "full" meaning from the semantic content and context, which we make so easily, is complicated to spell out:
 
-		This diagram says quite a lot:
+>if Narcissus had been able to answer truthfully that he did notice Echo, he would have done, but he did not. Given that, and since "Don't hold your breath" is relevant advice in situations where you're going to have to wait a long time, it seems that Narcissus is trying to convey that he does not plan to notice her.
 
-			SMALL CAPTION TEXT:
-			The red arrow represents a listener only concerned with semantic content:
+The study of the semantic content belongs to the subfield of *semantics*, while the richer meaning derived from reasoning about the situation - the pragmatic content - is the focus of *pragmatics* (The distinction was apparently described as follows by a student in a class I TA'ed: *"Semantics is about what things mean, and pragmatics is about what they like actually mean."*. Relatedly, I've always wanted to write a philosophy paper introducing a *like actually* operator LA, such that LA(P) iff P is like actually true.).
 
-				they hear an utterance, and reason that...
+I want to show how we can boil down the essence of the above reasoning, and get out a paradigm for formalizing pragmatics which involves *nested inference*: an inference about another agent's inference. What I'll describe is the [Rational Speech Acts (RSA)](http://langcog.stanford.edu/papers_new/goodman-2016-tics.pdf) paradigm, and comes from [previous work on game theory](todo franke) going back to [Lewis]convention link TODO).
 
-			The COLOR arrow represents a listener that has undertaken the pragmatic process just described
+{{< figure src="img/nested.png" imageMaxWidth="100px"  >}}
 
-			Finally, the COLOR arrow between them is there to remind you of the fact that the pragmatic story is derived from the semantic one
+My goal here is to show why the language of Bayesian probability (and in particular, recursive inference models like RSA) are the Right Tool for the Job: they neatly incorporate and generalize a logical semantics, can be [computationally modeled](http://www.problang.org/), experimentally verified LINK, [integrated with machine learning](https://arxiv.org/abs/1804.05417), and what for my money matters most, formalize what matters. In short, **they are for pragmatics what classical logic is for semantics**.
 
+# Starting Simple
 
+OK, so in the interest of tractability, let's exchange our complex example from above for something much simpler and more mundane. Our Classical couple are looking for two sheep that have wandered off from the herd (shepherding is really the only profession in Arcadia):
 
+>Echo: Did you find both sheep?
 
+>Narcissus: I found one of them.
 
-		I want to show how we can boil down to essence of this ??? reasoning, and get out a paradigm for formalizing pragmatics.
+This example, or something similar, is the *[drosophila](https://www.ncbi.nlm.nih.gov/pubmed/22530382)* of pragmatics: a scalar implicature. It's like the previous example in that the semantic and pragmatic content differ; Narcissus doesn't explicitly say that he didn't find both of them. That's a possible state of affairs after hearing his utterance. After all, if you've found both, it's true that you've found one. A logician might represent the **semantic content** of his utterance as
 
-			I also want to convince you that the language of probability (and in particular, recursive agent models like TODO LINK) are the right tool for the job: they neatly incorporate and generalize a logical semantics, can be computationally modelled LINK, experimentally verified LINK, integrated with machine learning, and what for my money matters most, are mathematically speaking quite beautiful. In short, *they are for pragmatics what higher order logic (Montague grammar) is for semantics*.
+$$ (1) \quad \exists s. found(N,s)$$
 
-		OK, so let's exchange our fun example from above for something much more prosaic TODO RIGHT WORD?
+However, if it was true that he'd found both sheep, he would have said as much, so we can *infer* that he found one but not both. We could represent this **pragmatic content** as
 
-		Echo and Narcissus are taking a postprandial stroll and
+$$(2) \quad \exists s. found(N,s) \wedge \neg\forall s. found(N,s)$$
 
-			Echo:
-			Narcissus: . something overly literal
+Note that (1) does not logically imply (2). That is, knowing that (1) is true is not enough in itself to know that (2) is true. And yet, we do know, or at least strongly suspect (2) is the case on the basis of Narcissus' utterance.
 
-		This example, or something similar, is the (drosophila)[link] of pragmatics: a scalar implicature:
+So if we can't get from (1) to (2) by logical means, we'll need something else, capable of representing the counterfactual reasoning: "since (2) is a more informative statement than (1) (on account of implying (1)), if Narcissus been in a position to say (2), he would have. But he didn't, so he wasn't.".
 
-			semantics: saying "some" doesn't rule out
-				after all, if asked FOO you'd say, but more on this here
+Fortunately, this example is simple enough that we can **formalize** it - i.e. build a model (with nice interactive code) which captures everything we are presently interested in about it. So let's.
 
-			pragmatics: if you'd wanted to communicate that all
-				you'd have said...
-				so you must have not been able to truthfully communicate blah hence not all
+# Preliminaries
 
+We're going to refer to the set of all utterances as **U**. **U** represents all the things Narcissus could have said as a reply to Echo's question. Because this is a simple model, we'll replace the infinitude of possible utterances with a more modest number, 3. **U** = {*I found neither of them*, *I found one of them*, *I found both of them*}
 
+There's another set we need to consider, the set **W** of all possible states (i.e. things which could be the case in the world). Again, our present purposes allow us to keep this simple too
 
-		As above, Narcissus' utterance seems to suggest that
-			since *if he had been trying to communicate BLAH, he would have said BLAH*.
-			but then again, suppose the context had been BLAH
-				so we probably don't want to put blah into the meaning of blah
+* *one*: the state in which Narcissus has found 1 sheep
+* *two*: the state in which Narcissus has found 2 sheep
 
-		OK, so let's build a model of this. Here's the overview:
+We're now in a position to talk about literal meaning. In a state *w* \\(\in\\) **W**, an utterance is either true or false. For example, if Narcissus has found one sheep, so that the world state is *one*, then saying *I found both of them* is untrue. He'd be deluded or deceitful to say it.
 
-			the act of interpreting (or listening) is going to be represented by
+OK, so formally, that all means that the semantics is a **relation**, which is a function of type \\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\\)). By convention, we write \\(\doubleleft u \doubleright (w)\\) to mean that in the thing *u* means is compatible with *w*.
 
-			So we're going to want different conditional distributions for the literal and pragmatic listeners.
-			In fact, we're going to use the literal listener in the definition of the pragmatic listener.
-				we're going to define a conditional probability distribution L(w|u) which represents the act of hearing an utterance and updated your belief about the world according using not just the literal meaning of the utterance but also pragmatic reasoning.
+todo format interp brackets
 
-			Speakers are the dual of listeners: they...
 
-			General shape of model
-				brief mention of types
-			Here
+To make things a bit more interactive, here's some code to play with in a probabilistic programming language (WebPPL TODO LINK) which represents the semantics. Nothing probabilistic yet, but WebPPL will feature again below in a more sophisticated capacity.
 
-		 we're going to define a literal listener, which
-			then we'll define a speaker which
+todo diagram of: two utterances and arrows to the worlds with semantics
 
-			Graphically:
+CODE in webppl
 
-			listeners: arrows one way, speakers: the other way: make it in keynote i think, or google slides: R use the ones you have!!
+# Overview of The Model
 
+And now for the Bayesian part. We'll start by modeling literal interpretation, via a model I'll call \\(L_0\\), which is hardly anything more than the semantics we already have in a slightly different shape. We'll use \\(L_0\\) to build a model of production (i.e. choice of utterance given world state) called \\(S_1\\), which in turn we'll use to build our end goal, \\(L_1\\). \\(L_1\\) is a model of interpretation which accounts not just for semantic meaning, but for pragmatic meaning. We can think of \\(L_1\\) as a model which reasons about a speaker \\(S_1\\) which is itself reasoning about \\(L_0\\). Sorry if that's a bit of a mouthful. The big picture idea is that by reasoning about your interlocutor reasoning about you, you can infer extra, *pragmatic*, meaning beyond the semantic content of what you hear.
 
-			(digression: this arrow is a function from a to dist b: putting on the pointiest most arcane ivory tower shaped hat, this is a morphism in kleisli category of the giry monad, which is precisely why it makes sense to think of a conditional probability distribution as an arrow)
+(Brief digression with technical hat on: for the computer scientists, there's a more general recursive definition:  \\(S_n\\)) is defined in terms of \\(L_{n-1}\\), which is defined in terms of \\(S_{n-1}\\)), and so on. \\(L_0\\) is the base case of the recursion, and the fix point \\(L_m\\)) such that \\(L_m\\)) = \\(L_{m-1}\\)) represents the ideal listener, which is closely related to the notion of a game theoretic equilibrium.)
 
-		So let's start bottom up, with the literal listener. For this, we'll need a semantics. This is a (relation)[TODO LINK] which tells us which worlds are compatible with which utterances. The literal listener then...
+{{< figure src="img/diagram1.png" imageMaxWidth="1000px" width="750" >}}
 
+This image graphically represents that overview. On the left we have the space of utterances, and on the right, the space of worlds. Models of interpretation, often called "listeners", are shown as red arrows (in a precise sense discussed below) from **U** to **W**, while models of production, sometimes called "speakers", are depicted as blue arrows in the opposite direction. Finally, the vertical arrow between speaker and listener models are there to suggest that the \\(L_1\\) is build from the \\(S_1\\), and the \\(S_1\\) from the \\(L_0\\). It's all very elegant.
 
 
 
-		To make things a bit more interactive, here's some code in a probabilistic programming language (WebPPL TODO LINK) which represents the L1
+# The Literal Listener \\(L_0\\)
 
-		Probabilistic programming is particularly useful for defining the sort of nested inference models we'll want, and has a beautiful mathematical foundation relating to - *inhales and puts on technical hat* - the Kleisli category of the monad of probability distributions, but (that's another story)[TODO LINK TO GIRY]
+First of all, what type of thing is \\(L_0\\)? It's going to be a function which takes u \\(\in\\) U and returns a distribution over all w \\(\in\\) W. This is just a way of saying it's a conditional distribution \\(L_0\\)(w|u), but I prefer the function perspective (\**putting on the pointiest most arcane ivory tower shaped hat\**, a conditional distribution is a morphism in a very special [category](todo link category theory) - the Kleisli category of the distribution monad - which is precisely why it makes sense to view them as arrows, and implicitly is what we're doing when we do probabilistic programming. If you do probabilistic programming in Haskell, then it's also explicitly what you're doing.).
 
-		OK, now for the pragmatic speaker:
 
-			maths and
 
+Here's the (simplest possible) definition of \\(L_0\\) (I'm ignoring things like cost, non-uniform priors on worlds and utterances, rationality parameters - all useful, but unnecessary for deriving scalar implicatures):
 
-		FAQ:
-			why start with a literal listener, not a literal speaker?
-				No reason - the other way works too. In fact, we could also start with both. This is the most elegant version, in my opinion, but
+$$L0(w|u) =  \frac{interp brackets}{\sum_{w'} interp} $$
 
-			can we add more layers? Yes! the more we add, the closer the model gets to a perfect equilibrium ??
+If you're like me, this equation might seem less than helpful. Here's an explanation of what it means: before hearing an utterance, \\(L_0\\) thinks either world (remember they're just two worlds) is equally likely. Afterwards, they things all worlds compatible with the utterance they just heard are equally likely. Here's code that does that:
 
-				but to model scalar implicature, we don't need more
 
-			Do we ever need more? Yes.
+Probabilistic programming is particularly useful for defining the sort of nested inference models we'll want, and is enormously appealing if you like functional programming
 
+so \\(L_0\\) is a simple generalization of a logical semantics (technical digression: we can summarize the generalization as: change the monad we're working with from the powerset monad to the distribution monad. The Kleisli category of the former is the category of relations, and of the latter, stochastic functions.)
 
+# The Informative Speaker \\(S_1\\)
 
+**Production is the dual of interpretation**. A production model is a conditional distribution p(u|w); given a state, it gives a distribution over utterances.
 
-		Recall that a conditional distribution is a function that...
-			So L takes (read: hears) an utterance u, and returns a distribution over the set W of possible ways the world could be.
+The particular production model we're interested in is \\(S_1\\), defined as:
 
-			We're going to define L in terms of a speaker S. S believes that they are in world w (which is really just a strange locution for saying that they believe that the world is a certain way) and picks an
+$$S1(u|w) = \frac{L0(w|u)}{\sum_{u'} L0(w|u')}$$
 
-			Note the pleasing symmetry: diagram
+This production model's goal is to maximize informativity; it has some state w it wants to convey, and it put the most weight on the utterance u which gets the literal listener \\(L_0\\) to place the most weight on w after hearing u. Again, code, to make that interactive:
 
-			So far so good, but how to define S?
+So
+S1 for one
+S1 for two
 
-				S is going to reason about a listener Llit
+# The Pragmatic Listener \\(L_1\\)
 
-			OK, so there are three layers. L hears u and thinks: what world must S have been in to have said u? And L assumes that S is trying to pick u so as to convey her world to Llit, a totally literal listener.
+OK, all the technical details culminate with \\(L_1\\):
 
-			I introduced this top down, but looking bottom up, we start with a literal listener, and do some nested Bayesian inference to obtain a pragmatic listener.
+$$L1(w|u) = \frac{S1(u|w)}{\sum_{w'} S1(w'|u)}$$
 
+You can think of \\(L_1\\) hearing an utterance u and asking the following question: what world state must \\(S_1\\) have been in to have said u. See what happens when you run the code.
 
+L1 for "two"
+L1 for "one"
 
+The takeaway is that \\(L_1\\) hears *I found one of the sheep* and **infers** that it's more likely to be the case that *only* one sheep has been found. Tada, it's a scalar implicature!
 
-					For the computer scientists, this is the base case of the recursion. We haven't gone to the effort of writing recursive definitions, but the gist is to have listeners Ln and speakers Sn reasoning respectively about Sn-1 and Ln-1
-		This can all be made precise quite nicely. Putting my technical hat on for a moment/paragraph: let the semantics be a relation between utterances (signals) and worlds (states). Then the base case of our recursion is a listener L which has a prior belief about which world they are in and ...
-			S
-			L
-			The fix point of this recursion is an equilibrium representing the ``ideal'' listener/speaker.
+So to wrap up, we've seen how to model a simple type of pragmatic meaning using nested Bayesian models. This example was simple, but the core idea is powerful. All sorts of pragmatic phenomena can be tackled with tools of this ilk: [vagueness](https://web.stanford.edu/~danlass/Lassiter-Goodman-adjectival-vagueness-Synthese.pdf), [metaphor](https://mindmodeling.org/cogsci2014/papers/132/paper132.pdf)  [hyperbole](http://www.pnas.org/content/111/33/12002), [focus](https://onlinelibrary.wiley.com/doi/epdf/10.1111/tops.12144), [m-implicature](http://semprag.org/article/view/sp.9.20/pdf), [questions](https://stuhlmueller.org/papers/qa-cogsci2015.pdf),  [generic language](https://pdfs.semanticscholar.org/58e0/e256b3191603513f564acec4a984b6e8f3e1.pdf),  [politeness](https://stanford.edu/~mtessler/papers/YoonTessler2016-cogsci.pdf).
 
+With a logical semantics, we had a way to get from utterances to compatible world states, but no way to handle pragmatic meaning formally. By making things probabilistic, we get to do semantics and pragmatics in a unified framework: pragmatic and semantic meanings exist in the same space. That's good.
 
+Moreover, in this paradigm, pragmatic meaning arises naturally from a recursive process of inter-agent reasoning where the base case is a semantics, i.e. a conventional relationship between states of the world and utterances.
 
+Next time, we'll see that by changing U and W to represent different spaces, similar models take on a different character and can be used to model sociolinguistic phenomena.
 
+# FAQ Addendum:
 
+1. Why start with a literal listener, not a literal speaker?
+No reason - the other way works too. In fact, we could also start with both and do a mutual recursion. I'm becoming increasingly convinced that this is the right thing to do.
 
+2. Can we add more layers above \\(L_1\\)? Yes! the more we add, the closer the model gets to making hard (i.e. non-probabilistic) decisions. See the above digression about fix points.
 
+3. Do we ever need more? Yes. But only for more complicated phenomena. For scalar implicature, this many layers does just fine.
 
-
-This is a simple case, but the core idea is powerful. All sorts of pragmatic phenomena can be tackled with tools of this ilk: vagueness link  metaphor link  hyperbole link,  focus,  generic language,  politeness.
-
-With a logical semantics, we had a way to get from utterances to compatible world states, but no way to handle pragmatic meaning formally. By making things probabilistic, we get to do semantics and pragmatics in a unified framework: pragmatic and semantic meanings exist in the same space. That's good.s
-
-The more general takeaway point,
-is that whenever we think about interpretation \
-	meaning arises from a recursive process, where the base case is a conventional association between world states and linguistic forms conventionally referred to as a *semantics*.
-		Next time, we'll see that the
-			takes on a different character for sociolinguistic phenomena
-
-
-
-
-
-		My favourite car game works like this. It has two players - on the count of three both say a word of their choosing. Then on the count of three again, they each say a word that they think summarizes the two words said on the last round. They repeat this step until convergence (i.e. until they both say the same word).
-
-		Echo: fish
-		Narcissus: boredom
-
-		Echo:
-		Narcissus
-
-		It's a cooperative game - the players aren't trying to beat each other. To win, each has to think about what the other would say, knowing that the other playing is, likewise, thinking about them. This concept has a name, ly a Schelling point [link].
-
-		brief name mention of games and wittgenstein
-
-working example:
-
-	a quote or something
-	I detect a wrinkle of concern on your otherwise smooth and tobogannable brow
-
-brainstorm:
-
-	meaning:
-
-		relationship between utterances and states of the world
-
-			the right sort of mathematical model:
-
-				formal semantics: a morphism in Rel (say you're glossing over details)
-
-				why probability: beliefs about world, other direction:
-
-					if you are in w,
-
-					if you hear u
-
-				diagram of pragmatic speaker
-
-				why is probability the correct mathematical gadget?
-
-				Echo: what about ...
-
-				conv implic: formalizes grice
-				technical hat: equilibrium
-				in browser webppl
-
-				What follows is an unfettered hagiography of this choice:
-
-
-
-				other reasons probability is great:
-					it's also conveniently modular in
-						if we're interested in vowel height and affect: both world and utterance spaces are continuous:
-							no problem!
-					powerful inference methods, quantitative predictions,
-					compatible with deep learning:
-						modern AI is probabilistic. I want to state strongly that this is a Good Thing, even if you are against the anti-representationalist assumptions of modern machine learning.
-
-					, easy to insert other kinds of uncertainty
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-purpose: easy to read compelling intro to the idea of my work genre: nested models
-
-A logician or linguist could be forgiven for being suspicious about probabilistic models of meaning.
-	fuzzy logic, etc
-
-turns out to be nice:
-
-	interpretation is map from
-
-An interpretation function is
-
-
-
-
-mention xkcd blue eyed islanders and terence tao, mention goodman 2016
+4. Q: What is Bayesian probability adding here? A: there are many answers, but here's my favourite: in classical logic, an implication \\(p\to q\\) allows information to flow from p to q. But if you know the value of q, you don't know anything about p. The essence of Bayesian probability is precisely that if you have \\(p\to q\\) and you know about q, you know about p. **Information flows backwards**. That's a pretty abstract answer, but can be made precise, albeit with more technical details added.
