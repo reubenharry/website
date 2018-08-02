@@ -7,7 +7,7 @@ author: "Reuben Cohn-Gordon"
 
 [Pragmatically Informative Image Captioning with Character-Level Inference](https://arxiv.org/abs/1804.05417) ([slides](/docs/naacl_slides.pdf)) <br/> (NAACL 2018 - Cohn-Gordon, Goodman and Potts)
 
-[An Incremental Iterated Response Model of Pragmatics](/docs/comPragAbstract.pdf) <br/> (CompPrag 2018 - Cohn-Gordon, Potts)
+[An Incremental Iterated Response Model of Pragmatics](/docs/comPragAbstract.pdf) <br/> (CompPrag 2018 - Cohn-Gordon and Potts)
 
 ### Social Meaning
 

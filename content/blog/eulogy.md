@@ -1,7 +1,7 @@
 ---
 title: "Epigram"
 date: 2018-07-24T00:01:22-07:00
-draft: true
+draft: false
 ---
 
 ## To my father (late)
@@ -54,7 +54,7 @@ I remember how you would always check the lights were off at night (usually seve
 
 ### And also, and also.
 
-You talked about your work so little that my own nascent interests in logic at university seemed like a coincidence when I found out about your limitless knowledge of that topic. Months before your death we'd stood on a beach in California, near where you are now buried, and worked out some logical definition with a stick in the sand.
+You talked about your work so little that my own nascent interests in logic at university seemed like a coincidence when I found out about your limitless knowledge about that topic. Months before your death we'd stood on a beach in California, near where you are now buried, and worked out some logical definition with a stick in the sand.
 
 I inherited your social awkwardness, sense of humour, academic interests and as I've been occasionally told, your appearance.
 
