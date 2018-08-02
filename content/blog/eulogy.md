@@ -1,7 +1,7 @@
 ---
 title: "Epigram"
 date: 2018-07-24T00:01:22-07:00
-draft: false
+draft: true
 ---
 
 ## To my father (late)
