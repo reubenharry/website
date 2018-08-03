@@ -70,9 +70,7 @@ There's another set we need to consider, the set **W** of all possible states (i
 
 We're now in a position to talk about literal meaning. In a state *w* \\(\in\\) **W**, an utterance is either true or false. For example, if Narcissus has found one sheep, so that the world state is *one*, then saying *I found both of them* is untrue. He'd be deluded or deceitful to say it.
 
-OK, so formally, that all means that the semantics is a **relation**, which is a function of type \\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\\)). By convention, we write \\(\doubleleft u \doubleright (w)\\) to mean that in the thing *u* means is compatible with *w*.
-
-todo format interp brackets
+OK, so formally, that all means that the semantics is a **relation**, which is a function of type \\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\\)). By convention, we write \\(\\llbracket u \rrbracket (w)\\) to mean that in the thing *u* means is compatible with *w*.
 
 
 To make things a bit more interactive, here's some code to play with in a probabilistic programming language (WebPPL TODO LINK) which represents the semantics. Nothing probabilistic yet, but WebPPL will feature again below in a more sophisticated capacity.

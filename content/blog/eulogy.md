@@ -1,5 +1,5 @@
 ---
-title: "Epigram"
+title: "Eulogy"
 date: 2018-07-24T00:01:22-07:00
 draft: true
 ---
