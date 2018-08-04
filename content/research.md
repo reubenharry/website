@@ -17,6 +17,10 @@ author: "Reuben Cohn-Gordon"
 
 ### Past Work
 
-[Amharic](/docs/amharic.pdf), [Latin Resultativity](/docs/resultatives.pdf)
+[Intransitive Object Marking in Amharic](/docs/amharic.pdf) ([description](/docs/dares-and-warnings-in-amharic/))
 
-[Monads for NL Semantics](/docs/monads.pdf) (draft), [Ability Modals](/docs/modals.pdf)
+[Ability Modals](/docs/resultatives.pdf) ([description](/docs/ability-modals/))
+
+[Monads for NL Semantics](/docs/monads.pdf) (draft)
+
+[Resultativity in Latin](/docs/modals.pdf) ([description](/docs/resultativity-in-latin/))

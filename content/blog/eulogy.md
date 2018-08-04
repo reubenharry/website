@@ -1,10 +1,9 @@
 ---
-title: "Eulogy"
+title: "To my father (late)"
 date: 2018-07-24T00:01:22-07:00
 draft: true
 ---
 
-## To my father (late)
 
 I dream about you all the time. Sometimes you're driving, and I try to gently remind you that this isn't a very good idea, since you're dead.
 
@@ -36,8 +35,6 @@ Living in memory doesn't really suit you, with its proclivity for the grandiose.
 
 * Your chair is empty at dinner now, like the chair left for Elijah at passover, who is always welcome but never shows up.
 
-
-
 ### More thoughts:
 
 I remember you, in an atemporal sort of way, sitting in your room reading a spy novel in your shirt and boxers, while watching the news. You once picked me up from the station wearing that. You once cut onions wearing a snorkeling mask to protect your eyes. I miss all your small absurdities.
@@ -68,3 +65,5 @@ Your love for us was shown through acts not words - through books you'd recommen
 I take comfort that you lived a happy life to the almost very end, a self-made man whose own father had died in your early youth, and who had built your own family life from scratch.
 
 I hope to remember you when I cook meals from your mysterious recipes, and when I laugh uncomfortably during small talk. I'll also remember you when I raise my eyebrows in that strained expression we both assume when talking to shop assistants and when I paw at my phone over the top of my glasses. And maybe, if I read The Cat in the Hat to children of my own or carry them up the stairs after they fall asleep on the sofa, I'll remember your unassuming parenting, which was quietly gentle and wise.
+
+{{< figure src="img/meandmike.jpeg" imageMaxWidth="1000px" width="750" >}}
