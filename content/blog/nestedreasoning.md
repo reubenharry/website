@@ -8,7 +8,7 @@ draft: true
 </script>
 
 
-This is an introduction to the nested reasoning models (*I think that you think that I think...*) that I use in my research. I've tried to make this light on mathematical detail (barring the occasional technical digression) because I'd rather focus on the big picture: *Bayesian inference and nested reasoning are really great tools for thinking about language and meaning*.
+This is an introduction to the nested reasoning models (*I think that you think that I think...*) that I use in my research. I've tried to make this light on mathematical detail (barring the occasional technical digression) in favour of the big picture point, that *Bayesian inference and nested reasoning are really great tools for thinking about language and meaning*.
 
 ----------------------------
 
@@ -70,12 +70,12 @@ There's another set we need to consider, the set **W** of all possible states (i
 
 We're now in a position to talk about literal meaning. In a state *w* \\(\in\\) **W**, an utterance is either true or false. For example, if Narcissus has found one sheep, so that the world state is *one*, then saying *I found both of them* is untrue. He'd be deluded or deceitful to say it.
 
-OK, so formally, that all means that the semantics is a **relation**, which is a function of type \\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\\)). By convention, we write \\(\\llbracket u \rrbracket (w)\\) to mean that in the thing *u* means is compatible with *w*.
+OK, so formally, that all means that the semantics is a **relation**, which is a function of type \\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\\)). By convention, we write [[u]](w) to mean that in the thing *u* means is compatible with *w*.
 
 
 To make things a bit more interactive, here's some code to play with in a probabilistic programming language (WebPPL TODO LINK) which represents the semantics. Nothing probabilistic yet, but WebPPL will feature again below in a more sophisticated capacity.
 
-todo diagram of: two utterances and arrows to the worlds with semantics
+{{< figure src="img/diagram2.png" imageMaxWidth="1000px" width="750" >}}
 
 CODE in webppl
 
@@ -99,7 +99,7 @@ First of all, what type of thing is \\(L_0\\)? It's going to be a function which
 
 Here's the (simplest possible) definition of \\(L_0\\) (I'm ignoring things like cost, non-uniform priors on worlds and utterances, rationality parameters - all useful, but unnecessary for deriving scalar implicatures):
 
-$$L0(w|u) =  \frac{interp brackets}{\sum_{w'} interp} $$
+$$L0(w|u) =  \frac{[[u]](w)}{\sum_{w'} [[u]](w')} $$
 
 If you're like me, this equation might seem less than helpful. Here's an explanation of what it means: before hearing an utterance, \\(L_0\\) thinks either world (remember they're just two worlds) is equally likely. Afterwards, they things all worlds compatible with the utterance they just heard are equally likely. Here's code that does that:
 
@@ -124,7 +124,7 @@ S1 for two
 
 # The Pragmatic Listener \\(L_1\\)
 
-OK, all the technical details culminate with \\(L_1\\):
+OK, so we had a listener \\(L_0\\). And we had \\(S_1\\) thinking about \\(L_0\\). Now we're going to have \\(L_1\\), which is a model of a listener who thinks about \\(S_1\\) thinking about \\(L_0\\):
 
 $$L1(w|u) = \frac{S1(u|w)}{\sum_{w'} S1(w'|u)}$$
 

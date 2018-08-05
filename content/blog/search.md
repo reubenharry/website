@@ -4,25 +4,19 @@ date: 2018-07-03T10:42:56+02:00
 draft: true
 ---
 
-the challenge:
+seems like the natural thing to talk about would be the unrepresented nature of sentence meaning in ai
 
-	the two morals:
+	connectionism vs
+	behaviourism vs
 
-		why the first one is wrong
-		why the second is different to the first
+	meaning in translation:
 
-todo:
+		where is it?
 
-	try to add more of substance about machine learning or stuff you do
+	are the librarians miscontruing the location of meaning?
+		if so, explain
 
-		the question is whether the librarians are failing to find the meaning, or are nuts for looking for it at all
-
-a more fundamental problem:
-
-	i read borges' story exactly the opposite of what i'm saying:
-
-		it's an argument in favour of
-
+connect "there are no explicit rules" to "there is no meaning in texts"
 
 what thoughts could really bring out the interesting complexity that i want to think about?
 
@@ -100,18 +94,10 @@ For instance, critics regularly (and tediously) complain that neural machine tra
 		then doing some finagling AT THIS LEVEL OF ABSTRACTION
 		and then producing a
 
-This leads to the second neologism, as promised, but this one not from me: *sphexishness*.
-import
-Dennett, Hofstadter and others discuss the notion of "sphexish" behaviour, a term coined in reference to the observe "algorithm" of the Sphex wasp when preparing food for its young. In short, "the wasp's routine is to bring the paralyzed cricket to the burrow, leave it on the threshold, go inside to see that all is well, emerge, and then drag the cricket in. If the cricket is moved a few inches away while the wasp is inside making her preliminary inspection, the wasp, on emerging from the burrow, will bring the cricket back to the threshold, but not inside, and will then repeat the preparatory procedure of entering the burrow to see that everything is all right." -(*Godel, Escher, Bach*).
 
-Although subsequently the biological facts have turned out to be more nuanced, the original example is still useful.
+A word for this, coined by Douglas Hofstadter (the second neologism, as promised): sphexishness. This describes the "algorithm" of the Sphex wasp when preparing food for its young. In short, "the wasp's routine is to bring the paralyzed cricket to the burrow, leave it on the threshold, go inside to see that all is well, emerge, and then drag the cricket in. If the cricket is moved a few inches away while the wasp is inside making her preliminary inspection, the wasp, on emerging from the burrow, will bring the cricket back to the threshold, but not inside, and will then repeat the preparatory procedure of entering the burrow to see that everything is all right." -(*Godel, Escher, Bach*).
 
-The point is that the wasp's algorithm works just fine in normal circumstances, but needlessly repeats the burrow-checking step when one element of its routine is altered. It doesn't really understand the meaning of its actions, because if it did, it would act differently. In other words, *ths is an extensional failing which is taken to indicate an intensional problem.*
-
-And indeed, you might say that the librarians' pursuit of truth in the library of Babel is sphexish.
-	not dealing with the relevant latent variable
-	Just like in the library of Babel, where the inhabitants operate on too low a level of abstraction, making their work futile,
-		(critics of modern AI level that its adherents do the same.)
+Although subsequently the biological facts have turned out to be more nuanced, the original example is still useful. The point is that the wasp's algorithm works just fine in normal circumstances, but needlessly repeats the burrow-checking step when one element of its routine is altered. It doesn't really understand the meaning of its actions, because if it did, it would act differently. In other words, *this is an extensional failing which is taken to indicate an intensional problem.*
 
 
 The criticism of machine learning is that it too is sphexish. It works in a certain subset of cases, but by introducing
@@ -124,31 +110,30 @@ the worry is valid. For instance, [this well-known article](http://rocknrollnerd
 
 which may as well culminate in a motto that is the apex of the psuedo-nomenclature: **sphexishness is what you get when you borgesify intelligence**:
 
+Just in the same way that the librarians think randomly chosen strings of symbols are about history or their lives, I like to think Borges' The Infinite Library is really about this debate in AI.
+
+After all, you might say that the librarians' pursuit of truth in the library of Babel is sphexish, operating on too low a level of abstraction, and making their work futile.
+
 # That said.
 
 
-	> Echo: the moral of ...
+	> Klaus: the moral of *The Library of Babel* is that an algorithm which takes into account the relevant abstractions is doomed to failure.
 
 
 
-I think you'd be wrong to agree with Echo here.
+I think you'd be wrong to agree with this version of Klaus' answer (from an alternate reality's *A Series of Unfortunate Events*, where Tolstoy is replaced by Borges).
 
+Nor indeed do I think the above is a good moral as regards machine learning and modern statistical AI.
 
-	as: sphexish behaviour is a
-		blah of understanding: literal lemony reference
+I don't think it's a good moral because the problem with the librarians is not that they're sphexish. I think real intelligence is sphexish.
 
-Nor indeed do I think that's a good moral as regards machine learning and modern statistical AI.
-
-I don't think it's a good moral because you can only not be sphexish if you have
-	natural kinds
-
-I think you'd be wrong to read Borges' story as a warning against sphexish behaviour in humans. I think it's cleverer than that.
-
-The problem with the librarians is not that they're sphexish. In fact, we're all sphexish.
-	hot take: all intelligence is sphexish
-
-	it's that they believe meaning inheres in objects (here texts), not in the interpretation of those objects in their contexts.
+Their problem is that they believe meaning inheres in objects (here texts), not in the interpretation of those objects in their contexts.
 		parody of efforts to find structure: these observations (books) are not evidence of structure in the latent space, even if particular books appear very structured:
+
+		hard to get across
+	The librarians' problem is not that they are failing to find the right abstractions, but rather that they're crazy to search at all
+
+connect "there are no explicit rules" to "there is no meaning in texts"
 
 How does THIS relate to AI???
 
