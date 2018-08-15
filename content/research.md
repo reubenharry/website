@@ -17,7 +17,7 @@ author: "Reuben Cohn-Gordon"
 
 ### Past Work
 
-[Intransitive Object Marking in Amharic](/docs/amharic.pdf) ([description](/docs/dares-and-warnings-in-amharic/))
+[Intransitive Object Marking in Amharic](/docs/amharic.pdf) ([description](/docs/dares-and-warnings-in-amharic/)) <br/> (Presented as [Poster](/docs/amharicposter.pdf) at LSA 2017)
 
 [Ability Modals](/docs/resultatives.pdf) ([description](/docs/ability-modals/))
 

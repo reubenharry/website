@@ -15,4 +15,12 @@ The whole project of logical semantics for natural language makes much more sens
 * continuations: for natural language quantifiers, from Montague but made more explicit in Chris Barker's [awesome research programme](https://www.amazon.com/Continuations-Natural-Language-Theoretical-Linguistics/dp/0199575029)
 * monads for natural language "side effects"
 
-Monads are the shibboleth of functional programming
+Monads are the shibboleth of functional programming, at least if you like types. What follows is an instance of a now famous genre, the monad tutorial:
+
+Some people say that understanding an abstract concept, like the notion of a monad, is a matter of applying oneself and working through problems.
+
+That's probably true, but part of me wonders if it's always necessary to suffer in order to learn. What if the right explanation lessens the stumbling in the dark?
+
+To which end, let me try to explain what I think is the core concept of a monad.
+
+There are some prerequisites, and these are important. Like everything in this area of computer science, they seem somewhat trivial but aren't, at least not to BLAH TODO

@@ -1,11 +1,12 @@
 ---
-title: "To my father (late)"
+title: "Eulogy"
 date: 2018-07-24T00:01:22-07:00
 draft: true
 ---
 
+# To my father (late)
 
-I dream about you all the time. Sometimes you're driving, and I try to gently remind you that this isn't a very good idea, since you're dead.
+I dream about you all the time. Sometimes we're in a car, and I try to gently remind you that it is dangerous for people who have suffered fatal heart attack to drive.
 
 Living in memory doesn't really suit you, with its proclivity for the grandiose. Epithets like "wise" and "gentle" roll off you slightly awkwardly, though true. They misleadingly suggest an air of purposeful humility. In my mother's words, you were "the rare case of a man without an ego".
 
@@ -29,7 +30,7 @@ Living in memory doesn't really suit you, with its proclivity for the grandiose.
 
 * You'd clean my room against my will every time I left for a term at uni. You claimed, computer scientist that you were, that this process was "structure preserving" - you just mapped the books and clothes strewn over my floor to new, tidier positions. This was not true.
 
-* You owned at least 20 pairs of glasses, lost behind every sofa in the house, like some mad academic. in your later years you'd start to prefer ones with perfectly round, small lenses, that made you look like a 19th century German academic. "They're quite good, aren't they", you'd say with a wry grin to my mother's disparagement, that makes me smile.
+* You owned at least 20 pairs of glasses, lost behind every sofa in the house, like some mad academic. In your later years you'd start to prefer ones with perfectly round, small lenses, that made you look like a 19th century German professor. "They're quite good, aren't they", you'd say with a wry grin to my mother's disparagement, that makes me smile.
 
 * You'd pick mushrooms in the fields, and point them out when we went on walks and talked about logic and my half baked thoughts about philosophy.
 
