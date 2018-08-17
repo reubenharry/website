@@ -6,6 +6,9 @@ draft: true
 
 the moral:
 
+	pithy intuition for second moral, linked to translation or images:
+
+
 	the first is that sphexishness is a bad way to solve problems
 
 	the second is that we, in the actual world, are like the librarians: we believe objects are natural kinds and thus perform an absurd process
@@ -190,7 +193,7 @@ I also think they demonstrate how effective it is to do philosophy by parable, a
 THE END TODO: lop rest off
 -------
 
-# Borgesification Elsewhere
+<!-- # Borgesification Elsewhere -->
 
 <!-- Borgesification is everywhere in Borges. Another story, **Pierre Menard, Author of the Quixote** is a borgesification of the idea that writing is just a changing of the context of a previous text. *Funes the Memorious* TODO CHECK is a borgesification of  -->
 

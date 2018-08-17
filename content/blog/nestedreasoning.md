@@ -3,15 +3,32 @@ title: "Bayesian Pragmatics in Arcadia"
 date: 2018-06-26T17:07:24+01:00
 draft: true
 ---
+
+
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 </script>
+
+<script type="text/javascript"
+  src="/webppl.js">
+</script>
+
+<script type="text/javascript"
+  src="/webppl-editor.js">
+</script>
+
+<script type="text/javascript"
+  src="/webppl-viz.js">
+</script>
+
+<link rel="stylesheet" href='/webppl-editor.css'>
+
+<link rel="stylesheet" href='/webppl-viz.css'>
 
 
 This is an introduction to the nested reasoning models (*I think that you think that I think...*) that I use in my research. I've tried to make this light on mathematical detail (barring the occasional technical digression) in favour of the big picture point, that *Bayesian inference and nested reasoning are really great tools for thinking about language and meaning*.
 
 ----------------------------
-
 
 Picture the scene: it's midday in Arcadia and Echo is waiting for Narcissus to finish his lengthy beauty routine:
 
@@ -25,7 +42,7 @@ Meaning, to understate the issue, is a bit of a head scratcher. We could venture
 
 {{< figure src="img/diagram2.png" imageMaxWidth="1000px" width="750" >}}
 
-The inference to obtain this "full" meaning from the semantic content and context, which we make so easily, is complicated to spell out:
+The inference to obtain this "full" meaning from the semantic content and context, which we make so easily, is complicated to spell out, even if a vague, informal way:
 
 >if Narcissus had been able to answer truthfully that he did notice Echo, he would have done, but he did not. Given that, and since "Don't hold your breath" is relevant advice in situations where you're going to have to wait a long time, it seems that Narcissus is trying to convey that he does not plan to notice her.
 
@@ -78,13 +95,30 @@ OK, so formally, that all means that the semantics is a **relation**, which is a
 To make things a bit more interactive, here's some code to play with in a probabilistic programming language ([this introduction](https://probmods.org/) uses PPLs to model cognition) which represents the semantics. Nothing probabilistic yet, but WebPPL will feature again below in a more sophisticated capacity.
 
 
-todo CODE in webppl
+<pre>
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
+
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+print(meaning("I found both of the sheep",{totalSheepFound:1}))
+
+</pre>
 
 # Overview of The Model
 
 And now for the Bayesian part. We'll start by modeling literal interpretation, via a model I'll call \\(L_0\\), which is hardly anything more than the semantics we already have in a slightly different shape. We'll use \\(L_0\\) to build a model of production (i.e. choice of utterance given world state) called \\(S_1\\), which in turn we'll use to build our end goal, \\(L_1\\). \\(L_1\\) is a model of interpretation which accounts not just for semantic meaning, but for pragmatic meaning. We can think of \\(L_1\\) as a model which reasons about a speaker \\(S_1\\) which is itself reasoning about \\(L_0\\). Sorry if that's a bit of a mouthful. The big picture idea is that by reasoning about your interlocutor reasoning about you, you can infer extra, *pragmatic*, meaning beyond the semantic content of what you hear.
 
-(Brief digression with technical hat on: for the computer scientists, there's a more general recursive definition:  \\(S_n\\)) is defined in terms of \\(L_{n-1}\\), which is defined in terms of \\(S_{n-1}\\)), and so on. \\(L_0\\) is the base case of the recursion, and the fix point \\(L_m\\)) such that \\(L_m\\)) = \\(L_{m-1}\\)) represents the ideal listener, which is closely related to the notion of a game theoretic equilibrium.)
+(Brief digression with technical hat on: for the computer scientists, there's a more general recursive definition:  
+
+\\( S_n \\) is defined in terms of \\( L_n\\__1 \\), which is defined in terms of \\(S_n\\__1\\), and so on. \\(L_0\\) is the base case of the recursion, and the fix point \\(L_m\\) such that \\(L_m\\) = \\(L_m\\__1\\) represents the ideal listener, which is closely related to the notion of a game theoretic equilibrium.)
 
 {{< figure src="img/diagram1.png" imageMaxWidth="1000px" width="750" >}}
 
@@ -104,10 +138,33 @@ $$L0(w|u) =  \frac{\[u\]\(w\)}{\sum_{w'} \[u\]\(w'\)} $$
 
 If you're like me, this equation might seem less than helpful. Here's an explanation of what it actually amounts to: After hearing an utterance u, \\(L_0\\) thinks all worlds *compatible with the utterance they just heard* are equally likely. Here's code that does that:
 
+<pre>
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
+
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+var l0 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds);
+    condition(meaning(utterance, world))
+    return world}})}
+
+viz(l0("I found one of the sheep"))
+viz(l0("I found both of the sheep"))
+
+</pre>
 
 So \\(L_0\\) is a simple generalization of a logical semantics. Probabilistic programming is useful for defining this sort of model, particularly when things start getting complicated. Oh, and here's a visualization of the result:
 
-{{< figure src="img/diagram3.png" imageMaxWidth="1000px" width="750" >}}
+{{< figure src="img/diagram4.png" imageMaxWidth="1000px" width="750" >}}
 
 # The Informative Speaker \\(S_1\\)
 
@@ -117,13 +174,41 @@ $$S1(u|w) = \frac{L0(w|u)}{\sum_{u'} L0(w|u')}$$
 
 This production model's goal is to maximize informativity; it has some state *w* it wants to convey, and it put the most weight on the utterance *u* which gets the literal listener \\(L_0\\) to place the most weight on *w* after hearing u. Again, code, to make that interactive:
 
-So
-S1 for one
-S1 for two
+<pre>
 
-And a diagram of the distribution:
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
 
-{{< figure src="img/diagram3.png" imageMaxWidth="1000px" width="750" >}}
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+var l0 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds);
+    condition(meaning(utterance, world))
+    return world}})}
+
+var s1 = function(world){
+  Infer({model: function(){
+    var utterance = uniformDraw(utterances)
+    factor(l0(utterance).score(world))
+    return utterance}})}
+
+viz(s1({totalSheepFound:1}))
+viz(s1({totalSheepFound:2}))
+
+</pre>
+
+
+And a diagram of the conditional distributions:
+
+{{< figure src="img/diagram5.png" imageMaxWidth="1000px" width="750" >}}
 
 # The Pragmatic Listener \\(L_1\\)
 
@@ -131,16 +216,51 @@ OK, so we had a listener \\(L_0\\). And we had \\(S_1\\) thinking about \\(L_0\\
 
 $$L1(w|u) = \frac{S1(u|w)}{\sum_{w'} S1(w'|u)}$$
 
-You can think of \\(L_1\\) hearing an utterance *u* and asking the following question: what world state must \\(S_1\\) have been in to have said u. See what happens when you run the code. Or see below:
+You can think of \\(L_1\\) hearing an utterance *u* and asking the following question: what world state must \\(S_1\\) have been in to have said u. See what happens when you run the code. Or just see the figure below:
 
-{{< figure src="img/diagram1.png" imageMaxWidth="1000px" width="750" >}}
+{{< figure src="img/diagram6.png" imageMaxWidth="1000px" width="750" >}}
 
-L1 for "two"
-L1 for "one"
+<pre>
+
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
+
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+var l0 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds);
+    condition(meaning(utterance, world))
+    return world}})}
+
+var s1 = function(world){
+  Infer({model: function(){
+    var utterance = uniformDraw(utterances)
+    factor(l0(utterance).score(world))
+    return utterance}})}
+
+// pragmatic listener
+var l1 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds)
+    factor(s1(world).score(utterance))
+    return world }})}
+
+viz(l1("I found one of the sheep"))
+viz(l1("I found both of the sheep"))
+
+</pre>
 
 The takeaway is that \\(L_1\\) hears *I found one of the sheep* and **infers** that it's more likely to be the case that *only* one sheep has been found. Tada, it's a scalar implicature!
 
-So to wrap up, we've seen how to model a simple type of pragmatic meaning using nested Bayesian models. This example was simple, but the core idea is powerful. All sorts of pragmatic phenomena can be tackled with tools of this ilk: [vagueness](https://web.stanford.edu/~danlass/Lassiter-Goodman-adjectival-vagueness-Synthese.pdf), [metaphor](https://mindmodeling.org/cogsci2014/papers/132/paper132.pdf)  [hyperbole](http://www.pnas.org/content/111/33/12002), [focus](https://onlinelibrary.wiley.com/doi/epdf/10.1111/tops.12144), [m-implicature](http://semprag.org/article/view/sp.9.20/pdf), [questions](https://stuhlmueller.org/papers/qa-cogsci2015.pdf),  [generic language](https://pdfs.semanticscholar.org/58e0/e256b3191603513f564acec4a984b6e8f3e1.pdf),  [politeness](https://stanford.edu/~mtessler/papers/YoonTessler2016-cogsci.pdf).
+So to wrap up, we've seen how to model a simple type of pragmatic meaning using nested Bayesian models. This example was simple, but the core idea is powerful. All sorts of pragmatic phenomena can be tackled with tools of this ilk, like [vagueness](https://web.stanford.edu/~danlass/Lassiter-Goodman-adjectival-vagueness-Synthese.pdf), [metaphor](https://mindmodeling.org/cogsci2014/papers/132/paper132.pdf)  [hyperbole](http://www.pnas.org/content/111/33/12002), [focus](https://onlinelibrary.wiley.com/doi/epdf/10.1111/tops.12144), [m-implicature](http://semprag.org/article/view/sp.9.20/pdf), [questions](https://stuhlmueller.org/papers/qa-cogsci2015.pdf),  [generic language](https://pdfs.semanticscholar.org/58e0/e256b3191603513f564acec4a984b6e8f3e1.pdf) and [politeness](https://stanford.edu/~mtessler/papers/YoonTessler2016-cogsci.pdf).
 
 With a logical semantics, we had a way to get from utterances to compatible world states, but no way to handle pragmatic meaning formally. By making things probabilistic, we get to do semantics and pragmatics in a unified framework: pragmatic and semantic meanings exist in the same space. That's good.
 
@@ -158,3 +278,9 @@ No reason - the other way works too. In fact, we could also start with both and 
 3. Do we ever need more? Yes. But only for more complicated phenomena. For scalar implicature, this many layers does just fine.
 
 4. Q: What is Bayesian probability adding here? A: there are many answers, but here's my favourite: in classical logic, an implication \\(p\to q\\) allows information to flow from p to q. But if you know the value of q, you don't know anything about p. The essence of Bayesian probability is precisely that if you have \\(p\to q\\) and you know about q, you know about p. **Information flows backwards**. That's a pretty abstract answer, but can be made precise, albeit with more technical details added.
+
+<script>
+// find all <pre> elements and set up the editor on them
+var preEls = Array.prototype.slice.call(document.querySelectorAll("pre"));
+preEls.map(function(el) { editor.setup(el, {language: 'webppl'}); });
+</script>
