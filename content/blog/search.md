@@ -4,6 +4,17 @@ date: 2018-07-03T10:42:56+02:00
 draft: true
 ---
 
+the narrative:
+
+	borges does this thing of literalization
+	one example relates to creativity as search
+	creativity as search is ai concept: examples of creativity: image space:
+		chess champion: the GEB example vel sim: REPRESENTATION
+	borgesification of creativity as search
+	library of babel is weird because strings confused with meanings, so wrong level
+	the moral: don't be sphexish
+	but wait: better moral: don't believe in representations (the representation the librarians believe in is the meaning of the texts; the representation AI peeps believe in is the meaning of natural objects)
+
 the moral:
 
 	pithy intuition for second moral, linked to translation or images:
@@ -74,7 +85,16 @@ Or to make a statue, you just have to find it; as the Michelangelo quote suggest
 	picture from paper TODO
 		GOOD
 
-Thinking about this task as a search problem, there's a space of possible ways
+Thinking about this task as a search problem, there's a space of possible images you could generate and
+
+	In fact, you could even imagine a human...but then confusing because not about humans being different
+
+	"A sheep by another sheep standing on the grass with sky above and a boat in the ocean by a tree behind the sheep"
+
+	But what is this space of images?
+
+
+
 	but what is a particular way?
 
 		picture space and pixel space: GOOD intuition carrier for DL

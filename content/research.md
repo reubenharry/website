@@ -1,7 +1,11 @@
 ---
 title: "Research"
 author: "Reuben Cohn-Gordon"
+date: 2018-06-26T17:07:24+01:00
+
 ---
+
+My current work involves issues relating to [Bayesian models of pragmatics](https://reubenharry.github.io/blog/bayesian-pragmatics-in-arcadia/). I'm interested in extending them to figurative language (particularly irony and metaphor) and sociolinguistic phenomena (indexicality), as well as scaling them in computationally tractable ways to handle the complexity of natural language.
 
 ### Computational Language Games
 

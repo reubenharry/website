@@ -1,5 +1,5 @@
 ---
-title: "Bayesian Pragmatics in Arcadia"
+title: "Social Reasoning in Arcadia"
 date: 2018-06-26T17:07:24+01:00
 draft: false
 ---
@@ -25,6 +25,7 @@ draft: false
 
 <link rel="stylesheet" href='/webppl-viz.css'>
 
+### A tour of the Bayesian perspective on pragmatics
 
 This is an introduction to the nested reasoning models (*I think that you think that I think...*) that I work on. I've tried to make this light on mathematical detail (barring the occasional technical digression) in favour of the big picture point, that Bayesian inference and nested reasoning are really great tools for thinking about language and meaning.
 
