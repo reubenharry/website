@@ -4,6 +4,10 @@ date: 2018-07-03T10:42:56+02:00
 draft: true
 ---
 
+it would be wise to read dennett books: those you can get from library, and thus fulfil dual purpose of also getting good on dennett material: see tidbits
+		eg
+	``The late great evolutionary theorist Geogre Williams insisted that it was a mistake to identify genes with DNA molecules. That would be approximately the same mistake as thinking that Hamlet is made out of ink....Genes, as reciples for making proteins, are also abstract, informational things...'' Intuition pump to prove the point: digital meiosis. dennett then notes that sperm motility wouldn't be selected for here. the dangers of mut. mut.
+
 the narrative:
 
 	borges does this thing of literalization
