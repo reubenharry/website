@@ -8,6 +8,10 @@ it would be wise to read dennett books: those you can get from library, and thus
 		eg
 	``The late great evolutionary theorist Geogre Williams insisted that it was a mistake to identify genes with DNA molecules. That would be approximately the same mistake as thinking that Hamlet is made out of ink....Genes, as reciples for making proteins, are also abstract, informational things...'' Intuition pump to prove the point: digital meiosis. dennett then notes that sperm motility wouldn't be selected for here. the dangers of mut. mut.
 
+	Some people said that what science showed was that nothing was really solid, solidity was an illusion, but Eddington knew better than to go that far. Some people have said that color is an illusion. Is it? Electromagnetic radiation in the narrow range that accounts for human vision (the range in between infrared and ultraviolet) is not made of little colored things, and atoms, even gold atoms, aren't colored. But still, color is not an illusion in the sense that natters: nobody thinks Sony is lying when it says that its color televisions really show the world of color, or that Sherwin-Williams should be sued fro fraud for selling us many different colors in the form of paint. How about dollars? These days the vast majority of them aren't made of silver or even paper. They are virtual, made of information, not material, just like poems and promises. Does that mean that they are an illusion? No, but don't hunt for them anong the molecules
+
+
+
 the narrative:
 
 	borges does this thing of literalization
@@ -44,11 +48,6 @@ borges' story is about logic, and the relation between form and meaning: it's an
 
 in borges' story, there is an example of shifting context to dislodge meanings from their strings:
 	but there's more, because this example is like in the real world but way too extreme (there's no real library)
-
-
-
-say: there's a fairly obvious statistical fallacy, of inferring that the library isn't totally random on the basis of very rare chance occurences of well formed phrases
-		but that's not all
 
 seems like the natural thing to talk about would be the unrepresented nature of sentence meaning in ai
 

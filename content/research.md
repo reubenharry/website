@@ -7,11 +7,12 @@ date: 2018-06-26T17:07:24+01:00
 
 My current work centers around [Bayesian models of pragmatics](https://reubenharry.github.io/blog/social-reasoning-in-arcadia/). I'm interested in extending them to figurative language (particularly irony and metaphor) and sociolinguistic phenomena (indexicality), as well as scaling them in computationally tractable ways to handle the complexity of natural language.
 
-### Computational Language Games
+### Computational Pragmatics
 
 [Pragmatically Informative Image Captioning with Character-Level Inference](https://arxiv.org/abs/1804.05417) ([slides](/docs/naacl_slides.pdf)) <br/> (NAACL 2018 - Cohn-Gordon, Goodman and Potts)
 
-[An Incremental Iterated Response Model of Pragmatics](/docs/comPragAbstract.pdf) <br/> (CompPrag 2018 - Cohn-Gordon and Potts)
+[An Incremental Iterated Response Model of Pragmatics](https://arxiv.org/abs/1810.00367) <br/> (SCiL 2019, ACL Proceedings - Cohn-Gordon, Goodman and Potts) <br>
+(Similar work presented at CompPrag 2018 - Cohn-Gordon and Potts)
 
 ### Social Meaning
 

@@ -12,7 +12,7 @@ draft: false
 
 Somewhat inspired by Jacob Andreas' note-form [posts on philosophers](http://blog.jacobandreas.net/translation-meaning.html), I wanted to jot down what I'm taking away from reading Lakatos' *Proof and Refutation* (the above title being a reference not just to [this](https://www.amazon.com/Pride-Prejudice-Zombies-Quirk-Classic/dp/1511336188), but also to [philosophical zombies](https://en.wikipedia.org/wiki/Philosophical_zombie) which are humans extensionally but not intensionally. Lakatos explores the equally tricky, and I think closely related issue of the extensional and intensional notions of proof, though not in those words.)
 
-The book is noteworthy in two ways: first, it convincingly points out that the default conception of mathematical proofs as well-defined formal objects doesn't at all capture the notion of proof as used, which is more like, a way of thinking about a problem. Lakatos pushes this point to the extent of saying that a proof can fail to prove what it sets out to and still be a proof - in fact, from his perspective, establishing truth is not the point; proofs exist to establish structure.
+The book is noteworthy in two ways: first, it convincingly points out that the default conception of mathematical proofs as well-defined formal objects doesn't at all capture the notion of proof as used, which is more like a way of thinking about a problem. Lakatos pushes this point to the extent of saying that a proof can fail to prove what it sets out to and still be a proof - in fact, from his perspective, establishing truth is not the point; proofs exist to establish structure.
 
 The book is also noteworthy in its dialectic style; the argument is set up as a dialogue between a teacher and a classroom-full of students, and their discussion parallels the dialogues that took place over the course of mathematical history, as explained in the footnotes.
 
@@ -34,7 +34,7 @@ Given a counterexample to V−E+F=2 in the form of a weird looking polyhedron, o
 
 On the one hand, this move is clearly unfalsifiable, but on the other, reflects the intuition that the counterexample misses the essence of the proof.
 
-> "Delta's main mistake is perhaps his dogmatist bias in the interpretation of mathematical proof: he thinks that a proof necessarily proves what it has set out to prove. My interpretation of proof will allow for a *false* conjecture to be "proved" ".
+> "Delta's main mistake is perhaps his dogmatist bias in the interpretation of mathematical proof: he thinks that a proof necessarily proves what it has set out to prove. My interpretation of proof will allow for a *false* conjecture to be "proved" ."
 
 Lakatos moves towards a technique where, rather than monster-barring, one identifies which lemmas in the proof lead to the failure (this can be subtle), and change those steps so that the core nature of the proof remains intact.
 
