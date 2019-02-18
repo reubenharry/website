@@ -9,7 +9,7 @@ draft: false
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
-Here is an elementary observation (I mean "elementary" in the sense mathematicians sometimes use it: i.e. obvious if you already understand it, otherwise gibberish) that I talked about at MIT's [category theory seminar](http://brendanfong.com/seminar.html), relating [Grice's maxims of Quantity and Quality](http://www.glottopedia.org/index.php/Gricean_maxims) to the category theoretic notion of an adjoint functor.
+Here is an elementary observation (I mean "elementary" in the sense mathematicians sometimes use it: i.e. straightforward if you already understand it, otherwise gibberish) that I talked about at MIT's [category theory seminar](http://brendanfong.com/seminar.html), relating [Grice's maxims of Quantity and Quality](http://www.glottopedia.org/index.php/Gricean_maxims) to the mathematical notion of a Galois connection.
 
 ### Inscrutable Summary:
 
@@ -25,7 +25,7 @@ As usual, the simplest possible example is a reference game, where "state" just 
 
 Say that the literal listener \\(L_0\\) maps an utterance *u* to the set of referents (i.e. states, i.e. worlds) compatible with *u*, mapping *red dress* to \\(\\{R_1\\}\\), *dress* to \\(\\{R_1, R_2\\}\\) , *hat* to \\(\\{R_3\\}\\) and *silence* to \\(\\{R_1, R_2, R_3\\}\\).
 
-Note that we can make U a poset by defining the partial ordering on U where \\(u \leq u' iff L_0(u) \leq L_0(u')\\). For example, \\(\mathit{dress} \leq \mathit{silence}\\). Note that \\(u \leq u'\\) means that u is *stronger* than u'.
+Note that we can make U a poset by defining the partial ordering on U where \\(u \leq u' \mathit{iff} L_0(u) \leq L_0(u')\\). For example, \\(\mathit{dress} \leq \mathit{silence}\\). Note that \\(u \leq u'\\) means that u is *stronger* than u'.
 
 It then follows (by the definition of the ordering on U) that \\(L_0\\) is a monotone map (i.e. a function that preserves the poset ordering) from U to W.
 
