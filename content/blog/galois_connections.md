@@ -40,7 +40,7 @@ So far just definitions. Just one more: for monotone maps f and g, f is the left
 
 $$f(s) \leq u \leftrightarrow s \leq g(u)$$
 
-It makes a bit of thinking to make sense of this strange definition, but the intuition is this: there's no obvious notion of an exact inverse of g, because g might well not be surjective (or injective). But for a monotone map, there's a notion of the best approximation of such an inverse. That approximation is f, as defined above. (In fact there are two, the left and right Galois connections, and more broadly, the left and right adjoints of a functor. A monotone map is a very simple case of a functor between very simple categories, namely posets).
+It takes a bit of thinking to make sense of this strange definition, but the intuition is this: there's no obvious notion of an exact inverse of g, because g might well not be surjective (or injective). But for a monotone map, there's a notion of the best approximation of such an inverse. That approximation is f, as defined above. (In fact there are two, the left and right Galois connections, and more broadly, the left and right adjoints of a functor. A monotone map is a very simple case of a functor between very simple categories, namely posets).
 
 Maybe this direct corollary of the above definition will help: if I know g, then its left adjoint f is defined as:
 
