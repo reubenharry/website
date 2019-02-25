@@ -277,7 +277,7 @@ Next time, we'll see that by changing *U* and *W* to represent different spaces,
 
 3. **Q**: Do we ever need more? **A**: Yes. But only for more complicated phenomena. For scalar implicature, this many layers does just fine.
 
-4. **Q**: What is Bayesian probability adding here? **A**: there are many answers, but here's my favourite: in classical logic, an implication \\(p\to q\\) allows information to flow from p to q. But if you know the value of q, you don't know anything about p. The essence of Bayesian probability is precisely that if you have \\(p\to q\\) and you know about q, you know about p. **Information flows backwards**. That's a pretty abstract answer, but can be made precise, albeit with more technical details added.
+4. **Q**: What is Bayesian probability adding here? **A**: there are many answers, but here's my favourite: in classical logic, an implication \\(p\to q\\) allows information to flow from p to q. But if you know the value of q, you don't know anything about p. The essence of Bayesian probability is precisely that if you have \\(p\to q\\) and you know about q, you know about p. **Information flows backwards**. That's a pretty abstract answer, but can be made precise, albeit with more technical details added. That said, there are non-probabilistic approaches available too.
 
 <script>
 // find all <pre> elements and set up the editor on them

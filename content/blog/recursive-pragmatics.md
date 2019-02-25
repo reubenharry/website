@@ -1,3 +1,43 @@
+---
+title: "Social Reasoning in Arcadia"
+date: 2018-06-26T17:07:24+01:00
+draft: true
+---
+
+Computational Pragmatics
+
+Nested probabilistic models of language are pretty cool, but are they useful?
+
+idea I really like:
+
+	you have this model that you given a semantics and priors
+		can show things qualitatively
+			also in theory you can test
+
+	let's instantiate the semantics as a neural
+
+	When I first heard this idea, I was totally struck by how ambitious it was:
+
+		you take this abstract model
+			and suddenly it becomes a generative model of language
+
+			you can really DO Gricean pragmatics in the real world
+
+			it's like the difference between playing with lego, and building a...
+
+So that's the picture. How can we realize it? A large part of my PhD research has consisted of different answers to this question.
+
+Here's two
+
+### Image Captioning ###
+
+Abstractly, image captioning is...
+
+### Translation ###
+
+semantics of the model (importantly: not semantics of language - that's different):
+	semantics of the formal model is a particular...
+
 
 
 I previously TODO LINK used this diagrammatic as a sort of paradigmatic statement about meaning

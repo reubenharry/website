@@ -9,6 +9,8 @@ My current work centers around [Bayesian models of pragmatics](https://reubenhar
 
 ### Computational Pragmatics
 
+[Lost in Machine Translation: A Method to Reduce Meaning Loss](url) (NAACL 2019 - Cohn-Gordon and Goodman)
+
 [Pragmatically Informative Image Captioning with Character-Level Inference](https://arxiv.org/abs/1804.05417) ([slides](/docs/naacl_slides.pdf)) <br/> (NAACL 2018 - Cohn-Gordon, Goodman and Potts)
 
 [An Incremental Iterated Response Model of Pragmatics](https://arxiv.org/abs/1810.00367) <br/> (SCiL 2019, ACL Proceedings - Cohn-Gordon, Goodman and Potts) <br>
