@@ -1,10 +1,86 @@
 ---
-title: "Social Reasoning in Arcadia"
+title: "Machine Learning and Pragmatics"
 date: 2018-06-26T17:07:24+01:00
 draft: true
 ---
 
-Computational Pragmatics
+I remember an idea which really struck me when I was
+
+I had just learned about using nested agents to model informative behaviour in reference games like
+
+said:
+	what if R1 and R2 were real images, and a machine learning model like a convolutional neural net
+		replaced the semantics
+
+### Abstracting a little ###
+
+bayesian models constitute a formal language
+
+we can interpret them with a semantics (but *careful*, not )
+
+In particular, we have to supply
+
+So the above is just: what if that semantics were...
+
+### Computational Quagmire ###
+
+So now we have a specific
+
+But unfortunately, there's just one problem: actually computing values from this distribution is totally, completely and undeniably intractable.
+
+Why? Well essentially because of the norm:
+	you don't need the norm if you just want the max value, but if you want the max value, you have to search over all utterances. No good.
+
+### A functional programming solution ###
+
+There's an elegant solution
+
+log and multiplication: a homomorphism:
+
+square diagram
+
+This is, very abstractly (but in a way that can be made totally precise with a hefty dose of category theory) much like the solution to the problem of intractability above.
+
+In short, the trick is to recall that a
+	is recursively generated
+
+We could do the opposite
+
+DIAGRAM
+
+for any recursive generation. tree, or characters
+
+GIF
+
+### What if the state space is made of language not images? ###
+
+we take $W$ to be a state space. For linguists, each w in W is a possible world.
+
+	but we can be more abstract, just like in physics.
+
+	images seem like pretty natural representation of a possible world.
+
+		note the word representation: the image isn't the possible world itself, but rather a sort of description of one, albeit a description we can parse visually
+
+	but we could be a bit more abstract.
+	What if (what if?!) we described a possible world by a sentence in English.
+
+		what would the literal speaker be doing:
+
+			produce English sentences compatible with that world:
+
+				such a thing would
+
+			translation
+
+	we can also be more imaginative.
+
+### Translation ###
+
+Many to one
+
+Improving quality
+
 
 Nested probabilistic models of language are pretty cool, but are they useful?
 
