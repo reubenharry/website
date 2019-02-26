@@ -10,7 +10,7 @@ My current work centers around [Bayesian models of pragmatics](https://reubenhar
 
 ### Computational Pragmatics
 
-[Lost in Machine Translation: A Method to Reduce Meaning Loss](https://arxiv.org/abs/1902.09514) (NAACL 2019 - Cohn-Gordon and Goodman)
+[Lost in Machine Translation: A Method to Reduce Meaning Loss](https://arxiv.org/abs/1902.09514) <br/> (NAACL 2019 - Cohn-Gordon and Goodman)
 
 [Pragmatically Informative Image Captioning with Character-Level Inference](https://arxiv.org/abs/1804.05417) ([slides](/docs/naacl_slides.pdf)) <br/> (NAACL 2018 - Cohn-Gordon, Goodman and Potts)
 
@@ -27,8 +27,8 @@ My current work centers around [Bayesian models of pragmatics](https://reubenhar
 
 [Intransitive Object Marking in Amharic](/docs/amharic.pdf) ([description](/docs/dares-and-warnings-in-amharic/)) <br/> (Presented as [Poster](/docs/amharicposter.pdf) at LSA 2017)
 
-[Ability Modals](/docs/resultatives.pdf) ([description](/docs/ability-modals/))
+[Ability Modals](/docs/modals.pdf) ([description](/docs/ability-modals/))
 
 [Monads for NL Semantics](/docs/monads.pdf) (draft)
 
-[Resultativity in Latin](/docs/modals.pdf) ([description](/docs/resultativity-in-latin/))
+[Resultativity in Latin](/docs/resultatives.pdf) ([description](/docs/resultativity-in-latin/))
