@@ -17,7 +17,7 @@ For a state space W, the left adjoint of a monotone map (i.e. a left Galois conn
 
 ### Scrutable Explanation:
 
-Each \\(w \in W\\) is a state of the world, or as a linguist would say, a possible world. Thus each element of \\(\mathcal{P}(W)\\) is a set of states, or for a linguist, a proposition.
+Each \\(w \in W\\) is a state of the world, or, so that each element of \\(\mathcal{P}(W)\\) is a set of states.
 
 As usual, the simplest possible example is a reference game, where "state" just means the intended referent. Concretely, say that W = \\(\\{R_1, R_2, R_3\\}\\) as pictured below, and U = {*red dress*, *dress*, *hat*, *silence*}. Obviously arbitrary choices, but just for illustration.
 

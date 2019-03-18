@@ -4,38 +4,193 @@ date: 2018-06-26T17:07:24+01:00
 draft: true
 ---
 
-I remember an idea which really struck me when I was
+OK, modularize into series:
 
-I had just learned about using nested agents to model informative behaviour in reference games like
+	1. the concept of neural pragmatics:
+		translation, captioning
+		mention another interpretation:
+			vector space
+	2. the functional programming beauty of inference here
+
+I remember an idea which really struck me when I was learning about probabilistic models of language.
+
+I'd just learnt about nested agents for playing reference games, like a speaker model S1(u|w) that reasons about a listener L1(w|u) that reasons about a literal speaker, and so prefers saying hat to the ambiguous glasses:
+
+
 
 said:
-	what if R1 and R2 were real images, and a machine learning model like a convolutional neural net
-		replaced the semantics
+	what if R1 and R2 were real images, and a machine learning model like a convolutional neural net replaced the hand specified semantics
+
+Improving quality
+
+
+Nested probabilistic models of language are pretty cool, but are they useful?
+
+idea I really like:
+
+	you have this model that you given a semantics and priors
+		can show things qualitatively
+			also in theory you can test
+
+	let's instantiate the semantics as a neural
+
+	When I first heard this idea, I was totally struck by how ambitious it was:
+
+		you take this abstract model
+			and suddenly it becomes a generative model of language
+
+			you can really DO Gricean pragmatics in the real world
+
+So that's the picture. How can we realize it? A large part of my PhD research has consisted of different answers to this question.
+
+I want to explain why I found this so compelling:
+
+	I'd assumed the connection between totally theoretical toy models of language and totally data-driven
+		ones
+			would involve a lot of fiddly machinery,
+		but no:
+			image captioners, once trained, are conditional distributions of exact the right type to serve as the S0
+
+	worlds colliding
+
+	if it worked, this model would be able to use the full range of language
+		not finite
+		and the full complexity of the image
+			not just one feature
+
 
 ### Abstracting a little ###
 
-bayesian models constitute a formal language
+maths and representations:
 
-we can interpret them with a semantics (but *careful*, not )
+	a logical form can mean lots of things
 
-In particular, we have to supply
+	this is powerful
+
+	for instance, W could be points in a vector space, representing words
+
+		or W could be just a set of worlds
+
+Like good logicians, we can separate formal expressions like
+	S1 =...
+	from what they mean.
+
+	What they are is just a formal expression.
+
+	What they mean is a probability distribution.
+	But what probability distribution?
+	That depends on the values of W, U, S0 and L0.
+
+	Specifying those things constitutes an interpretation of S1.
+
+	In that sense, we can talk about giving a semantics to these expressions, but with care to distinguish the semantics of EQUATION from the semantics of
+		Totally different beasts.
+
+
+	Bringing this around, the idea in
+		blah
+			is just to use a neural net to provide the semantics for equation BLAH
 
 So the above is just: what if that semantics were...
 
-### Computational Quagmire ###
+### Algorithmic Innovation ###
 
-So now we have a specific
+OK, so now that we have a model
 
-But unfortunately, there's just one problem: actually computing values from this distribution is totally, completely and undeniably intractable.
+	a different sort of problem looms:
 
-Why? Well essentially because of the norm:
+
+
+
+So now we have an interpretation for
+
+As discussed above, this is in theory a very powerful thing:
+	in generating a referring expression for R1, the S1 should now be able to
+
+	Note that the problem of alternatives (i.e. how do we choose U), which is one of the big issues with this class of models, is implicitly addressed:
+		everything is an alternative, with probability depending on S0.
+
+But unfortunately, there are two problems: actually computing values from this distribution is totally and completely intractable.
+
+1. Accessing the s0 distribution:
+
+How do we find the max?
+
+	Intractable.
+
+	But we can find the max of a simpler distribution, such as: beam
+
+	max . beam . s0word
+
+2. OK, now for pragmatics:
+
+	max cdot pragmatics cdot unfold cdot s0word
+
+	That clearly doesn't work.
+
+	One option: max cdot pragmatics cdot beam cdot s0word
+
+	The problem: exponentially diminishing returns
+
+	Solution two:
+
+		max cdot beam cdot pragmatics cdot s0word
+
+	I've taken some pains, in presenting this problem to phrase it in such a way that the solution amounts to no more than commuting the order of the operations.
+
+	This change of order seems trivial, but much like most things of this flavor in functional programming (or category theory), the actual consequence of making this change has very subtle consequences.
+
+	For one, s1inc and s1glob are not equivalent. This issue is orthogonal to the beam search. Neither [fully unfolded versions] are equivalent.
+
+	But, and this is the crucial point, s1inc serves as a very good approximation of s1glob in practice:
+
+		at least, this is what the results of my somewhat exploratory evaluations in BLAH and BLAH suggest.
+
+	LARGER PICTURE:
+
+		unfold is compositionality, pragmatics is pragmatics: so it's about which you do first
+
+	1. to find the max, you need to search all
+
+		Solution
+
+	2. Why? Well essentially because of the norm:
 	you don't need the norm if you just want the max value, but if you want the max value, you have to search over all utterances. No good.
 
 ### A functional programming solution ###
 
-There's an elegant solution
+lazy:
 
-log and multiplication: a homomorphism:
+	can talk about generating infinite distribution and then choosing best things
+
+is this a fusion???
+
+	build up a list
+	reorder it
+	take it down
+
+for problem 1: beam search:
+
+	takes a distribution over a recursive type:
+		takes the algebra
+		folds
+
+There's an elegant solution, which I've used a lot in my work, first employed by VEDANTAM.
+
+Step one:
+
+	note that sentence dist is product of word dists: inductive
+
+	note that we can define s1 on word dist
+
+unfold . pragmatics approx pragmatics . unfold
+
+or is it:
+
+	greedy . fmap pragmatics . unfold
+	greedy . pragmatics . unfold
+
+This strategy should generalize to any *unfold* over any recursive datatype. In Haskell terms, unfold can be any *anamorphism*.
 
 square diagram
 
@@ -78,38 +233,6 @@ we take $W$ to be a state space. For linguists, each w in W is a possible world.
 ### Translation ###
 
 Many to one
-
-Improving quality
-
-
-Nested probabilistic models of language are pretty cool, but are they useful?
-
-idea I really like:
-
-	you have this model that you given a semantics and priors
-		can show things qualitatively
-			also in theory you can test
-
-	let's instantiate the semantics as a neural
-
-	When I first heard this idea, I was totally struck by how ambitious it was:
-
-		you take this abstract model
-			and suddenly it becomes a generative model of language
-
-			you can really DO Gricean pragmatics in the real world
-
-			it's like the difference between playing with lego, and building a...
-
-So that's the picture. How can we realize it? A large part of my PhD research has consisted of different answers to this question.
-
-Here's two
-
-### Image Captioning ###
-
-Abstractly, image captioning is...
-
-### Translation ###
 
 semantics of the model (importantly: not semantics of language - that's different):
 	semantics of the formal model is a particular...

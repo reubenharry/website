@@ -25,7 +25,7 @@ My current work centers around [Bayesian models of pragmatics](https://reubenhar
 
 ### Past Work
 
-[Intransitive Object Marking in Amharic](/docs/amharic.pdf) ([description](/docs/dares-and-warnings-in-amharic/)) <br/> (Presented as [Poster](/docs/amharicposter.pdf) at LSA 2017)
+[Intransitive Object Marking in Amharic](/docs/amharic.pdf) ([description](/docs/dares-and-warnings-in-amharic/)) <br/> (Presented as a [poster](/docs/amharicposter.pdf) at LSA 2017)
 
 [Ability Modals](/docs/modals.pdf) ([description](/docs/ability-modals/))
 
