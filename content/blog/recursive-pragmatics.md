@@ -12,7 +12,10 @@ OK, modularize into series:
 			vector space
 	2. the functional programming beauty of inference here
 
-I remember an idea which really struck me when I was learning about probabilistic models of language.
+I remember an idea which really struck me when I was learning about probabilistic models of meaning.
+
+		coming from the viewpoint of traditional semantics, where theoretical models are just that,
+			this struck me as near miraculous. Your model isn't just an explanation, it's a simulation too!
 
 I'd just learnt about nested agents for playing reference games, like a speaker model S1(u|w) that reasons about a listener L1(w|u) that reasons about a literal speaker, and so prefers saying hat to the ambiguous glasses:
 

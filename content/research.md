@@ -17,6 +17,10 @@ My current work centers around [Bayesian models of pragmatics](https://reubenhar
 [An Incremental Iterated Response Model of Pragmatics](https://arxiv.org/abs/1810.00367) <br/> (SCiL 2019, ACL Proceedings - Cohn-Gordon, Goodman and Potts) <br>
 (Similar work presented at CompPrag 2018 - Cohn-Gordon and Potts)
 
+### Figurative Language
+
+[Verbal Irony, Pretense, and the Common Ground](/docs/irony.pdf) <br/> (submitted for publication, 2019 - Cohn-Gordon and Bergen)
+
 ### Social Meaning
 
 [Modeling "Non-literal" Social Meaning with Bayesian Pragmatics](/docs/socialmet.pdf) ([slides](/docs/sub_slides.pdf)) <br/>(Sinn und Bedeutung 2018 - Cohn-Gordon and Qing)
