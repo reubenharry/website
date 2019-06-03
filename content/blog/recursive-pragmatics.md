@@ -12,6 +12,8 @@ OK, modularize into series:
 			vector space
 	2. the functional programming beauty of inference here
 
+
+	this idea now seems very familiar to me, but I remember how striking it was when I first encountered it
 I remember an idea which really struck me when I was learning about probabilistic models of meaning.
 
 		coming from the viewpoint of traditional semantics, where theoretical models are just that,
