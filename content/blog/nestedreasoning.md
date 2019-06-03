@@ -1,4 +1,5 @@
 ---
+title: "Social Reasoning in Arcadia"
 date: 2018-06-26T17:07:24+01:00
 draft: false
 ---
@@ -38,7 +39,7 @@ Picture the scene: it's midday in Arcadia and Echo is waiting for Narcissus to f
 
 We gather from Narcissus' response that the answer is no, but how? After all, if Echo had asked "what is a useful piece of advice when deep sea diving", Narcissus' reply would take on a totally different character. So it would seem that the meaning we infer from Narcissus' utterance depends not only on the utterance itself, but the context in which it is said.
 
-Meaning, to understate the issue, is a bit of a head scratcher. We could venture to say that Narcissus' statement has **semantic** content (roughly, a command), which gives rise to various meanings ("No I won't be ready any time soon.", "Holding your breath is a poor way to dive."), depending on the *context*. (Deciding what content belongs to the statement as opposed to the context is often tricky. For instance, "don't hold your breath" is an idiom in English - the meaning "It will take a long time" is at least somewhat baked into its semantic content.)
+Meaning, to understate the issue, is a bit of a head scratcher. We could venture to say that Narcissus' statement has **semantic** content (it's a recommendation to not hold your breath), and meanings in different contexts ("No I won't be ready any time soon.", "Holding your breath is a poor way to dive."), which is *inferred* from the context. (Deciding what content belongs to the statement as opposed to the context is often tricky. For instance, "don't hold your breath" is an idiom in English - the meaning "It will take a long time" is at least somewhat baked into its semantic content.)
 
 {{< figure src="img/diagram2.png" imageMaxWidth="1000px" width="750" >}}
 
