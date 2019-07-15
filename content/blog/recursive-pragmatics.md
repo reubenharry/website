@@ -12,6 +12,23 @@ OK, modularize into series:
 			vector space
 	2. the functional programming beauty of inference here
 
+In a previous [post](), I introduced the idea of a *reference game* as a microcosm of (cooperative) linguistic communication.
+
+	To summarize, a speaker, given a referent, produces an utterance such that a listener can guess the intended referent.
+
+There's a lot of mileage to be had from taking
+	referents
+		to states of the world
+
+	images are natural representations: in a different mode
+
+	Here are 2:
+
+		What if each of the referents was an image, and the semantics
+			i.e. the knowledge of what is true
+				came from a neurally trained image captioning system?
+
+		What if each of the referents
 
 	this idea now seems very familiar to me, but I remember how striking it was when I first encountered it
 I remember an idea which really struck me when I was learning about probabilistic models of meaning.

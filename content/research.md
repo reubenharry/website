@@ -23,9 +23,9 @@ My current work centers around [Bayesian models of pragmatics](https://reubencoh
 
 ### Social Meaning
 
-[Modeling "Non-literal" Social Meaning with Bayesian Pragmatics](/docs/socialmet.pdf) ([slides](/docs/sub_slides.pdf)) <br/>(Sinn und Bedeutung 2018 - Cohn-Gordon and Qing)
+[Modeling "Non-literal" Social Meaning with Bayesian Pragmatics](https://semanticsarchive.net/Archive/Tg3ZGI2M/Cohn.pdf) ([slides](/docs/sub_slides.pdf)) <br/>(Sinn und Bedeutung 2018 - Cohn-Gordon and Qing)
 
-[Non-descriptive/use-conditional meaning in Rational Speech-Act models](/docs/usecond.pdf) <br/> (Sinn und Bedeutung 2018 - Qing and Cohn-Gordon)
+[Non-descriptive/use-conditional meaning in Rational Speech-Act models](https://semanticsarchive.net/Archive/Tg3ZGI2M/Qing.pdf) <br/> (Sinn und Bedeutung 2018 - Qing and Cohn-Gordon)
 
 ### Past Work
 
