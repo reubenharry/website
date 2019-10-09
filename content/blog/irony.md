@@ -8,19 +8,19 @@ purposes:
 	have people think: oh, that's the right idea about irony
 	explain academic ideas clearly
 
+I want to write about an analysis of how sarcasm works in language that I'm excited about  
+	this paper
 
-
-viewed naively, communication transmits knowledge about the state of the world from one party to another
-	you know foo...
+Viewed naively, communication transmits knowledge about the state of the world from one party to another.
 
 This seems at least partly right in some broad sense, but natural language has a lot of distinctive quirks
 
-	A flagship example of such a quirk is sarcasm (or verbal irony, to use a term that encompasses slightly more), as in examples refs
+A flagship example of such a quirk is sarcasm (or verbal irony, to use a term that encompasses slightly more), as in any of the following:
 
-Why say something untrue? What does it communicate that saying a true thing would not?
 
-Here's an intuition.
+Some obvious questions. Why say something misleading? If saying that misleading thing just means the opposite of that misleading thing, why not just say the opposite?
 
+Here's the answer we offer in the paper, in a nutshell:
 
 Thinking about (ref) gives an intuition:
 
@@ -34,6 +34,42 @@ Extrapolating, the broad insight is this:
 		To see why, consider the effect of saying ``I hated the play''
 
 **Sarcasm is a way to be informative about the common ground**
+
+use conditions:
+
+
+
+
+The idea of the paper is to *formalize* this intuition, and turn it into a precise model.
+
+I'm a big fan of this kind of exercise, and a large part of the reason is this project:
+	you don't really understand something unless
+
+	That applies to programming, of course, and our model is a program (see section TODO)
+
+	but here I mean it philosophically:
+		it's very hard to track down the inconsistencies in your idea without making it precise.
+
+What's nice about this formalization is that it leads to some very cool predictions about the right contexts in which to use sarcasm, corresponding to the mysterious looking figure below:
+
+FIGURE
+
+But in order to say exactly what I mean by that, I'll need to be a little more concrete.
+
+Here's the idea. Let's view a common ground as
+
+	...a prior
+
+	...a prior over priors
+	i.e. a hyperprior
+
+bernoulli example...
+
+There's a lot of possible hyperpriors; the points in the heatmap TODO correspond to a subset of them.
+
+In particular...
+
+So when is
 
 This leads to two intuitive predictions about when it makes sense to use sarcasm:
 

@@ -5,8 +5,9 @@ date: 2018-06-26T17:07:24+01:00
 
 ---
 
+I work on unifying logical, computational, cognitive and statistical perspectives on meaning in natural language with [Bayesian models of pragmatic reasoning](https://reubencohngordon.com/blog/social-reasoning-in-arcadia/).
 
-My current work centers around [Bayesian models of pragmatics](https://reubencohngordon.com/blog/social-reasoning-in-arcadia/). I'm interested in extending them to figurative language (particularly irony and metaphor) and sociolinguistic phenomena (indexicality), as well as scaling them in computationally tractable ways to handle the complexity of natural language.
+I'm interested in scaling these models in computationally tractable ways to handle the complexity of natural language, as well as extending them to figurative language (verbal irony and metaphor) and sociolinguistic indexicality.
 
 ### Computational Pragmatics
 
@@ -16,6 +17,8 @@ My current work centers around [Bayesian models of pragmatics](https://reubencoh
 
 [An Incremental Iterated Response Model of Pragmatics](https://arxiv.org/abs/1810.00367) <br/> (SCiL 2019, ACL Proceedings - Cohn-Gordon, Goodman and Potts) <br>
 (Similar work presented at CompPrag 2018 - Cohn-Gordon and Potts)
+
+Communication-based Evaluation for Natural Language Generation <br/> (SCiL 2020, ACL Proceedings - Newman, Cohn-Gordon, and Potts)
 
 ### Figurative Language
 
