@@ -18,7 +18,7 @@ I'm interested in scaling these models in computationally tractable ways to hand
 [An Incremental Iterated Response Model of Pragmatics](https://arxiv.org/abs/1810.00367) <br/> (SCiL 2019, ACL Proceedings - Cohn-Gordon, Goodman and Potts) <br>
 (Similar work presented at CompPrag 2018 - Cohn-Gordon and Potts)
 
-Communication-based Evaluation for Natural Language Generation <br/> (SCiL 2020, ACL Proceedings - Newman, Cohn-Gordon, and Potts)
+[Communication-based Evaluation for Natural Language Generation](https://arxiv.org/pdf/1909.07290.pdf) <br/> (SCiL 2020, ACL Proceedings - Newman, Cohn-Gordon, and Potts)
 
 ### Figurative Language
 
