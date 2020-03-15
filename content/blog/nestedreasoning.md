@@ -43,7 +43,7 @@ Meaning, to understate the issue, is a bit of a head scratcher. We could venture
 
 {{< figure src="img/diagram2.png" imageMaxWidth="1000px" width="750" >}}
 
-The inference to obtain this "full" meaning from the semantic content and context, which we make so easily, is complicated to spell out, even if a vague, informal way:
+This inference to obtain the "full" meaning from the semantic content and context, which we make so easily, is complicated to spell out, even if a vague, informal way:
 
 >if Narcissus had been able to answer truthfully that he would be done soon, he would have done, but he did not. Given that, and since "Don't hold your breath" is relevant advice in situations where you're going to have to wait a long time, it seems that Narcissus is trying to convey that he won't be done soon.
 
