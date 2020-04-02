@@ -323,7 +323,7 @@ With some analysis, this can be shown to converge.
 
 By the distributivity of differentiation over addition, it's clear that $\frac{de^{At}}{dt} = A + At... = Ae^{At} $.
 
-We also get that $e^{t(A+B)}=e^tAe^tB$ **if** $AB=BA$.
+We also get that $e^{t(A+B)}=e^{tA}e^{tB}$ **if** $AB=BA$.
 
 The next step is to find a way to calculate arbitrary matrix exponentials. We can do so easily if we make use of the $\Lambda+N$ decomposition.
 
