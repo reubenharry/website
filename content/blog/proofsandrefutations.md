@@ -3,7 +3,7 @@ title: "Proofs, Refutations and Zombies"
 date: 2016-08-20T15:10:55-04:00
 draft: false
 ---
-
+-
 
 > "There is strictly speaking no such thing as mathematical proof; we can, in the last analysis, do nothing but point; ...proofs are rhetorical flourishes designed to affect psychology" - Hardy
 

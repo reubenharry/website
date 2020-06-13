@@ -1,6 +1,10 @@
-Hi! I'm a linguistics PhD student at Stanford. I mostly do research on models of meaning, using tools from functional programming, Bayesian probability and machine learning.
 
-**Contact**: reubencg@stanford.edu
 
+Resources for combating anti-Black racism:
+
+- https://www.shutdownstem.com/ (academic focus)
+- https://www.manrepeller.com/2020/06/black-lives-matter-resources.html (general)
+
+**Contact**: reubenharry at gmail dot com
 
 {{< figure src="img/me.jpg" imageMaxWidth="100px" alt=""  >}}

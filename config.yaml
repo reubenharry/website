@@ -9,6 +9,7 @@ pluralizelisttitles: false
 removePathAccents: true
 paginate: 10
 paginatePath: "page"
+summaryLength: 1
 rssLimit: 20
 author:
   name: "Reuben Cohn-Gordon"
@@ -22,7 +23,7 @@ outputs:
 params:
   cacheBustCSS: false
   cacheBustJS: false
-  contact: "reubencg@stanford.edu"
+  contact: "reubenharry@gmail.com"
   description: ""
   dateformat: "2 January, 2006"
   favicon: "icon-64.png"

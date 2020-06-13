@@ -6,7 +6,7 @@ draft: true
 
 # To my father (late)
 
-I dream about you all the time. Sometimes we're in a car, and I try to gently remind you that it is dangerous for people who have suffered fatal heart attack to drive.
+I dream about you all the time. Sometimes we're in a car, and I try to gently remind you that it is dangerous for people who have suffered a fatal heart attack to drive.
 
 Living in memory doesn't really suit you, with its proclivity for the grandiose. Epithets like "wise" and "gentle" roll off you slightly awkwardly, though true. They misleadingly suggest an air of purposeful humility. In my mother's words, you were "the rare case of a man without an ego".
 

@@ -42,7 +42,7 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
-These notes are my own summary of [Brendle](http://math.stanford.edu/~ryzhik/STANFORD/STANF63CM-20/ode-brendle)'s notes on ODEs, and Stanford Math 63. Definitions can be a little idiosyncratic, especially the use of higher-order functions. [Usual disclaimer](/maths/purposeofthesenotes) applies.
+These notes are my own summary of [Brendle](http://math.stanford.edu/~ryzhik/STANFORD/STANF63CM-20/ode-brendle)'s notes on ODEs, and Stanford Math 63. Definitions can be a little idiosyncratic, especially the use of higher-order functions.
 
 We consider first order ordinary differential equations equations of the following form, fixing $x\_0$:
 $$
@@ -58,7 +58,7 @@ $$
 $$
 Often we write $(3)$ as:
 $$
-\phi(x\_0)'(t) = F(\phi(x\_0)(t))
+\phi(x\_0)' (t) = F(\phi(x\_0)(t))
 $$
 or even:
 $$
@@ -66,7 +66,7 @@ $$
 $$
 Note that we are assuming that the initial time $t$ is $0$ without loss of generality, because given an ODE where $\psi(x\_0)(t\_0)=x\_0$:
 $$
-\psi(x\_0)'(t) = F(\psi(x\_0)(t),t)
+\psi(x\_0)' (t) = F(\psi(x\_0)(t),t)
 $$
 We can obtain a new ODE of the same form for $\phi(x\_0)(t)=\psi(x\_0)(t+t\_0)$.
 
@@ -174,7 +174,7 @@ $$\Rightarrow \tau(\phi(x\_0,t)) = \int g(t)dt + c $$
 
 $$\Rightarrow \phi(x\_0,t) = \tau^{-1}(\int g(t)dt + c) $$
 
-This approach is known as separation of variables. As an example, suppose you see $\frac{\partial}{\partial t}\phi(x\_0,t)=t(1+\phi(x\_0,t)^2)$. Then you can identify $f(x)=1+x^2,g(t)=t$. Further, you can remember from your trigonometry than $\int tan^{-1}(x)dx = \frac{1}{1+x^2}$. Using the above, $\frac{d}{dt}\tan^{-1}x(t)=\frac{1}{1+x(t)^2}x'(t) = t \Rightarrow x(t)=\tan(\frac{t^2}{2}+c)$
+This approach is known as separation of variables. As an example, suppose you see $\frac{\partial}{\partial t}\phi(x\_0,t)=t(1+\phi(x\_0,t)^2)$. Then you can identify $f(x)=1+x^2,g(t)=t$. Further, you can remember from your trigonometry that $\int tan^{-1}(x)dx = \frac{1}{1+x^2}$. Using the above, $\frac{d}{dt}\tan^{-1}x(t)=\frac{1}{1+x(t)^2}x'(t) = t \Rightarrow x(t)=\tan(\frac{t^2}{2}+c)$
 
 ## Duhamel's Principle
 

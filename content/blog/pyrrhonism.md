@@ -3,6 +3,7 @@ title: "Medieval Type Theory"
 date: 2017-06-22T21:33:50+01:00
 draft: false
 ---
+-
 
 This post definitely falls under philosophical miscellanea, but is a nice example of a commonality between ancient and modern philosophy.
 

@@ -5,16 +5,21 @@ date: 2018-06-26T17:07:24+01:00
 
 ---
 
-I work on unifying logical, computational, cognitive and statistical perspectives on meaning in natural language with [Bayesian models of pragmatic reasoning](https://reubencohngordon.com/blog/social-reasoning-in-arcadia/).
+During my PhD, I worked on unifying logical, computational, cognitive and statistical perspectives on meaning in natural language using [Bayesian models of pragmatic reasoning](https://reubencohngordon.com/blog/social-reasoning-in-arcadia/).
 
-I'm interested in scaling these models in computationally tractable ways to handle the complexity of natural language, as well as extending them to figurative language (verbal irony and metaphor) and sociolinguistic indexicality.
+In particular, I was interested in scaling these models in computationally tractable ways to handle the complexity of natural language, as well as extending them to handle various kinds of non-literal language and sociolinguistic indexicality.
 
-### Computational Pragmatics
+[**Various publications**](https://scholar.google.com/citations?user=AG4_QecAAAAJ&hl=en&oi=ao)
 
+Two long-term projects which I never ended up publishing:
+
+- [Verbal Irony, Pretense, and the Common Ground](/docs/irony.pdf) <br/> (**unpublished draft**, Cohn-Gordon and Bergen)
+- [Metaphor and Linguistic Creativity](/docs/metaphor.pdf) <br/> (**unpublished draft**, experiment section should be disregarded; the baseline model was implemented incorrectly. Cohn-Gordon and Bergen)
+
+<!--
 [Lost in Machine Translation: A Method to Reduce Meaning Loss](https://arxiv.org/abs/1902.09514) ([poster](/docs/naacl2019.pdf)) <br/> (NAACL 2019 - Cohn-Gordon and Goodman)
-
-[Pragmatically Informative Image Captioning with Character-Level Inference](https://arxiv.org/abs/1804.05417) ([slides](/docs/naacl_slides.pdf)) <br/> (NAACL 2018 - Cohn-Gordon, Goodman and Potts)
-
+ -->
+<!--
 [An Incremental Iterated Response Model of Pragmatics](https://arxiv.org/abs/1810.00367) <br/> (SCiL 2019, ACL Proceedings - Cohn-Gordon, Goodman and Potts) <br>
 (Similar work presented at CompPrag 2018 - Cohn-Gordon and Potts)
 
@@ -22,7 +27,6 @@ I'm interested in scaling these models in computationally tractable ways to hand
 
 ### Figurative Language
 
-[Verbal Irony, Pretense, and the Common Ground](/docs/irony.pdf) <br/> (submitted for publication, 2019 - Cohn-Gordon and Bergen)
 
 ### Social Meaning
 
@@ -38,4 +42,4 @@ I'm interested in scaling these models in computationally tractable ways to hand
 
 [Monads for NL Semantics](/docs/monads.pdf) (draft)
 
-[Resultativity in Latin](/docs/resultatives.pdf) ([description](/docs/resultativity-in-latin/))
+[Resultativity in Latin](/docs/resultatives.pdf) ([description](/docs/resultativity-in-latin/)) -->

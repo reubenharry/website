@@ -35,7 +35,6 @@ draft: False
 
 </script>
 
-## [Disclaimer on these notes](/maths/purposeofthesenotes)
 
 $\newcommand{\R}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
@@ -61,7 +60,7 @@ $PDF(x;\lambda) = \int \lambda e^{-\lambda x} $
 
 $P(x|\theta) = \frac{e^{\theta^T\cdot f(x)}}{\sum\_{x'}e^{\theta^T\cdot f(x')}}$
 
-where $f(x)$ is an indicator function and $theta$ is a vector of parameters. This parametrization shows that an MRF is an exponential family distribution.
+where $f(x)$ is an indicator function and $\theta$ is a vector of parameters. This parametrization shows that an MRF is an exponential family distribution.
 
 ### Empirical Distribution
 
@@ -92,11 +91,17 @@ So $\frac{d}{dy}P(Y\in A) = f\_Y(y) = \frac{(f\_X\circ g^{-1})(y)}{|J\_g(g^{-1}(
 
 So $(f\_X\circ g^{-1})(y) = f\_Y(y)\cdot|J\_g(g^{-1}(y))^{-1}|$
 
+## Sum Random Variables by Convolving PDFs
+
+$$ F_{X+Y}(z) = \int\_{-\infty}^{\infty}\int\_{-\infty}^{z-x} f\_{(X,Y)}(x,y) dydx $$
+
+$$ = \int\_{-\infty}^{\infty}\int\_{-\infty}^{z} f\_{(X,Y)}(x,v-x) dvdx = \int\_{-\infty}^{z}\int\_{-\infty}^{\infty} f\_{(X,Y)}(x,v-x) dvdx   $$. Then, taking the derivative with respect to $x$, using the fundamental theorem of calculus, and assuming independence of $X$ and $Y$, we have that $f\_{X+Y}(z) = \int\_{-\infty}^{\infty} f\_X(x)\cdot f\_Y(z-x) dx$.
+
 ## Central Limit Theorem
 
 Various increasingly powerful versions, but simplest is:
 
-For a sequence $\{X\_i\}$ of independent and identically distributed (iid) random variables with mean $0$ and variance $\sigma^2$, $\bar{X}\_n=\sum\_i^nX\_i$ converges to $Z \sim N(0,1)$, i.e. to a standard normal.
+For a sequence $\{X\_i\}$ of independent and identically distributed (iid) random variables with mean $\mu$ and variance $\sigma^2$, $\bar{X}\_n=\sum\_i^nX\_i$ converges to $Z \sim N(\mu,\sigma^2)$, i.e. to a standard normal.
 
 The proof uses the continuity theorem, which effectively says that it's sufficient to show that the moment generating function (MGF) converges to that of a normal MGF. Let $Z\_n= \frac{X\_n}{STD[X\_n]} = \frac{X\_n}{\sqrt{n}\sigma}$. Then we observe the following:
 
@@ -117,7 +122,7 @@ But this converges to $e^{\frac{t^2}{2}}$ as $n$ goes to infinity. That's the MG
 
 ## Exponential Family
 
-Really it's a family of families. For fixed functions $b$ and $T$ but with $\eta$ varying, we have a family:
+Not to be confused with the exponential distribution. Really it's a family of families. For fixed functions $b$ and $T$ but with $\eta$ varying, we have a family:
 
 $$P(x;\eta) = b(x)e^{\eta^TT(x)-a(\eta)}$$
 
@@ -131,11 +136,11 @@ So $\eta$ parametrizes a family. For instance, we can choose $T$ and $b$ to make
 
 The reason this is useful is that we can prove a bunch of super useful things about distributions in this form. In particular:
 
-- $\frac{da(\eta)}{d\eta} = E[x;\eta]$
-- $H\_{\eta}a(\eta) = Var[\cdot;\eta]$
+- $\frac{da(\eta)}{d\eta} = E[T(x);\eta]$
+- $H\_{\eta}a(\eta) = Cov[T(x);\eta]$
 - $a$ is convex in $\theta$
 - Each exponential family is conjugate to an exponential family
-- MaxEnt: exponential families are the most entropic distributions given that the expectation is equal to some $\alpha$, for a fixed base measure
+- Maximum Entropy: exponential families are the most entropic distributions given that the expectation is equal to some $\alpha$, for a fixed base measure
 
 To find the maximum likelihood $\theta$ for an observation $D$, one wants to take the gradient of log $P(x|\theta)$, since log-likelihood in exponential families is convex. Taking the gradient of the log of the numerator is easy. But the gradient of the log of the denominator is as follows:
 
@@ -173,3 +178,50 @@ In particular, you want samples from the typical set, i.e. the part of the space
 Markov Chain Monte Carlo: a type of Monte Carlo method. Say that you have $P$ up to proportionality, and call this $P\*$. You choose a translation kernel Q (in the finite case, representable as a stochastic matrix from states to states) and an acceptance criterion (Metropolis Hastings is one common one) and then take a random walk. Given some assumptions, you can prove that a distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of Q, which given some assumptions, is P.
 
 In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable.
+
+### Stirling's Approximation
+
+$N!$ rapidly becomes intractable to analytically or numerically compute, which is bad for statistical mechanics, because it appears *a lot*. But for large $N$ we can estimate it. First a rough estimate, and then a better one:
+
+$$
+\log N! = \log \prod_{i=1}^N i = \sum\_{i=1}^N \log i \approx \int_1^N \log x dx$$
+$$ = [x\log x]\_1^N-\int\_1^N\frac{x}{x}=N\log N - N + 1
+$$
+
+A second, better approximation is attained as follows, recalling that $\Gamma(n)=n!$ for $n\in \Z$, where
+
+$$
+N!=\Gamma(N)=\int_0^{\infty} e^{-x}x^Ndx
+$$
+
+We then do something crazy, which is to approximate the integrand by a Gaussian. The reason this works well is that the integrand $f(x)=e^{-x}x^N$ is peaky. The gaussian function is:
+
+$$
+g(x)=Ae^{-\frac{1}{2}(\frac{x-x_0}{\sigma})^2}
+$$
+
+We set the mean $x_0$ at the maximum, which is found by setting $0=\frac{d}{dx}\log e^{-x}x^N=\frac{d}{dx}N\log x-x=\frac{N}{x}-1$, which implies that $x_0=N$. Then $A=g(x_0)=g(N)\approx e^{-N}N^N$.
+
+Finally, we note that $\frac{d^2}{d x^2}\log g(x)=-\frac{1}{\sigma^2}$ and equating this to $\frac{d^2}{d x^2}\log f(x)=-\frac{N}{x^2}$ implies that $\sigma$ should be set to $\frac{x^2}{N}$
+
+<!-- TODO: understand: or in particular: $\sigma=\sqrt{\frac{x_0^2}{N}}=\sqrt{N}$. -->
+
+This gives:
+
+$$
+N! = \Gamma(N)=\int_0^{\infty} e^{-x}N^Ndx \approx \int_0^{\infty} e^{-N}N^Ne^{-\frac{1}{2}(\frac{x-N}{\sqrt{N}})^2}=e^{-N}N^N\sqrt{2\pi N}
+$$
+
+<!-- ### Binomial Distribution Approximations -->
+
+
+
+### Gaussian Integral
+
+Smoothing over a bunch of analytic difficulties, here's the basic idea:
+
+$$\int\_{-\infty}^{\infty}e^{-x^2}=\sqrt{(\int\_{-\infty}^{\infty}e^{-x^2}dx)^2}$$
+$$ = \sqrt{\int\_{-\infty}^{\infty}e^{-x^2}dx\int\_{-\infty}^{\infty}e^{-y^2}dy}$$
+$$ = \sqrt{\int\_{-\infty}^{\infty}\int\_{-\infty}^{\infty}e^{-(x^2+y^2)}dxdy}$$
+$$ = \sqrt{\int\_{-\infty}^{0}e^{-r^2}2\pi rdr}$$
+$$ =\sqrt{\pi}$$

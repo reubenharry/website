@@ -34,8 +34,6 @@ date: 2020-01-26T17:07:24+01:00
 
 </script>
 
-## [Disclaimer on these notes](/maths/purposeofthesenotes)
-
 $\newcommand{\R}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
@@ -72,6 +70,18 @@ $$\forall \epsilon >0: \exists \delta>0: \forall y\in A: (d(x,y)<\delta)\to (d(f
 Uniformly continuous function is defined as follows and is different from being continuous at every point:
 
 $$\forall \epsilon >0: \exists \delta>0: \forall x,y\in A: (d(x,y)<\delta)\to (d(f(x),f(y))<\epsilon)$$
+
+### Integrals
+
+An integral is like a continuous analog of a sum, where the summands (the things you sum together) are infinitesimally small and infinitely many. You integrate over a volume (in 1 dimension an interval of the real line, in 2, an area in $\R^2$, etc).
+
+The Riemann integral is one definition of integration (which coincides with the more general Lebesgue integration where both are defined). Take a function $f:\R\to\R$ and consider an interval $[a,b]\subset\R$. Goal of integral is to find the area under the curve produced by $f$. Consider any partition of $[a,b]$, i.e. a splitting up of $[a,b]$ into consecutive sub-intervals $P\_i$. You can define a piecewise constant function, $g\_P$, such that if $x\in P\_i$, $g\_P(x)=\inf\_{y\in P\_i}f(y)$, i.e. the lower bound of points in this stretch of $[a,b]$. It's easy to calculate the area under $g$, because it's piecewise constant. Then you can try to find the partition $P$ such that $g\_P$ has the largest area under the curve. The upper bound on how well you can do is $L(f)=\sup\_P \int\_{[a,b]}g\_P$. Note that this will result in your making your partition arbitrarily fine. Conversely we can dualize and consider $U(f)=\inf\_P \int\_{[a,b]}h\_P$, where $h\_P(x)=\sup\_{y\in P\_i}f(y)$. If $U(f)$ and $L(f)$ coincide, we say that $f$ is Riemann integrable on $[a,b]$.
+
+Note that $L(f)\leq U(f)$, so showing the opposite inequality establishes equality and thus integrability.
+
+All continuous functions are Riemann integrable.
+
+Integration is a linear operator.
 
 ### Lipschitz Functions
 
@@ -127,10 +137,6 @@ Then, for any $y\in J$, $|x\_{k\_{(l,l)}}(y)-x\_{k\_{(l',l')}}(y)| \leq |x\_{k\_
 
 Calculus is the tool used to understand continuous change. Since the world is full of things which are either continuous, or approximately continuous, it is pretty much the central tool of applied maths.
 
-### Derivatives
-
-<!-- Let $f(x)=x^2$, and consider $\frac{d}{dx}f(x)=\lim\_{h\to0}\frac{f(x+h)-f(h)}{h}=$, so that  -->
-
 
 ### Little o-notation
 
@@ -146,15 +152,25 @@ Note that $h^2$ in the numerator was not a linear function of $h$, in particular
 
 This pattern crops up all the time, where to find the derivative of a function, you can drop all terms that are $o(h^n)$ for $n>2$. In particular, it's used in the context of Taylor series expansions, e.g. you could write: $e^x=1+x+o(x^3)$.
 
+
 ### Taylor Series
 
-A power series representation of $f(x)$ takes the form  $\sum\_{i=0}^{\inf} c\_i(x-a)^i$. What's cool is that if such a series exists for an infinitely differentiable function $f$, we can recover the ``basis coefficients'' $c\_i$ by noting that: (1) $f(a) = c\_0$ and (2) that $f'(x) = \sum\_{i=1}^{\inf} ic\_i(x-a)^{i-1}$, so that $c\_1 = f'(x)/1$. Continuing in this vein with $n$th derivatives, we find that $c\_i = \frac{d^{(i)f(x)}}{dx^{(i)}}(a)\frac{1}{i!}$. Substituting in these values for $c\_i$ into the series gives us the Taylor series.
+A power series representation of $f(x)$ takes the form  $\sum\_{i=0}^{\inf} c\_i(x-a)^i$. What's cool is that if such a series exists for an infinitely differentiable function $f$, we can recover the "basis coefficients" $c\_i$ by noting that: (1) $f(a) = c\_0$ and (2) that $f'(x) = \sum\_{i=1}^{\inf} ic\_i(x-a)^{i-1}$, so that $c\_1 = f'(x)/1$. Continuing in this vein with $n$th derivatives, we find that $c\_i = \frac{d^{(i)f(x)}}{dx^{(i)}}(a)\frac{1}{i!}$. Substituting in these values for $c\_i$ into the series gives us the Taylor series.
 
 $$
 T : (\R\to\R)\to\R\to\R\to(\R\to\R) \\
 T(f)(t\_0)(t) = \sum\_{i=0}^{\infty}\frac{f^{(i)(t\_0)}}{i!}(t-t\_0)^i
 $$
 The intuition is that for a point $x$, we're approximating $f$ locally by a sum (which when infinite may converge to a perfect approximation) of the derivatives of $f$ around that point. This makes sense: the derivatives give you local context: first derivative is what the function is doing nearby, second derivative is what the first derivative is doing nearby, etc.
+
+**Example**
+
+Write $f(x+a)=f(x)+af'(x)+\frac{a^2}{2}f''(x)...$. Then note that to find the second derivative, we can write:
+
+$$f(x+a)+f(x-a)\approx f(x)+af'(x)+\frac{a^2}{2}f''(x)+f(x)-af'(x)+\frac{a^2}{2}f''(x)$$
+$$=2f(x)+a^2f''(x) \Rightarrow f''(x)\approx\frac{f(x+a)+f(x-a)-2f(x)}{a^2}$$
+
+Here the approximation becomes increasingly precise in small $a$, i.e. the error is $o(a^2)$.
 
 A natural extension to $\C$, $\R^n$ and $\C^n$ exists. The Taylor series up to term $n$ is the $n$th order approximation of $f$, which is a polynomial. Write it as $T\_n(f)(t\_0)$.
 
@@ -172,9 +188,6 @@ $$
 $$
 Here $t'$ is known to exist by the mean value theorem.
 
-### Integrals
-
-An integral is like a continuous analog of a sum, where the summands (the things you sum together) are infinitesimally small and infinitely many. In fact, this is pretty much how the Riemann integral is defined. There are also other ways of defining integrals which are more general, like the Lebesgue integral.
 
 ### Fundamental Theorem of Calculus and Leibniz' Rule
 
@@ -187,6 +200,18 @@ Now suppose that we want to take the derivative of an integral with respect to a
 But now suppose that $a$ and $b$ are functions of $y$. Then, using the multivariable chain rule, with $\phi(y,a(y),b(y))=\int\_{a(y)}^{b(y)}f(s,y)ds$, we have that $\frac{d}{dy}\phi(y,a(y),b(y))=\frac{\partial \phi(y,a(y),b(y))}{\partial y}+\frac{\partial \phi(y,a(y),b(y))}{\partial a(y)}\frac{da(y)}{dy}+\frac{\partial \phi(y,a(y),b(y))}{\partial b(y)}\frac{db(y)}{dy}$.
 
 Using the fundamental theorem of calculus, as above, and flipped one of the integrals, we get  $\frac{d}{dy}\phi(y,a(y),b(y))=\int\_{a(y)}^{b(y)}\frac{\partial}{\partial y}f(s,y)ds-f(a(y),y)a'(y)+f(b(y),y)b'(y)$. This is Leibniz' rule.
+
+### Some examples of integrals
+
+$$ \int \frac{1}{\sqrt{x^2-a^2}}dx$$
+
+First note that $d(a\cosh y)=a\sinh y dy$ and that $\cosh^2 y-1=\sinh^2 y$. Then make the substitution in the integrand: $x=a\cosh y$. Simplifying:
+
+$$ \frac{1}{\sqrt{x^2-a^2}}dx = \frac{a\sinh y dy}{\sqrt{a^2\cosh^2 y-a^2}}$$
+
+$$ = \frac{a\sinh y dy}{a\sqrt{\cosh^2 y-1}} = \frac{a\sinh y dy}{a\sqrt{\sinh^2 y}}  $$
+
+$$ = dy \Rightarrow \int \frac{1}{\sqrt{x^2-a^2}}dx = \int dy $$
 
 
 ## Multivariate Calculus
@@ -240,11 +265,22 @@ $$ H\_{A^{-1}x}f(x) = H\_{k}f(Ak) = A^TH\_{Ak}f(Ak)A = A^TH\_xf(x)A $$
 
 
 
-## Change of variables
+### Change of variables
 
-OK, the idea is that instead of integrating $f$ with respect to its input $x$ (i.e. calculating $\int_Af(x)dx$), we can view $x$ as a function of $u$ (i.e. $x=g(u)$) and then pull back to an integral over $u$ (i.e. $\int\_{g^{-1}(A)}f(g(u))du$). But this is a differently valued integral. So this new integral requires a term to offset the change, which rather nicely happens to be $|Det(D\_ug(u))|$. Intuition is that we account for the change in area of the differential (as it approaches the limit). The absolute value is because the sign of the determinant only measures the order of the dimensions and we don't care about this here. he equation looks as follows:
+OK, the idea is that instead of integrating $f$ with respect to its input $x$ (i.e. calculating $\int_Af(x)dx$), we can view $x$ as a function of $u$ (i.e. $x=g(u)$) and then pull back to an integral over $u$ (i.e. $\int\_{g^{-1}(A)}f(g(u))du$). But this is a differently valued integral. So this new integral requires a term to offset the change, which rather nicely happens to be $|Det(D\_ug(u))|$. Intuition is that we account for the change in area of the differential (as it approaches the limit). The absolute value is because the sign of the determinant only measures the order of the dimensions and we don't care about this here. The equation looks as follows:
 
 $$\int\_{g(A)} (f\circ g)(x)dg(x) = \int\_{A} (f\circ g)(x)\cdot |Dg(x)|dx $$ where $Dg(x)$ is the determinant of the matrix of partial derivatives of $g(x)$ wrt. $x$.
+
+### Arguments with differentials
+
+It's often very handy to reason in terms of small elements, which you then take to $0$ in the limit. For example, suppose $y(x)$ is the height of a curve. Then consider a section of width $\Delta x$ which starts at a point $x$, and note that its length is $((\Delta x)^2+(y(x+\Delta x)-y(x))^2)^{\frac{1}{2}}$. Dividing by $\Delta x$, we obtain:
+
+$$ \frac{((\Delta x)^2+(y(x+\Delta x)-y(x))^2)^{\frac{1}{2}}}{\Delta x} =((\Delta x)^2+(y(x+\Delta x)-y(x))^2)^{\frac{1}{2}}((\Delta x)^{-2})^{\frac{1}{2}}=(\frac{(\Delta x)^2}{(\Delta x)^2}+(\frac{y(x+\Delta x)-y(x)}{\Delta x})^2)^{\frac{1}{2}}$$
+
+Because limits can go inside continuous functions, we can say that:
+
+$$\lim\_{\Delta x\to 0} (\frac{(\Delta x)^2}{(\Delta x)^2}+(\frac{y(x+\Delta x)-y(x)}{\Delta x})^2)^{\frac{1}{2}}=(1+(\lim\_{\Delta x\to 0}\frac{y(x+\Delta x)-y(x)}{\Delta x})^2)^{\frac{1}{2}}=(1+(\frac{dy}{dx})^2)^{\frac{1}{2}}$$
+
 
 ### Derivative of the determinant
 
@@ -266,3 +302,99 @@ $$
 e^{t\psi}=\sum\_{i=0}^{\infty}\frac{t^i\psi^i}{i!}=I+t\sum\_{i=1}^{\infty}\frac{t^{i-1}\psi^i}{i!}\Rightarrow \frac{1}{t}(e^{t\psi}-I)=\sum\_{i=1}^{\infty}\frac{t^{i-1}\psi^i}{i!}
 $$
 We can then rather cleverly observe that the this final sum goes to $\psi$ as we take $t$ to $0$, because the term of the sum with $i=0$ is $\frac{0^0\psi}{0!}=\psi$.
+
+## Calculus of variations
+
+There's a kind of calculus where instead of varying a number or a vector, you vary a function $f$ itself, which is the input to some functional $F$. You have to be careful with types here. $f : \R\to\R$ and $F : (\R\to\R)\to\R$. Note that the word *variational*, as in *variational bound* or *variational inference* refers to the calculus of variations.
+
+But here's a helpful perspective. View a vector as a function $A\to\R$ for $A\subset \Z$, i.e. a map from indices of the ``array'' to the value at that index. Then the continuous version is a natural extension.
+
+Roughly, the first *functional* derivative, analogous to the first derivative for ordinary calculus, where $\eta$ is some other function with the same support, looks like:
+
+$$\partial F = \lim_{\epsilon\to 0} \frac{F(f+\epsilon \eta)-F(f)}{\epsilon}$$
+
+A particularly important type of functional in physics and elsewhere takes the following form, for $L : \R\to\R\to\R\to\R$:
+
+$$A_L(x) = \int_a^b L(t,x(t),x'(t)) dt$$
+
+It turns out that minimizing such a functional (or more generally finding values of the function $x$ for which $\partial A\_L(x)=0$), which you might imagine to be totally totally intractable, is not so hard (terms and conditions apply). This is because whenever $x$ is such that $\partial A\_L(x)=0$, the following partial differential equation (called the Euler-Lagrange equation) is also true:
+
+$$0 = \frac{\partial L}{\partial y(x)} - \frac{d}{dt}\frac{\partial L}{\partial y'(x)}  $$
+
+### Derivation of Euler-Lagrange: 1
+
+We can justify (and informally derive) this equation by looking at a discretization, where the curve $y$ is replaced with a piecewise linear curve defined by a sequence of points at time points $\\{t\_i\\}\_{i=0}^n$ spaced $\Delta$ apart, so that $t\_{i+1}=t\_i+\Delta$. This looks like:
+
+$$ A\_D = \sum\_i^n L(t,x(t\_i),(\frac{x(t\_{i+1})-x(t\_i)}{\Delta}))\Delta$$
+
+Then
+
+$$ \frac{\partial A\_D}{\partial x(t\_i)}$$
+
+$$= D_2L(t\_i,x(t\_i),(\frac{x(t\_{i+1})-x(t\_i)}{\Delta}))\Delta + \frac{-1}{\Delta}D_3L(t\_i,x(t\_i),(\frac{x(t\_{i+1})-x(t\_i)}{\Delta}))\Delta + \frac{1}{\Delta}D_3L(t\_{i-1},x(t\_{i-1}),(\frac{x(t\_{i})-x(t\_{i-1})}{\Delta}))\Delta  $$
+
+$$ = D_2L(t\_i,x(t\_i),(\frac{x(t\_{i+1})-x(t\_i)}{\Delta}))\Delta + (D_3L(t\_{i-1},x(t\_{i-1}),(\frac{x(t\_{i})-x(t\_{i-1})}{\Delta})) - D_3L(t\_i,x(t\_i),(\frac{x(t\_{i+1})-x(t\_i)}{\Delta})) ) $$
+
+We now divide $\frac{\partial A\_D}{\partial x(t\_i)}$ by $\frac{1}{\Delta}$:
+
+$$\frac{1}{\Delta}\frac{\partial A\_D}{\partial x(t\_i)}$$
+
+$$ =  D_2L(t\_i,x(t\_i),(\frac{x(t\_{i+1})-x(t\_i)}{\Delta})) - \frac{1}{\Delta}(D_3L(t\_i,x(t\_i),(\frac{x(t\_{i+1})-x(t\_i)}{\Delta}))-D_3L(t\_{i-1},x(t\_{i-1}),(\frac{x(t\_{i})-x(t\_{i-1})}{\Delta}))) $$
+
+$$ =  D_2L(t\_i,x(t\_i),(\frac{x(t\_{i}+\Delta)-x(t\_i)}{\Delta})) - $$
+
+$$\frac{1}{\Delta}(D_3L(t\_i,x(t\_i),(\frac{x(t\_{i}+\Delta)-x(t\_i)}{\Delta}))-D_3L(t\_{i-1},x(t\_{i-1}),(\frac{x(t\_{i-1}+\Delta)-x(t\_{i-1})}{\Delta}))) $$
+
+Taking $\Delta$ to $0$, this gives us the Euler-Lagrange equation in the limit.
+
+### Derivation of Euler-Lagrange: 2
+
+Landau and Lifschitz provide a more abstract derivation, as follows. For a function $f$, let $\delta f$ denote a variation of the function. Note that linearity and the chain rule operate in a normal sort of way. As before, $A_L(x) = \int_a^b L(t,x(t),x'(t)) dt$.
+
+$$
+\delta A\_L(x) = \int\_a^b \frac{\partial L}{\partial x}\delta x + \frac{\partial L}{\partial x'}\delta x'  dt = \int\_a^b \frac{\partial L}{\partial x}\delta x + \frac{\partial L}{\partial x'}\frac{d}{dt} \delta x dt
+$$
+
+$$
+= \int\_a^b \frac{\partial L}{\partial x}\delta x dt + \int\_a^b \frac{\partial L}{\partial x'}\frac{d}{dt} \delta x dt
+$$
+
+We now integrate the second term by parts, noting that $\delta x(a)=\delta x(b)=0$ (this is part of the definition of a variation), to obtain:
+
+$$
+\delta A\_L(x) = \int\_a^b \frac{\partial L}{\partial x}\delta x + [\frac{d}{dt}\frac{\partial L}{\partial x'}\delta x]\_b^a - \int\_a^b \frac{d}{dt}\frac{\partial L}{\partial x'} \delta x dt = \delta A\_L(x) = \int\_a^b (\frac{\partial L}{\partial x} - \frac{d}{dt}\frac{\partial L}{\partial x'}) \delta x dt
+$$
+
+If $\delta A\_L=0$, then $\frac{\partial L}{\partial x} - \frac{d}{dt}\frac{\partial L}{\partial x'}$ must also be $0$ (since anywhere where it was not $0$, you could choose $\delta x$ to be non-zero in only that region, and then $A\_L$ would no longer be $0$).
+
+
+Example of use of Euler-Lagrange equation:
+
+$L(x,y(x),y'(x)) = \sqrt{1+y'(x)^2} $
+
+Arc length: $F\_L(f) = \int\_a^b L$
+
+The Euler-Lagrange equation gives us:
+
+$$0 = - \frac{d}{dx}\frac{\partial\sqrt{1+y'(x)^2}}{\partial y'(x)} = \frac{d}{dx} \frac{y'(x)}{\sqrt{1+y'(x)^2}} $$
+So
+
+$$ \frac{y'(x)}{\sqrt{1+y'(x)^2}} = C \Rightarrow y'(x) =  C\cdot \sqrt{1+y'(x)^2} \Rightarrow y'(x)^2 =  C^2\cdot (1+y'(x)^2) $$
+
+$$ \Rightarrow \frac{y'(x)^2}{(1+y'(x)^2)} =  C^2 \Rightarrow \frac{(1+y'(x)^2)}{y'(x)^2} = \frac{1}{C^2} = \frac{1}{y'(x)^2} + 1$$
+
+$$ \Rightarrow \frac{1}{y'(x)^2} = \frac{1}{C^2} - 1 = \frac{1-C^2}{C^2} \Rightarrow y'(x)^2 = \frac{C^2}{1-C^2} \Rightarrow y'(x) = \sqrt{\frac{C^2}{1-C^2}}$$
+
+For $A := \sqrt{\frac{C^2}{1-C^2}}$, $y'(x) = A$, so that $y(x)=Ax+B$.
+
+What we have shown: the function which minimizes arc length is a straight line. Good to know...
+
+Technically we also have to impose some conditions on the second derivative, as in the normal case of minimization.
+
+## Differential Forms
+
+In general, we want to do calculus on spaces which are locally Euclidean, but perhaps not globally. These are (smooth) manifolds.
+
+A differential $k$-form on $\RR^n$, $\alpha \in \Omega^{k}(\RR^n)$, has type: $\RR \to \Lambda^k(\RR^n)$, where $\Lambda^k(V)$ is the vector space of antisymmetric multilinear maps on $V$.
+
+There is a nice theorem called Stokes' theorem, which says: $\int_{\partial A} \omega = \int_A d\omega$

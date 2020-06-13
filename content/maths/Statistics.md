@@ -35,8 +35,6 @@ draft: False
 
 </script>
 
-## [Disclaimer on these notes](/maths/purposeofthesenotes)
-
 $\newcommand{\R}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
@@ -81,6 +79,17 @@ In general, we say that $E[y]=g^{-1}(X\theta)$, where $g$ is a link function. Th
 
 Logistic regression. Key observation: let $g(x)=log(\frac{x}{1-x})$. Let $f(x)=\frac{1}{1+e^{-x}}$. $f$ (log odds function) and $g$ (sigmoid function) are inverses.
 
+## Estimators
+
+Estimator is function of a sample from true parameter, and therefore a stochastic function of true parameter. Variance of estimator is a function of the true parameter. We can estimate the variance using the estimate of the true parameter in our function for the variance. This is the estimated standard error. Assuming our estimate of the true parameter converges on the true parameter, our estimate of its variance will also converge, assuming that estimate is a continuous function of the parameter.
+
+## Maximum Likelihood Estimate
+
+MLE is consistent if the likelihood is reasonably smooth.
+
+MLE tends asymptotically towards being normally distributed with bias of the true parameter and variance the inverse Fisher information:
+
+$$ \sqrt{nI(\theta_0)}(\hat{\theta}-\theta_0) \approx N(0,1) $$
 
 
 ### MCMC for Bayesian inference

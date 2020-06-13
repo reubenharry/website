@@ -34,22 +34,32 @@ date: 2020-02-26T17:07:24+01:00
 
 </script>
 
-## [Disclaimer on these notes](/maths/purposeofthesenotes)
 
 $\newcommand{\R}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
+<!-- Linear algebra is the study of a kind of abstract algebraic object called a vector space. Using similar methods to other parts of abstract algebra, you can prove a lot of things about vector spaces and functions between them. Key ideas:
 
+				- Vector spaces are closed under *linear combination*: as such, linear combination is the idea that they exist to capture, like how sets capture elementhood, groups capture multiplication, and so on.
+				- Coordinates:
+				- A lot is understood about how to simplify a complicated looking linear map into simpler parts
 
-## Vector Spaces
+			Applications: linear algebra is particularly distinctive among fields of abstract maths for its applicability to real-world problems
+				- sets (confusingly called systems) of linear equations ($y\_1=ax\_1+bx\_2\cdot$) appear everywhere. They can be written as equations like $y=\phi x$, where $\phi$ is a linear map. Then we can apply powerful tools to solve linear systems efficiently.
+				- There is a powerful intersection between calculus and linear algebra
+ -->
+
+### Vector Spaces
 
 A vector space is a set equipped with some extra structure, namely that you can add elements together (and get new elements that are in the space), and you can multiply elements by *scalars*.  
 
 These scalar are themselves elements of a separate kind of structured set called a field. For example, that field can be the real numbers, the complex numbers, or even the Boolean field, consisting only of $0$ and $1$.
 
-## A basis
+The vectors themselves need not be what you might expect, i.e. arrows in space. For example, you can have a vector space of functions, where $\lambda(f+g)(x)=\lambda (f(x)+ g(x))$. This is a nice idea because while the functions themselves need not be linear, we can analyze them with the tools of linear algebra.
+
+### A basis
 
 Given a field $F$, and a vector space $V(F)$ over it, we want a set $\\{a_i\\}\_{i=1}^n$ known as a basis, such that every vector can be written in the form of a weighted sum $\sum\_{i=1}e\_ia\_i$ where each $a_i$ is a scalar in $F$. (Note that this sum refers to addition in the vector space, with is different to addition in the field.) A basis should also have the property of uniqueness: there should only ever be one way of expressing a vector in terms of a basis.
 
@@ -57,11 +67,11 @@ The dimension of a vector space is the size of any basis (it turns out that any 
 
 Once we have a basis, we can refer to vectors by the $a_i$. So an array of numbers $a$ *represents* a vector in $V(F)$, in a particular basis.
 
-## Linear Independence
+### Linear Independence
 
 A set of vectors $\\{v\_i\\}\_{i}^n$ is linearly independent if $\sum_{i=0}^na_iv_i=0\Rightarrow \forall i:a_i=0$. This is the relevant property to ensure that there aren't two ways of expressing the same vector with this set.
 
-## Subspaces:
+### Subspaces:
 
 A subspace is a subset of a vector space which is *closed under the operations of the vector space*, namely addition of elements and multiplication of elements with scalars. Very different from just being a subset.
 
@@ -71,7 +81,7 @@ For subspaces $U_1, U_2$, $dim(U_1+U_2)=dim(U_1)+dim(U_2)-dim(U_1\cap U_2)$. Tha
 
 A direct sum captures the notion of subspaces with no overlap. Indeed, $dim(U_1\cap U_2)=0$ is equivalent to $U_1+U_2$ is direct.
 
-## Linear maps
+### Linear maps
 
 Linear maps a functions between vector spaces which preserve structure, in the sense that $\phi(av+bu)=a\phi(v)+b\phi(u)$. In other words, they are morphisms in a category of vector spaces.
 
@@ -80,7 +90,7 @@ A crucially useful observation, is that by dint of their linearity, linear maps 
 More precisely, if $\phi:V\to W$ is a linear map, and if $e^{(1)}$ and $e^{(2)}$ are respective bases for $V$ and $W$, then suppose $\phi(e^{1}\_i)=\sum\_kA\_{ik}e^{(2)}\_k$. In other words, you put in a basis element in $V$ into $\phi$ and you get out a weighted sum of basis elements in $W$. Here $A\_{ij}$ is the weight, and the ensuing matrix has $A_{ij}$ in the $i$-th row and $j$-th column.
 
 
-## Composition of maps
+### Composition of maps
 
 Given two maps, $\phi: A\to B$ and $\psi: B\to C$, $\psi\circ\phi$ is the map obtained by composing them. We can ask what the operation of composition of linear maps corresponds to for matrices, and the answer is matrix multiplication. We have:
 
@@ -94,11 +104,11 @@ $$
 (Av)\_{i} = \sum\_kA\_{ik}v\_{k}
 $$
 
-## More on index notation
+### More on index notation
 
 It's often very handy to talk about matrices by talking about an arbitrary element $A\_{ij}$. For example, $\delta\_{i=j}$ corresponds to the identity matrix, where $\delta$ is the Kronecker delta. This plays extremely nicely with multiplication by the identity matrix, so that $(IA)\_{ij}=\sum_k\delta\_{i=k}A\_{kj}=A\_{ij}$, as you would want.
 
-## Useful theorems about linear maps
+### Useful theorems about linear maps
 
 Rank-nullity theorem: the kernel and range are subspaces, and further, $\dim(\ker\phi)+\dim(im~\phi)=\dim(V)$ for $\phi : V\to W$.
 
@@ -108,7 +118,7 @@ A map to a smaller dimensional space is not injective and a map to a larger dime
 
 $\phi$ having a kernel which is the zero subspace is equivalent to $\phi$ being an injective map.
 
-## Inverses
+### Inverses
 
 Finding the inverse of a linear map, or the inverse of a matrix, is often very useful. For example, suppose we have: $AX=B$, where $A$ and $B$ are known matrices, and $X$ is unknown. This sort of equation is confusingly known as a system of linear equations. Solving it is the same as multiplying both sides by $A^{-1}$ if it exists (it may not).
 
@@ -116,12 +126,11 @@ A bijective linear map is an isomorphism: i.e. composes with an inverse to form 
 
 A matrix is invertible iff it sends bases to bases.
 
-
-# Linear Operators
+### Linear Operators
 
 Linear operators are linear maps from a vector space to itself (endomorphisms). A lot of things can be proven about them, and certain concepts are specific to them (as opposed to linear maps in general), like determinants, eigensystems, and the characteristic polynomial.
 
-## Determinants
+### Determinants
 
 A volume function is a multilinear alternating map $\alpha : V^n\to F$. Alternating means that $\alpha(v_1...v_n)=0$ if any $v_i=v_j$. The set of volume functions $\alpha$ of a given type forms a vector space over $F$ of dimension 1.
 
@@ -131,7 +140,7 @@ The determinant of a linear operator $\phi$ is the ratio $\frac{\alpha(\phi(v_1)
 
 One of the reasons the notion of a determinant is so important is that invertibility is equivalent to having a non-zero determinant. Another reason comes from the change of variables formula (see [calculus](/maths/analysis)).
 
-## Characteristic Polynomial
+### Characteristic Polynomial
 
 A crucial object in linear algebra is the characteristic polynomial $p\_{\phi}$ of a linear operator $\phi$. Assume that the operator is $\C^n\to\C^n$:
 $$
@@ -139,7 +148,7 @@ p\_{\phi}(\lambda) = \det (\phi-\lambda I) = \prod\_i^m(\lambda-\lambda\_i)^{v\_
 $$
 Here's the idea: the determinant of $(\phi-\lambda I)$ is some polynomial in $\lambda$ (a scalar), and any root of that polynomial is a value of $\lambda$ for which the determinant is $0$ and hence for which the map $\phi-\lambda I$ has a non-zero kernel, which means $\exists v: (\phi-\lambda I)v = 0 \Rightarrow \phi(v)=\lambda v$, which is precisely what it means for $v$ to be an eigenvector. So the roots of the characteristic polynomial are the eigenvalues of $\phi$. Because we're working with complex numbers, every polynomial has a root, so there's always an eigenvector.
 
-## Eigenobjects
+### Eigenobjects
 
 $\lambda$ is an eigenvalue of $\phi$ iff $\det(\lambda I - \phi)=0$. This is a means to calculate every eigenvalue, since $\det(\lambda I - \phi)=0$ is a polynomial in terms of $\lambda$. Since all complex polynomials have a root, by the fundamental theorem of algebra, a complex linear map always admits an eigenvalue. Not so for real linear maps.
 
@@ -149,21 +158,21 @@ An eigenspace is an invariant subspace of $\phi$. A sum of eigenspaces is direct
 
 Not all maps are diagonalizable. If $\phi : V\to V$ has dim(V) distinct eigenvalues, $\phi$ is diagonalizable.
 
-## Triangular Matrices
+### Triangular Matrices
 
 An upper triangular matrix (all entries at or below the diagonal are 0) represents in the standard basis an operator with the property that $Ae_j \in span(e_1...e_j)$ for all $e_j$. All complex linear operators admit a triangular matrix.
 
-## Nilpotent operators
+### Nilpotent operators
 
 A nilpotent operator $\phi : V\to V$ is one where for every $v \in V$, $\exists k : \phi^k(v)=0$. A nilpotent map is not diagonalizable (except if it's zero).
 
 All nilpotent operators have a matrix of the form of blocks $J_i$, where each $J_i$ looks like a right shift operator: left column and bottom row of zeros, and then the identity. Truly horrible proof.
 
-## Polynomials of operators
+### Polynomials of operators
 
 We can take polynomials of linear operators, in the sense of maps like $\phi^3+3\phi^4+7id$. Two polynomials of $\phi$, $f(\phi)$ and $g(\phi)$ commute.
 
-# Inner product spaces
+## Inner product spaces
 
 The inner product is an abstraction of the notion of an angle, and leads to some really important types of operator (self-adjoint operators) and powerful results, in particular the spectral theorem.
 
@@ -172,6 +181,8 @@ The inner product  $\langle \cdot,\cdot\rangle :V(F)\times V(F)\to F$ is linear 
 The dot product is one inner product. I think it's the only one, up to isomorphism, for finite vector spaces.
 
 The norm of v $= |\langle v,v\rangle|^{\frac{1}{2}}$. The absolute value is because the output of the inner product may be complex. A norm should always be a real number. That's sort of its whole raison d'etre.
+
+
 
 ## Cauchy-Schwartz
 
@@ -216,6 +227,14 @@ A key use of this is in quantum physics, where a measurable quantity is associat
 A unitary operator $U$ is one that preserves inner products, that is: $\langle v, u \rangle = \langle Uv, Uu \rangle$.
 
 Unitary operators have the property that, since $\langle v, u \rangle = \langle Uv, Uu \rangle = \langle v, U^\*Uu \rangle$, $U^\*U=I$. This means that $U^{-1}=U^\*$.
+
+### Function spaces as inner product spaces
+
+Here's one common inner product for a space of (integrable) functions of type $\R\to\C$: $\langle f,g\rangle = \int f(x)g(x)^\*dx $
+
+Eigenvectors of an operator in a function space are sometimes referred to as eigenfunctions.
+
+The second derivative operator $\frac{d^2}{dt^2}$ is self-adjoint in such a space, and a generalization of the above spectral theorem gives an analogous result, namely that it has an orthonormal basis of eigenvectors (the complex exponentials).
 
 ## Cayley-Hamilton Theorem
 

@@ -43,8 +43,16 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
-Most differential equations useful for predicting nature are neither solvable analytically nor tractable to numerical approximate. As such, we need a third method: reasoning about invariant quantities.
+General perspective Feynman wants to convey is that physics is a process of *decompiling* nature (my words, not his), in the sense of taking sense data and finding rules (theories) which explain parts of it. Unifying theories is desirable, and often possible. Debugging theories, by making predictions with them, gathering experimental data, and refining the theories (Box's loop) is the essence of scientific inquiry.
+
+Most differential equations (and other tools) useful for predicting nature are neither solvable analytically nor tractable to numerical approximate. As such, we need a third method: reasoning about invariant quantities.
 
 $F=ma$ really applies in each direction separately, and this separability, while sort of obvious, is very important.
 
 Equal and opposite reaction, namely that a particle exerting a force one another particle in one direction, has the opposite force exerted on it, yields that the sum of the two forces is constant. Further, since $F=\dot{p}$, the total momentum is constant, in the absence of external forces. And we'll be able to view external forces in the same way as internal ones.
+
+### 12
+
+Feynman points out that if force is just defined as mass times acceleration, then $F=ma$ is true by definition. So really, the import of Newton's claim that $F=ma$ is based on an expectation that we can make independent statements about the nature of forces, for example that they have material origins.
+
+In fact, Feynman thinks that, insofar as it is a physical law, $F=ma$ is contingent and could be false.

@@ -5,6 +5,7 @@ draft: false
 ---
 
 
+
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -24,6 +25,8 @@ draft: false
 <link rel="stylesheet" href='/webppl-editor.css'>
 
 <link rel="stylesheet" href='/webppl-viz.css'>
+
+
 
 ### A tour of the Bayesian perspective on pragmatics
 
