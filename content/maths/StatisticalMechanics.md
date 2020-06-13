@@ -45,4 +45,4 @@ $\newcommand{\Z}{\mathbb{Z}}$
 
 n.b. Name of document inspired by the faulty transcription of the *statistical mechanics* lectures I was listening to...
 
-I wrote these notes up as a [Jupyter notebook](reubencohngordon.com/docs/statmech.html).
+I wrote these notes up as a [Jupyter notebook](/docs/statmech.html).
