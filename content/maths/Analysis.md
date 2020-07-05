@@ -1,7 +1,7 @@
 ---
 title: "Calculus"
 date: 2020-01-26T17:07:24+01:00
-
+draft: False
 ---
 
 <script type="text/javascript" async
@@ -35,6 +35,7 @@ date: 2020-01-26T17:07:24+01:00
 </script>
 
 $\newcommand{\R}{\mathbb{R}}$
+$\newcommand{\RR}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
@@ -390,11 +391,3 @@ For $A := \sqrt{\frac{C^2}{1-C^2}}$, $y'(x) = A$, so that $y(x)=Ax+B$.
 What we have shown: the function which minimizes arc length is a straight line. Good to know...
 
 Technically we also have to impose some conditions on the second derivative, as in the normal case of minimization.
-
-## Differential Forms
-
-In general, we want to do calculus on spaces which are locally Euclidean, but perhaps not globally. These are (smooth) manifolds.
-
-A differential $k$-form on $\RR^n$, $\alpha \in \Omega^{k}(\RR^n)$, has type: $\RR \to \Lambda^k(\RR^n)$, where $\Lambda^k(V)$ is the vector space of antisymmetric multilinear maps on $V$.
-
-There is a nice theorem called Stokes' theorem, which says: $\int_{\partial A} \omega = \int_A d\omega$

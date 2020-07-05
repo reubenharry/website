@@ -156,12 +156,6 @@ if $||x(t)||$ is finite, the solution exists at all times, we obtain our desired
 
 ## Deriving the wave equation
 
-## Special Relativity
-
-This subject goes hand in hand with understanding coordinate frames.
-
-Relativistic units are ones in which the speed of light is $1$,
-
 # Mechanics
 
 ## Deriving Kepler's laws
@@ -209,65 +203,3 @@ Finally, note that the norm of the cross product $||u\times v||$ is the same as 
 Further, $\frac{d}{dt}x(t)\times x'(t) = x(t)\times x''(t)+x'(t)\times x'(t) = x(t)\times x''(t)=x(t)=K(x(t)\times x(t))=0$, so $x(t)$ and $x'(t)$ both remain orthogonal to $x(t)\times x'(t)$ for all time. The result is that the path stays in a plane, orthogonal to position relative position and velocity.
 
 Then, if $A(t)$ is the area swept out by the orbit up to time $t$, $dA(t)=\frac{1}{2}||x(t)\times dx(t)||=\frac{1}{2}||x(0)\times x'(0)||$ so that $A(t)=\frac{t}{2}||x(0)\times x'(0)||$. This is Kepler's second law.
-
-# Relativity
-
-Newton's first law is that there is a set of so-called *inertial* reference frames under which the laws of physics don't change, in the sense that the same differential equation determines them.
-
-Inertial transforms are ones which switch between inertial reference frames. One particular kind of switch is called a Galilean transform, and is the switch between one reference frame, and the reference frame determined by a particle moving at a constant speed relative to that frame.
-
-To make that clear, imagine that I'm standing at a point one a railroad. I measure distances along the railroad relative to myself. But a passenger on a train moving away from me at a constant speed might also measure positions relative to themselves, and their measurements would be different.
-
-The transform can be expressed as: $(x,t)\mapsto(x-vt,t)$. That is, the position (here in 1 dimension) that I call $x$, the train passenger calls $x-vt$. Here, $v$ is the velocity of the train.
-
-Einstein notes that this the assumption that this Galilean transform preserves inertial frames contradicts a second principle, that the speed of light is invariant across frames. The problem is pretty clear: if I perceive the speed of light moving away from me as $c$, then surely you should perceive it as $c-v$. But then the speed of light is relative.
-
-The key idea of special relativity is to postulate that Galilean transforms do not preserve inertial frames, but rather a new kind of transform, Lorentzian transforms, do.
-
-## Deriving the Lorentz transform
-
-
-## Quantum Mechanics
-
-The fundamental feel of quantum mechanics is that linear algebra is the "operating system". Roughly, the maths takes place in a category of vector spaces rather than of sets. This change is responsible for most of the fundamental, weird seeming differences, like the importance of measurement, and entanglement.
-
-Here are the rules:
-
-- A state is a *2-normalized* vector in some vector space over the complex field. In other words, its Euclidean norm is 1.
-- A measurable is a self-adjoint (Hermitian) operator over that vector space.
-- A measurement of a measurable results in a distribution over eigenvalues (all real because of the spectral theorem) of that measurable, each with probability given by the projection of the state onto the corresponding eigenvector.
-- The new state after time $t$ is given by a unitary matrix $U(t)$. This unitarity means the past is predictable from the present.
-- A mixed state is a probability distribution over pure states.
-
-
-The expectation of a measurable $M$ given a state $s$ comes out to be $<s|M|s>$.
-
-### Bra-ket notation:
-
-Kets are vectors in the state space, bras are dual vectors, i.e. linear functionals from the space to $C$. The notation is basically a convenient visual pun, so that a bra and ket combine to give the inner product (or the outer product in the other direction).
-
-### Time Evolution
-
-An infinitesimal time change $(I - i\epsilon H)$ must also be unitary, so $I = (I - i\epsilon H)(I - i\epsilon H)^\* = (I - i\epsilon H)(I + i\epsilon H^\*) = I - i\epsilon H + i\epsilon H^\* \Rightarrow H^\* = H $. This means $H$ is self-adjoint, so is measurable. We call it the Hamiltonian, as it acts analogously to the classical Hamiltonian. Most notably, using the definition of a derivation and taking a limit of small $\epsilon$, $\hbar\frac{d\phi(t)}{dt}=-iH\phi$. $\hbar$, the reduced Planck's constant, is for the dimensions.
-
-A more direct way to understand this is to recall that if $\frac{d\phi(t)}{dt}=H\phi$, then $\phi(t)=e^{tH}$ (a linear differential equation with a matrix exponential) so this is how the Hamiltonian evolves through time ($e^{tH}$ is unitary if $H$ is skew-self-adjoint, see [ODE notes](/maths/odes)).
-
-Time evolution is particularly easy to solve in the basis of eigenvectors of the Hamiltonian, since then $H$ is diagonal.
-
-### Composing systems
-
-If you want states with multiple things, e.g. two particles, you need a tensor product of vector spaces. The key feature of the monoidal product in a category of vector spaces is that it is *not the categorical product* (in the category of Hilbert spaces that we are implicitly working in). You can't get the parts out of the whole. So if you have a fully specified state in the tensor product space, that need not give you any information about the subspace corresponding to one of your qubits.
-
-Alternatively, using the trace trick, we can form from a state $\phi$ the projection operator $|\phi\rangle\langle\phi|$ (remember that $\phi$ is normalized), and note that $Tr|\phi\rangle\langle\phi|M$ is the expectation of $M$ in state $\phi$. More generally, a density matrix $\sum_ia_ie_ie_i^T$ gives you a *mixed* state.
-
-The simplest non-trivial system is a 2D state space called a qubit or spin. It's called a spin cause the measurables themselves form a vector space isomorphic to real 3-space, and with a certain Hamiltonian, it acts like a classical particle with angular momentum. This is weird but nice.
-
-Quantization is the act of taking a classical system and designing a quantum system that behaves like the classical system in the limit of $h\to 0$ (roughly). To quantize the motion of a classical particle, we need to upgrade to infinite dimensional Hilbert spaces.
-
-In particular, take the space of functions which are normalizable (when you integrate them multiplied by their complex conjugate from $-\infty$ to $\infty$, you get a finite number).
-
-Position is the operator: $X \phi x = x\phi(x)$. Momentum is the operator: $P \phi x = -ih\nabla_x\phi(x)$ (or $-ih\frac{d}{dx}$ for 1D case). n.b. Using $h$ for reduced Planck's constant - not really clear on what dimensions do yet.
-
-Eigenfunction/eigenvalue pairs for $X$ are $\delta(x-k),k$. Eigenfunction/eigenvalue pairs for $P$ are $e^{-ihx}$.
-
-This assumes $\phi$ is being expressed in the position basis (i.e. is a function of $x$). To make $\Phi$ (using capitals for the element in the vector space, rather than any concrete function) represented in the momentum basis, we do a Fourier transform.

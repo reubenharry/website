@@ -17,7 +17,7 @@ Rated 5 stars, for Abundance of Vegetables, pleasantly thick coconut base, flavo
 
 ### Week 2: Japanese Curry
 
-Tasted great, easy to cook.
+Tasted great, easy to cook, hearty.
 
 ### Week 3: Bengali Fish Curry
 
@@ -25,7 +25,17 @@ Frying the fish separately took a long time. Feeling of revulsion on repeat cons
 
 ### Week 4: Cambodian Saraman
 
-Made the curry paste from First Principles. Failure to obtain mortar and pestle was blessing in disguise. Too much lemon grass, but turned out edible.
+Made the curry paste from First Principles. Failure to obtain mortar and pestle was blessing in disguise. Blender is optimal. Too much lemongrass, but turned out edible.
+
+### Week 5: Caribbean Jerk Chicken and Sweet Potato Curry
+
+Beans take a long time to cook. Buy jerk seasoning from a Caribbean place, not Whole Foods.
+
+### Week 6: Sri Lankan Jackfruit, Potato, Chicken and Green Been Curries
+
+This was good. Big fan of jackfruit.
+
+### Week 7: Ethiopian Doro Wat
 
 <!-- ### African Curry
 
