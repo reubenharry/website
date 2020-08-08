@@ -38,7 +38,7 @@ draft: False
 </html>
 
 
-(To clarify, the right-hand image is my one, and the left-hand is the original.)
+(To clarify, the right-hand image is my one, and the left-hand one is the original.)
 
 <!-- Look, I know what you're thinking: why would anyone paint a brush-stroke-for-brush-stroke replica of Las Meninas? It's needless. -->
 

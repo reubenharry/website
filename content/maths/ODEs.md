@@ -56,7 +56,7 @@ Often we consider the subset of *autonomous* cases:
 $$
 \frac{d\phi(x\_0)(t)}{dt} = F(\phi(x\_0)(t))
 $$
-Often we write $(3)$ as:
+Often we write the above as:
 $$
 \phi(x\_0)' (t) = F(\phi(x\_0)(t))
 $$
@@ -263,7 +263,7 @@ First, $H\_x(0)\_{ij} = D\_1\phi(x,0)\_{ij}=\frac{dx\_i}{dx\_j}=\delta\_{i=j}$. 
 
 OK, so now we would like to analyze $\frac{\partial}{\partial t}J(x,t)$ further.
 
-Jacobi's formula (see [see notes on linear algebra](/maths/linearalgebra)) is: $\frac{d}{dt}\det \phi = tr(\det(\phi)\phi^{-1}\frac{d\phi}{dt})$
+Jacobi's formula (not derived here) is: $\frac{d}{dt}\det \phi = tr(\det(\phi)\phi^{-1}\frac{d\phi}{dt})$
 
 This means that $\frac{d}{dt}\det H\_x(t) = tr(\det(H\_x(t))H\_x(t)^{-1}DF(x,t)\cdot H\_x(t))=tr(DF(x,t))\cdot det(H\_x(t))$. Or:
 $$
@@ -433,7 +433,7 @@ So
 
 $$ DF((0,0)) = \begin{bmatrix} \alpha & 0 \\\\\\ 0  & - \beta  \\\\\\end{bmatrix}  $$
 
-Since $\alpha$ and $\beta$ are both positive, $DF((0,0))$ has one positive and one negative eigenvalue, and as such, is an unstable equilibrium. In fact, since this is a hyperbolic equilibrium, we can apply the stable manifold theorem, and in this simple case, it's unsurprising that the y-axis here is the stable manifold and the x-axis in the unstable manifold.
+Since $\alpha$ and $\beta$ are both positive, $DF((0,0))$ has one positive and one negative eigenvalue, and as such, is an unstable equilibrium. In fact, since this is a hyperbolic equilibrium, we can apply the stable manifold theorem, and in this simple case, it's unsurprising that the y-axis here is the stable manifold and the x-axis is the unstable manifold.
 
 By contrast:
 

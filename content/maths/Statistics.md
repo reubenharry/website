@@ -42,7 +42,13 @@ $\newcommand{\Z}{\mathbb{Z}}$
 
 ## Overview
 
-A key idea in statistics is fitting a model to data. A model is a probability distribution $P(x;\theta)$, parameterized by some $\theta$. In Bayesian terms, the idea is to assume the model, then find the posterior distribution over $\theta$. One frequentist approach is to find the single value of $\theta$ which maximizes the likelihood of the data.
+A key idea in statistics is fitting a model to data. A (parametric) model is a probability distribution $P(x;\theta)$, parameterized by some $\theta$. In Bayesian terms, the idea is to assume the model, then find the posterior distribution over $\theta$. One frequentist approach is to find the single value of $\theta$ which maximizes the likelihood of the data.
+
+### Frequestist statistics
+
+A sample is a vector of independent, identically distributed draws from the model. An estimator is a function on the sample. The sample, and in turn the estimator, are random variables themselves, and a key method of frequentist statistics is to find the distribution of a given estimator, or a good approximation of it in the limit of large sample size.
+
+In practice, this is the mainstream approach to statistics, but conceptually it's weird and niche, and Bayesian methods make a lot more sense.
 
 ### Regression
 
@@ -91,6 +97,9 @@ MLE tends asymptotically towards being normally distributed with bias of the tru
 
 $$ \sqrt{nI(\theta_0)}(\hat{\theta}-\theta_0) \approx N(0,1) $$
 
+### Cramer-Rao (general form)
+
+Variance of any estimator $\hat{\theta}$ is bounded by: $$ \frac{\tau'(\theta)}{nI(\theta_0)} $$ where $\tau(\theta)$ is $E[\hat{\theta}]$
 
 ### MCMC for Bayesian inference
 

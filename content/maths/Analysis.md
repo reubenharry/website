@@ -42,7 +42,7 @@ $\newcommand{\Z}{\mathbb{Z}}$
 
 ## Analysis
 
-Analysis is the careful building up of the concepts needed to talk about infinitesimal change. Often, calculus can be used without diving into analytic details, but it's often useful.
+Analysis is the careful building up of the concepts needed to talk about infinitesimal change. Not always a requisite for actually using calculus.
 
 ### Sequence
 
@@ -151,7 +151,7 @@ $$=\lim\_{h\to0}\frac{2xh}{h}+\lim\_{h\to0}\frac{h^2}{h}=\lim\_{h\to0}2x+\lim\_{
 
 Note that $h^2$ in the numerator was not a linear function of $h$, in particular, using little-o notation, we can say that $h^2$ is $o(h^n)$ for $n>2$, and as such drops out.
 
-This pattern crops up all the time, where to find the derivative of a function, you can drop all terms that are $o(h^n)$ for $n>2$. In particular, it's used in the context of Taylor series expansions, e.g. you could write: $e^x=1+x+o(x^3)$.
+This pattern crops up all the time, where to find the derivative of a function, you can drop all terms that are $o(h^n)$ for $n>2$. In particular, it's used in the context of Taylor series expansions, e.g. you could write: $e^x=1+x+o(x^2)$.
 
 
 ### Taylor Series

@@ -40,7 +40,7 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
-(I'll assume some of the basic language of category theory in some of this)
+A bit sparser that some of the other notes here. Mostly based on [these notes](http://math.stanford.edu/~eliash/Public/math177/177-diff-forms.pdf), and bolstered with a bit of category theory.
 
 In general, we want to do calculus on spaces which are locally Euclidean, but perhaps not globally. These are (smooth) manifolds. View this is a category $\mathcal{M}$, with manifolds as the objects and diffeomorphisms as the morphisms.
 

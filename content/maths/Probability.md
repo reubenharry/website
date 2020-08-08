@@ -41,37 +41,9 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
-## Some distributions
-
-### Gaussian Distribution
-
-Its weird looking pdf can be understood by first looking at the standard normal N(0,1), with pdf $\frac{1}{\sqrt{2\pi)}}e^{-\frac{1}{2}x^2}$ and then doing change of variables, noting that if $f$ is the pdf of $X$, $\frac{1}{\sigma}f(\frac{x-\mu}{\sigma})$ is the pdf of $\mu + \sigma X$, by change of variables.
-Similarly for the multivariate Gaussian, observe that a change from $X$ to $\mu + \Sigma X$ justifies its form.
-
-So really, the hard part is finding the value of the Gaussian integral $\int\_{-\infty}^{\infty}e^{-x^2}=\sqrt{\pi}$.
-
-
-
-### Exponential Distribution
-
-$PDF(x;\lambda) = \int \lambda e^{-\lambda x} $
-
-### Markov Random Field
-
-$P(x|\theta) = \frac{e^{\theta^T\cdot f(x)}}{\sum\_{x'}e^{\theta^T\cdot f(x')}}$
-
-where $f(x)$ is an indicator function and $\theta$ is a vector of parameters. This parametrization shows that an MRF is an exponential family distribution.
-
-### Empirical Distribution
-
-The delta distribution which places full weight on the data (viewed as a single data point).
-
-
-$E[X;\lambda] = E[\int \lambda e^{-\lambda x}] = \int x \lambda e^{-\lambda x} = [x \cdot -e^{-\lambda x}]\_0^{\inf} + \int e^{-\lambda x} = 0 + [-\frac{1}{\lambda}\cdot e^{-\lambda x}]\_0^{inf} = \frac{1}{\lambda}$
-
 ## PDF of function of random variable
 
-Suppose Y = f(X) and f is increasing. Then $F\_Y(y) = P(Y\leq y) =  P(g(X)\leq y) = P(X\leq g^{-1}(y)) = F\_X(g^{-1}(y)) $.
+Suppose Y = g(X) and g is increasing. Then $F\_Y(y) = P(Y\leq y) =  P(g(X)\leq y) = P(X\leq g^{-1}(y)) = F\_X(g^{-1}(y)) $.
 
 Then $f\_Y(y) = F'\_Y(y) = \frac{d}{dy}F\_X(g^{-1}(y)) = f\_X(g^{-1}(y))\frac{d}{dy}g^{-1}(y) =  f\_X(g^{-1}(y))\frac{dg^{-1}(y)}{dy}$
 
@@ -97,11 +69,18 @@ $$ F_{X+Y}(z) = \int\_{-\infty}^{\infty}\int\_{-\infty}^{z-x} f\_{(X,Y)}(x,y) dy
 
 $$ = \int\_{-\infty}^{\infty}\int\_{-\infty}^{z} f\_{(X,Y)}(x,v-x) dvdx = \int\_{-\infty}^{z}\int\_{-\infty}^{\infty} f\_{(X,Y)}(x,v-x) dvdx   $$. Then, taking the derivative with respect to $x$, using the fundamental theorem of calculus, and assuming independence of $X$ and $Y$, we have that $f\_{X+Y}(z) = \int\_{-\infty}^{\infty} f\_X(x)\cdot f\_Y(z-x) dx$.
 
+## Characteristic Function
+
+Characteristic function of a random variable is the (inverse) Fourier transform of its density.
+
+Characteristic function of a Gaussian is a Gaussian (see [notes on Fourier analysis](/maths/fourier))
+
+
 ## Central Limit Theorem
 
 Various increasingly powerful versions, but simplest is:
 
-For a sequence $\{X\_i\}$ of independent and identically distributed (iid) random variables with mean $\mu$ and variance $\sigma^2$, $\bar{X}\_n=\sum\_i^nX\_i$ converges to $Z \sim N(\mu,\sigma^2)$, i.e. to a standard normal.
+For a sequence $\{X\_i\}$ of independent and identically distributed (iid) random variables with mean $\mu$ and variance $\sigma^2$, $\bar{X}\_n=\sum\_i^nX\_i$ converges to $Z \sim N(\mu,\sigma^2)$, i.e. to a normal.
 
 The proof uses the continuity theorem, which effectively says that it's sufficient to show that the moment generating function (MGF) converges to that of a normal MGF. Let $Z\_n= \frac{X\_n}{STD[X\_n]} = \frac{X\_n}{\sqrt{n}\sigma}$. Then we observe the following:
 
@@ -119,6 +98,8 @@ But then:
 $$ MGF\_{Z\_n}(t) = [1 + \frac{(\frac{t}{\sqrt{n}\sigma})^2}{2}\sigma^2 + o(t^2)]^n = [1 + \frac{t^2}{2n} + o((\frac{t}{\sqrt{n}\sigma})^2)]^n$$
 
 But this converges to $e^{\frac{t^2}{2}}$ as $n$ goes to infinity. That's the MGF of a standard normal, so we're done.
+
+Note that this proof is a basic application of Fourier analysis an is most simply seen from that perspective. The PDF of a sum of iid random variables $X_i$ is a convolution of $n$ PDFs of $X_i$, the Fourier transform of a convolution is a raising of the Fourier transform of those PDFs to the $n$th power, and Taylor expanding inside the Fourier integral basically gives us the result (see e.g. page 130 of [this](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf)).
 
 ## Exponential Family
 
@@ -159,25 +140,42 @@ Crucial point: how do we convert from the mean parametrized form of the Bernoull
 
 Easy: take the log odds: $\eta=log(\frac{\mu}{1-\mu})$. And the inverse is the sigmoid function.
 
-## Characteristic Function
+## Some distributions
 
-Characteristic function of a random variable is the (inverse) Fourier transform of its density.
+### Gaussian Distribution
 
-Characteristic function of a Gaussian is a Gaussian (see [notes on Fourier analysis](/maths/fourier))
+Its weird looking pdf can be understood by first looking at the standard normal N(0,1), with pdf $\frac{1}{\sqrt{2\pi)}}e^{-\frac{1}{2}x^2}$ and then doing change of variables, noting that if $f$ is the pdf of $X$, $\frac{1}{\sigma}f(\frac{x-\mu}{\sigma})$ is the pdf of $\mu + \sigma X$, by change of variables.
+Similarly for the multivariate Gaussian, observe that a change from $X$ to $\mu + \Sigma X$ justifies its form.
 
+So really, the hard part is finding the value of the Gaussian integral $\int\_{-\infty}^{\infty}e^{-x^2}=\sqrt{\pi}$.
 
-## Monte Carlo Methods
+Smoothing over a bunch of analytic difficulties, here's the basic idea:
 
-Often you find yourself in a situation where you have specified a distribution P but cannot compute it analytically. A common thing you might want is the expectation of some function $f$ under P (i.e. $\int\_{support(P)} f(x)P(x)dx)$, where I'm using $P$ to also mean the pdf of the distribution $P$). You can approximate this, and other such quantities, if you have a good means of taking representative samples from $P$.
+$$\int\_{-\infty}^{\infty}e^{-x^2}=\sqrt{(\int\_{-\infty}^{\infty}e^{-x^2}dx)^2}$$
+$$ = \sqrt{\int\_{-\infty}^{\infty}e^{-x^2}dx\int\_{-\infty}^{\infty}e^{-y^2}dy}$$
+$$ = \sqrt{\int\_{-\infty}^{\infty}\int\_{-\infty}^{\infty}e^{-(x^2+y^2)}dxdy}$$
+$$ = \sqrt{\int\_{-\infty}^{0}e^{-r^2}2\pi rdr}$$
+$$ =\sqrt{\pi}$$
 
-**Monte Carlo methods are methods for taking samples from the typical set of a distribution and using those to calculate approximate quantities of the distribution, like the expectation or other moments.**
+### Exponential Distribution
 
-In particular, you want samples from the typical set, i.e. the part of the space of the support of $P$ which has both large volume and high probability density. It turns out that in high dimensions, almost all of the mass is concentrated in such a set. (Note: the notion of a typical set comes from information theory - as I'm using it here, it's not a precise notion; I'm not saying, for example, that it has an exact boundary).
+$$PDF(x;\lambda) = \int \lambda e^{-\lambda x} $$
 
+$$E[X;\lambda] = E[\int \lambda e^{-\lambda x}] = \int x \lambda e^{-\lambda x} = [x \cdot -e^{-\lambda x}]\_0^{\inf} + \int e^{-\lambda x}$$
 
-Markov Chain Monte Carlo: a type of Monte Carlo method. Say that you have $P$ up to proportionality, and call this $P\*$. You choose a translation kernel Q (in the finite case, representable as a stochastic matrix from states to states) and an acceptance criterion (Metropolis Hastings is one common one) and then take a random walk. Given some assumptions, you can prove that a distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of Q, which given some assumptions, is P.
+$$ = 0 + [-\frac{1}{\lambda}\cdot e^{-\lambda x}]\_0^{inf} = \frac{1}{\lambda}$$
 
-In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable.
+### Markov Random Field
+
+$$P(x|\theta) = \frac{e^{\theta^T\cdot f(x)}}{\sum\_{x'}e^{\theta^T\cdot f(x')}}$$
+
+where $f(x)$ is an indicator function and $\theta$ is a vector of parameters. This parametrization shows that an MRF is an exponential family distribution.
+
+### Empirical Distribution
+
+The delta distribution which places full weight on the data (viewed as a single data point).
+
+## Useful approximations
 
 ### Stirling's Approximation
 
@@ -212,16 +210,22 @@ $$
 N! = \Gamma(N)=\int_0^{\infty} e^{-x}N^Ndx \approx \int_0^{\infty} e^{-N}N^Ne^{-\frac{1}{2}(\frac{x-N}{\sqrt{N}})^2}=e^{-N}N^N\sqrt{2\pi N}
 $$
 
+
+
+
+## Monte Carlo Methods
+
+Often you find yourself in a situation where you have specified a distribution P but cannot compute it analytically. A common thing you might want is the expectation of some function $f$ under P (i.e. $\int\_{support(P)} f(x)P(x)dx)$, where I'm using $P$ to also mean the pdf of the distribution $P$). You can approximate this, and other such quantities, if you have a good means of taking representative samples from $P$.
+
+**Monte Carlo methods are methods for taking samples from the typical set of a distribution and using those to calculate approximate quantities of the distribution, like the expectation or other moments.**
+
+In particular, you want samples from the typical set, i.e. the part of the space of the support of $P$ which has both large volume and high probability density. It turns out that in high dimensions, almost all of the mass is concentrated in such a set. (Note: the notion of a typical set comes from information theory - as I'm using it here, it's not a precise notion; I'm not saying, for example, that it has an exact boundary).
+
+
+Markov Chain Monte Carlo: a type of Monte Carlo method. Say that you have $P$ up to proportionality, and call this $P\*$. You choose a translation kernel Q (in the finite case, representable as a stochastic matrix from states to states) and an acceptance criterion (Metropolis Hastings is one common one) and then take a random walk. Given some assumptions, you can prove that a distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of Q, which given some assumptions, is P.
+
+In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable.
+
+
+
 <!-- ### Binomial Distribution Approximations -->
-
-
-
-### Gaussian Integral
-
-Smoothing over a bunch of analytic difficulties, here's the basic idea:
-
-$$\int\_{-\infty}^{\infty}e^{-x^2}=\sqrt{(\int\_{-\infty}^{\infty}e^{-x^2}dx)^2}$$
-$$ = \sqrt{\int\_{-\infty}^{\infty}e^{-x^2}dx\int\_{-\infty}^{\infty}e^{-y^2}dy}$$
-$$ = \sqrt{\int\_{-\infty}^{\infty}\int\_{-\infty}^{\infty}e^{-(x^2+y^2)}dxdy}$$
-$$ = \sqrt{\int\_{-\infty}^{0}e^{-r^2}2\pi rdr}$$
-$$ =\sqrt{\pi}$$
