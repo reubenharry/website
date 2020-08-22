@@ -43,7 +43,7 @@ $\newcommand{\Z}{\mathbb{Z}}$
 
 # Relativity
 
-Notes based mostly on Special Relativity and *Classical Field Theory: The Theoretical Minimum* and [this wikipedia page](https://en.wikipedia.org/wiki/Derivations_of_the_Lorentz_transformations).
+Notes based mostly on *Special Relativity and Classical Field Theory: The Theoretical Minimum* and [this wikipedia page](https://en.wikipedia.org/wiki/Derivations_of_the_Lorentz_transformations).
 
 The "feel" of quantum physics is that linear algebra provides the relevant mathematical toolbox. For special and general relativity, the relevant mathematical tool comes from geometry.
 

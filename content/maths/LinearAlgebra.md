@@ -108,6 +108,8 @@ $$
 
 It's often very handy to talk about matrices by talking about an arbitrary element $A\_{ij}$. For example, $\delta\_{i=j}$ corresponds to the identity matrix, where $\delta$ is the Kronecker delta. This plays extremely nicely with multiplication by the identity matrix, so that $(IA)\_{ij}=\sum_k\delta\_{i=k}A\_{kj}=A\_{ij}$, as you would want.
 
+Also, $A_iB_j$ is the index version of $A\otimes B$, the tensor product.
+
 ### Useful theorems about linear maps
 
 Rank-nullity theorem: the kernel and range are subspaces, and further, $\dim(\ker\phi)+\dim(im~\phi)=\dim(V)$ for $\phi : V\to W$.
@@ -272,7 +274,7 @@ In the category of sets, the monoidal product and the categorical product are th
 
 ## Generalized Eigendecomposition
 
-A generalized eigenspace is set of vectors $v$ such that for \emph{some} $k$, $(\phi - \lambda id)^kv=0$, for some eigenvalue $\lambda$. Indeed, $k$ needs to be at most dim(V) to kill $v$, so a generalized eigenspace $G(\lambda,\phi : V\to V)$ is just the kernel of $(\phi - \lambda id)^{dim(V)}$.
+A generalized eigenspace is set of vectors $v$ such that for *some* $k$, $(\phi - \lambda I)^kv=0$, for some eigenvalue $\lambda$. Indeed, $k$ needs to be at most dim(V) to kill $v$, so a generalized eigenspace $G(\lambda,\phi : V\to V)$ is just the kernel of $(\phi - \lambda I)^{dim(V)}$.
 
 Recall that the characteristic polynomial $p_{\phi}(\lambda)$ of a linear operator $\phi$ is defined as:
 
@@ -313,7 +315,7 @@ $$
 $$
 Since $\bigoplus\_i^m ker\space (\phi-\lambda\_iI)^{v\_i}$ is a direct sum, $v$ always belongs in a single generalized eigenspace, and clearly it is diagonalizable (just choose any basis).
 
-Now consider $N=\phi-\Lambda$. It follows easily that $N\Lambda=\phi\Lambda - \Lambda^2 = \Lambda\phi - \Lambda^2 = \Lambda+N$. Moreover, if we once again use the fact that any vector $v$ has to be in one of the generalized eigenspaces:
+Now consider $N=\phi-\Lambda$. It follows easily that $N\Lambda=\phi\Lambda - \Lambda^2 = \Lambda\phi - \Lambda^2 = \Lambda N$. Moreover, if we once again use the fact that any vector $v$ has to be in one of the generalized eigenspaces:
 $$
 Nx = \phi x - \Lambda x = (\phi - \lambda_iI) x \Rightarrow N^nx = (\phi - \lambda_iI)^nx = 0
 $$

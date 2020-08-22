@@ -7,9 +7,9 @@ draft: True
 
 ---
 
-In the spirit of adding a constraint to get past an overwhelming abundance of choices, I decided that the "learn to cook so you can navigate adult life" journey would be curry only. Obviously this raises a somewhat tedious question of what a curry is, but I'm going by the rule of: anything generally called a curry.
+On the grounds that you can eat curry for every meal for a week and get (unreasonably) sick of it, we decided to eat curry for every meal every week.
 
-So far:
+Some thoughts on the results:
 
 ### Week 1: Thai Green Curry
 
@@ -37,16 +37,16 @@ This was good. Big fan of jackfruit.
 
 ### Week 7: Ethiopian Doro Wat
 
-<!-- ### African Curry
+Probably our best effort. Not a curry, but I wanted to try making it.
 
-### Sri Lankan jackfruit/mango Curry
+### Week 8: Thai Panang Curry
 
-### Jerk Curry
+Too much sauce.
 
-### Mauritian Curry
+### Week 9: Chana Masala and Goan Fish Curry
 
-### Thai Masaman Curry
+### Week 10: Chicken Korma and Paneer Korma
 
-### Thai Red Curry
+### Week 11: Chicken Tikka Masala
 
-### Chicken Tikka Masala -->
+Turned out amazing.

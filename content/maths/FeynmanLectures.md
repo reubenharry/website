@@ -57,7 +57,7 @@ He outlines the 1920s understanding of physics.
 
 - Atoms are made of a nucleus of positively charged neutrons and protons, surrounded by negatively charged electrons.
 
-- particles are subject to two kinds of forces: gravitation, which is very weak, and electromagnetic force, which is very strong.
+- particles are subject to two kinds of forces: gravitation, which is very weak, and electromagnetic force, which is really very strong indeed.
 
 The reason electromagnetic force does not dominate all interactions is that there are positive and negative charges, and charges repeal if of like sign, and attract otherwise. This means that a particle of balanced charge exerts almost no force on a far away particle (but it's different for things that are close).
 

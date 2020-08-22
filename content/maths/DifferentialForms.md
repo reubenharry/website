@@ -42,9 +42,13 @@ $\newcommand{\Z}{\mathbb{Z}}$
 
 A bit sparser that some of the other notes here. Mostly based on [these notes](http://math.stanford.edu/~eliash/Public/math177/177-diff-forms.pdf), and bolstered with a bit of category theory.
 
+### Overview
+
 In general, we want to do calculus on spaces which are locally Euclidean, but perhaps not globally. These are (smooth) manifolds. View this is a category $\mathcal{M}$, with manifolds as the objects and diffeomorphisms as the morphisms.
 
 Riemann integrals have this $dx$ in them, which is basically "syntactic sugar" (as a programmer might say) to indicate what the variable of integration is. The calculus of differential forms actually treats the $dx$ or in a 2D case $dx\wedge dy$ as a real object (in fact, an asymmetric multilinear map). Doing this right takes some setup, but results in a very clean and more importantly, coordinate independent, notion of integration on manifolds.
+
+After developing the groundwork, one thing that can be expressed very nicely in the language of differential forms is (the generalized) Stokes' theorem, which subsumes many important theorems of the flavour: the volume of a blob is related to the volume of its boundary. For that reason, this bit of maths feels a lot like computer science, where if you set up your framework carefully, you get a lot of generality for free.
 
 ### Antisymmetric multilinear maps
 
@@ -123,7 +127,7 @@ $$df = \sum_{i=1}^n \frac{\partial f}{\partial x_i}dx\_i $$
 
 The exterior derivative is a generalization of the derivative to differential forms. But actually it's better to think of it as a family of operators, and in particular as a natural transformation. First, the definition, for $\omega = \sum\_{i\_1\lt \ldots \lt i\_k}a\_{i\_1\ldots i\_k} dx\_{i\_1}\wedge\ldots \wedge dx\_{i\_k}$
 
-$$ d\omega = \sum\_{i\_1\lt \ldots \lt i\_k}da\_{i\_1\ldots i\_k} dx\_{i\_1}\wedge\ldots \wedge dx\_{i\_k} $$
+$$ d\omega = \sum\_{i\_1\lt \ldots \lt i\_k}da\_{i\_1\ldots i\_k}\wedge dx\_{i\_1}\wedge\ldots \wedge dx\_{i\_k} $$
 
 Consider a category where objects are differential forms on a manifold M, and morphisms are *pullbacks*.
 
@@ -204,13 +208,17 @@ $$ d\omega\_0 = 0$$
 
 $$ \oint\_{\partial D^2} f^{\*}\omega\_0 = 0 $$
 
+Since it's the integral of an exact form on a loop, and therefore $0$.
+
 But since integrals are invariant under pullbacks, this would mean that
 
 $$ \oint\_{\partial D^2} \omega\_0 = 0 $$
 
 in contradiction to
 
-$$ \oint\_{\partial D^2} \omega\_0 = 0 $$
+$$ \oint\_{\partial D^2} \omega\_0 = 2\pi $$
+
+which is shown above.
 
 ### Brouwer's fixed point theorem
 

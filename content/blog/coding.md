@@ -52,7 +52,13 @@ Haskell has a difficult learning curve at the intermediate level. I'm keeping tr
 
 [Example of simple parser combinators written from the ground up](http://dev.stephendiehl.com/fun/002_parsers.html)
 
+## Recursion via fixpoints
+
+[Excellent introduction to difficult topic](https://www.parsonsmatt.org/2016/10/26/grokking_fix.html) and another [blog post](https://elvishjerricco.github.io/2017/08/22/monadfix-is-time-travel.html) which builds on that.
+
 ## Recursion schemes and free monads
+
+Necessary to first understand *fix*.
 
 [Great tutorial](https://www.parsonsmatt.org/2017/09/22/what_does_free_buy_us.html) building up to Free from scratch.
 
@@ -63,6 +69,10 @@ Haskell has a difficult learning curve at the intermediate level. I'm keeping tr
 Lovely summary of category theory origins of [monads](https://www.stephendiehl.com/posts/monads.html) and [adjunctions](https://www.stephendiehl.com/posts/adjunctions.html) with the beautiful diagrammatic notation that this kind of stuff allows for.
 
 [Category theory for programmers](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/). Learn why a monad is a monoid in the categories of endofunctors, and why polymorphic functions are natural transformations.
+
+## Functional Reactive Programming
+
+Took me a while to find out what this actually meant, but thankfully this [2015 talk by Conal Elliott](https://begriffs.com/posts/2015-07-22-essence-of-frp.html) ([or this version](https://www.youtube.com/watch?v=j3Q32brCUAI)) precisely answers that question.
 
 ## Probabilistic programming
 
