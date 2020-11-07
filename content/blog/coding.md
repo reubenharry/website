@@ -1,6 +1,6 @@
 ---
 title: "Functional Programming"
-date: 2017-01-26T17:07:24+01:00
+date: 2020-01-26T17:07:24+01:00
 draft: False
 
 ---
@@ -63,6 +63,14 @@ Necessary to first understand *fix*.
 [Great tutorial](https://www.parsonsmatt.org/2017/09/22/what_does_free_buy_us.html) building up to Free from scratch.
 
 [Another good tutorial on free monads](https://jtobin.io/practical-recursion-schemes)
+
+## Lenses
+
+A small bit of theory: https://blog.jle.im/entry/lenses-products-prisms-sums.html
+
+## Continuations
+
+https://begriffs.com/posts/2015-06-03-haskell-continuations.html
 
 ## Category theory
 

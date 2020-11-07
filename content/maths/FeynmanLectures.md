@@ -37,8 +37,8 @@ draft: True
 
 </script>
 
-
 $\newcommand{\R}{\mathbb{R}}$
+$\newcommand{\RR}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
@@ -71,9 +71,7 @@ Feynman then goes into a lot of messy detail about the state of understanding of
 
 ### Chapter 3
 
-Probably the sort of material that gives physicsts their reputation for being insufferably arrogant, and Feynman for being sexist.
-
-An overview of the core fields of scientific inquiry. Psychology is rightly identified as having only a very small amount of success.
+Probably the sort of material that gives physicsts their reputation for being insufferably arrogant, and Feynman for being sexist. An overview of the core fields of scientific inquiry.
 
 ### Chapter 4
 
@@ -103,4 +101,100 @@ Equal and opposite reaction, namely that a particle exerting a force one another
 
 Feynman points out that if force is just defined as mass times acceleration, then $F=ma$ is true by definition. So really, the import of Newton's claim that $F=ma$ is based on an expectation that we can make independent statements about the nature of forces, for example that they have material origins.
 
-In fact, Feynman thinks that, insofar as it is a physical law, $F=ma$ is contingent and could be false.
+In fact, Feynman is saying that, insofar as it is a physical law, $F=ma$ is contingent and could be false.
+
+### 13
+
+Conservation of energy in free fall:
+
+$$ E = T + U = \frac{mv^2}{2} + mgh $$
+
+$$ \frac{dT}{dt} = mv\frac{dv}{dt} = vF = -\frac{dh}{dt}mg = -\frac{d(mgh)}{dt} = -\frac{dU}{dt} $$
+
+This generalizes. In particular, for 3D motion, $\frac{dT}{dt} = F\cdot v = F \cdot \frac{ds}{dt}$, so that, by integrating both sides, $\Delta T = \int F\cdot ds$.
+
+Various examples are given, including:
+
+- the gravitational (or electrical) force exerts on a particle by an infinite sheet with constant mass (or charge).
+
+
+### 14
+
+Work:
+
+$$ W = \int F\cdot ds $$
+
+Power is work done per second.
+
+For intuition, a table does no work in holding up a book that is on it.
+
+$$ \frac{dE}{dt} = F\cdot v $$
+
+Here take $E$ to be kinetic energy. Then easy to derive. The work done on a particle is the change in kinetic energy. Integrate the above to see that.
+
+
+Conservative forces are such that $W=F\cdot ds$ is an exact one-form, and hence path-independent.
+
+For a conservative force, the work is the negative of the change in potential energy. Take this as a definition of potential energy, i.e.:
+
+$$ \int\_1^2 F\cdot ds = U(1)-U(2) $$
+
+So for a system with conservative forces acting only, the change in the sum of kinetic and potential energy cancels, i.e. is $0$.
+
+Example of voltage:
+
+- consider two charged sheets (charged oppositely), some distance apart. This is called a parallel plate capacitor. We can consider the work in taking a charge from one to the other. If $U=q\phi$, then $W = \int F\cdot ds = q(\phi_1-\phi_2)$, and we call $(\phi_1-\phi_2)$ the voltage.
+
+### 15
+
+Let $m\_0$ be rest mass.
+
+$$ m = \frac{m\_0}{\sqrt{1-\frac{v^2}{c^2}}} $$
+
+Intuition: mass increases at high speeds. Fast electrons require a lot of force to alter their path.
+
+Similarly, a gas at higher temperature has molecules at a higher speed, and thus, higher mass. To approximate how much, we use the generalized binomial theorem:
+
+$$ m\_0(1-\frac{v^2}{c^2})^{-\frac{1}{2}} \approx m\_0 (1+\frac{v^2}{2c^2}) $$
+
+What this suggests is that energy and mass are effectively the same. In fact this turns out to be the case, with:
+
+$$ E = mc^2 $$
+
+for an object at any velocity. Intuition: if you increase the velocity of an object, you increase not only its energy, but its mass.
+
+The Michelson-Morley experiment investigates the theory that the absolute velocity of an object is determinable by how light behaves in the frame of that object. The idea is to split a beam of light into two perpendicular ones, one of which is pointing in the direction in which the earth spins, which is much faster than the other. The beams are reflected and then recombined and their phase difference is examined. The hypothesis is that this difference should vary as the orientation of the machine changes. This doesn't happen. Canonical example of interferometry.
+
+### 16
+
+"These philosophers are always with us, struggling in the periphery to try to tell us something, but they never really understand the subtleties and depths of the problem."
+
+"That is a shocking fact to them; the very ones who claim it is obvious find, when you give them a specific fact, that it is not obvious."
+
+$$ E^2 - P^2c^2 = m\_0^2c^4 $$
+
+The above is seen by considering a frame in which motion relative to the particle in question is $0$. Since energy-momentum is a 4-vector, $E^2-P^2c^2$ is a scalar, so is the same in all frames. In this particular frame, $p=0$ so $E^2 - P^2c^2 = m\_0^2c^4$.
+
+$$ Pc = E\frac{v}{c} $$
+
+### 17
+
+For a photon:
+
+$$ E = h\nu $$
+
+$$ p = \frac{h}{\lambda} $$
+
+Where $\nu$ is frequency and $\lambda$ is wavelength, and $\nu = \frac{c}{\lambda}$.
+
+Go back and read through this chapter again. Understand the derivations in more general linear algebraic terms.
+
+### 18
+
+The rate of change of the angular momentum is the torque.
+
+$$ I = \sum\_im\_ir\_i^2 $$
+
+$I$ is the moment of inertia. In the above, we imagine a rigid body consisting of particles indexed by $i$.
+
+For angular momentum $L$, $L=I\omega$, where $\omega$ is angular velocity.

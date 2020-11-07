@@ -41,6 +41,8 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
+Highly recommend *Machine Learning: A Probabilistic Perspective* by Kevin Murphy as a no-nonsense reference for a whole lot of probabilistic models and inference strategies.
+
 ## PDF of function of random variable
 
 Suppose Y = g(X) and g is increasing. Then $F\_Y(y) = P(Y\leq y) =  P(g(X)\leq y) = P(X\leq g^{-1}(y)) = F\_X(g^{-1}(y)) $.
@@ -215,17 +217,39 @@ $$
 
 ## Monte Carlo Methods
 
-Often you find yourself in a situation where you have specified a distribution P but cannot compute it analytically. A common thing you might want is the expectation of some function $f$ under P (i.e. $\int\_{support(P)} f(x)P(x)dx)$, where I'm using $P$ to also mean the pdf of the distribution $P$). You can approximate this, and other such quantities, if you have a good means of taking representative samples from $P$.
+Useful notes: https://ermongroup.github.io/cs228-notes/inference/sampling/
+
+Often you find yourself in a situation where you have specified a distribution P, which you know up to a normalization constant. You might find yourself in this position in statistical physics (e.g. you don't know the partition function) or in Bayesian inference (you know the posterior distribution up to the denominator, which has a hard integral). A common thing you might want is the expectation of some function $f$ under P (i.e. $\int\_{support(P)} f(x)P(x)dx)$, where I'm using $P$ to also mean the pdf of the distribution $P$). You can approximate this, and other such quantities, if you have a good means of taking representative samples from $P$.
 
 **Monte Carlo methods are methods for taking samples from the typical set of a distribution and using those to calculate approximate quantities of the distribution, like the expectation or other moments.**
 
 In particular, you want samples from the typical set, i.e. the part of the space of the support of $P$ which has both large volume and high probability density. It turns out that in high dimensions, almost all of the mass is concentrated in such a set. (Note: the notion of a typical set comes from information theory - as I'm using it here, it's not a precise notion; I'm not saying, for example, that it has an exact boundary).
 
+### Markov Chain Monte Carlo
 
-Markov Chain Monte Carlo: a type of Monte Carlo method. Say that you have $P$ up to proportionality, and call this $P\*$. You choose a translation kernel Q (in the finite case, representable as a stochastic matrix from states to states) and an acceptance criterion (Metropolis Hastings is one common one) and then take a random walk. Given some assumptions, you can prove that a distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of Q, which given some assumptions, is P.
+A type of Monte Carlo method. You choose a translation kernel T (in the finite case, representable as a stochastic matrix from states to states) and then take a random Markovian walk with this kernel. Given some assumptions (ergodicity of your kernel), you can prove that the distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of T. Now
 
-In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable.
+$$ P(x)T(x'|x) = P(x')T(x|x') \Rightarrow \sum\_xP(x)T(x'|x) = \sum\_xP(x')T(x|x') = P(x')\sum\_xT(x|x') = P(x')  $$
 
+which is to say that $P$ is just such a stationary distribution. The condition denoted by the first equation above is known as "detailed balance".
 
+In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable(s). If detailed balance is satisfied, then $P$ is the stationary distribution, and so you can sample from $P$ by taking a nice long walk along the chain, since $\lim\_nT^n(x) = P $ for any starting value $x$. Magic!
+
+Metropolis-Hasting is one method for obtaining T. The idea is that you have a kernel Q, and let $T = A(x'|x)Q(x'|x)$, where $A(x'|x)=min(1,\frac{P(x')Q(x|x')}{P(x)Q(x'|x)})$. Note that you don't have to know $P$, but rather $P$ only up to normalization, since it appears in a ratio. Clever. By design, some simple maths shows that with $T$ as defined, $(P,T)$ satisfies detailed balance, so you're in business.
+
+## Models
+
+### State space models
+
+This is the kind of territory where Kalman filters, particle filters, etc, come up.
+
+Chapter 18 of [Machine Learning: A Probabilistic Perspective](https://doc.lagout.org/science/Artificial%20Intelligence/Machine%20learning/Machine%20Learning_%20A%20Probabilistic%20Perspective%20%5BMurphy%202012-08-24%5D.pdf) is great.
+
+It introduces state space models (SSMs) by analogy to Hidden Markov Models, but with continuous hidden states. Basically, you have a hidden state that transitions with time (probabilistically), and at each time point, produces an observation (probabilistically).
+The goal is to infer the current, or future states of the hidden variable from previous states. Inference methods take advantage of this recurrency inherent in the model.
+
+A linear dynamical system is one where the temporal transitions and production of observations are by linear, with additive Gaussian noise. They are solvable in closed form by a Kalman filter.
+
+In the case where the transition and observation models are not linear, one option (the Extended Kalman Filter) is to take the Jacobian in order to obtain a linear approximation, and basically do a Kalman filter with that. The unscented Kalman filter is similar, but instead first passes the distribution (or sample points) through the non-linear function, and then fits a Gaussian.
 
 <!-- ### Binomial Distribution Approximations -->
