@@ -36,4 +36,4 @@ draft: False
 </script>
 --
 
-These notes are just ones I've written up while learning different bits of maths, so are *definitely* incomplete, and *almost certainly* full of errors. I like to put them online to give me a mild incentive to make them at least not obviously wrong, but I realize the style gives the impression that I know what I'm talking about, which is misleading.
+I like writing up notes to help myself understand a new concept, or to help myself remember it later. Some of these notes are stand-alone summaries (e.g. [these](/maths/fourier)), others are just collections of useful facts (e.g. [these](/maths/probability)). In both cases, there are almost certainly a lot of mistakes.

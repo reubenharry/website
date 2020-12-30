@@ -48,7 +48,9 @@ We consider first order ordinary differential equations equations of the followi
 $$
 \frac{d\phi(x\_0)(t)}{dt} = F(\phi(x\_0)(t),t)
 $$
-where $F$ is some particular function that we fix, and the goal is to find a function $\phi(x\_0)$ which satisfies the equation and also satisfies $\phi(x\_0)(0)=x\_0$. All $n$th order differential equations (featuring higher derivatives) can be reduced to first order equations of multiple variables, so that's why we focus on equations of the first order. In general
+where $F$ is some particular function that we fix, and the goal is to find a function $\phi(x\_0)$ which satisfies the equation and also satisfies $\phi(x\_0)(0)=x\_0$. Why have I written the equation in this bizarre way, rather than, say: $x' = F(x)$? The point is that the solution to $x' = F(x)$ depends on the initial condition $x\_0$, so we can think of the solution as a function of *two* arguments $\phi(x=x\_0,t=t)$ which in the above, I've curried. This suggests an important question which a large part of these notes are about, namely, what happens when we smoothly vary the initial condition $x\_0$? See below.
+
+All $n$th order differential equations (featuring higher derivatives) can be reduced to first order equations of multiple variables, so that's why we focus on equations of the first order. In general
 $$
 \phi \in (\R^n\to(\R\to\R^n)),\\ t \in \R,\\ F \in ((\R^n, \R)\to\R^n)
 $$
@@ -249,7 +251,7 @@ Suppose that $\psi$ is skew-self-adjoint, i.e. $\psi^*=-\psi$. This might arise,
 
 We can view $\phi$ as defining a flow in $\R^n$, and ask questions like: does the image of a set of some volume in $\R^n$ under $\phi$ have the same volume? In fluid dynamics, this is the question of compressability. So we are asking: what are the conditions for an incompressible flow? More formally, given a set $X$ and abusing notation so that $\phi(X,t)$ is the image of $X$ under $\lambda x \to \phi(x,t)$:
 $$
-Vol(\phi(x,t)) = \int\_{\phi(X,t)} 1 dx = \int\_{X} |\det D\_1\phi(x,t) | dx
+Vol(\phi(X,t)) = \int\_{\phi(X,t)} 1 dx = \int\_{X} |\det D\_1\phi(x,t) | dx
 $$
 
 
@@ -269,7 +271,7 @@ This means that $\frac{d}{dt}\det H\_x(t) = tr(\det(H\_x(t))H\_x(t)^{-1}DF(x,t)\
 $$
 \det H\_x(t) = \det H\_x(0)e^{\int\_0^ttr(DF(x(s)))ds}
 $$
-In other words, if the differential of $F$ is traceless, or in physics terminology, the divergence (trace of differential of $F$) is $0$, then the phase flow is incompressible.
+In other words, if the differential of $F$ is traceless, or in physics terminology, the divergence (trace of differential of $F$) is $0$, then the phase flow is incompressible. This is Liouville's theorem.
 
 Note for example that in a Hamiltonian system, divergence is $0$. To see this:
 

@@ -106,9 +106,30 @@ $$
 
 ### More on index notation
 
-It's often very handy to talk about matrices by talking about an arbitrary element $A\_{ij}$. For example, $\delta\_{i=j}$ corresponds to the identity matrix, where $\delta$ is the Kronecker delta. This plays extremely nicely with multiplication by the identity matrix, so that $(IA)\_{ij}=\sum_k\delta\_{i=k}A\_{kj}=A\_{ij}$, as you would want.
+It's often very handy to talk about matrices by talking about an arbitrary element $A\_{ij}$. To be clear, this is implicitly a universal quantification. For example, if I write $(IA)\_{ij}=A\_{ij}$, I mean: $\forall i\forall j: (IA)\_{ij}=A\_{ij}$.
 
-Also, $A_iB_j$ is the index version of $A\otimes B$, the tensor product.
+If you think about it, the Kronecker delta $\delta\_{ij}$ corresponds to the identity matrix $I$. That is, $\forall i\forall j, I\_{ij}=\delta\_{ij}$. This plays extremely nicely with multiplication by the identity matrix, so that $(IA)\_{ij}=\sum_k\delta\_{i=k}A\_{kj}=A\_{ij}$, as you would want.
+
+The Einstein-summation convention is to write for example $\sum\_{j} A\_{ij}B\_{jk}$ as $A\_{ij}B\_{jk}$. So, variables which appear once are bound by universal quantification, and variables which appear twice are bound by a sum.
+
+The dot product is then $x\_ix\_i$. Also, $A_iB_j$ is the index version of $A\otimes B$, the tensor product.
+
+
+
+Note that $A\_{ij}$ is a scalar, so for example $A\_{ij}B\_{jk} = B\_{jk}A\_{ij}$ even though $AB \neq BA$. In a nutshell, this is what makes it so useful. You can reason about individual entries in the matrix.
+
+Note that you'll sometimes see the indices as superscripts, and in fact, there's a whole story about covariant and contravariant tensors that comes up in Riemannian geometry. But for now, I'll just abuse conventions and write all indices with subscripts.
+
+
+### Cross product
+
+The cross product in a 3-dimensional space is $(u\times v)\_i=\epsilon\_{ijk}u\_jv\_k$
+
+Note that $(u\times v)\_iu\_i = \epsilon_{ijk}u\_jv\_ku\_i=u\_1u\_2v\_3-u\_1u\_3v\_2+u\_2u\_3v\_1-u\_2u\_1v\_3+u\_3u\_1v\_2-u\_3u\_2v\_1=0$
+
+Also note that $(u\times u)\_i=u\_ju\_k-u\_ku\_j=0$
+
+So the cross product of a two vectors $u\times v$ is orthogonal to $u$ and $v$, and the cross product of a vector with itself is $0$.
 
 ### Useful theorems about linear maps
 

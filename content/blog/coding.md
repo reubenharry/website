@@ -60,6 +60,8 @@ Haskell has a difficult learning curve at the intermediate level. I'm keeping tr
 
 Necessary to first understand *fix*.
 
+The theory of f-algebras and recursion schemes is nicely summarized by https://bartoszmilewski.com/2017/02/28/f-algebras/
+
 [Great tutorial](https://www.parsonsmatt.org/2017/09/22/what_does_free_buy_us.html) building up to Free from scratch.
 
 [Another good tutorial on free monads](https://jtobin.io/practical-recursion-schemes)
@@ -80,7 +82,49 @@ Lovely summary of category theory origins of [monads](https://www.stephendiehl.c
 
 ## Functional Reactive Programming
 
-Took me a while to find out what this actually meant, but thankfully this [2015 talk by Conal Elliott](https://begriffs.com/posts/2015-07-22-essence-of-frp.html) ([or this version](https://www.youtube.com/watch?v=j3Q32brCUAI)) precisely answers that question.
+Took me a while to find out what this actually meant, but thankfully this [2015 talk by Conal Elliott](https://begriffs.com/posts/2015-07-22-essence-of-frp.html) ([or this version](https://www.youtube.com/watch?v=j3Q32brCUAI)) precisely answers that question. "Imperative programmers have to choose between simplicity and truth"...
+
+## Generalized Algebraic Datatypes (GADTs)
+
+A normal data declaration in Haskell might look like:
+
+```Haskell
+data Expr a n = Bar a n | Baz a n
+```
+
+But GADTs allow you to do:
+
+```Haskell
+data Expr a where
+  Foo :: a -> Expr a Int
+  Bar :: a -> Expr a Double
+  Bar :: Num n => a -> Expr a n
+  (:||:) :: Expr a Bool -> Expr a Bool -> Expr a Bool
+```
+
+This means that the type of the resulting expression changes from constructor to constructor. Handy for building stronger types.
+
+## Type Families
+
+Haskell doesn't (currently - 2020) have dependent types (types which depend on values), but there are ways to obtain some of the capabilities of dependent types you might want. Type families are functions from types to types. A simple example:
+
+```Haskell
+data Zero
+data Succ n
+
+data Vect n a where
+  VNil :: Vect Zero a
+  VCos :: a -> Vect n a -> Vect (Succ n) a
+
+type family Plus x y where
+  Plus Zero x = x
+  Plus (Succ x) y = Succ (Plus x y)
+
+append :: Vect x a -> Vect y a -> Vect (Plus x y) a
+append = ...
+```
+
+The point here being that you can express numerical guarantees at the type level.
 
 ## Probabilistic programming
 
@@ -90,6 +134,6 @@ Took me a while to find out what this actually meant, but thankfully this [2015 
 
 ## For fun
 
-The most brain-bending quine: https://rosettacode.org/wiki/Quine#Haskell
+The most brain-bending quine I know: https://rosettacode.org/wiki/Quine#Haskell
 
 [powerset = filterM (const [True,False])](https://abhiroop.github.io/Haskell-Powerset/)

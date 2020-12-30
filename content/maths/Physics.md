@@ -1,7 +1,7 @@
 ---
-title: "Physics"
+title: "Classical Mechanics"
 date: 2020-02-26T17:07:24+01:00
-draft: True
+draft: False
 
 ---
 
@@ -40,124 +40,82 @@ $\newcommand{\R}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
+$\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}$
 
-# Physics
-
-## Dimensions
-
-This is a type system for the natural world. For example:
-
-- mass: M
-- length: L
-- time: T
-- speed: $LT^{-1}$
-- acceleration: $LT^{-2}$
-- force: $LDT^{-2}$
-- energy: $ML^2T^{-2}$
-
-For various common operations and objects, we can say useful things about their dimensions:
-
-Probabilities are dimensionless.
-
-Probability densities have dimensions such that integrating over them gives a dimensionless quantity. So for example, a distribution over a physical area with have a density with dimensions $L^{-2}$.
-
-You can't exponentiate a dimensional quantity, because, by the power series expansion of the exponential, you can see that you would be adding incommensurate quantities, like $M+M^2...$ for example.
-
-If $x$ has some dimension, an infinitesimal $dx$ has the same dimension.
-
-If $x$ has dimension $X$ and $y$ has dimension $Y$, then $\frac{dx}{dy}$ has dimension $XY^{-1}$. Thinking about this is very helpful in thinking about what sort of thing a derivative is.
-
-## Dimensional Analysis
-
+<!--
 ## Classical Mechanics
 
 The central idea is to model the motion of an object through time by a solution to a differential equation. For a simple case, suppose we're modeling a particle  with mass $m$ moving through space, being acted on by force $F$. The simplest Classical model is:
 $$
 \frac{\partial^2}{\partial t^2}\phi(x_0,t) = \frac{F(\phi(x_0,t))}{m}
 $$
-Note that I've written this in a slightly idiosyncratic way, consistent with ODEs.md. It says that the larger the mass is, the less the particle accelerates.
+
+The larger the mass is, the less the particle accelerates.
 
 Some terminology: call the set of values of $\phi(x_0,t) \in \R^n$ the configuration space. Call the Cartesian product of the configuration space and the real line, representing times, the state space. A point in the state space should always represent a state of the system we want to model, in the classical setting.
 
 Writing $a=\frac{\partial^2}{\partial t^2}\phi(x_0,t)$ and rearranging gives the standard format of the equation: $F=ma$.
-
-### Deriving kinetic energy
+ -->
+<!-- ### Deriving kinetic energy
 
 Assume the principle of least action. Then assume that we are in a frame in which space is shift-invariant (homogeneous), rotation invariant (isotropic) and time is shift invariant (homogeneous), i.e. an inertial frame.
 
 In such a frame, the Lagrangian of a body which is not being acted on must cannot depend on position, or even on the direction of its movement. Therefore it can only depend on $x$ through $\dot{x}^2$.
-
+ -->
 <!-- Assume further than boosts take inertial frames to inertial frames (this is not physical, as shown by special relativity, but is the assumption classical mechanics is based on). Then consider an infinitesimal boost of the form $x\mapsto x+\epsilon t$. In other words, a boost of speed $\epsilon$. Then expanding $L(v^2)= -->
 
-### Choice of coordinate frame
-
-There is any number of consistent ways to uniquely pick out a point $s$ in the state space with $n+1$ numbers. And to be clear: not just by using a basis set. For example, polar coordinates don't work by taking a sum of linearly independent vectors.
-
-Classical mechanics starts with the intuition that certain changes of coordinates should **not** change the laws of motion. Others should. Ones that shouldn't are:
-
-- shifting in space: $(x,t) \mapsto (x+x',t)$
--  shifting in time: $(x,t)\mapsto (x,t+t')$
-- rotation:
-- boosting:
-
-
-
-Further, we should always expect that any set of coordinate frame transforms form a group: that is, any two can be composed, any one can be inverted, and there's a transform which does nothing (the identity).
-
-*Inertial* coordinate frames in ones in which $F=ma$ (Newton's second law, but essentially implies the others) is satisfied. If a frame is inertial, then the frame obtained by translating, rotation, shifting in time, or boosting (moving away at a constant velocity) is also inertial.
-
-To see this, consider the transformation $K$ between frames, such that a position $r_1$ in $f_1$ becomes $r_2=r_1-Vt_1$ in $K(f_1)=f_2$. $K$ is a boosting transformation.
-
-Then, taking the derivative, $v_2=v_1-V$ and $a_2=a_1$ so that $F_1=F_2$: force is preserved.
-
-Useful to imagine this is saying: if you take observations on a train moving at constant velocity, you can't tell that it's moving. But if it's accelerating, you can tell.
 
 ### Variational (Lagrangian) Formulation of Mechanics
 
-Rather than specify an ODE that determines a physical system, we can instead specify a functional equation $\dA=0$, where $A=\int\_{t_0}^{t_1}L(q(t),q'(t),t)dt$, and $L$ is the function called the Lagrangian. The classical inertial frame Lagrangian is $L(q(t),q'(t),t)=\frac{q'(t)^2}{2m}-V(q(t))$.
+Rather than specify a second order ODE $F=ma$ (or more explicitly, $\frac{d^2x}{dt^2}=\frac{1}{m}F(x)$) that determines a physical system, we can instead specify a functional equation $dA=0$, where $A=\int\_{t_0}^{t_1}L(q(t),\dot{q}(t),t)dt$, and $L$ is the function called the Lagrangian. The classical inertial frame, Cartesian coordinate Lagrangian is $L(q(t),\dot{q}(t),t)=T-V=\frac{\dot{q}(t)^2}{2m}-V(q(t))$.
 
-From variational calculus, we can use the Euler-Lagrange equation to find a *function* $x$ which satisfies the equation. Intuitively, this is the curve in the state space which minimizes the action $A$. For the above value of $L$, we get back $F=ma$ from doing this. But the power of the above is that it's very easy to change coordinate frames, and introduce different Lagrangians.
+From variational calculus (see [these notes](/maths/analysis)) we can use the Euler-Lagrange equation to find a *function* $x$ which satisfies the equation. Intuitively, this is the curve in the state space which minimizes the action $A$. For the above value of $L$, we get back $F=ma$ from doing this. But the power of the above is that it's very easy to change coordinate frames, and introduce different Lagrangians.
 
-We say that the *generalized momentum* $p = \frac{\partial L}{\partial \dot{x}}$. For the classical Lagrangian above, this gives $p=mv$, but in general it doesn't.
+We say that the *generalized momentum* $p = \frac{\partial L}{\partial \dot{q}}$. For the Lagrangian above and Cartesian coordinates, this gives $p=mv$, but in general it doesn't.
 
 **Important**: if you using a Euclidean coordinate system, it turns out that $L=T-V$, for the standard kinetic and potential energies. But this *isn't* true in coordinate systems which aren't rotation and shift invariant. So for example, to express the behavior of a pendulum, you want to use $\theta$ as your degree of freedom, but write $T$ and $V$ in terms of the Cartesian coordinates (which you then differentiate wrt. $\theta$ and $p_{\theta}$).
 
-TODO: write out pendulum example.
+**Also important**: $\pd{L}{t}$ and $\frac{dL}{dt}$ are totally different quantities, because $L$ depends on $t$ both directly, and through $q$ and $\dot{q}$.
+
 
 ### Hamiltonian Formulation of Mechanics
 
-Consider $H=\sum\_ip\dot{q} - L$.
+Consider $H := p\_i\dot{q}\_i - L$. Here, I'm using Einstein notation to sum over different dimensions indexed by $i$, since $q$ and $p$ can be multidimensional.
 
-Then on the one hand:
+To see why this quantity (which is the Legendre transform of the Lagrangian) is important, first note that, :
 
-BLAH
+$$ \frac{dL}{dt} = \pd{L}{q\_i}\dot{q}\_i+\pd{L}{\dot{q}\_i}\ddot{q}\_i + \pd{L}{t} $$
 
-But on the other:
+Now, assuming that Euler-Lagrange is satisfied, $\pd{L}{q\_i} = \frac{d}{dt}\pd{L}{\dot{q}\_i} = \dot{p}\_i$, so
 
-$$\frac{d}{dt}H = \sum\_i \dot{q\_i}\frac{d}{dt}p\_i+p\_i\frac{d}{dt}\dot{q}\_i - \frac{\partial L}{\partial q\_i}\frac{dq\_i}{dt} - \frac{\partial L}{\partial \dot{q}\_i}\frac{d\dpt{q}\_i}{dt}$$
+$$ \frac{dL}{dt} = \dot{p}\_i\dot{q}\_i + p\_i\ddot{q}\_i + \pd{L}{t} = \frac{dp\_i\dot{q}\_i}{dt} + \pd{L}{t}$$
 
-$$ = $$
+Then $\frac{dH}{dt}=-\pd{L}{t}$, so $H$ is a time-conserved quantity (the Hamiltonian) if the Lagrangian is not explicitly dependent on time.
 
-So, equating terms:
+More interestingly:
 
-$$ BLAH $$
+$$ \dot{p}\_i = -\pd{H}{q\_i} $$
 
-Also note that
+$$ \dot{q}\_i = \pd{H}{p\_i}$$
 
-### Solution of $x''(t) = -DV(x)$ exists for all time
+If we consider a space of all the $p$ and $q$ dimensions together (*phase space*), then this system of equations tells us how a point in that space evolves.
+
+We know by [Liouville's theorem](/maths/ODEs) that a divergence-free flow is incompressible. $H$ gives a [divergence free flow](/maths/ODEs), so phase flow is incompressible.
+
+<!-- , since (in the 2D phase space case, so I can avoid those pesky indices):
+
+$$ -->
+
+
+
+<!-- ### Solution of $x''(t) = -DV(x)$ exists for all time
 
 In Classical mechanics, we have (ignoring units and assuming $m=1$) that $x''(t) = -DV(x)$, and that as $||x||\to \infty$, $V(x)\to\infty$. We then find, via some straightforward calculation, that $E(t)=\frac{||x'(t)||^2}{2} + V(x)$ is constant.
 
 This implies that $V(x(t)) \leq E(t) = E(0)$, so $V(x(t))$ is finite and accordingly $||x(t)||$ must be finite. Using the fact (see ODEs.md) that TODO UNDERSTAND WHY NEED NOT PROVE CLOSED INTERVAL
 
-if $||x(t)||$ is finite, the solution exists at all times, we obtain our desired result.
-
-# Waves
-
-## Deriving the wave equation
-
-# Mechanics
-
+if $||x(t)||$ is finite, the solution exists at all times, we obtain our desired result. -->
+<!--
 ## Deriving Kepler's laws
 
 Kepler formulated three laws of planetary motion from experimental data, all of which are derivable from Newton's theory of gravity and motion. The laws:
@@ -186,20 +144,13 @@ So $X(t)=p(0)t+X(0)$. Ergo the center of mass moves with constant speed.
 
 ### Preservation of angular momentum
 
-Define $x(t)=x_1(t)-x_0(t)$. In other words, add this to the position of the sun, and you get the position of the planet.
+Define $x(t)=x_1(t)-x_0(t)$. In other words, add this to the position of the sun, and you get the position of the planet. -->
 
-The cross product is an operation specific to three dimensions, but it is extremely handy in physics.
 
-The cross product $(u\times v)^i=\epsilon_{ijk}u^jv^k$
 
-Note that $(u\times v)^iu^i = \epsilon_{ijk}u^jv^ku^i=u^1u^2v^3-u^1u^3v^2+u^2u^3v^1-u^2u^1v^3+u^3u^1v^2-u^3u^2v^1=0$
-
-Also note that $(u\times u)^i=u^ju^k-u^ku^j=0$
-
-So the cross product of a two vectors $u\times v$ is orthogonal to $u$ and $v$, and the cross product of a vector with itself is $0$.
-
-Finally, note that the norm of the cross product $||u\times v||$ is the same as the area spanned by $u$ and $v$. To see this, first choose coordinates so that $u=(u_1,0,0)$ and $v=(v_1,v_2,0)$. Then $u\times v = (0,0,u_1v_2)$, so that $||u\times v||=|u_1v_2|$ which is precisely the area of the parallelogram spanned by $u$ and $v$.
+<!-- Finally, note that the norm of the cross product $||u\times v||$ is the same as the area spanned by $u$ and $v$. To see this, first choose coordinates so that $u=(u_1,0,0)$ and $v=(v_1,v_2,0)$. Then $u\times v = (0,0,u_1v_2)$, so that $||u\times v||=|u_1v_2|$ which is precisely the area of the parallelogram spanned by $u$ and $v$.
 
 Further, $\frac{d}{dt}x(t)\times x'(t) = x(t)\times x''(t)+x'(t)\times x'(t) = x(t)\times x''(t)=x(t)=K(x(t)\times x(t))=0$, so $x(t)$ and $x'(t)$ both remain orthogonal to $x(t)\times x'(t)$ for all time. The result is that the path stays in a plane, orthogonal to position relative position and velocity.
 
 Then, if $A(t)$ is the area swept out by the orbit up to time $t$, $dA(t)=\frac{1}{2}||x(t)\times dx(t)||=\frac{1}{2}||x(0)\times x'(0)||$ so that $A(t)=\frac{t}{2}||x(0)\times x'(0)||$. This is Kepler's second law.
+ -->

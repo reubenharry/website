@@ -253,7 +253,7 @@ $$ H\_xf(x)\_{ij} = \dfrac{df(x)}{dx\_idx\_j}$$
 
 ## Examples:
 
-$$ (D\_x Ax)\_{ij} = \frac{d(Ax)\_{i}}d{x\_j} = \frac{dA\_{ik}x\_k}d{x\_j} = A\_{ij} $$
+$$ (D\_x Ax)\_{ij} = \frac{d(Ax)\_{i}}{dx\_j} = \frac{dA\_{ik}x\_k}{dx\_j} = A\_{ij} $$
 
 $$ (D\_Ax^TAx)\_{ij} = \frac{dxAx}{A\_{ij}} = \frac{dx\_aA\_{ab}x\_b}{A\_{ij}} = x\_ix\_j \Rightarrow D\_Ax^TAx = xx^T $$
 
@@ -262,9 +262,6 @@ $$ \nabla\_{A^{-1}x}f(x) = \nabla\_k{f(Ak)} = A^T\nabla\_{Ak}f(Ak) = A^T\nabla\_
 
 $$ H\_xf(Ax) = A^T(H\_xf(Ax))A $$
 $$ H\_{A^{-1}x}f(x) = H\_{k}f(Ak) = A^TH\_{Ak}f(Ak)A = A^TH\_xf(x)A $$
-
-
-
 
 ### Change of variables
 
@@ -303,6 +300,21 @@ $$
 e^{t\psi}=\sum\_{i=0}^{\infty}\frac{t^i\psi^i}{i!}=I+t\sum\_{i=1}^{\infty}\frac{t^{i-1}\psi^i}{i!}\Rightarrow \frac{1}{t}(e^{t\psi}-I)=\sum\_{i=1}^{\infty}\frac{t^{i-1}\psi^i}{i!}
 $$
 We can then rather cleverly observe that the this final sum goes to $\psi$ as we take $t$ to $0$, because the term of the sum with $i=0$ is $\frac{0^0\psi}{0!}=\psi$.
+
+### Vector fields
+
+These are functions $\R^n\to\R^n$. Divergence, gradient, and curl are generally used in the case $n=3$, which comes up a lot in applications. Some facts:
+
+$$ \nabla \times e^{-ik\cdot x} = -ik \times e^{-ik\cdot x} $$
+
+$$ \nabla \cdot e^{-ik\cdot x} = -ik \cdot e^{-ik\cdot x} $$
+
+This gives rise to a Fourier transform relationship between curl and cross product, and between divergence and dot product.
+
+Also (and see the section on div, grad and curl in [these notes](/maths/differentialforms) for why):
+
+$$ \nabla \cdot (\nabla \times F) = \nabla \times (\nabla f) = 0 $$
+
 
 ## Calculus of variations
 

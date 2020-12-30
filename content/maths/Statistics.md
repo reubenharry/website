@@ -40,15 +40,12 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
+I thought this online book was great: https://www.statlect.com/.
+
+
 ## Overview
 
 A key idea in statistics is fitting a model to data. A (parametric) model is a probability distribution $P(x;\theta)$, parameterized by some $\theta$. In Bayesian terms, the idea is to assume the model, then find the posterior distribution over $\theta$. One frequentist approach is to find the single value of $\theta$ which maximizes the likelihood of the data.
-
-### Frequestist statistics
-
-A sample is a vector of independent, identically distributed draws from the model. An estimator is a function on the sample. The sample, and in turn the estimator, are random variables themselves, and a key method of frequentist statistics is to find the distribution of a given estimator, or a good approximation of it in the limit of large sample size.
-
-In practice, this is the mainstream approach to statistics, but conceptually it's weird and niche, and Bayesian methods make a lot more sense.
 
 ### Regression
 
@@ -85,11 +82,17 @@ In general, we say that $E[y]=g^{-1}(X\theta)$, where $g$ is a link function. Th
 
 Logistic regression. Key observation: let $g(x)=log(\frac{x}{1-x})$. Let $f(x)=\frac{1}{1+e^{-x}}$. $f$ (log odds function) and $g$ (sigmoid function) are inverses.
 
-## Estimators
+## Frequestist statistics
 
-Estimator is function of a sample from true parameter, and therefore a stochastic function of true parameter. Variance of estimator is a function of the true parameter. We can estimate the variance using the estimate of the true parameter in our function for the variance. This is the estimated standard error. Assuming our estimate of the true parameter converges on the true parameter, our estimate of its variance will also converge, assuming that estimate is a continuous function of the parameter.
+A sample is a vector of independent, identically distributed draws from the model. An estimator is a function on the sample. The sample, and in turn the estimator, are random variables themselves, and a key method of frequentist statistics is to find the distribution of a given estimator, or a good approximation of it in the limit of large sample size.
 
-## Maximum Likelihood Estimate
+In practice, this is the mainstream approach to statistics, and there are lots of nice analytical results about the distributions of statistics, as well as more modern approximate approaches like bootstrapping, which make this easy. But conceptually it's a weird approach, and Bayesian methods are much more fundamental.
+
+### Estimators
+
+The variance of the estimator is a function of the true parameter. We can estimate the variance using the estimate of the true parameter in our function for the variance. This is the estimated standard error. Assuming our estimate of the true parameter converges on the true parameter, our estimate of its variance will also converge, assuming that estimate is a continuous function of the parameter.
+
+### Maximum Likelihood Estimate
 
 MLE is consistent if the likelihood is reasonably smooth.
 
@@ -101,7 +104,7 @@ $$ \sqrt{nI(\theta_0)}(\hat{\theta}-\theta_0) \approx N(0,1) $$
 
 Variance of any estimator $\hat{\theta}$ is bounded by: $$ \frac{\tau'(\theta)}{nI(\theta_0)} $$ where $\tau(\theta)$ is $E[\hat{\theta}]$
 
-### MCMC for Bayesian inference
+## Monte Carlo for Bayesian inference
 
 Bayes' rule takes the form
 
@@ -109,4 +112,4 @@ $$ \forall a\forall b. P(B=b|A=a) = \frac{P(A=a,B=b)}{P(A=a)} = \frac{P(A=a|B=b)
 
 where $B$ is the latent variable, $A$ is the observed variable, $P(B)$ is our prior, which we can calculate tractably (most likely), and $P(A|B)$ is our likelihood, corresponding to the generative process generating the data from the latent variable.
 
-Now the denominator $P(A=a)=\sum_{b'} P(A=a|B=b')\cdot P(B=b')$ could well be totally intractable to compute. But this is constant in $b$, so the numerator is proportional to $P(B=b|A=a)$. This means that to sample from $P(B|A)$ we need only apply MCMC to the unnormalized distribution constituting the numerator. We can sample from this ancestrally, i.e. by first sampling from the prior and then inputting that sample into the likelihood.
+Now the denominator $P(A=a)=\sum_{b'} P(A=a|B=b')\cdot P(B=b')$ could well be totally intractable to compute. But this is constant in $b$, so the numerator is proportional to $P(B=b|A=a)$. This means that to sample from $P(B|A)$ we need only apply Monte Carlo to the unnormalized distribution constituting the numerator. We can sample from this ancestrally, i.e. by first sampling from the prior and then inputting that sample into the likelihood.

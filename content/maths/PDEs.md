@@ -3,7 +3,7 @@
 title: "Partial Differential Equations"
 author: "Reuben Cohn-Gordon"
 date: 2020-02-26T17:07:24+01:00
-draft: True
+draft: False
 
 ---
 
@@ -42,18 +42,20 @@ $\newcommand{\R}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
+$\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}$
 
-### Eigenequations
 
-$$ \frac{d^2 f(t)}{d t^2} = \lambda f(t) $$
+### Handwaving
 
-Let $A=\frac{\partial^2}{\partial t^2}$, and note that it is a self-adjoint linear operator (on a space of functions). Then the above equation is an eigenequation, in the sense that the solution $f$ is an eigenvector with eigenvalue $\lambda$.
+$$ \pd{^2 f(x,y)}{x^2} = \lambda f(x,y) $$
 
-TODO: what about: Ce^blah +De^-blah, C, D in \C?. also the following is just wrong: i shouldn't be there. and is the equation self-adjoint? show, if true
+Let $A=\frac{\partial^2}{\partial t^2}$. It turns out that a lot of finite dimensional results, like the spectral theorem, in which a Hermitian operator has an eigenbasis, apply here too, which is a bit mind-bending. So if an operator like $A$ were Hermitian (for the approprite inner product on function spaces), that would be good...
 
-Note that the solution takes the form $Ce^{i\omega t}$, for $-\omega^2=\lambda$ and $C\in R$. This means that the solution is a periodic function with period $\frac{2\pi}{\omega}$, so that the period of the eigenfunction depends on the eigenvalue.
+## Separation of variables
 
-From [these notes](/maths/fourier) recall that the complex exponentials form a basis for the space of periodic functions. They are in fact the eigenbasis of $A$, which we know exists by a spectral theorem. This is really nice.
+You have some PDE, and are solving for some function $V$. Say it's a function of two arguments, although the approach generalizes. The idea is to try to find a *separable* solution of the form V(x,y)=X(x)Y(y). This turns out to be much easier, but of course, there's no reason why a solution of this form should necessarily be able to satisfy your boundary conditions. What you can do, however, in some circumstances, is to consider a solution consisting of an infinite sum of separable solutions. If you're lucky, the separable solutions will form an orthogonal and complete set (roughly a basis, but I'm hedging because this is infinite dimensional) and then you can satisfy arbitrary boundary conditions.
+
+Solving the wave equation is a typical example, as below.
 
 ### Wave Equation Solutions
 
@@ -100,7 +102,22 @@ This implies that $\frac{\partial^2 f(x,t)}{\partial x^2} = \frac{1}{v^2}\lambda
 
 We can add *boundary conditions* to constrain the solutions to the PDE. In particular, say that $f(0)=0,\~ f(L)=0$. Then, since $e^{ik0}=1$, we have that $0=C(t)\cdot 1 \Rightarrow Re(C(t))=0$. On the other hand, $C(t)e^{ikL}=0$, so $e^{ikL}$ has to be $1$, which means that $k=\frac{n\pi}{L}$ for $n\in \N$. The result is that the eigenvalues of the solution are discrete (this turns out to be a reason for quantization of energy levels in quantum physics), so that the solutions (eigenvectors) are periodic with discrete frequencies.
 
-TODO: FIX AND ADD REMARKS ON SEPARATION OF VARIABLES
+### Spherical Laplacian
+
+For problems involving spheres and Laplace's equation, you often end up with a separation of variables which leads to solutions consisting of sums of Legendre polynomials. For reasons probably to do with Sturm-Liouville theory (which I understand to be the study of certain Hermitian operators on function spaces), these are complete and orthogonal, just like the corresponding sine functions you get from separation of variables in Cartesian coordinates, so can satisfy fairly arbitrary boundary conditions. More concretely, assume (just for simplicity) that $V$ is only a function of $r,\theta$. Then, taking the Laplacian in spherical coordinates:
+
+$$ \frac{1}{r^2}\pd{}{r}(r^2\pd{V}{r}) + \frac{1}{\sin\theta}\pd{}{\theta}(\sin\theta\pd{V}{\theta}) = 0 $$
+
+Assuming a separation of variables, we get:
+
+$$ \frac{1}{r^2}\pd{}{r}(r^2\pd{R}{r}) + \frac{1}{\sin\theta}\pd{}{\theta}(\sin\theta\pd{\Theta}{\theta}) = 0 $$
+
+Then both terms must be constant. If the constant takes the form $l(l+1)$, then $R( r)= Ar^l+\frac{B}{r^{l+1}}$ and $\Theta(\theta) = P\_l(\cos\theta)$, where $P\_l$ are the Legendre polynomials.
+
+Since the Legendre polynomials are a "basis", we can write a fairly arbitrary solution as:
+
+$$ V(r,\theta) = \sum\_{l=0}^{\infty} (A\_lr^l+\frac{B\_l}{r^{l+1}})P\_l(\cos\theta) $$
+
 
 ### Diffusion Equation Solutions
 
@@ -128,3 +145,9 @@ That gives us:
 $$\rho\_t(x) = \int\_{\R} (\mathcal{F}\rho\_0)(k)e^{-a4\pi^2k^2t}e^{i2\pi xk}dk$$
 
 This tells us that as $t$ increases, only values of $k$ close to $0$ will matter, which means that $\rho\_t(x)$ will be increasingly uniform. As you'd expect for diffusion.
+
+### Helmholtz theorem
+
+Any vector field $F$ which is differentiable and goes to $0$ quicker than $\frac{1}{r}$ admits a decomposition:
+
+$$ F(r ) = \frac{1}{4\pi} \left(\nabla\times\left( \int \frac{\nabla\_{r'}\times F(r')}{||r-r'||} \right) - \nabla\left( \int\frac{\nabla\_{r'}\cdot F(r')}{||r-r'||}  \right) \right)$$

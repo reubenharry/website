@@ -40,7 +40,7 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
-A bit sparser than some of the other notes here. Mostly based on [these notes](http://math.stanford.edu/~eliash/Public/math177/177-diff-forms.pdf), and bolstered with a bit of category theory.
+A bit sparser than some of the other notes here. Mostly based on [these notes](http://math.stanford.edu/~eliash/Public/math177/177-diff-forms.pdf), and bolstered with a bit of category theory. See also [Terence Tao](https://www.math.ucla.edu/~tao/preprints/forms.pdf).
 
 ### Overview
 
@@ -55,7 +55,7 @@ After developing the groundwork, one thing that can be expressed very nicely in 
 Antisymmetric multilinear maps ($k$-forms) turn out to be the right objects to capture a notion of volume - they are closely related to the determinant. Note that a $k$-form is $k$-multilinear, but operates on a vector space of dimension some $n$.
 
 
-Further, there are various algebraic operations, like the hodge star and contraction, which operate on spaces of antisymmetric multilinear maps in important ways. The most important is the *exterior product* $\wedge$, which take an $n$-form and an $m$-form, takes their tensor product, and antisymmetrizes it (there's a canonical way to do this), to produce a $(n+m)$-form.
+Further, there are various algebraic operations, like the hodge star and contraction, which operate on spaces of antisymmetric multilinear maps in important ways. The hodge star takes a k-form on an m-dim manifold to a (m-k) form on that manifold. The most important is the *exterior product* $\wedge$, which take an $n$-form and an $m$-form, takes their tensor product, and antisymmetrizes it (there's a canonical way to do this), to produce a $(n+m)$-form.
 
 
 A top form is an $n$-form on $\RR^n$. It is 1D, and spanned by $x_1\wedge\ldots\wedge x_n$.
@@ -151,11 +151,11 @@ $$\int_{\gamma}\alpha = \int_a^b\gamma^{\*}\alpha $$
 
 ### Invariance of integral under pullback
 
-The integrals in the following are Riemann integrals, and the statement in the standard change of variables formula:
+The integrals in the following are Riemann integrals, and the following is the standard change of variables formula:
 
 $$ \int\_{[a,b]} f = \int\_{\phi^{-1}([a,b])} (f\circ \phi)|\phi'| $$
 
-Suppose $\phi$ is orientation preserving, then (and with differential form integrals in the middle expressions):
+Suppose $\phi$ is orientation preserving, then (and with Riemann integrals in the middle expressions):
 
 $$ \int\_{[a,b]} \alpha = \int\_{[a,b]} f = \int\_{\phi^{-1}([a,b])} (f\circ \phi)|\phi'| = \int\_{[c,d]}\phi^{\*}\alpha $$
 
@@ -184,6 +184,28 @@ The above is a simple version of Stokes' theorem, which is really just a general
 
 An obvious consequence of the above is that integrals of exact forms over loops are $0$. This isn't in contradiction to the result that $\int\_{\gamma}\omega\_0=2\pi$ since $\omega\_0$ is not exact on this domain.
 
+### Divergence, gradient, and curl
+
+These are usually defined as operations on vector or scalar fields, but can be expressed in terms of the exterior derivative. This makes working in other coordinates and seeing basic formulas a lot easier:
+
+First let $U = \lambda x \langle \cdot, x \rangle$ and its inverse $L$ witness the isomorphism between 1-forms and vector fields. Then, for a function (note that a function is a 0-form) $f$ or scalar field $F$:
+
+$$ \nabla f = (L\circ d)(f) $$
+
+$$ \nabla \times F =  (L\circ \star \circ d\circ U)(F) $$
+
+$$ \nabla \cdot F = (\star \circ d \circ \star \circ U)(F) $$
+
+Note that
+
+$$\nabla \cdot (\nabla \times F) = (\star \circ d \circ \star \circ U\circ L\circ \star \circ d\circ U)(F)$$
+
+$$ = (\star \circ d \circ d\circ U)(F) = 0 $$
+
+since $d^2 = 0$. Similarly:
+
+$$ \nabla \times (\nabla f) = (L\circ \star \circ d\circ U\circ L\circ d)(f) = (L\circ \star \circ d\circ d)(f) = 0 $$
+
 ### Stokes' theorem
 
 There is a nice theorem called Stokes' theorem, which says: $\int_{\partial A} \omega = \int_A d\omega$. Note that this expresses a sort of adjoint relationship between the boundary operator on manifolds and the exterior derivative on differential forms, which we might have guessed are related in light of the similar property described in the previous paragraph. Can be made precise, I think, but don't know details.
@@ -194,7 +216,9 @@ Stokes' theorem is very general, and a number of common formulae turn out to jus
 
 $$\int\_B \left(\frac{\partial P\_2}{\partial x\_1} - \frac{\partial P\_1}{\partial x\_2} \right) = \int\_{\Gamma}P\_1dx\_1+P\_2dx_2$$
 
-Very useful in science and engineering, since this lets you calculate an area integral by integrating around its boundary. Similarly the divergence theorem, but in 3D.
+Very useful in science and engineering, since this lets you calculate an area integral by integrating around its boundary. Similarly the divergence theorem, but in 3D:
+
+$$ \int P\_1dx\_2\wedge dx\_3 + P\_2dx\_3\wedge dx\_1 + P\_3dx\_1\wedge dx\_2 = \int (\partial{P\_1}{x\_1} + \partial{P\_2}{x\_2} + \partial{P\_3}{x\_3})dx\_1\wedge dx\_2 \wedge dx\_3 $$
 
 In fact, the fundamental theorem of calculus is itself a special case, where the domain is an interval, and the boundary is the two end points.
 
@@ -229,8 +253,8 @@ Suppose we had a function $f: D^2\to D^2$ with no fixed point. Then for any $x$,
 
 Consider a 1-form $\omega$ on the punctured plane. The de Rham theorem says that $\omega=\lambda\frac{x dy-ydx}{x^2+y^2}+df$
 
-Consider $H^1(R^2/\{0\})$, the first de Rham cohomology group, defined as the space of closed forms on the punctured plane quotiented by their image. That is, two forms are equivalent in $H^1$ if their image is the same.
+Consider $H^1(R^2/\{0\})$, the first de Rham cohomology group, defined as the space of closed forms on the punctured plane quotiented by their difference being exact. That is, two forms are equivalent in $H^1$ if their difference is an exact form.
 
-A consequence of de Rham theorem is that $H^1$ is 1D. To see this, choose $\omega\in ker d$ so that by de Rham, we have $\omega=\lambda\frac{x dy-ydx}{x^2+y^2}+df$. Then $df = \omega-\lambda\frac{x dy-ydx}{x^2+y^2}$, which means $\omega-\lambda\frac{x dy-ydx}{x^2+y^2}\in im~d$.
+A consequence of de Rham theorem is that $H^1$ is 1D. To see this, choose $\omega\in \ker d$ so that by de Rham, we have $\omega=\lambda\frac{x dy-ydx}{x^2+y^2}+df$. Then $df = \omega-\lambda\frac{x dy-ydx}{x^2+y^2}$, which means $\omega-\lambda\frac{x dy-ydx}{x^2+y^2}\in im~d$.
 
 But that means that $[\omega]$, i.e. the equivalence class of $\omega$, which is an element of $H^1$, is in the span of $\frac{x dy-ydx}{x^2+y^2}$.

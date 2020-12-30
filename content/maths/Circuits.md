@@ -40,6 +40,8 @@ $\newcommand{\R}{\mathbb{R}}$
 $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
+$\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}$
+
 
 Notes mostly based on *Foundations of Analog and Digital Electronic Circuits*, which both is quite slow paced, and covers the fundamental concepts carefully.
 
@@ -93,7 +95,7 @@ What goes in comes out
 
 Kirchhoff's Voltage Law:
 
-Sum of voltages is 0
+Sum of voltages is 0. Why? If the magnetic fields are not changing, then $\nabla\times E = -\pd{B}{t}$, so $V = -\int E\cdot dl = -\int \nabla\times E da = 0$. Note that this only applies to a loop.
 
 Series elements:
 

@@ -77,71 +77,6 @@ Characteristic function of a random variable is the (inverse) Fourier transform 
 
 Characteristic function of a Gaussian is a Gaussian (see [notes on Fourier analysis](/maths/fourier))
 
-
-## Central Limit Theorem
-
-Various increasingly powerful versions, but simplest is:
-
-For a sequence $\{X\_i\}$ of independent and identically distributed (iid) random variables with mean $\mu$ and variance $\sigma^2$, $\bar{X}\_n=\sum\_i^nX\_i$ converges to $Z \sim N(\mu,\sigma^2)$, i.e. to a normal.
-
-The proof uses the continuity theorem, which effectively says that it's sufficient to show that the moment generating function (MGF) converges to that of a normal MGF. Let $Z\_n= \frac{X\_n}{STD[X\_n]} = \frac{X\_n}{\sqrt{n}\sigma}$. Then we observe the following:
-
-$$MGF\_{X\_n}(t) = [MGF\_{X\_i}(t)]^n $$
-$$ MGF\_{Z\_n}(t) = [MGF\_{X\_i}(\frac{t}{\sqrt{n}\sigma})]^n$$
-
-Further, we can Taylor expand the first MGF as follows:
-
-$$ MGF\_{X\_n}(t) = MGF(0) + tMGF'(0) + \frac{t^2}{2}MGF''(0) + o(t^2) = 1 + \frac{t^2}{2}\sigma^2 + o(t^2) $$
-
-(The last step happens by fact that the derivatives of the MGF at $0$ are the moments of the distribution in question.)
-
-But then:
-
-$$ MGF\_{Z\_n}(t) = [1 + \frac{(\frac{t}{\sqrt{n}\sigma})^2}{2}\sigma^2 + o(t^2)]^n = [1 + \frac{t^2}{2n} + o((\frac{t}{\sqrt{n}\sigma})^2)]^n$$
-
-But this converges to $e^{\frac{t^2}{2}}$ as $n$ goes to infinity. That's the MGF of a standard normal, so we're done.
-
-Note that this proof is a basic application of Fourier analysis an is most simply seen from that perspective. The PDF of a sum of iid random variables $X_i$ is a convolution of $n$ PDFs of $X_i$, the Fourier transform of a convolution is a raising of the Fourier transform of those PDFs to the $n$th power, and Taylor expanding inside the Fourier integral basically gives us the result (see e.g. page 130 of [this](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf)).
-
-## Exponential Family
-
-Not to be confused with the exponential distribution. Really it's a family of families. For fixed functions $b$ and $T$ but with $\eta$ varying, we have a family:
-
-$$P(x;\eta) = b(x)e^{\eta^TT(x)-a(\eta)}$$
-
-$T(X)$: sufficient statistics, $\eta$ : natural parameter, $a(\eta)$: log-normalizer, $b$ : base measure.
-Canonical Parameters: $\mu,\sigma...$ : $\Omega$ (the sample space)
-Natural Parameters: $\eta : \R$
-Link function: $L : \Omega \to \R$
-Response function: $R : \R \to \Omega$
-
-So $\eta$ parametrizes a family. For instance, we can choose $T$ and $b$ to make $\eta$ range over all Gaussians, or Bernoulli, Poisson, Exponential, Von-Mises, Gamma etc distributions. $a$ is determined by $T$ and $b$ and is the log of the normalizing constant.
-
-The reason this is useful is that we can prove a bunch of super useful things about distributions in this form. In particular:
-
-- $\frac{da(\eta)}{d\eta} = E[T(x);\eta]$
-- $H\_{\eta}a(\eta) = Cov[T(x);\eta]$
-- $a$ is convex in $\theta$
-- Each exponential family is conjugate to an exponential family
-- Maximum Entropy: exponential families are the most entropic distributions given that the expectation is equal to some $\alpha$, for a fixed base measure
-
-To find the maximum likelihood $\theta$ for an observation $D$, one wants to take the gradient of log $P(x|\theta)$, since log-likelihood in exponential families is convex. Taking the gradient of the log of the numerator is easy. But the gradient of the log of the denominator is as follows:
-
-$$ \frac{d}{d\theta} log \sum\_{x'}e^{\theta^T\cdot f(x')} = \frac{1}{\sum\_{x'}e^{\theta^T\cdot f(x')}}
-  \cdot \sum\_{x'} \frac{d}{d\theta} e^{\theta^T\cdot f(x')}  $$
-
-$$ = \frac{1}{Z(\theta)} \cdot \sum\_{x'}e^{\theta^T\cdot f(x')} \cdot f(x') =  \sum\_{x'} P(x'|\theta) \cdot f(x') = E\_{x\sim p(x|\theta)}[f(x)]  $$
-
-The Hessian wrt. $\theta$ is the covariance of f(x) wrt the MRF. Covariance matrices are positive semi-definite, proving that the log-likelihood is convex.
-
-Example of how to put Bernoulli distribution in exponential family form:
-
-$T=id$, $b(x)=1, \eta=\sigma^{-1}(\mu)$.
-
-Crucial point: how do we convert from the mean parametrized form of the Bernoulli distribution, namely $P(x|\mu) = x\mu\cdot x^{1-\mu}$ to the naturally parametrized form?
-
-Easy: take the log odds: $\eta=log(\frac{\mu}{1-\mu})$. And the inverse is the sigmoid function.
-
 ## Some distributions
 
 ### Gaussian Distribution
@@ -176,6 +111,79 @@ where $f(x)$ is an indicator function and $\theta$ is a vector of parameters. Th
 ### Empirical Distribution
 
 The delta distribution which places full weight on the data (viewed as a single data point).
+
+
+## Central Limit Theorem
+
+Various increasingly powerful versions, but simplest is:
+
+For a sequence $\{X\_i\}$ of independent and identically distributed (iid) random variables with mean $\mu$ and variance $\sigma^2$, with $X\_n = \left(\sum\_i^nX\_i\right)-n\mu$, the random variable $Z\_n=\frac{X\_n-n\mu}{\sqrt{n\sigma^2}}$ converges in distribution to $N(0,1)$, i.e. to a standard normal.
+
+
+
+<!-- The proof uses the continuity theorem, which effectively says that it's sufficient to show that the moment generating function (MGF) converges to that of a normal MGF. Then we observe the following:
+
+$$MGF\_{X\_n}(t) = [MGF\_{X\_i}(t)]^n $$
+$$ MGF\_{Z\_n}(t) = [MGF\_{X\_i}(\frac{t}{\sqrt{n}\sigma})]^n$$
+
+Further, we can Taylor expand the first MGF as follows:
+
+$$ MGF\_{X\_n}(t) = MGF(0) + tMGF'(0) + \frac{t^2}{2}MGF''(0) + o(t^2) = 1 + \frac{t^2}{2}\sigma^2 + o(t^2) $$
+
+(The last step happens by fact that the derivatives of the MGF at $0$ are the moments of the distribution in question.)
+
+But then:
+
+$$ MGF\_{Z\_n}(t) = [1 + \frac{(\frac{t}{\sqrt{n}\sigma})^2}{2}\sigma^2 + o(t^2)]^n = [1 + \frac{t^2}{2n} + o((\frac{t}{\sqrt{n}\sigma})^2)]^n$$
+
+But this converges to $e^{\frac{t^2}{2}}$ as $n$ goes to infinity. That's the MGF of a standard normal, so we're done.
+-->
+
+The proof uses Fourier methods. The PDF of a sum of iid random variables $X_i$ is a convolution of $n$ PDFs of $X_i$, the Fourier transform of a convolution is a raising of the Fourier transform of those PDFs to the $n$th power, and Taylor expanding inside the Fourier integral basically gives us the result (see e.g. page 130 of [this](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf)).
+
+## Exponential Family
+
+Not to be confused with the exponential distribution. Really it's a family of families. For fixed functions $b$ and $T$ but with $\eta$ varying, we have a family:
+
+$$P(x;\eta) = b(x)e^{\eta^TT(x)-a(\eta)}$$
+
+$T(X)$: sufficient statistics, $\eta$ : natural parameter, $a(\eta)$: log-normalizer, $b$ : base measure.
+
+Canonical Parameters: $\mu,\sigma...$ : $\Omega$ (the sample space)
+
+Natural Parameters: $\eta : \R$
+
+Link function: $L : \Omega \to \R$
+
+Response function: $R : \R \to \Omega$
+
+So $\eta$ parametrizes a family. For instance, we can choose $T$ and $b$ to make $\eta$ range over all Gaussians, or Bernoulli, Poisson, Exponential, Von-Mises, Gamma etc distributions. $a$ is determined by $T$ and $b$ and is the log of the normalizing constant.
+
+The reason this is useful is that we can prove a bunch of super useful things about distributions in this form. In particular:
+
+- $\frac{da(\eta)}{d\eta} = E[T(x);\eta]$
+- $H\_{\eta}a(\eta) = Cov[T(x);\eta]$
+- $a$ is convex in $\theta$
+- Each exponential family is conjugate to an exponential family
+- Maximum Entropy: exponential families are the most entropic distributions given that the expectation is equal to some $\alpha$, for a fixed base measure
+
+To find the maximum likelihood $\theta$ for an observation $D$, one wants to take the gradient of log $P(x|\theta)$, since log-likelihood in exponential families is convex. Taking the gradient of the log of the numerator is easy. But the gradient of the log of the denominator is as follows:
+
+$$ \frac{d}{d\theta} log \sum\_{x'}e^{\theta^T\cdot f(x')} = \frac{1}{\sum\_{x'}e^{\theta^T\cdot f(x')}}
+  \cdot \sum\_{x'} \frac{d}{d\theta} e^{\theta^T\cdot f(x')}  $$
+
+$$ = \frac{1}{Z(\theta)} \cdot \sum\_{x'}e^{\theta^T\cdot f(x')} \cdot f(x') =  \sum\_{x'} P(x'|\theta) \cdot f(x') = E\_{x\sim p(x|\theta)}[f(x)]  $$
+
+The Hessian wrt. $\theta$ is the covariance of f(x) wrt the MRF. Covariance matrices are positive semi-definite, proving that the log-likelihood is convex.
+
+Example of how to put Bernoulli distribution in exponential family form:
+
+$T=id$, $b(x)=1, \eta=\sigma^{-1}(\mu)$.
+
+Crucial point: how do we convert from the mean parametrized form of the Bernoulli distribution, namely $P(x|\mu) = x\mu\cdot x^{1-\mu}$ to the naturally parametrized form?
+
+Easy: take the log odds: $\eta=log(\frac{\mu}{1-\mu})$. And the inverse is the sigmoid function.
+
 
 ## Useful approximations
 

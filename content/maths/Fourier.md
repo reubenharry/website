@@ -40,6 +40,7 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
+
 Notes largely from [this **excellent** book](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf) and these [more concise but extremely useful notes](https://jeremykun.com/2012/04/25/the-fourier-series/).
 
 ## The general idea
@@ -92,7 +93,7 @@ Convolution forms a commutative monoid on functions, which, to unpack that state
 
 Furthermore, the Fourier transform induces a monoid homomorphism from this monoid to the product monoid of functions (i.e. the binary operation maps $f$ and $g$ to $fg$, and the unit is $1$). In particular, $\mathcal{F}(f\*g)(k) = \mathcal{F}f\mathcal{F}g$. Very useful.
 
-Deconvolution is then solving $f*g=h$ for $f$ given $g,h$, which (ignore division by $0$ issues) is given by $\mathcal{F}^{-1}(\frac{\mathcal{Fh}}{Fg})$
+Deconvolution is then solving $f\*g=h$ for $f$ given $g,h$, which (ignore division by $0$ issues) is given by $\mathcal{F}^{-1}(\frac{\mathcal{Fh}}{Fg})$
 
 ## Fourier as an eigendecomposition (i.e. diagonalization)
 
@@ -201,7 +202,7 @@ Note the consequence, via the shift theorem that $\mathcal{F}\delta(t) = 1 $
 
 ### Extending Fourier analysis to linear functionals
 
-There's a complex story re. the analysis part of Fourier analysis, namely finding classes of functions for which the Fourier transform is a well defined unitary isomorphism. One clear problem is that we want things like the $\delta$ function to be such that $\mathcal{F}\delta = 1$, but it has none of the properties of a function. Not to mention to Fourier transform of, e.g. a complex exponential.
+There's a complex story re. the analysis part of Fourier analysis, namely finding classes of functions for which the Fourier transform is a well defined unitary isomorphism. One clear problem is that we want things like the $\delta$ function to be such that $\mathcal{F}\delta = 1$, but it has none of the properties of a function. Not to mention the Fourier transform of, e.g. a complex exponential.
 
 In summary, one common approach is to first take some quite restricted set of well-behaved functions (such as the Schwartz functions, which are functions which decay very rapidly) and then obtain "distributions" (not to be confused with the probabilistic sense), which are linear functionals on this restricted set.
 
@@ -329,7 +330,7 @@ $L$ is linear and time invariant (LTI) if $L\tau_b=\tau_bL$.
 
 $L$ being LTI is equivalent to $L=(h\*)$ for some $h$. In that case, complex exponentials $e^{2\pi i st}$ are the eigenvectors, with eigenvalues $\mathcal{F}h(s)$. To see that, note that for $w=L(e^{2\pi i vx})=h*e^{2\pi i vx}$:
 
-$$ \mathcal{F}^{-1}\left(\mathcal{F}(w)(k)\right) = \mathcal{F}^{-1}\left(\mathcal{F}h(k)\mathcal{F}(e^{2\pi ivx})\right) = \mathcal{F}^{-1}\left(H(k)\delta(k-v)\right) = \mathcal{F}^{-1}\left(H(v)\delta(k-v)\right)= H(v)e^{2\pi ivx} $$
+$$ \mathcal{F}^{-1}\left(\mathcal{F}(w)(k)\right) = \mathcal{F}^{-1}\left(\mathcal{F}h(k)\mathcal{F}(e^{2\pi ivk})\right) = \mathcal{F}^{-1}\left(H(k)\delta(k-v)\right) = \mathcal{F}^{-1}\left(H(v)\delta(k-v)\right)= H(v)e^{2\pi ivx} $$
 
 
 ## Sampling theory
@@ -379,7 +380,7 @@ Note that (using capital letters for Fourier transforms of functions):
 
 $$||q||^2 = ||\mathcal{F}q||^2 = \int\_{-\infty}^{\infty}\mathcal{F}q(s)ds = \int\_{-\infty}^{\infty}H(s)P(s)ds $$
 
-Now suppose that the noise $p$ is white, which here means that $\exists C. \forall s. P(s)=C$. That means that $||q||^2 = C^2||H||^2$. We now apply Cauchy-Schwartz to great effect, but noting that:
+Now suppose that the noise $p$ is white, which here means that $\exists C. \forall s. P(s)=C$. That means that $||q||^2 = C^2||H||^2$. We now apply Cauchy-Schwartz to great effect, by noting that:
 
 $$ |w(t)|^2 = |\mathcal{F}^{-1}w(t)|^2 = |\int\_{-\infty}^{\infty}(H\cdot V)(s)e^{2\pi i st}ds|^2$$
 
@@ -391,7 +392,7 @@ Adding a definition, we have the signal to noise ratio:
 
 $$ SNR := \frac{|w(t)|^2}{||q||^2} \leq \frac{1}{C^2}\int\_{-\infty}^{\infty}|V(s)|^2ds$$
 
-We maximize the SNR be attaining equality in Cauchy-Schwartz. Recall that this happens when the two vectors lie in the same span, which here means that $h$ is proportional to $\mathcal{F}ve^{2\pi ist}$. (This is the matched filter theorem)
+We maximize the SNR by attaining equality in Cauchy-Schwartz. Recall that this happens when the two vectors lie in the same span, which here means that $H$ is proportional to $\mathcal{F}ve^{2\pi ist}$. (This is the matched filter theorem, and $H$ in the span is the matched filter).
 
 ## Spectroscopy
 
