@@ -50,13 +50,17 @@ $\newcommand{\inner}[2]{\langle #1 | #2 \rangle}$
 
 Absolute basics of quantum physics. Mostly from "Quantum Mechanics: The Theoretical Minimum", which I liked very much.
 
-The fundamental feel of quantum mechanics is that linear algebra is the "operating system". Roughly, the maths takes place in a category of vector spaces rather than of sets. This change is responsible for most of the fundamental, weird seeming differences, like the importance of measurement, and entanglement.
+The fundamental feel of quantum physics is that linear algebra is the "operating system". Roughly, the maths takes place in a category of Hilbert spaces rather than of sets. This change is responsible for most of the fundamental, weird seeming differences, like the importance of measurement, and entanglement.
+
+Most quantum physics courses (at least this is my impression) focus on the PDEs which arise when you use the principles of quantum physics to model e.g. a particle, or on the experiments which gave rise to the theory. It's nice to separate that from the abstract principles though, which is what these notes are about. That's the spirit of "Quantum Mechanics: The Theoretical Minimum".
+
+<!-- Notes on actually using the principles of quantum physics to model e.g. particle mechanics are in [these notes](/maths/Experiments.md). The focus there is on the PDEs and Fourier analysis that arise from things like position and momentum operators on the Hilbert spaces of functions, but the general principles are more abstract. -->
 
 Here are the rules:
 
 - A state is a vector in some (dimension could be finite or infinite, depending on what's being modeled) vector space over the complex field whose Euclidean norm is 1.
 - A measurable is a self-adjoint (i.e. Hermitian) operator over that vector space.
-- A measurement of a measurable results in a distribution over the spectrum, i.e. the eigenvalues of that measurable (all real because of the spectral theorem), each with probability given by the (absolute value of the) inner product of the state with its projection onto the corresponding eigenvector (this last part is the Born rule).
+- A measurement of a measurable results in a distribution over the spectrum, i.e. the eigenvalues of that measurable (all real because of the spectral theorem), each with probability proportional to the square norm of the projection of the state onto the corresponding eigenspace (this last part is the Born rule).
 - importantly, the measurement causes the state to change to the projection of the previous state onto the eigenvector corresponding to the observed eigenvalue. Or if you prefer, a measurement induces a distribution over states which you can then propagate onwards to the next measurement
 - measurement is idempotent: if you measure, it collapses the state, and measuring again gives the same result
 - The new state after time $t$ is given by a unitary matrix $U(t)$. This unitarity means the past is determinable from the present (if you know the present).
@@ -75,6 +79,10 @@ Where $\langle S(L) \rangle_{a}$ is the expectation of the spectrum of $L$ under
 ### Bra-ket notation:
 
 Kets are (normalized) vectors in the state space, bras are dual vectors, i.e. linear functionals from the space to $\C$. The notation is basically a convenient visual pun, so that a bra and ket combine to give the inner product (or the outer product in the other order).
+
+What is important about the notation is that it's used across finite and infinite dimensional settings, and emphasizes the things that generalize between these settings. In particular, note that a bra or ket is *basis independent*, and is put into a basis by projection.
+
+Another useful convention is that, e.g. $\bra{p}$ denotes the eigenvector of $P$ which has $p$ as its eigenvalue.
 
 ### Phase factor
 
@@ -119,7 +127,7 @@ $$ = \frac{i}{\hbar} \inner{\Psi(t)}{HL|\Psi(t)} - \frac{i}{\hbar} \inner{\Psi(t
 
 Therefore, if $A$ is an observable, and $[A,H]=0$, then the expectation of $A$ is constant in time. A special case is $[H,H]=0$: so the Hamiltonian, which measures the energy, is conserved.
 
-Also note that then the Poisson bracket (as in classical mechanics) can be interpreted as $[L,H] = i\hbar\{L,H\}$, so that we recover the classical rule for change over time of a quantity.
+Also note that then the Poisson bracket (as in classical mechanics) can be interpreted as $[L,H] = i\hbar\\{L,H\\}$, so that we recover the classical rule for change over time of a quantity.
 
 ### Projection operator and density matrix
 
@@ -162,7 +170,7 @@ The consequence is that if two measurables don't commute, then as your uncertain
 
 If you want states with multiple things, e.g. two spins (qubits), you need a tensor product of vector spaces. The key feature of the monoidal product in a category of vector spaces is that it is *not the categorical product*. You can't get the parts out of the whole. So if you have a fully specified state in the tensor product space, that need not give you any information about the subspace corresponding to one of your qubits.
 
-Alternatively, using the trace trick, we can form from a state $\phi$ the projection operator $|\phi\rangle\langle\phi|$ (remember that $\phi$ is normalized), and note that $Tr(|\phi\rangle\langle\phi|M)=Tr(\langle\phi|M|\phi\rangle)$ is the expectation of $M$ in state $\phi$. More generally, an operator $\rho=\sum_ia_i|\phi_i\rangle\langle\phi_i|$ gives you a *mixed* state, and the corresponding matrix is the density matrix.
+<!-- Alternatively, using the trace trick, we can form from a state $\phi$ the projection operator $|\phi\rangle\langle\phi|$ (remember that $\phi$ is normalized), and note that $Tr(|\phi\rangle\langle\phi|M)=Tr(\langle\phi|M|\phi\rangle)$ is the expectation of $M$ in state $\phi$. More generally, an operator $\rho=\sum_ia_i|\phi_i\rangle\langle\phi_i|$ gives you a *mixed* state, and the corresponding matrix is the density matrix. -->
 
 ## Qubits
 
@@ -210,9 +218,12 @@ Note the very close relation to the analogous classical situation (e.g. Classica
 
 ## Particles in continuous (1D) space
 
+
+
 Quantization is the act of taking a classical system and designing a quantum system that behaves like the classical system in the limit of $h\to 0$ (roughly). To quantize the motion of a classical particle, we need to upgrade to infinite dimensional Hilbert spaces.
 
-In particular, take the space of functions which are normalizable (when you integrate them multiplied by their complex conjugate from $-\infty$ to $\infty$, you get a finite number).
+In particular, take the space of functions which are normalizable (when you integrate them multiplied by their complex conjugate from $-\infty$ to $\infty$, you get a finite number). Actually, we'll even allow some non-normalizable things - see [Fourier analysis notes](/maths/fourier.md) to get an intuition of why *distributions* are also allowed.
+
 
 Fixing a basis, a function can be defined by its coefficients. So the element $|\Phi\rangle$ of the Hilbert space is expressed in a basis (the position basis) as $\phi(x)$, where $\phi$ refers to the coefficient function.
 
@@ -226,11 +237,13 @@ $$ = \left(\int\_{-\infty}^{\infty} \psi(x)^{\*}x\phi(x)dx\right)^{\*}  $$
 
 $$ = \bra{\Psi}X\ket{\Phi}^{\*}$$
 
-The eigenvectors of $X$ are the delta functions and its eigenvalues are $\RR$. The eigenbasis is called the *position* basis.
+The eigenvectors of $X$ are the delta functions and its spectrum (space of eigenvalues) are $\RR$. The eigenbasis is called the *position* basis.
 
 $$X\phi(x) = x\phi(x) = x\_0\phi(x) \Rightarrow (x-x\_0)\phi(x) = 0 \Rightarrow \phi(x)=\delta(x-x\_0)$$
 
-Another obvious operator $Y$ can be defined such that $Y|\phi\rangle$ in the position basis is $\pd{}{x}\phi(x)$. This is skew-self-adjoint and as a consequence, the momentum operator $P$, defined as $P=-i\hbar Y$ is self-adjoint (see [Fourier notes](/maths/fourier)). See to this, first note that for any ket $\ket{\Phi}$, we have $\phi(\infty)=\phi{-\infty}=0$ (since otherwise $\phi$ would not be normalizable). This explains why the first term on the third line below drops out:
+Viewed as a matrix, we have $\bra{x}X\ket{x'} = \delta(x-x')$.
+
+Another obvious operator $Y$ can be defined such that $Y|\phi\rangle$ in the position basis is $\pd{}{x}\phi(x)$. This is skew-self-adjoint and as a consequence, the momentum operator $P$, defined as $P=-i\hbar Y$ is self-adjoint (see [Fourier notes](/maths/fourier)). See to this, first note that for any ket $\ket{\Phi}$, we have $\phi(\infty)=\phi(-\infty)=0$ (since otherwise $\phi$ would not be normalizable). This explains why the first term on the third line below drops out:
 
 $$ \bra{\Phi}D\ket{\Psi}$$
 
@@ -242,18 +255,18 @@ $$ = \bra{\Psi}D\ket{\Phi}^{\*}$$
 
 The eigenvector with eigenvalue $p\in \RR$ is $\frac{1}{\sqrt{2\pi}}e^{\frac{ixp}{\hbar}}$, so the eigenbasis, known as the momentum basis, consists of the complex exponentials.
 
-Note that in the momentum domain, we are integrating over $[-\pi,\pi]$. Why?
+Note that in the momentum domain, we have to use a definition of integration in which complex exponentials integrate to $0$. Roughly, we'll say that their average over increasingly long times goes to $0$.
 
 Also note that $\lambda = \frac{2\pi\hbar}{p}$ is the wavelength (spatial periodicity) of the wave corresponding to  $\frac{1}{\sqrt{2\pi}}e^{\frac{ixp}{\hbar}}$.
 
 A common notation has that $\ket{x}$ and $\ket{p}$ are respectively eigenvectors of $X$ and $P$. The following derivation gives an example of the kind of thing that bra-ket notation allows for (it's not formally justified here, but turns out to work):
 
 
-First recall that for $\ket{i}$ ranging over a set of basis vectors, $I = \int dx \ket{i}\bra{i} $. Also note that the following two equation hold because the eigenvectors of $X$ (i.e. $\ket{x}$) are delta functions:
+First recall that for $\ket{i}$ ranging over a set of *orthogonal* basis vectors, $I = \int dx \ket{i}\bra{i} $. Also note that the following two equation hold because the eigenvectors of $X$ (i.e. $\ket{x}$) are delta functions:
 
 $$ \inner{x}{\Phi} = \int dx' \delta(x-x')\phi(x') = \phi(x)$$
 
-$$\inner{x}{p} = \frac{1}{\sqrt{2\pi}}e^{\frac{ixp}{\hbar}} = $$
+<!-- $$\inner{x}{p} = \frac{1}{\sqrt{2\pi}}e^{\frac{ixp}{\hbar}} = $$ -->
 
 
 Then:
@@ -316,7 +329,7 @@ So $\langle P \rangle\_{\Psi(t)} = mv$: the *expected* momentum is mass times ve
 
 ### Forces
 
-An operator $V(x)$, such that $V\ket{\Phi}$ in the position basis is $V(x)\phi(x)$ represents a potential, with $F(x)=\frac{\partial V}{\partial x}$. But note that then $V(x)$ commutes with $X$, so that $[X,V(x)]=0$.
+An operator $V(x)$, such that $V\ket{\Phi}$ in the position basis is $V(x)\phi(x)$ represents a potential, with $F(x)=-\frac{\partial V}{\partial x}$. But note that then $V(x)$ commutes with $X$, so that $[X,V(x)]=0$.
 
 A consequence is that, by linearity of the commutator, $[X,H]=[X,P]$, for $H=\frac{P^2}{2m}+V(x)$. This means that as above, $\langle P \rangle\_{\Psi(t)} = mv$.
 
@@ -331,33 +344,17 @@ This is the same as the classical equation of motion, but now for expectations. 
 
 ### Quantum harmonic oscillator
 
-The Hamiltonian is the natural quantum analog to the classical oscillator, namely (setting $m=1$)
+Harmonic oscillators are both analytically solvable and approximate any system perturbed slightly from equilibrium.
+
+The QHO Hamiltonian is the natural quantum analog to the classical oscillator, namely (setting $m=1$)
 
 $$ H = \frac{P^2+\omega^2X^2}{2}$$
 
-One eigenvector of $H$ is $g(x)=e^{-\frac{\omega}{2\hbar}x^2}$. In coordinate free from we refer to this as $\ket{0}$ for reasons that will become apparent. To see why this is an eigenvector:
+<!-- One eigenvector of $H$ is $g(x)=e^{-\frac{\omega}{2\hbar}x^2}$. In coordinate free form we refer to this as $\ket{0}$ for reasons that will become apparent.  -->
 
-We can actually find the spectrum (set of eigenvalues) of the Hamiltonian without doing almost any calculus, by using an Heisenberg style approach, as follows:
+We can actually find the spectrum (set of eigenvalues) of the Hamiltonian without doing almost any calculus, by using an Heisenberg style approach, as follows.
 
-First, an observation: because of the squares in the operators constituting $H$ (and the fact that eigenvectors multiply under composition) we know already that the eigenvalues are non-negative.
-
-Second, some operators:
-
-$$ a\_+ := \frac{-i}{\sqrt{2\omega\hbar}}(P + i\omega X) $$
-
-$$ a\_- := \frac{i}{\sqrt{2\omega\hbar}}(P - i\omega X)  $$
-
-$$ N := a\_+a\_- $$
-
-Third, a simple commutator algebra (set of operators closed under commutation), easily verified by brute calculation:
-
-$$ [a\_-,a\_+] = 1 $$
-
-$$ [a\_-, N] = a\_- $$
-
-$$ [a\_+, N] = -a\_+ $$
-
-Fourth, the completion of the square to rewrite $H$:
+First, the completion of the square to rewrite $H$:
 
 $$H =  \frac{1}{2}\left(P^2+\omega^2X^2\right) = \frac{1}{2}(P+i\omega X)(P-i\omega X) - \frac{1}{2}\left(i\omega XP - i\omega PX \right) $$
 
@@ -367,23 +364,42 @@ $$ =  \frac{1}{2}(P+i\omega X)(P-i\omega X) + \frac{\omega\hbar}{2} $$
 
 $$ =  \omega\hbar \frac{-i}{\sqrt{2\omega\hbar}}(P+i\omega X)\frac{i}{\sqrt{2\omega\hbar}}(P-i\omega X) + \frac{\omega\hbar}{2} $$
 
-$$ = \omega\hbar(a\_+a\_- -\frac{1}{2}) = \omega\hbar(N - \frac{1}{2}) $$
+This suggests some operators:
 
-Fifth, the punchline:
+$$ a\_+ := \frac{-i}{\sqrt{2\omega\hbar}}(P + i\omega X) $$
+
+$$ a\_- := \frac{i}{\sqrt{2\omega\hbar}}(P - i\omega X)  $$
+
+These two are adjoint. We also define:
+
+$$ N := a\_+a\_- $$
+
+
+Then, using these definitions in the above:
+
+$$ H = \omega\hbar(a\_+a\_- -\frac{1}{2}) = \omega\hbar(N + \frac{1}{2}) $$
+
+
+Next, a simple Lie algebra (set of operators closed under commutation), easily verified by brute calculation:
+
+$$ [a\_-,a\_+] = 1 $$
+
+$$ [a\_-, N] = a\_- $$
+
+$$ [a\_+, N] = -a\_+ $$
+
+Then, the punchline:
 
 $$ N(a\_+\ket{n}) = (a\_+N + (Na\_+ - a\_+N))\ket{n} $$
 
 $$= (a\_+N+[N,a\_+])\ket{n} = (a\_+N+a\_+)\ket{n} = a\_+(N+1)\ket{n} = (n+1)a\_+\ket{n} $$
 
-$$ $$
 
-In other words, if $\ket{n}$ is an eigenvector (of $H$) with eigenvalue $n$, then $a\_+\ket{n}=\ket{n+1}$, i.e. $a\_+\ket{n}$ is an eigenvector with eigenvalue $n+1$. Similarly for $a\_-$. $a\_+$ and $a\_-$ are respectively called the creation and annihilation operators.
+In other words, if $\ket{n}$ is an eigenvector (of $H$) with eigenvalue $n$, then $a\_+\ket{n}=K\ket{n+1}$, i.e. $a\_+\ket{n}$ is an eigenvector with eigenvalue $n+1$. $K$ is there as a normalization factor, not yet determined. Similarly for $a\_-$. $a\_+$ and $a\_-$ are respectively called the creation and annihilation operators.
 
-Sixth, another punchline:
+A second punchline:
 
-Since the eigenvalues are non-negative, there must be an eigenvector $\ket{0}$ such that $a\_-\ket{0}=\overrightarrow{0}$. This is because the annihilation operator keeps reducing the eigenvalue. So eventually we would hit an eigenvector $\ket{0}$ with eigenvalue $\omega\hbar$.
-
-But then
+Because of the squares in the operators constituting $H$ (and the fact that eigenvectors multiply under composition) we know already that the eigenvalues are non-negative. Since the eigenvalues are non-negative, there must be an eigenvector $\ket{0}$ such that $a\_-\ket{0}=\overrightarrow{0}$. This is because the annihilation operator keeps reducing the eigenvalue. So eventually we would hit an eigenvector $\ket{0}$ which $a\_-$ annihilates. But then:
 
 $$\overrightarrow{0}=a\_-\ket{0}=\frac{i}{\sqrt{2\omega\hbar}}(P - i\omega X)\ket{0}$$
 
@@ -391,11 +407,19 @@ $$ \Rightarrow -i\hbar\frac{d}{dx}\phi\_0(x) = i\omega x\phi\_0(x)$$
 
 $$ \Rightarrow \phi\_0(x) = e^{-\frac{\omega x^2}{2\hbar}} $$
 
-So the position representation of $\ket{0}$ is a Gaussian function.
+So the position projection of $\ket{0}$ is a Gaussian function. We even know that $H\ket{0}=\omega\hbar(N+\frac{1}{2})\ket{0} = \frac{\omega\hbar}{2}$, and that each successive $\ket{n}$ gains $\omega\hbar$ energy.
 
 Finally:
 
 Now that we know the ground state, we can generate the eigenvectors using the creation operator, which is great. What we get are functions which are a polynomial times the ground state. These polynomials are called the Hermite polynomials, and are alternatively odd and even.
+
+We can see that they're orthogonal, because $\ket{n}=K(a\_+)^n\ket{0}$, for a normalizing constant $K$, so $\inner{n}{m} = \bra{0}(a\_-)^n(a\_+)^m\ket{0}$. WLOG, suppose $n > m$. Then we raise more than we lower, so we annihilate the ket.
+
+Given orthonormality (which I have not shown - I've only shown orthogonality), we can find the appropriate value of the normalizing constant $K$ as follows:
+
+$$ a\_-\ket{n} = K\ket{n+1} \Rightarrow \bra{n}a\_+a\_-\ket{n} = K^2 \inner{n+1}{n+1} = \bra{n}N\ket{n} = n\inner{n}{n} $$
+
+$$ \Rightarrow n = K^2 \Rightarrow K = \sqrt{n} $$
 
 ### Quantization of a field
 

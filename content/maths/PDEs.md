@@ -79,7 +79,7 @@ These eigenequations have solutions:
 
 $$ g(x) = ae^{\sqrt{K}t} + be^{-\sqrt{K}t} $$
 
-$$ h(t) = ce^{\sqrt{K}v} + de^{-\sqrt{K}v} $$
+$$ h(t) = ce^{\sqrt{K}vt} + de^{-\sqrt{K}vt} $$
 
 We might have some further constraints that help us solve the problem. For instance, a common boundary condition is that $\forall t: f(0,t)=0=f(L,t)$, where $L$ is some designated point, for instance the end of a string might be one physical interpretation.
 

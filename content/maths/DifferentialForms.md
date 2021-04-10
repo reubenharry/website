@@ -46,9 +46,9 @@ A bit sparser than some of the other notes here. Mostly based on [these notes](h
 
 In general, we want to do calculus on spaces which are locally Euclidean, but perhaps not globally. These are (smooth) manifolds. View this is a category $\mathcal{M}$, with manifolds as the objects and diffeomorphisms as the morphisms.
 
-Riemann integrals have this $dx$ in them, which is basically "syntactic sugar" (as a programmer might say) to indicate what the variable of integration is. The calculus of differential forms actually treats the $dx$ or in a 2D case $dx\wedge dy$ as a real object (in fact, an asymmetric multilinear map). Doing this right takes some setup, but results in a very clean and more importantly, coordinate independent, notion of integration on manifolds.
+Riemann integrals have this $dx$ in them, which is basically "syntactic sugar" (as a programmer might say) to indicate what the variable of integration is. The calculus of differential forms actually treats the $dx$ or in a 2D case $dx\wedge dy$ as a real object (in fact, an asymmetric multilinear map). Differential forms lives in a category where the objects are spaces of forms on a manifold. See below for details of the *pullback* as a functor, and the (exterior) derivative as a natural transformation.
 
-After developing the groundwork, one thing that can be expressed very nicely in the language of differential forms is (the generalized) Stokes' theorem, which subsumes many important theorems of the flavour: the volume of a blob is related to the volume of its boundary. For that reason, this bit of maths feels a lot like computer science, where if you set up your framework carefully, you get a lot of generality for free.
+Doing all of this right takes some setup, but results in a very clean and more importantly, coordinate independent, notion of integration on manifolds. After developing the groundwork, one thing that can be expressed very nicely in the language of differential forms is (the generalized) Stokes' theorem, which subsumes many important theorems of the flavour: the volume of a blob is related to the volume of its boundary. For that reason, this bit of maths feels a lot like computer science, where if you set up your framework carefully, you get a lot of generality for free.
 
 ### Antisymmetric multilinear maps
 

@@ -28,7 +28,7 @@ Borges inhabits a genre you could describe as ironic realism. His stories are li
 
 For instance, I could imagine him writing a story in which the clearly figurative Michelangelo quote above is interpreted literally and sculptors spend their careers searching for certain blocks of stone which they think contain the desired statues. Here, Borges would be *borgesifying* the idea of creativity as a search, on which more (not very much) later.
 
-But instead of an imaginary short story (though I'm sure Borges would appreciate that concept), I'll give an example of borgesification in one of his actual ones, *The Library of Babel*. Since meaning is the intersection of artificial intelligence and linguistics that I personally care about, I can't help extrapolating some morals from it.
+But instead of an imaginary Borges short story (though I'm sure he would appreciate that concept), I'll give an example of borgesification in one of his actual ones, *The Library of Babel*. Since meaning is the intersection of artificial intelligence and linguistics that I personally care about, I can't help extrapolating some morals from it.
 
 ## The Library of Babel
 

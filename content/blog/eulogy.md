@@ -1,8 +1,10 @@
 ---
 title: "Eulogy"
 date: 2018-07-24T00:01:22-07:00
-draft: true
+draft: false
 ---
+
+--
 
 # To my father (late)
 
@@ -68,3 +70,5 @@ I take comfort that you lived a happy life to the almost very end, a self-made m
 I hope to remember you when I cook meals from your mysterious recipes, and when I laugh uncomfortably during small talk. I'll also remember you when I raise my eyebrows in that strained expression we both assume when talking to shop assistants and when I paw at my phone over the top of my glasses. And maybe, if I read The Cat in the Hat to children of my own or carry them up the stairs after they fall asleep on the sofa, I'll remember your unassuming parenting, which was quietly gentle and wise.
 
 {{< figure src="img/meandmike.jpeg" imageMaxWidth="1000px" width="750" >}}
+
+(On display: the tendency our hair has to stick up at the back - his hidden by a hat)

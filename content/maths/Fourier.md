@@ -45,17 +45,19 @@ Notes largely from [this **excellent** book](https://see.stanford.edu/materials/
 
 ## The general idea
 
-The general idea of Fourier analysis is to express (sufficiently nice) functions as sums (or integrals) of some set of functions which have nice symmetry properties, usually complex exponentials. That is, we want to find something like a basis of periodic functions, in a vector space of functions. The applications of Fourier methods are therefore often cases where we want to "untangle" a function. This plays out in various different settings:
+It's really useful to think of the Fourier transform from the perspective of linear algebra. Details are given below, but the key idea (handwaving a bit here) is that the function $D^2$ mapping a function to its second derivative is an *operator* in an appropriate inner product space of functions. Moreover, it is a *Hermitian* operator, and so it admits an eigendecomposition, by the spectral theorem. Recall that that means $D^2 = Q\circ \Lambda \circ Q^T$ for $\Lambda$ diagonal and $Q$ unitary. $Q$ here is the Fourier transform/series (depending on the relevant space of functions - see below). Even though this is just basic linear algebra, rather than scary looking integrals, it already tells us the key properties of the Fourier transform: it's unitary (Plancherel's theorem), its inverse is its conjugate transpose (Fourier inversion theorem), and it expresses a function as a sum/integral of its eigenvectors, which are the complex exponentials (standard definition of the Fourier transform).
+
+Less abstract version: the general idea of Fourier analysis is to express (sufficiently nice) functions as sums (or integrals) of some set of functions which have nice symmetry properties, usually complex exponentials. The applications of Fourier methods are therefore often cases where we want to "untangle" a function. This plays out in various different settings:
 
 
 
 - $\mathcal{F}:(\R/n\Z\to\C)\to(\Z\to\C)$ is called the Fourier Series: that is, a (sufficiently nice) periodic function can be expressed as an (infinite) sum of complex exponentials. In other words, $e^{ki\pi x}$, for $k\in\Z$, is a basis for periodic functions.
 
-- $\mathcal{F}:(\R\to\C)\to(\R\to\C)$ is called Fourier Transform: that is, a (sufficiently nice) function can be expressed as an integral of complex exponentials. This is like a continuous analog of a basis.
+- $\mathcal{F}:(\R\to\C)\to(\R\to\C)$ is called the Fourier Transform: that is, a (sufficiently nice) function can be expressed as an integral of complex exponentials. This is like a continuous analog of a basis.
 
-- $\mathcal{F}:(V^n\to\C)\to(V^n\to\C)$ is called Discrete Fourier Transform: is it a linear operator between finite dimension vector spaces, so can be expressed as a matrix.
+- $\mathcal{F}:(V^n\to\C)\to(V^n\to\C)$ is called the Discrete Fourier Transform: is it a linear operator between finite dimension vector spaces, so can be expressed as a matrix.
 
-- $\mathcal{F}:(\Z\to\C)\to(\R\to\C)$ is called Discrete Time Fourier Transform.
+- $\mathcal{F}:(\Z\to\C)\to(\R\to\C)$ is called the Discrete Time Fourier Transform.
 
 <!-- - Even and odd functions: Any function can be expressed as a sum of an even function (a function where $f(-x)=f(x)$) and an odd function (where $f(-x)=-f(x)$). -->
 
@@ -123,9 +125,11 @@ Let $T(x)$ be the complex conjugate of $x$. Orthogonality is shown as follows:
 
 ## Even and Odd functions
 
-Consider the function space of functions $\R\to\R$ that can be integrated (with a finite result).
+Consider the operator $M$, such that $M(f)(x)=f(-x)$. This is Hermitian (and unitary). Being the square root of $I$, $1$ and $-1$ are the eigenvalues. The corresponding eigenspaces are the even and odd functions.
 
-An even function $f\_e$ is such that $f\_e(-x)=f\_e(x)$. An odd function $f\_o$ is such that $f\_o(-x)=-f\_o(x)$.
+<!-- Consider the function space of functions $\R\to\R$ that can be integrated (with a finite result). -->
+
+To spell that out more concretely. An even function $f\_e$ is such that $f\_e(-x)=f\_e(x)$. An odd function $f\_o$ is such that $f\_o(-x)=-f\_o(x)$.
 
 Even and odd functions form respective subspaces: linear combinations of even functions are even, and likewise for odd.
 
@@ -141,7 +145,6 @@ $$
 
 The integral of an odd function over the whole real line is $0$.
 
-Consider the operator $M$, such that $M(f)(x)=f(-x)$. Then $1$ and $-1$ are eigenvalues, and the corresponding eigenspaces are the even and odd functions.
 
 <!-- Self adjoint: Note that $\int Nf(x)g(x)dx = int f(-x)g(x) = int f(x)g(-x) = int f(x)Ng(x)  -->
 
@@ -180,6 +183,11 @@ $\mathcal{F}f$ is the Fourier transform of $f$, giving the representation of $f$
 
 $f$ is the inverse Fourier transform of $\mathcal{F}f$. The Fourier transform of $f(x)$ projects $f$ onto a basis of complex exponentials and the inverse Fourier transform of $f$ builds up $F^{-1}f$ from a basis. This duality between projection and linear combination is at first a little weird looking.
 
+
+### Dirac Delta
+
+This is a continuous analog to the Kronecker delta $\delta_{ij}$, which is $0$ except when $i=j$ and is then $1$. We want the same but in a continuous space. In particular, we want that $\int\_{-\infty}^{\infty}\delta(x)dx=1$ and $\langle \delta\_{x_0},f\rangle = f(x\_0)$. No function has these properties, and the Dirac $\delta$ is actually a functional (see below), but it's useful and elegant.
+
 ### Inversion:
 
 $$ (\mathcal{F}^{-1}(\mathcal{F}(f)))(t) = \int\_{-\infty}^{\infty}\mathcal{F}f(k)e^{2\pi itk}dk $$
@@ -189,10 +197,6 @@ $$ = \int\_{-\infty}^{\infty}\left( \int\_{-\infty}^{\infty}f(x)e^{-2\pi ikx}dx 
 $$ = \int\_{-\infty}^{\infty} \int\_{-\infty}^{\infty} \left(e^{-2\pi itk} e^{2\pi ikx}dk \right) f(x) dx $$
 
 $$ = \int\_{-\infty}^{\infty}\delta\_t f(x) dx = f(t) $$
-
-### Dirac Delta
-
-This is a continuous analog to the Kronecker delta $\delta_{ij}$, which is $0$ except when $i=j$ and is then $1$. We want the same but in a continuous space. In particular, we want that $\int\_{-\infty}^{\infty}\delta(x)dx=1$ and $\langle \delta\_{x_0},f\rangle = f(x\_0)$. No function has these properties, and the Dirac $\delta$ is actually a functional (see below), but it's useful and elegant.
 
 Key properties:
 
@@ -378,13 +382,13 @@ As an example, consider the process of denoising. We model a noisy signal as $n=
 
 Note that (using capital letters for Fourier transforms of functions):
 
-$$||q||^2 = ||\mathcal{F}q||^2 = \int\_{-\infty}^{\infty}\mathcal{F}q(s)ds = \int\_{-\infty}^{\infty}H(s)P(s)ds $$
+$$||q||^2 = ||\mathcal{F}q||^2 = \int\_{-\infty}^{\infty}|\mathcal{F}q(s)|^2ds = \int\_{-\infty}^{\infty}|H(s)|^2|P(s)|^2ds $$
 
 Now suppose that the noise $p$ is white, which here means that $\exists C. \forall s. P(s)=C$. That means that $||q||^2 = C^2||H||^2$. We now apply Cauchy-Schwartz to great effect, by noting that:
 
-$$ |w(t)|^2 = |\mathcal{F}^{-1}w(t)|^2 = |\int\_{-\infty}^{\infty}(H\cdot V)(s)e^{2\pi i st}ds|^2$$
+$$ ||w(t)||^2 = ||\mathcal{F}^{-1}w(t)||^2 = ||\int\_{-\infty}^{\infty}(H\cdot V)(s)e^{2\pi i st}ds||^2$$
 
-$$ \leq |\int\_{-\infty}^{\infty}H(s)ds|^2 |\int\_{-\infty}^{\infty}V(s)e^{2\pi i st}ds|^2 $$
+$$ \leq ||\int\_{-\infty}^{\infty}H(s)ds||^2 ||\int\_{-\infty}^{\infty}V(s)e^{2\pi i st}ds||^2 $$
 
 $$ \leq \int\_{-\infty}^{\infty}|H(s)|^2ds \int\_{-\infty}^{\infty}|V(s)|^2ds $$
 
@@ -396,7 +400,9 @@ We maximize the SNR by attaining equality in Cauchy-Schwartz. Recall that this h
 
 ## Spectroscopy
 
-Turns out that waves roughly behave in a way where if you have a plane wave hit a wall with a hole, it will *diffract*, causing the *Fourier transform of the hole* to be the resulting field on a wall further on. This generalizes a lot, and is the principle that allows you to "see" the structure of a crystal by looking at the pattern it makes (the diffraction pattern), which is the Fourier transform (and then 2D projection) of an appropriate Dirac comb representing the lattice in question (the given model of the atomic structure of the material of interest).
+Turns out that waves roughly behave in a way where if you have a plane wave hit a wall with a hole, it will *diffract*, causing the *Fourier transform of the hole* to be the resulting field on a wall further on (at least, this is how *far-field* diffraction works). Actually this is pretty intuitive. Any situation where each of a wave's frequencies respond differently is going to result in Fourier type transformation. Just think of a prism splitting light into different angles based on frequency.
+
+This generalizes a lot, and is the principle that allows you to "see" the structure of a crystal by looking at the pattern it makes (the diffraction pattern), which is the Fourier transform (and then 2D projection) of an appropriate Dirac comb representing the lattice in question (the given model of the atomic structure of the material of interest).
 
 ## Imaging
 

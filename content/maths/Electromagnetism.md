@@ -48,7 +48,7 @@ Conventions: $\hat{r}$ for a unit vector, occasional use of bold for vectors, bu
 
 Note: this is *classical* electromagnetism, so no special (or general) relativity, and no quantum. So it's a limited, but very effective model.
 
-The relevant maths for this subject is mostly multivariable integration, so see e.g. [these notes](/notes/differentialforms). Those are probably a bit too pure maths heavy, but they're relevant, because every imaginable manifestation of Stokes' generalized theorem comes up (the divergence theorem, the fundamental theorem for gradients, Stokes' (not so general) theorem, Green's theorem, etc).
+The relevant maths for this subject is mostly multivariable integration, so see e.g. [these notes](/notes/differentialforms). Those are probably more abstract than necessary, but the connection is that every imaginable manifestation of Stokes' generalized theorem comes up (the divergence theorem, the fundamental theorem for gradients, Stokes' (not so general) theorem, Green's theorem, etc).
 
 One of the tricky things about this subject is that it consists of a mixture of simple theoretical ideas (e.g. the field resulting from a point charge), to real-world useful facts, which tend to be (at best) very hard to show analytically, or impossible in a classical model (e.g. magnetism in a material, why various materials are approximately Ohmic, etc). Since the things in the second camp are the ones that actually matter, you end up having to take a lot on faith and just get a general intuition. Which is fine, but contrasts with all the nice simple integral calculus of the simpler cases.
 
@@ -74,9 +74,9 @@ $$ \nabla \cdot B = 0 $$
 
 This law (Ampere's law with Maxwell addition) related the time change of $B$ to the divergence of $E$:
 
-$$ \nabla \times B - \mu\_0\epsilon\_0\pd{E}{t} = \mu J $$
+$$ \nabla \times B - \mu\_0\epsilon\_0\pd{E}{t} = \mu\_0 J $$
 
-What's $J$? If $I=\lambda v$ is a vector quantity representing current through a point, $J$ is the volume current (change in charge over time) density, in a direction. Say you integrate its magnitude over time and a flat surface, it gives the amount of charge to have flowed through that surface in that time. $J = \rho v$, where $\rho$ is the charge density and $v$ is its velocity.
+What's $J$? If $I=\lambda v$ is a vector quantity representing current (change in charge over time) through a point, $J$ is the volume current density, in a direction. Say you integrate its magnitude over time and a flat surface, it gives the amount of charge to have flowed through that surface in that time. $J = \rho v$, where $\rho$ is the charge density and $v$ is its velocity.
 
 Remarkably, it turns out that $\mu\_0\epsilon\_0 = \frac{1}{c}$, which comes straight out of *nowhere*.
 
@@ -100,14 +100,12 @@ $$ E(r ) = \frac{1}{4\pi} \left(\nabla\times\left( \int \frac{\nabla\_{r'}\times
 
 In general, the idea of electrostatics here is to find the electric field induced by some non-moving point charges or by a distribution of charge, using Coulomb's law, derived as follows:
 
-A simple but illustrative example of the usefulness of Gauss' theorem in electrostatics is as follows. Suppose you have a rotationally symmetric charge distribution with total charge $q$, and you want the field $E$ outside it. In fact, say that it's a point distribution $Q\delta^3$.
+A simple but illustrative example of the usefulness of Gauss' theorem in electrostatics is as follows. Suppose you have a rotationally symmetric charge distribution with total charge $q$, and you want the field $E$ outside it. In fact, say that it's a point distribution $q\delta^3$.
 
-To find this, consider the flux through a spherical shell (known in this context as the Gaussian surface) surrounding the charge. We know that the total charge is $\rho=\int Q\delta^3 = Q$.
-
-Because the field points outward, and using Gauss' law and Stokes' theorem, we have that:
+To find this, consider the flux through a spherical shell (known in this context as the Gaussian surface) surrounding the charge. We know that the total charge is $\int q\delta^3 = q$. Because the field points outward, and using Gauss' law and Stokes' theorem, we have that:
 
 
-$$ \frac{Q}{\epsilon\_0} = \int \frac{\rho}{\epsilon\_0} = \int \nabla\times E = \int E\cdot da = \int ||E|| da = ||E|| \int da = ||E||4\pi r^2 $$
+$$ \frac{q}{\epsilon\_0} = \int \frac{\rho}{\epsilon\_0} = \int \nabla\times E = \int E\cdot da = \int ||E|| da = ||E|| \int da = ||E||4\pi r^2 $$
 
 $$ \Rightarrow ||E|| = \frac{q}{4\pi r^2\epsilon\_0} \Rightarrow E = \frac{q}{4\pi r^2\epsilon\_0}\hat{r}$$
 
@@ -144,7 +142,22 @@ where $O$ is some standard reference point. Then, by another part of Stokes' the
 
 $$ \int\_a^b \nabla V\cdot l = V(b) - V(a) = -\int\_{O}^b E\cdot dl - \int^{O}\_a E\cdot dl = -\int\_{a}^b E\cdot dl $$
 
+Then:
+
 $$ \Rightarrow  E = -\nabla V $$
+
+We can also get to $V$ directly from the Helmholtz decomposition and the assumptions of electrostatics ($\pd{B}{t}=0$, $J=0)$. If we do that, we see that the potential of a point charge:
+
+$$ V( r) = \frac{1}{4\pi \epsilon\_0} \frac{q}{||r-r'||} $$
+
+where $q$ is the amount of charge, and $r'$ is, as usual, the position of the charge. Similarly, for a charge distribution:
+
+$$ V( r) = \frac{1}{4\pi \epsilon\_0} \int \frac{1}{||r-r'||}  dq $$
+
+Where $dq$, in the case of volume, is the form $\rho d\tau$. To convince yourself of this, take the Laplacian, recalling that $\nabla\cdot\frac{\hat{x}}{||x||^2}=4\pi\delta^3$.
+
+Importantly, potential in the electromagnetism sense is *not* potential energy. Rather, we have (in the static case) that $W = QV( r)$, where work $W$ is in units of energy. So potential is the potential energy per unit charge. Units of potential are *volts*.
+
 
 ### Gauss' law
 
@@ -160,7 +173,7 @@ and noting a nice fact from multivariable calculus + Fourier analysis, that $\na
 
 $$ K = \frac{1}{\epsilon\_0} \int \delta^3(r-r')\rho(r')d\tau' $$
 
-$$ = \frac{1}{\epsilon\_0} \delta^3(r-r')\*\rho(r') = \frac{\rho( r)}{\epsilon\_0}  $$
+$$ = \frac{1}{\epsilon\_0} \delta^3(r )\*\rho = \frac{\rho( r)}{\epsilon\_0}  $$
 
 Which is (the differential form of) Gauss' theorem. Applying the divergence theorem adroitly:
 
@@ -190,7 +203,7 @@ To see why this is true (there's presumably a more general proof, since I think 
 
 $$ \frac{dV\_{avg}( R)}{dR} = \frac{d}{dR}\frac{1}{4\pi R^2}\int VdS = \frac{1}{4\pi R^2} \int \frac{dV(\phi,\theta,R)}{dR} R^2 \sin\theta d\theta d\phi $$
 
-$$ = \frac{1}{4\pi R^2} \int \nabla V \cdot dS\hat{r} = \frac{1}{4\pi R^2} \int \nabla V^2 d\tau = 0  $$
+$$ = \frac{1}{4\pi R^2} \int \nabla V \cdot dS\hat{r} = \frac{1}{4\pi R^2} \int \nabla^2V d\tau = 0  $$
 
 The last three steps use the definition of the gradient in polar coordinates, the divergence theorem, and the fact that the potential satisfies the Laplace equation, respectively. This means that the sphere value is constant, so is the same in the limiting case of $R \to 0$, as desired.
 
@@ -203,19 +216,6 @@ As such, one technique to solve hard electrostatics problems is to find a simple
 Also note that the Laplacian operator, $\nabla^2$, is Hermitian. As an example use of this, here is a simple proof of what is known as Green's reciprocity theorem:
 
 $$ \int \rho\_1 V\_2 = \int (-\epsilon \nabla^2V\_1) V\_2 = -\epsilon\langle \nabla^2V\_1, V\_2 \rangle = -\epsilon\langle V\_1, \nabla^2V\_2 \rangle = \int \rho\_2 V\_1  $$
-
-The potential of a point charge:
-
-$$ V( r) = \frac{1}{4\pi \epsilon\_0} \frac{q}{||r-r'||} $$
-
-where $q$ is the amount of charge, and $r'$ is, as usual, the position of the charge. Similarly, for a charge distribution:
-
-$$ V( r) = \frac{1}{4\pi \epsilon\_0} \int \frac{1}{||r-r'||}  dq $$
-
-Where $dq$, in the case of volume, is the form $\rho d\tau$. To convince yourself of this, take the Laplacian, recalling that $\nabla\cdot\frac{\hat{x}}{||x||^2}=4\pi\delta^3$.
-
-Importantly, potential in the electromagnetism sense is *not* potential energy. Rather, we have (in the static case) that $W = QV( r)$, where work $W$ is in units of energy. So potential is the potential energy per unit charge. Units of potential are *volts*.
-
 
 ### Boundary discontinuity
 
@@ -255,7 +255,7 @@ Also note that the potential of an actual dipole leads with the dipole term from
 
 Example (Griffiths, problem 3.30):
 
-Suppose a spherical sphere of radius $R$ carries a surface charge $k\cos\theta$. The symmetry means that the dipole moment must be aligned along the $z$ axis. In particular
+Suppose a sphere of radius $R$ carries a surface charge $k\cos\theta$. The symmetry means that the dipole moment must be aligned along the $z$ axis. In particular
 
 $$ p\_z = \int (k\cos\theta) (R\cos\theta) R^2\sin\theta d\theta d\phi $$
 
@@ -270,6 +270,8 @@ $$ V\_{dip}( r,\theta) = \frac{1}{4\pi\epsilon_0}\frac{p\cos\theta}{||r||^2} $$
 so all you have to do is take the gradient (in *spherical* coordinates), which gives:
 
 $$ E\_{dip}(r,\theta) = \frac{p}{4\pi\epsilon\_0r^3}(2\cos\theta\hat{r}+\sin\theta\hat{\theta}) $$
+
+For a single point charge $q$, the dipole moment is $qr$, where $r$ is the position vector.
 
 *Example problem (Griffiths 3.47)*: show that the average field inside a sphere of radius R, due to all the charge within the sphere, is $E\_{ave} = -\frac{p}{4\pi\epsilon\_0R^3}$, where $p$ is the total dipole moment.
 
@@ -296,11 +298,11 @@ Recalling the continuity equation, namely $\nabla\cdot J = -\pd{\rho}{t}$, it fo
 
 The Lorentz force law is $F = Q(v \times B)$, where $v$ is the velocity of a charge $Q$. In the present case: $F = \int (v\times B)dq = \int (v \times B)\lambda dl = \int (I\times B)dl = \int I(dl\times B) $ . The final equation goes through if $I$ and $dl$ point in the same direction. And if $I$ is constant as position varies, then $ F = I \int dl\times B $.
 
-Superposition applies, as in electrostatics, and we have an analogous law to Coulomb's, namely Biot-Savart:
+Superposition applies, as in electrostatics, and we have an analogous law to Coulomb's, namely Biot-Savart, which we can get from the vector potential, which we get from the Helmholtz decomposition.
 
 $$ B(r ) = \frac{\mu\_0}{4\pi}\int \frac{J(r')\times (r-r')}{||r-r'||^2}d\tau $$
 
-First note that $\nabla\cdot B$, with $B$ as above, results in an integrand $\nabla \cdot \frac{J(r')\times (r-r')}{||r-r'||^2} = \frac{r-r'}{||r-r'||^2} \cdot (\nabla\times J(r')) - J(r')\cdot (\nabla\times \frac{r-r'}{||r-r'||^2})$. Both terms are $0$; $\nabla\times J(r')=0$ because $\nabla$ is in terms of the unprimed variables and $\nabla\times \frac{r-r'}{||r-r'||^2}=0$. So
+<!-- First note that $\nabla\cdot B$, with $B$ as above, results in an integrand $\nabla \cdot \frac{J(r')\times (r-r')}{||r-r'||^2} = \frac{r-r'}{||r-r'||^2} \cdot (\nabla\times J(r')) - J(r')\cdot (\nabla\times \frac{r-r'}{||r-r'||^2})$. Both terms are $0$; $\nabla\times J(r')=0$ because $\nabla$ is in terms of the unprimed variables and $\nabla\times \frac{r-r'}{||r-r'||^2}=0$. So
 
 $$ \nabla \cdot B = 0$$
 
@@ -308,7 +310,7 @@ and
 
 $$ \int B\cdot a = \int \nabla \cdot B = 0 $$
 
-<!-- Analogous to Gauss' law is Ampere's, derived as follows.
+Analogous to Gauss' law is Ampere's, derived as follows.
 
 $$ \nabla \times B = \frac{\mu\_0}{4\pi}\int \nabla\times \frac{J(r')\times (r-r')}{||r-r'||^2}d\tau $$
 
@@ -317,13 +319,13 @@ $$ = \frac{\mu\_0}{4\pi}\left(\int J(r')\left( \nabla\cdot \frac{(r-r')}{||r-r'|
 $$ = \frac{\mu\_0}{4\pi}\left(\int J(r')\left( 4\pi\delta^3(r-r')\right)d\tau + \int \left( J(r')\cdot\nabla'\right) \frac{(r-r')}{||r-r'||^2}d\tau\right)$$
 
 The left-hand term gives us $\mu\_0 J( r)$ and the right-hand term evaluates to $0$ (there's a derivation in Griffiths, but it was just a lot of fiddly product rules for divergences and Stokes' theorem, so am not bothering to write it out). The result:
- -->
+
 
 and therefore, by Stokes' theorem:
 
 $$ \int (\nabla\times B) \cdot da = \int B\cdot dl = \mu\_0\int J\cdot da = \mu\_0I\_{enc} $$
-
-This has analogous applications to Gauss' law for electrostatics, i.e. making integrals easy. An example: first, finding $B$ around an infinite straight wire with steady current $I$. Then by Biot-Savart, we know that $B$ circles the wire, and is independent of angle. So at a distance $s$:
+ -->
+Ampere's law has analogous applications to Gauss' law for electrostatics, i.e. making integrals easy. An example: first, finding $B$ around an infinite straight wire with steady current $I$. Then by Biot-Savart, we know that $B$ circles the wire, and is independent of angle. So at a distance $s$:
 
 $$ \mu\_0I = \int B\cdot dl = B\int dl = B2\pi s \Rightarrow B = \frac{\mu\_0I}{2\pi s}$$
 
@@ -336,11 +338,13 @@ But then $\mu\_0J = \nabla \times B = \nabla \times (\nabla\times A) = \nabla(\n
 
 $$ A(r ) = \frac{\mu\_0}{4\pi}\int \frac{J(r')}{||r-r'||}d\tau $$
 
+Or more directly, we could get this from the Helmholtz decomposition of the magnetic field, along with the magnetostatic assumptions.
+
 This allows its own multipole expansion, as with the electrostatic case, recalling that $\frac{1}{||r-r'||} = \frac{1}{r}\sum\_{n=0}^{\infty}\left( \frac{r'}{r} \right)^nP\_n(\cos\alpha)$, to obtain:
 
 $$ \frac{\mu\_0I}{4\pi} \left( \frac{1}{||r-r'||}\int dl' + \frac{1}{||r-r'||^2}\int r'\cdot \hat{r}dl' ... \right)$$
 
-The monopole integral vanishes.
+The monopole integral vanishes. $m$ refers to the magnetic dipole integral.
 
 Force on a dipole is $\nabla(m\cdot B)$. This means that the potential energy of a dipole is
 
@@ -357,7 +361,7 @@ $$ -\int\_{\infty}^r \nabla(m\cdot B) = -(m\cdot B(r ) - m\cdot B(\infty)) = -m\
 
 Here's a nice example of a calculation. Suppose you have electrons moving through a cylindrical wire. Then $J=\rho\_{-}v\hat{x}$, the density of the electrons, and the total charge density is the sum of positive and negative: $\rho = \rho\_{-}+\rho\_{+}$. Then:
 
-$$ B 2\pi s \int B\cdot dl = \mu\_0I = \mu\_0 \pi s^2 J  \Rightarrow B = \frac{\mu\_0sJ}{2} = \frac{\mu\_0s\rho\_{-}v}{2} $$
+$$ B 2\pi s = \int B\cdot dl = \mu\_0I = \mu\_0 \pi s^2 J  \Rightarrow B = \frac{\mu\_0sJ}{2} = \frac{\mu\_0s\rho\_{-}v}{2} $$
 
 $$ E 2\pi sd = \int E\cdot dl = \frac{\pi s^2d(\rho\_++\rho\_-)}{\epsilon\_0} \Rightarrow E = \frac{s(\rho\_+-\rho\_-)}{2\epsilon\_0} $$
 
@@ -389,17 +393,17 @@ $$ V(r,\theta) = \sum\_{l=0}^{\infty} (A\_lr^l+\frac{B\_l}{r^{l+1}})P\_l(\cos\th
 
 the first condition gives:
 
-$$ A\_lR^l = -\frac{B\_l}{R^{l+1}} \Rightarrow B\_l = AR^{2l+1}  $$
+$$ A\_lR^l = -\frac{B\_l}{R^{l+1}} \Rightarrow B\_l = -AR^{2l+1}  $$
 
 so that
 
-$$ V(r,\theta) = \sum\_{l=0}^{\infty} A(r^l+\frac{R^{2l+1}}{r^{l+1}})P\_l(\cos\theta) $$
+$$ V(r,\theta) = \sum\_{l=0}^{\infty} A\_l(r^l-\frac{R^{2l+1}}{r^{l+1}})P\_l(\cos\theta) $$
 
 and the second gives
 
 $$ V(r,\theta) = \sum\_{l=0}^{\infty} A\_lr^lP\_l(\cos\theta) = -E\_0r\cos\theta $$
 
-which means that $A\_l = -E\_0\delta{l=1}$
+which means that $A\_l = -E\_0\delta\_{l=1}$
 
 <!-- ### Energy and work
 
@@ -420,7 +424,7 @@ That is, an electric field on an atom induces a dipole moment, because the negat
 
 *Example problem (Griffiths 4.2)*
 
-A hydrogen atom, in quantum mechanics, has an electron charge distribution $\rho{r} = \frac{q}{\pi a^3}e^{-2r/a}$. Find its polarization.
+A hydrogen atom, in quantum mechanics, has an electron charge distribution $\rho(r ) = \frac{q}{\pi a^3}e^{-2r/a}$. Find its polarization.
 
 First note that, by Gauss' law, $\epsilon\_0\int E\cdot dr' = |E| \int dr' = 4\pi r^2 = Q\_{enc}( r) \Rightarrow E( r) = \frac{Q}{\epsilon\_04\pi r^2}\hat{r}$. Further
 

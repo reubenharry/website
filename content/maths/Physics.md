@@ -1,7 +1,7 @@
 ---
-title: "Classical Mechanics"
+title: "Mechanics"
 date: 2020-02-26T17:07:24+01:00
-draft: False
+draft: True
 
 ---
 
@@ -42,6 +42,10 @@ $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 $\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}$
 
+
+Principles of Quantum Mechanics, by R. Shankar, is really great. It's accessible, but covers a lot of material. The author believes in separating out the mathematical and physical concerns, which I like a lot. It's even a good intro to classical mechanics, via chapter 2.
+
+
 <!--
 ## Classical Mechanics
 
@@ -65,7 +69,7 @@ In such a frame, the Lagrangian of a body which is not being acted on must canno
 <!-- Assume further than boosts take inertial frames to inertial frames (this is not physical, as shown by special relativity, but is the assumption classical mechanics is based on). Then consider an infinitesimal boost of the form $x\mapsto x+\epsilon t$. In other words, a boost of speed $\epsilon$. Then expanding $L(v^2)= -->
 
 
-### Variational (Lagrangian) Formulation of Mechanics
+### Variational (Lagrangian) Formulation of Classical Mechanics
 
 Rather than specify a second order ODE $F=ma$ (or more explicitly, $\frac{d^2x}{dt^2}=\frac{1}{m}F(x)$) that determines a physical system, we can instead specify a functional equation $dA=0$, where $A=\int\_{t_0}^{t_1}L(q(t),\dot{q}(t),t)dt$, and $L$ is the function called the Lagrangian. The classical inertial frame, Cartesian coordinate Lagrangian is $L(q(t),\dot{q}(t),t)=T-V=\frac{\dot{q}(t)^2}{2m}-V(q(t))$.
 
@@ -78,7 +82,7 @@ We say that the *generalized momentum* $p = \frac{\partial L}{\partial \dot{q}}$
 **Also important**: $\pd{L}{t}$ and $\frac{dL}{dt}$ are totally different quantities, because $L$ depends on $t$ both directly, and through $q$ and $\dot{q}$.
 
 
-### Hamiltonian Formulation of Mechanics
+### Hamiltonian Formulation of Classical Mechanics
 
 Consider $H := p\_i\dot{q}\_i - L$. Here, I'm using Einstein notation to sum over different dimensions indexed by $i$, since $q$ and $p$ can be multidimensional.
 
@@ -101,6 +105,12 @@ $$ \dot{q}\_i = \pd{H}{p\_i}$$
 If we consider a space of all the $p$ and $q$ dimensions together (*phase space*), then this system of equations tells us how a point in that space evolves.
 
 We know by [Liouville's theorem](/maths/ODEs) that a divergence-free flow is incompressible. $H$ gives a [divergence free flow](/maths/ODEs), so phase flow is incompressible.
+
+### Angular Momentum
+
+Angular momentum $L = r\times p$.
+
+Torque $N=\frac{dL}{dt}$
 
 <!-- , since (in the 2D phase space case, so I can avoid those pesky indices):
 
@@ -154,3 +164,64 @@ Further, $\frac{d}{dt}x(t)\times x'(t) = x(t)\times x''(t)+x'(t)\times x'(t) = x
 
 Then, if $A(t)$ is the area swept out by the orbit up to time $t$, $dA(t)=\frac{1}{2}||x(t)\times dx(t)||=\frac{1}{2}||x(0)\times x'(0)||$ so that $A(t)=\frac{t}{2}||x(0)\times x'(0)||$. This is Kepler's second law.
  -->
+
+### Hamiltonian Formulation of Quantum Mechanics
+
+TODO
+
+experiments: general
+
+uncertainty principle: derive from the general one
+
+Qualitative results:
+
+Bound states, where $\phi(x)\to 0$ for $|x|-> \infty$, have quantized eigenvalues.
+
+The node theorem, which is a result from Sturm-Liouville theory, pertains to bound states and states that $E\_n$ has $n$ nodes. This makes sense: higher energy states are wigglier, because they have more curvature.
+
+
+### Lagrangian Formulation of Quantum Mechanics
+
+The probability $U(x,x',t,t')$ of a particle ending up at $(x',t')$ given that it's in $(x,t)$ is a unitary operator.
+
+It can be broken into two pieces, which gives an integral over the middle piece.
+
+Indeed, it can be broken into n pieces.
+
+TODO: path integrals
+
+### Conservation
+
+Various measurables *generate* unitary operators, and when these operators commute with the Hamiltonian, we get a conservation law. Here's an example with the translation operator $T\_a$:
+
+$$ (T\_a\psi)(x) = \psi(x-a) = \int\_{n=0}^{\infty} \frac{1}{n!}(-a)^n\frac{d^n}{dx^n}\psi(x) = \int\_{n=0}^{\infty} \frac{1}{n!}(\frac{a}{i\hbar}P)^n\psi(x) $$
+
+$$ \Rightarrow T\_a = e^{\frac{a}{i\hbar}P} $$
+
+We then know (basic fact about Lie groups) that $T\_a$ is unitary.
+
+Suppose that $T\_a$ commutes with the Hamiltonian, in that sense that $\bra{\phi}H\ket{\phi}=\bra{T\_a\phi}H\ket{T\_a\phi}=\bra{\phi}T\_a^THT\_a\ket{\phi}$. In quantum physics, it means that $[H,T]=0$. Noting that when $a$ is small, this exponential tends towards $1+\frac{a}{i\hbar}P$:
+
+$$
+0 = [H,T] = [H,e^{\frac{a}{i\hbar}P}] \to\_{a\to 0} [H, 1+\frac{a}{i\hbar}P]
+$$
+
+$$ \Rightarrow [H,P] = 0 $$
+
+By the Ehrenfest theorem, this means that $\langle P \rangle$ is conserved.
+
+The argument goes through almost the same classically, with Poisson brackets, in which case $p$ turns out to be conserved.
+
+Similar results apply for angular momentum $L$, parity $\Pi$, and even time-translation invariance (which yields energy conservation).
+
+### Probability Flow
+
+If you take the probability $P\_{ab}(t)$ that a particle's position is between $a$ and $b$, which we can express as
+
+$$ \int\_a^b \psi^*(x,t)\psi(x,t)dx $$
+
+and then differentiate it, move the derivative under the integral, use Schrodinger's equation to change $\partial{\psi(x,t)}{t}$ to a partial derivative of $x$, and integrate by parts, you end up with:
+
+$$ \frac{dP\_{ab}}{dt} = J(a,t)-J(b,t) $$
+
+where $J(x,t) = \frac{i\hbar}{2m} \left( \psi\pd{\psi^\*}{x} - \psi^\*\pd{\psi}{x} \right)$ is known as the *probability current*, by analogy to other local conversation laws.

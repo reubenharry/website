@@ -233,15 +233,15 @@ Often you find yourself in a situation where you have specified a distribution P
 
 In particular, you want samples from the typical set, i.e. the part of the space of the support of $P$ which has both large volume and high probability density. It turns out that in high dimensions, almost all of the mass is concentrated in such a set. (Note: the notion of a typical set comes from information theory - as I'm using it here, it's not a precise notion; I'm not saying, for example, that it has an exact boundary).
 
-### Markov Chain Monte Carlo
+### Markov Chain Monte Carlo (MCMC)
 
-A type of Monte Carlo method. You choose a translation kernel T (in the finite case, representable as a stochastic matrix from states to states) and then take a random Markovian walk with this kernel. Given some assumptions (ergodicity of your kernel), you can prove that the distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of T. Now
+A type of Monte Carlo method. You choose a translation kernel T (in the finite case, representable as a stochastic matrix from states to states) and then take a random Markovian walk with this kernel. Given some assumptions (ergodicity of your kernel), you can prove that the distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of T (such a thing exists - see the Perron-Frobenius theorem). Now
 
 $$ P(x)T(x'|x) = P(x')T(x|x') \Rightarrow \sum\_xP(x)T(x'|x) = \sum\_xP(x')T(x|x') = P(x')\sum\_xT(x|x') = P(x')  $$
 
-which is to say that $P$ is just such a stationary distribution. The condition denoted by the first equation above is known as "detailed balance".
+which is to say that $P$ is just such a stationary distribution. The condition denoted by the first equation above is known as "detailed balance", a sufficient but not necessary condition for MCMC.
 
-In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable(s). If detailed balance is satisfied, then $P$ is the stationary distribution, and so you can sample from $P$ by taking a nice long walk along the chain, since $\lim\_nT^n(x) = P $ for any starting value $x$. Magic!
+In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable(s). If detailed balance is satisfied, then $P$ is the stationary distribution, and so you can sample from $P$ by taking a nice long walk along the chain, since $\lim\_nT^n(x) = P $ for any starting value $x$. Magic! (Why does this work? It resembles the fix point operator: for $g = f(f(f(....(f(x)))))), $f(g(x)$ = g(x)$, which is familiar from set theory and computer science. But I think the more important point here is that the unit eigenvector is also the largest one, and so, on each iteration, it gains ground while the others diminish).
 
 Metropolis-Hasting is one method for obtaining T. The idea is that you have a kernel Q, and let $T = A(x'|x)Q(x'|x)$, where $A(x'|x)=min(1,\frac{P(x')Q(x|x')}{P(x)Q(x'|x)})$. Note that you don't have to know $P$, but rather $P$ only up to normalization, since it appears in a ratio. Clever. By design, some simple maths shows that with $T$ as defined, $(P,T)$ satisfies detailed balance, so you're in business.
 

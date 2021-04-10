@@ -55,7 +55,7 @@ $$ ||f(a+h) - f(a) - T(h)|| = o_{lim\_{h\to0}}(||h||) $$
 
 with $\frac{\partial f\_i(a)}{\partial x\_j}=T\_{ij}$.
 
-For $g : \C \to \C$, differentiability is defined the same way, with the crucial difference that $T$ is linear in a vector space over a *complex* field, i.e. $T$ is the operator corresponding to multiplication by a complex number. Multiplication by a complex number corresponds to the following matrix:
+For $g : \C \to \C$, differentiability is defined the same way, with the crucial difference that $T$ is linear in the 1D vector space over a *complex* field (rather than linear in a 2D vector space over the real field), i.e. $T$ is always a operator corresponding to multiplication by a complex number. Multiplication by a complex number corresponds to the following matrix:
 
 $$ \begin{bmatrix} x & y & \\\\ -y & x & \end{bmatrix} $$
 
@@ -69,7 +69,7 @@ and
 
 $$ \frac{\partial f_1(a)}{\partial x_2} = -\frac{\partial f_2(a)}{\partial x_1} $$
 
-These are the Cauchy-Riemann equations.
+These are the Cauchy-Riemann equations, which the real and imaginary parts of your complex function need to satisfy in order to be complex-differentiable.
 
 ## Complex functions
 
@@ -108,7 +108,7 @@ The *residue* of a singularity is the result of an integral around just that sin
 
 ## Using complex analysis to solve real integrals
 
-It seems like a common trick is to take an integral on the real line, extend it to a loop going through the complex plane, and then using the powerful tools of complex analysis (e.g. residue theorem) to solve it.
+It seems like a common trick is to take an integral on the real line, extend it to a loop going through the complex plane, and then using the powerful tools of complex analysis (e.g. residue theorem) to solve it. Which is pretty neat.
 
 <!-- As an example, consider
 

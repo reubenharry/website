@@ -40,6 +40,24 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
+## Overview
+
+The core intution of calculus is that given a "nice" (analytic) function $f$, if I know it's value at some input $x$, namely I know $y$ for $y := f(x)$, then I often want to know its value at $f(x+\Delta)$, where $\Delta$ is some very small number. If $f$ were linear, this would be easy, because adding $\Delta$ commutes with $f$ in tht case, but for a general $f$, where we have no such commutativity, we can still say something, namely:
+
+$$ f(x+\Delta) = f(x)+\Delta f'(x)+\frac{\Delta^2}{2}f''(x)... $$
+
+This is the Taylor series, and the second term is the linear approximation of $f$ at $x$. The smaller $\Delta$ is, the less the terms beyond the second one matter, which is to say that for small perturbations of the input, a locally linear approximation of $f$ suffices for the correction term.
+
+<!-- Parenthetically, I really like the following way of putting things. It requires viewing $\frac{d}{dx}$ as a linear operator on function spaces, and exponentials of operators by their Taylor series:
+
+$$ (e^{x\_0\frac{d}{dx}}\phi)(x) = \phi(x+x\_0) $$
+
+Or, even more abstractly:
+
+$$ e^{x\_0\frac{d}{dx}} = T\_{x\_0} $$ -->
+
+
+
 ## Analysis
 
 Analysis is the careful building up of the concepts needed to talk about infinitesimal change. Not always a requisite for actually using calculus.

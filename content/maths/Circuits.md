@@ -49,6 +49,13 @@ Notes mostly based on *Foundations of Analog and Digital Electronic Circuits*, w
 
 Analysis of circuits take place a level of abstraction above Maxwell's equations, which provide the fundamental physics of electromagnetism. We assume (this is called the lumped circuit discipline) that circuits are composed of series and parallel combinations of "circuit elements", like resistors, capacitors, inductors, diodes, etc. Outside these elements, we assume that there's no changing magnetic flux, which allows E to be conservative, i.e. path independent. That means that voltage is well-defined between any two given points.
 
+Capacitors, inductors and resistors express current $i$ as a linear function of $v$ (linear on the space of *functions*), and so circuits composed of them are relatively simple to analyze.
+
+We can think of a circuit as a system which takes an input voltage/current (say the voltage of the source), and returns an output voltage/current (say the voltage of the final circuit element). If the circuit elements are capacitors, inductors and resistors, then the system is LTI (linear, time invariant).
+
+### DC and AC
+
+### Power
 
 Power: $p(t) = v(t)i(t)$
 
@@ -57,7 +64,10 @@ $$E(t) = \int\_{\infty}^t p(\alpha)d\alpha$$
 "Just as in all areas of physics and chemistry, power is the rate at which energy is
 consumed or produced. Consequently, energy is the integral of power."
 
-Resistors usually satisfy:
+
+### Resistors
+
+Physical resistors are often modelled as:
 
 $$ v(t) = Ri(t) $$
 
@@ -69,7 +79,7 @@ As resistance tends to infinity, circuit becomes open (no current). As it tends 
 
 Resistors dissipate power: TODO show
 
-Capacitors:
+### Capacitors
 
 $$i(t) = C\frac{d}{dt}v(t)$$
 
@@ -77,7 +87,7 @@ So that $p(t) = Cv(t)\frac{d}{dt}v(t)$
 
 Capacitance has units of Farads.
 
-Inductors:
+### Inductors
 
 $$ v(t) = L\frac{d}{dt}i(t) $$
 
@@ -89,9 +99,11 @@ Voltage sources:
 
 Constant voltage regardless of current.
 
+### Kirchhoff's laws
+
 Kirchhoff's Current Law:
 
-What goes in comes out
+Outgoing current to a node equals ingoing current.
 
 Kirchhoff's Voltage Law:
 
@@ -103,16 +115,27 @@ Voltage divider: $ \frac{v_2}{v_1} = \frac{R_2}{R_1+R_2} $
 
 Parallel elements:
 
-
-
 In series combinations, the
 currents through each element are the same; in parallel ones, the voltages are the same.
 
 
-We can think of a circuit as a system which takes an input voltage/current (say the voltage of the source), and returns an output voltage/current (say the voltage of the final circuit element). If the circuit elements are capacitors, inductors and resistors, then the system is LTI (linear, time invariant).
+### Circuit elements in series and parallel
 
+Consider two parallel resistors, $R\_1$ and $R\_2$. Then
 
-We can use Fourier methods to determine this LTI system. In particular, if we assume the input voltage is a complex exponential, the various voltages and currents of the elements end up being complex exponentials of the same phase, and so the impedance $Z=\frac{V}{I}$ is not time dependent. In fact, $Z$ satisfies KVL and KCL, so one can find $Z$ for all elements as one would find $R$ if all elements were resistors.
+$$I = I\_1 + I\_2 = \frac{V}{R\_1} + \frac{V}{R\_2}$$
+
+$$ \Rightarrow \frac{I}{V} = \frac{1}{R\_1}+\frac{1}{R\_2} = \frac{R\_1+R\_2}{R\_1R\_2} = \frac{1}{R} $$
+
+We write $R = R\_1 || R\_2$. TODO: check
+
+By similar reasoning:
+
+Resistors in series add. Capacitors in parallel add. Capacitors in series go as $C = C\_1 || C\_2$ TODO: check notation.
+
+### Impedance
+
+As mentioned, a circuit with resistors, capacitors and inductors is an LTI system. We can use Fourier methods to determine this LTI system. In particular, if we assume the input voltage is a complex exponential, the various voltages and currents of the elements end up being complex exponentials of the same phase, and so the *impedance* $Z=\frac{V}{I}$ is not time dependent. In fact, $Z$ satisfies KVL and KCL (see below), so one can find $Z$ for all elements as one would find $R$ if all elements were resistors.
 
 Useful:
 
@@ -126,7 +149,13 @@ $$ p(t) = \frac{1}{2}Re[VI^\*] + \frac{1}{2}|V||I|\cos(4\pi ft + \phi | \psi) $$
 
 where $\phi$ and $\psi$ are the phases of $V$ and $I$.
 
-### A closer look at an RC circuit
+### RC circuit with current source
+
+Equation: $R\frac{dQ}{dt} + \frac{Q}{C} = EMF$
+
+Solution: $Q(t) = C\cdot EMF(1-e^{-\frac{t}{RC}})
+
+$Q(\infty) = C\cdot EMF$
 
 todo: results: for low frequency, capacitor acts like open circuit: derive
 
@@ -135,7 +164,18 @@ todo: 	why the two part solution: homogeneous + forced(?name?)
 		RC example
 		RL example
 
+### RL circuit with current source
+
+Equation: $L\frac{dI}{dt} + RI = V\_0$
+
+Solution:  $I(t) =  \frac{V\_0}{R}(1-e^{-\frac{Rt}{L}})$
+
+### LC Circuit
+
+### LCR Circuit
+
 ### Analog filters
+
 
 
 ### Diodes

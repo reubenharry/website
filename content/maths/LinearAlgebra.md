@@ -153,33 +153,44 @@ A matrix is invertible iff it sends bases to bases.
 
 Linear operators are linear maps from a vector space to itself (endomorphisms). A lot of things can be proven about them, and certain concepts are specific to them (as opposed to linear maps in general), like determinants, eigensystems, and the characteristic polynomial.
 
+### Eigenobjects
+
+The eigenspace of an operator $T$ at a field element $\lambda$ is $\ker(T-\lambda I)$. So, the subspace of $V$ where for all elements $v$ in it, if you apply $T$, you get back $\lambda v$. Eigenspaces are invariant subspaces of $\phi$. A sum of eigenspaces is direct. If $V$ is the sum of eigenspaces of $\phi$, $V$ has a basis of eigenvectors of $\phi$, and for some basis, $\phi$ has a diagonal matrix. This is equivalent to saying that there is a basis in the linear operator can be expressed in a very nice and "untangled" form, as a stretching along each dimension of the space. As far as applications go, from statistics to PDEs to quantum mechanics, this is probably the single most important concept in linear algebra.
+
+A 1D eigenspace is spanned by a single vector, which up to a multiplicative constant is referred to as an eigenvector $v$. If $\phi v = \lambda v$ for some scalar $\lambda$, then $\lambda$ is referred to as an eigenvalue.
+
+Not all maps are diagonalizable. If $\phi : V\to V$ has dim(V) distinct eigenvalues, $\phi$ is diagonalizable.
+
+Since eigendecomposition (change into a basis of eigenvectors) is such an important idea, the theory of how to do this, by obtaining the eigenvectors, is in turn important. This requires two new concepts, the determinant, and the characteristic polynomial.
+
+
+
+
 ### Determinants
 
-A volume function is a multilinear alternating map $\alpha : V^n\to F$. Alternating means that $\alpha(v_1...v_n)=0$ if any $v_i=v_j$. The set of volume functions $\alpha$ of a given type forms a vector space over $F$ of dimension 1.
+The determinant is the product of all the eigenvalues of a linear map. Note that it's defined in terms of a linear map, not a matrix, so it's basis independent. Often, determinants are introduced as a property of matrices, and then it's a surprise to learn that they are preserved under a change of basis.
 
-For a non-zero volume function $\alpha$, its value is 0 iff its input is not a basis. So volume functions let us check basis-hood.
+If the determinant is $0$, then one of the eigenvalues is $0$, so the map has a non-zero kernel.
 
-The determinant of a linear operator $\phi$ is the ratio $\frac{\alpha(\phi(v_1)...\phi(v_n))}{v_1...v_n}$ for any non-zero volume function $\alpha$. The determinant of a matrix $A$ is the sum of the product of each possible route from top to bottom of the matrix, choosing each column only once. These two definitions of the determinant align.
+As mentioned above, if you're working in a basis of eigenvectors of a given map $\phi$, that map is simply a stretch in each dimension. So the determinant measures the volume gained under the map. This is why it turns up in the change of variables formula (see [calculus](/maths/analysis)).
 
-One of the reasons the notion of a determinant is so important is that invertibility is equivalent to having a non-zero determinant. Another reason comes from the change of variables formula (see [calculus](/maths/analysis)).
+Along those lines, here's a horrible geometric way of viewing the determinant: A volume function is a multilinear alternating map $\alpha : V^n\to F$. Alternating means that $\alpha(v_1...v_n)=0$ if any $v_i=v_j$. The set of volume functions $\alpha$ of a given type forms a vector space over $F$ of dimension 1. For a non-zero volume function $\alpha$, its value is 0 iff its input is not a basis. So volume functions let us check basis-hood. The determinant of a linear operator $\phi$ is the ratio $\frac{\alpha(\phi(v_1)...\phi(v_n))}{v_1...v_n}$ for any non-zero volume function $\alpha$. Also, the determinant of a matrix $A$ is the sum of the product of each possible route from top to bottom of the matrix, choosing each column only once. These two definitions of the determinant align.
+
+This notion of the determinant as a sum of products of elements in a matrix can be derived from the product of eigenvalues viewpoint, by changing into a particular kind of basis involving generalized eigenspaces, since the map might not be diagonalizable (see Jordan normal form).
 
 ### Characteristic Polynomial
 
-A crucial object in linear algebra is the characteristic polynomial $p\_{\phi}$ of a linear operator $\phi$. Assume that the operator is $\C^n\to\C^n$:
+The characteristic polynomial $p\_{\phi}$ of a linear operator $\phi : \C^n\to\C^n$:
+
 $$
 p\_{\phi}(\lambda) = \det (\phi-\lambda I) = \prod\_i^m(\lambda-\lambda\_i)^{v\_i}
 $$
-Here's the idea: the determinant of $(\phi-\lambda I)$ is some polynomial in $\lambda$ (a scalar), and any root of that polynomial is a value of $\lambda$ for which the determinant is $0$ and hence for which the map $\phi-\lambda I$ has a non-zero kernel, which means $\exists v: (\phi-\lambda I)v = 0 \Rightarrow \phi(v)=\lambda v$, which is precisely what it means for $v$ to be an eigenvector. So the roots of the characteristic polynomial are the eigenvalues of $\phi$. Because we're working with complex numbers, every polynomial has a root, so there's always an eigenvector.
 
-### Eigenobjects
+Here's the idea: the determinant of $(\phi-\lambda I)$ is some polynomial in $\lambda$ (a scalar), and any root of that polynomial is a value of $\lambda$ for which the determinant is $0$ and hence for which the map $\phi-\lambda I$ has a non-zero kernel, which means $\exists v: (\phi-\lambda I)v = 0 \Rightarrow \phi(v)=\lambda v$, which is precisely what it means for $v$ to be an eigenvector. So the roots of the characteristic polynomial are the eigenvalues of $\phi$. Because we're working with complex numbers, every polynomial has a root, so there's always an eigenvector.
 
 $\lambda$ is an eigenvalue of $\phi$ iff $\det(\lambda I - \phi)=0$. This is a means to calculate every eigenvalue, since $\det(\lambda I - \phi)=0$ is a polynomial in terms of $\lambda$. Since all complex polynomials have a root, by the fundamental theorem of algebra, a complex linear map always admits an eigenvalue. Not so for real linear maps.
 
 Worth dwelling on this: the point is that if we work in a vector space over an algebraically closed field, i.e. the complex field, then endomorphisms (i.e. operators) always have eigenvectors. This is part of the reason why quantum physics happens in complex vector spaces.
-
-An eigenspace is an invariant subspace of $\phi$. A sum of eigenspaces is direct. If $V$ is the sum of eigenspaces of $\phi$, $V$ has a basis of eigenvectors of $\phi$, and for some basis, $\phi$ has a diagonal matrix. This is equivalent to saying that there is a basis in the linear operator can be expressed in a very nice and "untangled" form, as a stretching along each dimension of the space.
-
-Not all maps are diagonalizable. If $\phi : V\to V$ has dim(V) distinct eigenvalues, $\phi$ is diagonalizable.
 
 ### Triangular Matrices
 
