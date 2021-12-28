@@ -235,15 +235,21 @@ In particular, you want samples from the typical set, i.e. the part of the space
 
 ### Markov Chain Monte Carlo (MCMC)
 
-A type of Monte Carlo method. You choose a translation kernel T (in the finite case, representable as a stochastic matrix from states to states) and then take a random Markovian walk with this kernel. Given some assumptions (ergodicity of your kernel), you can prove that the distribution over states induced by the random walk will eventually converge to the stationary distribution (unit eigenvector) of T (such a thing exists - see the Perron-Frobenius theorem). Now
+A particular type of Monte Carlo method. The idea is that you choose a transition kernel $T(x|x')$ in such a way that $P$ is a fixed point of $T$, that is, $P(x) = (TP)(x) = \int T(x|x')P(x')dx'$. There are different ways to do this, and one common one described below is Metropolis-Hastings. Then you invoke some theorems (largely, I think, the Perron-Frobenius theorem) which tells you that given some assumptions (your $T$ should be ergodic), $T$ has a unit eigenvector (i.e. a distribution which is the fixed point of the kernel) which is maximal and unique. That means that $\lim\_{n\to\infty}T^nA$ for any initial distribution $A$ converges to this fixed point, because the largest eigenvector eventually dominates. Because it's unique, this fixed point must be $P$. Taking a Markovian walk along the kernel, starting from any $A$, amounts to sampling from the fixed point, i.e. from $P$. That's pretty amazing.
+
+The caveat: the only guarantee you have is that in the limit of a large number of steps, you will take a sample from $P$. Could be a while...
+
+#### Metropolis Hastings (MH)
+
+$P(x)T(x'|x) = P(x')T(x|x')$ is the condition of *detailed balance* for a pair of a distribution and a kernel. As shown below, detailed balance is sufficient (but *not necessary*) to show that $P$ is a fixed point of $T$.
 
 $$ P(x)T(x'|x) = P(x')T(x|x') \Rightarrow \sum\_xP(x)T(x'|x) = \sum\_xP(x')T(x|x') = P(x')\sum\_xT(x|x') = P(x')  $$
 
-which is to say that $P$ is just such a stationary distribution. The condition denoted by the first equation above is known as "detailed balance", a sufficient but not necessary condition for MCMC.
+MH is one method to obtain a kernel which satisfies detailed balance. The idea is that you have another kernel $Q$ which you can choose pretty freely, and let $T = A(x'|x)Q(x'|x)$, where $A(x'|x)=min(1,\frac{P(x')Q(x|x')}{P(x)Q(x'|x)})$. Note that you don't have to know $P$, but rather $P$ only up to normalization, since it appears in a ratio. Clever. By design, some simple maths shows that with $T$ as defined, $(P,T)$ satisfies detailed balance, so you're in business. Caveat: you want to make sure that $T$ is ergodic.
 
-In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable(s). If detailed balance is satisfied, then $P$ is the stationary distribution, and so you can sample from $P$ by taking a nice long walk along the chain, since $\lim\_nT^n(x) = P $ for any starting value $x$. Magic! (Why does this work? It resembles the fix point operator: for $g = f(f(f(....(f(x)))))), $f(g(x)$ = g(x)$, which is familiar from set theory and computer science. But I think the more important point here is that the unit eigenvector is also the largest one, and so, on each iteration, it gains ground while the others diminish).
+<!-- In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable(s). If detailed balance is satisfied, then $P$ is the stationary distribution, and so you can sample from $P$ by taking a nice long walk along the chain, since $\lim\_nT^n(x) = P $ for any starting value $x$. Magic! (Why does this work? It resembles the fix point operator: for $g = f(f(f(....(f(x)))))), $f(g(x)$ = g(x)$, which is familiar from set theory and computer science. But I think the more important point here is that the unit eigenvector is also the largest one, and so, on each iteration, it gains ground while the others diminish). -->
 
-Metropolis-Hasting is one method for obtaining T. The idea is that you have a kernel Q, and let $T = A(x'|x)Q(x'|x)$, where $A(x'|x)=min(1,\frac{P(x')Q(x|x')}{P(x)Q(x'|x)})$. Note that you don't have to know $P$, but rather $P$ only up to normalization, since it appears in a ratio. Clever. By design, some simple maths shows that with $T$ as defined, $(P,T)$ satisfies detailed balance, so you're in business.
+
 
 ## Models
 

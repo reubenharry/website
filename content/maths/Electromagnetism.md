@@ -98,14 +98,14 @@ $$ E(r ) = \frac{1}{4\pi} \left(\nabla\times\left( \int \frac{\nabla\_{r'}\times
 
 ## Electrostatics
 
-In general, the idea of electrostatics here is to find the electric field induced by some non-moving point charges or by a distribution of charge, using Coulomb's law, derived as follows:
+In general, the idea of electrostatics here is to find the electric field induced by some non-moving point charges or by a distribution of charge.
 
-A simple but illustrative example of the usefulness of Gauss' theorem in electrostatics is as follows. Suppose you have a rotationally symmetric charge distribution with total charge $q$, and you want the field $E$ outside it. In fact, say that it's a point distribution $q\delta^3$.
+A simple but illustrative example is as follows. Suppose you have a rotationally symmetric charge distribution with total charge $q$, and you want the field $E$ outside it. In fact, say that it's a point distribution $q\delta^3$.
 
 To find this, consider the flux through a spherical shell (known in this context as the Gaussian surface) surrounding the charge. We know that the total charge is $\int q\delta^3 = q$. Because the field points outward, and using Gauss' law and Stokes' theorem, we have that:
 
 
-$$ \frac{q}{\epsilon\_0} = \int \frac{\rho}{\epsilon\_0} = \int \nabla\times E = \int E\cdot da = \int ||E|| da = ||E|| \int da = ||E||4\pi r^2 $$
+$$ \frac{q}{\epsilon\_0} = \int \frac{\rho}{\epsilon\_0} = \int \nabla\cdot E = \int E\cdot da = \int ||E|| da = ||E|| \int da = ||E||4\pi r^2 $$
 
 $$ \Rightarrow ||E|| = \frac{q}{4\pi r^2\epsilon\_0} \Rightarrow E = \frac{q}{4\pi r^2\epsilon\_0}\hat{r}$$
 

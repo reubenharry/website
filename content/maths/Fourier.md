@@ -101,11 +101,11 @@ Deconvolution is then solving $f\*g=h$ for $f$ given $g,h$, which (ignore divisi
 
 You can have vector spaces in which the vectors are functions.
 
-There is a notion of an inner product in a function space, of the general form $\langle f,g\rangle = \int f(x)g^\*(x)dx$, which is exactly how you might imagine a continuous analog of the dot product. I'm being deliberately vague about the domain of integration, as it might depend on the choice of space. I'm assuming the functions are of type $V\to\C$, for some underlying vector space $V$ over the complex field.
+There is a notion of an inner product in a function space, of the general form $\langle f,g\rangle = \int f(x)g^\*(x)dx$, which is exactly how you might imagine a continuous analog of the dot product. (The physics convention is the other way around, with f(x) conjugated). I'm being deliberately vague about the domain of integration, as it might depend on the choice of space. I'm assuming the functions are of type $V\to\C$, for some underlying vector space $V$ over the complex field.
 
-Linear operators on the function space include the operator $p=\frac{d}{dt}$ (which physically is the momentum operator in quantum mechanics). This takes a function and gives back a new function. It is linear. It is also skew-self-adjoint (using integration by parts, and noting that the first term in the integration by parts disappears because of the boundary conditions):
+Linear operators on the function space include the operator $p=\frac{d}{dt}$ (which physically is the momentum operator in quantum mechanics). This takes a function and gives back a new function. It is linear. It is also skew-self-adjoint (using integration by parts, and noting that the first term in the integration by parts disappears assuming a boundary condition that all functions in the space vanish at $\plusminus\infty$):
 
-$$ \langle \frac{d}{dt}(f),g \rangle = \int\_{\infty}^{\infty}\frac{df(t)}{dt}g(t)dt = - \int\_{\infty}^{\infty}f(t)\frac{dg(t)}{dt}dt =  -\langle f,\frac{d}{dt}(g) \rangle $$
+$$ \langle \frac{d}{dt}(f),g \rangle = \int\_{-\infty}^{\infty}\frac{df(t)}{dt}g(t)dt = - \int\_{-\infty}^{\infty}f(t)\frac{dg(t)}{dt}dt =  -\langle f,\frac{d}{dt}(g) \rangle $$
 
 But if an operator $A$ is skew-self-adjoint, then $iA$ must be self-adjoint (since $\langle iA x, y \rangle = -\langle  x, (iA)^{\dagger}y \rangle = \langle  x, Ay \rangle$).
 
@@ -117,7 +117,7 @@ As such, both the Fourier series and Fourier transform, which put functions into
 
 Let $T(x)$ be the complex conjugate of $x$. Orthogonality is shown as follows:
 
-  For n$\neq$m:
+  For $n,m \in \Z, n\neq$m:
   $$ \langle e^{it2\pi m},e^{ti2\pi n}\rangle = \int_0^1 e^{ti2\pi m}T(e^{ti2\pi n}) $$
   $$ = \int_0^1 e^{ti2\pi m}(e^{-ti2\pi n}) = \int_0^1 e^{ti2\pi (m-n)}$$
   $$ = \frac{1}{i2\pi(m-n)}e^{i2\pi (m-n)} - \frac{1}{i2\pi(m-n)}e^{0} = \frac{e^{i2\pi (m-n)}-1}{i2\pi(m-n)} = 0$$.
@@ -138,7 +138,7 @@ Every function $f$ can be written as $\frac{f(x)+f(-x)}{2} + \frac{f(x)-f(-x)}{2
 The two subspaces are orthogonal:
 
 $$
-\langle f\_e, f\_o \rangle = \int\_{\infty}^{\infty} f\_e(x)f\_o(x)dx = \int\_{0}^{\infty} f\_e(x)f\_o(x)dx + \int\_{-\infty}^{0} f\_e(x)f\_o(x)dx\\\\\\
+\langle f\_e, f\_o \rangle = \int\_{-\infty}^{\infty} f\_e(x)f\_o(x)dx = \int\_{0}^{\infty} f\_e(x)f\_o(x)dx + \int\_{-\infty}^{0} f\_e(x)f\_o(x)dx\\\\\\
 = \int\_{0}^{\infty} f\_e(x)f\_o(x)dx + \int\_{0}^{\infty} f\_e(-x)f\_o(-x)dx \\\\\\
 = \int\_{0}^{\infty} f\_e(x)f\_o(x)dx - \int\_{0}^{\infty} f\_e(x)f\_o(x)dx = 0
 $$
@@ -176,7 +176,7 @@ $$
 
 What is $\mathcal{F}f$? It's the Fourier transform of $f$. Here is the definition:
 
-$$\mathcal{F}f(k) = \int\_{-\infty}^{\infty}f(k)e^{-2\pi ikx}dk
+$$\mathcal{F}f(k) = \int\_{-\infty}^{\infty}f(x)e^{-2\pi ikx}dx
 $$
 
 $\mathcal{F}f$ is the Fourier transform of $f$, giving the representation of $f$ in the eigenbasis of the 2nd derivative operator.
@@ -218,7 +218,7 @@ $\delta$ and the like we just define directly by their action on $f\in \mathcal{
 
 It's then straightforward to define the Fourier transform on $\mathcal{T}$ in the usual way you define things on dual objects, namely $(\mathcal{F}T)f = T(\mathcal{F}f)$.
 
-What we get is the *extremely useful* ability to take things which integrate to infinity on the real line, and take the Fourier transform of them. The emphasize this, people write, in a horrible type error: $\langle T, f \rangle$ to mean $Tf$.
+What we get is the *extremely useful* ability to take things which integrate to infinity on the real line, and take the Fourier transform of them. To emphasize this, people write, committing a truly horrible type error: $\langle T, f \rangle$ to mean $Tf$.
 
 Terminological note: when $\mathcal{S}$ is the Schwartz functions, $\mathcal{T}$ is called the set of *tempered distributions*.
 
@@ -425,6 +425,16 @@ As it turns out, it's not hard to show that, for $\mathcal{F}$ the 2D Fourier tr
 $$ \mathcal{F}\_{\rho}\mathcal{R}(\mu)(r,\phi) = \mathcal{F}\mu(\xi\_1,\xi\_2) $$
 
 So, almost unbelievably, we have a way of recovering $\mu$ from the total mangling it undergoes by $\mathcal{R}$.
+
+## Linear Response Theory
+
+The following assumes the basics of statistical mechanics (see notes). Suppose we have a system whose Hamiltonian is $H$ and we perturb it to $H\_T = H - K(t)A(p,q)$. We then want to calculate the resulting change in expectation $\Delta B(t) = E\_{H\_T}[B(t)] - E\_{H}[B(t)]$.
+
+Ostensibly, this would require knowing the (time varying) distribution of the system resulting from the perturbation, but we can get what we want by exploiting the a quite general form of the fluctuation-dissipation theorem. The critical assumption is that this applies in the limit of $K$ small:
+
+$$ \Delta B(t) = \beta E\_H[\dot{A}(0)B(t)] * K(t) $$
+
+This is sort of amazing: the expected perturbation is the output of a linear system with input $K$ and a kernel representing the correlation of the change of input variable and the output variable, under the original system. So you can predict the response to a small perturbation of the system just by seeing the behavior of the system without the perturbation.
 
 ## Quantum mechanics
 

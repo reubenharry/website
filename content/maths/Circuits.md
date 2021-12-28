@@ -93,7 +93,7 @@ $$ v(t) = L\frac{d}{dt}i(t) $$
 
 so that $p(t) = Li(t)\frac{d}{dt}i(t)$
 
-Inductance has units of henries.
+Inductance has units of Henries.
 
 Voltage sources:
 
