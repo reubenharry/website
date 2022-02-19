@@ -55,9 +55,9 @@ A sub-representation is a representation on a subspace. An irreducible represent
 
 Schur's lemma tells us (statement and proof from nLab)
 
-(1) For representations $V, W$, and $\phi : V \to W$ a natural transformation, specified by a linear transform of the same name, $\phi=0$ or $\phi$ is iso.
+(1) For irreducible representations $V, W$, and $\phi : V \to W$ a natural transformation, specified by a linear transform of the same name, $\phi=0$ or $\phi$ is iso.
 
-**Proof**: First note that  for any morphism $f : V \to V$, by naturality we have $\phi \circ f = f \circ\phi$, so for $x\in ker \phi$, $0 = \phi 0 = \phi(f x) = f (\phi x) \Rightarrow $\phi x \in ker \phi$. Similarly, for $y\in im \phi$, $\exists x.  f x = y$, so that $ \phi(y) = \phi(f(x)) = f (\phi(x)) \Rightarrow \phi x \in im \phi $. So $im \phi$ and $ker \phi$ are invariant subspaces. It then follows by assumption that both must be either empty or the whole of their respective spaces. If either $ker \phi$ is $V$ or $im \phi$ is $0$, $\phi=0$. If $ker \phi$ is $0$ and $im \phi$ is full, $\phi$ is iso by the rank-nullity theorem. QED.
+**Proof**: First note that  for any morphism $f : V \to V$, by naturality we have $\phi \circ f = f \circ\phi$, so for $x\in ker \phi$, $0 = \phi 0 = \phi(f x) = f (\phi x) \Rightarrow \phi x \in ker \phi$. Similarly, for $y\in im \phi$, $\exists x.  f x = y$, so that $ \phi(y) = \phi(f(x)) = f (\phi(x)) \Rightarrow \phi x \in im \phi $. So $im \phi$ and $ker \phi$ are invariant subspaces. It then follows by assumption that both must be either empty or the whole of their respective spaces. If either $ker \phi$ is $V$ or $im \phi$ is $0$, $\phi=0$. If $ker \phi$ is $0$ and $im \phi$ is full, $\phi$ is iso by the rank-nullity theorem. QED.
 
 (2) For algebraically closed ground fields, and $V=W$, $\phi = C\cdot id $.
 

@@ -303,13 +303,13 @@ $$ Var(X)\cdot Var(P) \geq \frac{1}{2} |\langle i\hbar \rangle | = \frac{1}{2\hb
 
 Suppose $H = \frac{P^2}{2m}$. Then we get the follow time evolution:
 
-$$ \frac{d}{dt} \ket{\Phi} = \frac{-\hbar^2}{2m}\frac{d^2}{dx^2}\ket{\Phi} $$
+$$ ih\frac{d}{dt} \ket{\Phi} = \frac{-\hbar^2}{2m}\frac{d^2}{dx^2}\ket{\Phi} $$
 
-Eigenvalues and eigenvectors of this Hamiltonian take the form of $\frac{p^2}{2m}$ and $\phi(x)=e^{\frac{ipx}{\hbar}}$ respectively. What this means is that we can simplify the calculation of the time evolution by diagonalizing (i.e. taking the Fourier transform). That is:
+Eigenvalues and eigenvectors of this Hamiltonian take the form of $\frac{p^2}{2m}$ and $\phi(x)=e^{\frac{ipx}{\hbar}}$ respectively. What this means is that we can simplify the calculation of the time evolution by diagonalizing (i.e. taking the Fourier transform, i.e. moving into the eigenbasis of $P$).
 
-$$\phi(x,t) = \int dp \mathcal{F}(\phi)(p)e^{-\frac{ipx}{\hbar}}e^{-\frac{p^2t}{2m\hbar}} $$
+<!-- $$\phi(x,t) = \int dp \mathcal{F}(\phi)(p)e^{-\frac{ipx}{\hbar}}e^{-\frac{p^2t}{2m\hbar}} $$
 
-One important consequence is that $\mathcal{F}(\phi)(p,t)$ only changes in time by a phase factor, which has no measurable consequence. In other words, momentum is preserved over time.
+One important consequence is that $\mathcal{F}(\phi)(p,t)$ only changes in time by a phase factor, which has no measurable consequence. In other words, momentum is preserved over time. -->
 
 ### Velocity
 

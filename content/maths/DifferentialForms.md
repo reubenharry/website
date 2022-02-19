@@ -66,13 +66,12 @@ The image of a smooth map $f \in \mathcal{M}$, namely $F^kf$, is called the pull
 Forms are invariant with respect to integration, under the pullback, in the following sense:
 
 $$ \int\_{\phi(M)}\alpha = \int\_{M} \phi^\*\alpha $$
- TODO CHECK
 
 This means we can calculate integrals on an $n$-manifold $M$ by pulling back along a map $\mathbb{R}^n \to M$, and thus reducing the problem to one of integration on $\mathbb{R}^n$, which can be done by e.g. Riemann integration.
 
 For $F^k$ and $F^{k+1}$, there is a natural transformation $F^k \to F^{k+1}$ known as the exterior derivative $d$, to be defined concretely below. More precisely, the components of the natural transformation, which take $k$-forms to $(k+1)$-forms are called $d$. Being maps in a category of vector spaces, linearity is clearly obeyed, and we'll see a form of the product rule.
 
-There is also a map from $k$-manifolds to $(k-1)$-manifolds, by mapping a manifold to its boundary. This operator is called $\partial$. Note that $\partial \circ \partial = \{\}$. Boundaries have no boundary.
+There is also a map from $k$-manifolds to $(k-1)$-manifolds, by mapping a manifold to its boundary. This operator is called $\partial$. Note that $\partial \circ \partial = \\{\\}$. Boundaries have no boundary.
 
 The culmination of all of this is Stokes' theorem, which establishes a relationship between $\partial$ and $d$:
 

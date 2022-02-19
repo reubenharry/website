@@ -92,7 +92,7 @@ $$ 0 = g(L) = ae^{\sqrt{K}L} + be^{-\sqrt{L}L} \Rightarrow (a=-b=b=0) \vee (e^{\
 Assuming the latter disjunct, since the former leads to a trivial solution, we consider the latter. In general, if $e^{x}=e^{-x}$, then $x=ni\pi$, for $n\in \Z$ (convince yourself this is true by thinking about complex exponentials as rotations in the complex plane). So $\sqrt{K}=i\frac{n\pi}{L}$.
 
 
-constrain possible solutions by having $f(x,t)$ satisfy a separate equation:
+<!-- constrain possible solutions by having $f(x,t)$ satisfy a separate equation:
 
 $$
 \frac{\partial^2 f(x,t)}{\partial t^2} = \lambda f(x,t)
@@ -100,7 +100,7 @@ $$
 
 This implies that $\frac{\partial^2 f(x,t)}{\partial x^2} = \frac{1}{v^2}\lambda f(x,t)$ (the Helmholtz equation), so as above, we have an eigenvalue problem, and the solution, now $f(x,t)=C(t)e^{ikx}$ for $-k^2=\frac{1}{v^2}\lambda$ is periodic in $x$.
 
-We can add *boundary conditions* to constrain the solutions to the PDE. In particular, say that $f(0)=0,\~ f(L)=0$. Then, since $e^{ik0}=1$, we have that $0=C(t)\cdot 1 \Rightarrow Re(C(t))=0$. On the other hand, $C(t)e^{ikL}=0$, so $e^{ikL}$ has to be $1$, which means that $k=\frac{n\pi}{L}$ for $n\in \N$. The result is that the eigenvalues of the solution are discrete (this turns out to be a reason for quantization of energy levels in quantum physics), so that the solutions (eigenvectors) are periodic with discrete frequencies.
+We can add *boundary conditions* to constrain the solutions to the PDE. In particular, say that $f(0)=0,\~ f(L)=0$. Then, since $e^{ik0}=1$, we have that $0=C(t)\cdot 1 \Rightarrow Re(C(t))=0$. On the other hand, $C(t)e^{ikL}=0$, so $e^{ikL}$ has to be $1$, which means that $k=\frac{n\pi}{L}$ for $n\in \N$. The result is that the eigenvalues of the solution are discrete (this turns out to be a reason for quantization of energy levels in quantum physics), so that the solutions (eigenvectors) are periodic with discrete frequencies. -->
 
 ### Spherical Laplacian
 
