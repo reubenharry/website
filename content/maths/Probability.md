@@ -180,7 +180,7 @@ Example of how to put Bernoulli distribution in exponential family form:
 
 $T=id$, $b(x)=1, \eta=\sigma^{-1}(\mu)$.
 
-Crucial point: how do we convert from the mean parametrized form of the Bernoulli distribution, namely $P(x|\mu) = x\mu\cdot x^{1-\mu}$ to the naturally parametrized form?
+Crucial point: how do we convert from the mean parametrized form of the Bernoulli distribution, namely $P(x|\mu) = x^\mu\cdot x^{1-\mu}$ to the naturally parametrized form?
 
 Easy: take the log odds: $\eta=log(\frac{\mu}{1-\mu})$. And the inverse is the sigmoid function.
 
@@ -249,7 +249,103 @@ MH is one method to obtain a kernel which satisfies detailed balance. The idea i
 
 <!-- In other words, the states in your Markov chain are assignments to all the variables of the distribution (it could be a joint distribution) and so the stationary distribution of the walk is a distribution over the relevant variable(s). If detailed balance is satisfied, then $P$ is the stationary distribution, and so you can sample from $P$ by taking a nice long walk along the chain, since $\lim\_nT^n(x) = P $ for any starting value $x$. Magic! (Why does this work? It resembles the fix point operator: for $g = f(f(f(....(f(x)))))), $f(g(x)$ = g(x)$, which is familiar from set theory and computer science. But I think the more important point here is that the unit eigenvector is also the largest one, and so, on each iteration, it gains ground while the others diminish). -->
 
+#### Hamiltonian Monte Carlo (HMC)
 
+This involves a terrifying confluence of statistics, differential geometry and statistical mechanics. The idea is that we derive a better transition kernel by moving into a phase space and exploiting the nice volume preserving nature of Hamiltonian dynamics (hence the name).
+
+We start with the canonical distribution (see [notes on statistical mechanics](/maths/statisticalmechanics)).
+
+$$ \pi(q,p) = e^{-H(p,q)} $$
+
+where $\pi$ is our density. We assume that $\pi(q,p)=\pi(p|q)\pi(q)$ so that
+
+$$ H(p,q) = -log \pi(p,q) = -log\pi(p|q) -log \pi(q) = K(p,q) + V(q) $$
+
+In other words, choosing $\pi(p|q)$ amounts to choosing a Kinetic energy, while the potential energy $V$ is determined by $\pi(q)$, which is known.
+
+The transition kernel at a point $q$ is a three step procedure. First sample $p$ from $\pi(p|q)$. Then push $(p,q)$ forward using Hamiltonian dynamics, approximated with a Symplectic integrator. Finally marginalize out $p$ to get $\pi(q)$ (since we have $\sum_p \pi(p,q) = 1$).
+
+What remains is a good choice of Hamiltonian, and a good choice of sympletic integrator. And a real explanation of why this is a valid or good MCMC kernel. I defer these to more detailed notes.
+
+<!-- "Generically, then, volume is largest out in the tails of the target distribution away
+from the mode, and this disparity grows exponentially with the dimension of parameter
+space. Consequently, the massive volume over which we integrate can compensate to give
+a significant contribution to the target expectation despite the smaller density."
+
+"The only significant contributions come
+from the neighborhood between these two extremes known as the typical set (Figure 3).
+Importantly, because probability densities and volumes transform oppositely under any
+reparameterization, the typical set is an invariant object that does not depend on the
+irrelevant details of any particular choice of parameters."
+
+"Consequently, in
+order to compute expectations efficiently, we have to be able to identify, and then focus
+our computational resources into, the typical set"
+
+"The guess-and-check strategy of Random Walk Metropolis is doomed to fail in highdimensional spaces where there are an exponential number of directions in which to guess
+but only a singular number of directions that stay within the typical set and pass the check.
+In order to make large jumps away from the initial point, and into new, unexplored regions
+of the typical set, we need to exploit information about the geometry of the typical set"
+
+"Hamiltonian Monte Carlo is the unique procedure for automatically generating this
+coherent exploration for sufficiently well-behaved target distributions."
+
+"To utilize the information in the gradient we need to complement it with additional geometric constraints, carefully removing the dependence on any particular parameterization
+while twisting the directions to align with the typical set. Auspiciously, there is an elegant
+procedure for doing exactly this in a field of mathematics known as differential geometry. "
+
+"A defining feature of conservative dynamics is the preservation of volume in position-momentum
+phase space. For example, although dynamics might compress volumes in position space, the corresponding
+volume in momentum space expands to compensate and ensure that the total volume is invariant."
+
+add momentum coordinates
+obtain a phase space distribution p(q,p) = p(p|q)p(q)
+p(q,p) = e^{-H(p,q)}
+H(p,q) = -log \pi(p,q) = -log\pi(p|q) -log \pi(q) = K(p,q) + V(q)
+
+"Following the Hamiltonian vector field for some time, t, generates trajectories,
+φt(q, p), that rapidly move through phase space while being constrained to the typical set.
+Projecting these trajectories back down onto the target parameter space finally yields the
+efficient exploration of the target typical set for which we are searching." -->
+
+## Variational Inference (VI)
+
+The simple part of the idea is: approximately infer a distribution $p(\cdot)$ by optimizing $\lambda$ in some $q_{\lambda}(\cdot)$ to minimize $KL(q || p) - \sum_x q(x) \log\frac{q(x)}{p(x)} = E_q\[\frac{q(x)}{p(x)\]$. In other words, $q_\lambda$, for an appropriate choice of $\lambda$ is our approximation of $p$.
+
+The hard part is working out how we can minimize $KL(q || p)$ without knowing $p$. Here's the idea. Let $\hat{p}$ be the unnormalized version of $p$, and let's assume we have that. Then
+
+$$ J(q) = \sum_x q(x)\frac{q(x)}{\hat{p}(x)} = \sum_x q(x)\frac{q(x)}{p(x)} - \log Z(\lambda) = KL(q || p) - \log Z(\lambda) $$.
+
+KL divergence is always positive (see any intro to information theory), so
+
+$$ \log Z(\lambda) = KL(q || p) - J(q) \geq -J(q) $$
+
+which means that $-J(q)$ is a lower bound (the evidence lower bound, or ELBO) on $Z$. So we maximize the ELBO to minimize the KL.
+
+### Mean Field VI
+
+If the distribution you are trying to approximate is a joint distribution (see e.g. the Ising model in these [notes on statistical mechanics](/maths/statisticalmechanics)) then as your approximating family use a product of marginals (each independently parametrized).
+
+
+## Measure theory
+
+The paper *Exact Bayesian Inference by Symbolic Disintegration* has such an excellent introduction to measures that I may as well just quote it:
+
+"The nineteenth-century mathematicians who wanted to know how big a set was were hoping for a definition with four properties
+
+1. The size of an interval should be its length.
+2. The size of a set should be invariant under translation.
+3. The size of a union of disjoint sets should be the sum of the individual sizes.
+4. Any subset of the real line should have a size.
+
+Not all four properties can be satisfied simultaneously. But if we limit our attention to measurable subsets of the real line, we can establish the first three properties. The measurable subsets are the smallest collection of sets of reals that contains all the intervals and is closed under complement, countable intersection, and countable union. The one and only function on the measurable sets that has
+the first three properties is the Lebesgue measure. "
+
+Measure theory lives in the category `Meas`. The objects are measurable spaces $(X, \Sigma_X)$, where $X$ is a set and $\Sigma_X$ is a collection of subsets of $X$ closed under compliment and finite union. Morphisms are measurable functions, which means a function $f : X \to Y$ such that for $U \in \Sigma_Y$, $f^{-1}(U) \in \Sigma_X$.
+
+A probability measure on $X$ is a function $\mu : \Sigma_X \to [0,1]$ such that $\mu(X)=1$ and $\mu U(S_i) = \sum \mu(S_i)$, where $U$ means disjoint countable union. Probability measures can be pushed forward through a measurable function in the obvious way.
+
+Measures (with some restrictions) are one-to-one with integrators, so we will abuse notation and write $\mu(f)$ to be the integral of $f$ with measure $\mu$. Defining integrals is boring, so I won't, but the above paper does it very nicely.
 
 ## Models
 

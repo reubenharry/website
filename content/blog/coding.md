@@ -224,6 +224,47 @@ where there is some constraint on $f$. Exactly what functor $f$ we use determine
 
 Moreover, lenses compose by function composition. Kmett's library extends this idea to other similar types where the constraint is e.g. `Applicative` not `Functor`, and other generalizations of this sort, which yields a family of beautifully composable "optics".
 
+### Optics
+
+A brief summary of some of the optics in the lens package. (Note that there is also a category theory story about optics, based on profunctors, which is somewhat separate.)
+
+**Traversals**:
+
+```haskell
+type Traversal s t a b = forall f. Applicative f => (a -> f b) -> (s -> f t)
+```
+
+Like a lenses but gets or sets multiple places. A characteristic usage is `a ^.. t`, where `a` is our data and `t` is our traversal, to obtain a list of the elemens being pointed to by the traversal.
+
+
+We already have:
+
+```haskell
+instance Monoid m => Applicative (Const m) where
+    pure _ = Const mempty
+    liftA2 _ (Const x) (Const y) = Const (x `mappend` y)
+```
+
+so for `m` a monoid, we can view it. For instance, if we have a traversal which points to every leaf in a tree, we can extract a list (the free monoid) of those leafs.
+
+And `Identity` is an applicative, so no problem there.
+
+We can also generalize from `->` to any profunctor `p`. This is how many of the indexed versions of optics works, and also gives the most general type in the package:
+
+```haskell
+type Iso s t a b = forall p f. (Profunctor p, Functor f) => p a (f b) -> p s (f t)
+```
+
+
+<!-- **Folds**
+
+```haskell
+type Fold s a = forall f. (Contravariant f, Applicative f) => (a -> f a) -> s -> f s
+```
+
+`Const` is a contravariant functor, so we can still use it to `get` things.
+-->
+
 
 
 A small bit of theory of lenses: https://blog.jle.im/entry/lenses-products-prisms-sums.html. "A Lens' s a is nothing more than a witness for the fact that there exists some q where s ~ (a, q).". Here q is existentially quantified:

@@ -80,7 +80,7 @@ To compute the mean $E[y]$ from the natural parameter requires some transformati
 
 In general, we say that $E[y]=g^{-1}(X\theta)$, where $g$ is a link function. This generalization includes logistic regression, where $y$ is a Bernoulli random variable, and Poisson regression where $y$ is a Poisson random variable, among others. The nice properties of exponential family distributions (convexity) mean that the models can be fit easily.
 
-Logistic regression. Key observation: let $g(x)=log(\frac{x}{1-x})$. Let $f(x)=\frac{1}{1+e^{-x}}$. $f$ (log odds function) and $g$ (sigmoid function) are inverses.
+Logistic regression. Key observation: let $g(x)=log(\frac{x}{1-x})$. Let $f(x)=\frac{1}{1+e^{-x}}$. $g$ (log odds function) and $f$ (sigmoid function) are inverses.
 
 ## Frequestist statistics
 
