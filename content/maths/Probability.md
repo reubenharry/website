@@ -310,11 +310,11 @@ efficient exploration of the target typical set for which we are searching." -->
 
 ## Variational Inference (VI)
 
-The simple part of the idea is: approximately infer a distribution $p(\cdot)$ by optimizing $\lambda$ in some $q_{\lambda}(\cdot)$ to minimize $KL(q || p) - \sum_x q(x) \log\frac{q(x)}{p(x)} = E_q\[\frac{q(x)}{p(x)\]$. In other words, $q_\lambda$, for an appropriate choice of $\lambda$ is our approximation of $p$.
+The simple part of the idea is: approximately infer a distribution $p(\cdot)$ by optimizing $\lambda$ in some $q_{\lambda}(\cdot)$ to minimize $KL(q || p) - \sum_x q(x) \log\frac{q(x)}{p(x)} = E_q\[\log\frac{q(x)}{p(x)}\]$. In other words, $q_\lambda$, for an appropriate choice of $\lambda$ is our approximation of $p$.
 
 The hard part is working out how we can minimize $KL(q || p)$ without knowing $p$. Here's the idea. Let $\hat{p}$ be the unnormalized version of $p$, and let's assume we have that. Then
 
-$$ J(q) = \sum_x q(x)\frac{q(x)}{\hat{p}(x)} = \sum_x q(x)\frac{q(x)}{p(x)} - \log Z(\lambda) = KL(q || p) - \log Z(\lambda) $$.
+$$ J(q) = \sum_x q(x)\log\frac{q(x)}{\hat{p}(x)} = \sum_x q(x)\log\frac{q(x)}{p(x)} - \log Z(\lambda) = KL(q || p) - \log Z(\lambda) $$.
 
 KL divergence is always positive (see any intro to information theory), so
 
