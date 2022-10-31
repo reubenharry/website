@@ -47,35 +47,32 @@ My favourite introductory texts are TODO
 
 # What category theory is about
 
-I think of it like this. There are two recurrent, and opposite intuitions you encounter in abstract algebra (group theory, linear algebra, topology, etc):
+A common pattern in mathematics is to distill a kind of pattern into an object.
 
-1. Reify structure into objects.
-2. Don't focus on objects, focus on maps between objects which preserve their structure.
+For example, a *group* captures the notion of symmtery: a group is an object where the elements include an identity, have inverses, and can be combined associatively). There are many different groups, but each has these properties.
 
-So for example, to study symmetries, capture their essence (1) in an object, namely a group. But then, don't study objects (2), study maps between them, which here are group homomorphisms. But then, reify group homomorphisms into an object (1), namely the category of groups. And don't study that, study maps between categories, namely functors. And so on.
+Vector spaces are the objects which capture the notion of linear combination: a vector space is a space where the things in it (vectors) can be added together and scaled. There are many vector spaces, but each has this property.
 
-Each kind of algebraic object captures some kind of structure. Groups capture symmetries, vector spaces capture weighted combination, and so on.
+Abstract algebra is full of such objects (sets, rings, topologies, etc etc).
 
-When studying any kind of algebraic object, you soon learn about the maps which preserve the structure. For example, group homomorphisms preserves the group operation, while linear transformations preserve weighted combinations:
+There is a second intuition, equally ubiquitous, which goes like this: to understand objects, understand the maps between objects which preserve their structure. For example, study groups by studying group homomorphisms. Study vector spaces by studying linear maps.
 
-$$ f(xy) = f(x)f(y) $$
+The two intuitions in short:
 
-$$ f(ax+by) = af(x)+bf(y) $$
+1. To study a thing, reify its structure into an abstract object.
+2. To study a thing, study the maps between instances of this object.
 
-Category theory is the field of mathematics which abstracts this pattern, to study structure-preserving maps in general.
+Category theory in the inevitable result of applying these intuitions to each other. Suppose that first, via intuition (1), have some kind of abstract object, like the notion of a group. Then, by intuition (2), you start considering the collection of all groups and the maps between them.
 
-It does so in a way which is initially surprising. It introduces a new kind of object, a *category* which captures the idea of structure preserving maps, in the same way a vector space captures weighted combination or a group captures symmetry. *Categories reify the idea of structure-preservation*.
+So far, no category theory. But then! Suppose you apply intuition (1) again, and decide to reify the idea of mappings between concrete instances of some abstract object as an object in and of itself.
 
-Concretely, a particular category is a collection of objects and the maps between them. Maps (also known as morphism) must be (associatively) composable and every object must have an identity map.
+This object is a category. It has the following data and laws: a category contains a collection of objects $A, B, C, D$, and arrows (aka morphisms) between those objects, $f : A \to B, g : B \to C, h : C \to D \dots$. There is an operation that combines two arrows $f \circ g$ which, crucially, is associative and has an identity at each object, the arrow $id\_A : A \to A$.
 
-It is then natural to study the structure preserving maps between categories, or equivalently, to study the category of categories (ignoring [set-theoretic worries about size](TODO)). These morphisms are called functors.
+That's the abstract definition of a category, but a concrete example is the category of (finite dimensional) vector spaces, which contains vector spaces as objects and linear maps as arrows.
 
-TODO:
-  don't study objects; instead, study categories of objects - or equivalently, the mappings between objects.
+Category theory continues in this vein. Since we now have an algebraic object, the category, we study it - applying intuition (2) - by studying the maps between it. These are known as functors, and are the maps which preserve the category structure.
 
-  reification
-
-In the ensuing landscape, several other concepts emerge as patterns
+The ensuing category, the category of categories, has interesting structure that not all categories have. In particular, it admits a good way of mapping between arrows $f, g : A \to B$ (natural transformations), and also a good way of relating arrows $f : A \to B, g : B \to A$ (adjunctions). Both of these concepts turn up everywhere in algebra and seeing the common pattern is often very useful.
 
 ## Recursion
 
