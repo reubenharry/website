@@ -5,15 +5,38 @@ draft: False
 ---
 
 <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+
 </script>
 
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>
 
-![d](../../static/img/narcissus.jpg)
+
+{{< figure src="img/narcissus2.jpg" imageMaxWidth="1000px" width="750" >}}
 *(Like Narcissus attempting to identify a stranger in his reflection in a pool, discourses about AI often look for systems with a "true understanding" which is strangely elusive)*
 
 
@@ -267,7 +290,9 @@ And it allows distributions in which precisely those phonological structures whi
 
 # Conditional independency and abstraction
 
-![d](../../static/img/narcissus2.jpg)
+
+
+{{< figure src="img/narcissus2.jpg" imageMaxWidth="1000px" width="750" >}}
 *(Narcissus again. The relationship between the pictures is mediated by their content, i.e. the thing they depict, and other variables like style.)*
 
 <!-- ```mermaid
