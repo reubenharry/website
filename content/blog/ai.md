@@ -4,6 +4,15 @@ date: 2022-06-22T18:11:57+01:00
 draft: False
 ---
 
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
 ![d](../../static/img/narcissus.jpg)
 *(Like Narcissus attempting to identify a stranger in his reflection in a pool, discourses about AI often look for systems with a "true understanding" which is strangely elusive)*
 
@@ -11,15 +20,12 @@ draft: False
 
 An incessant motif in the discourse surrounding AI is the distinction between *true understanding* and "mere" pattern recognition.
 
-"...it is clear that these systems are doomed to a shallow understanding that will never approximate the full-bodied thinking we see in humans. In short, despite being among the most impressive AI systems on the planet, these AI systems will never be much like us."
+"...it is clear that these systems are doomed to a shallow understanding that will never approximate the full-bodied thinking we see in humans. In short, despite being among the most impressive AI systems on the planet, these AI systems will never be much like us." ([source](https://www.noemamag.com/ai-and-the-limits-of-language/))
 
 or
 
-"We’re simulating the surface level of it, and many people are falling for the illusion. Sometimes the performance of these machines are spectacular." (https://qz.com/1088714/qa-douglas-hofstadter-on-why-ai-is-far-from-intelligent)
-
-or
-
-"But we should not confuse the shallow understanding LLMs possess for the deep understanding humans acquire from watching the spectacle of the world, exploring it, experimenting in it and interacting with culture and other people."
+"We’re simulating the surface level of it, and many people are falling for the illusion. Sometimes the performance of these machines are spectacular."
+([source](https://qz.com/1088714/qa-douglas-hofstadter-on-why-ai-is-far-from-intelligent))
 
 
 From this vantagepoint, modern statistical AI is little more than a trick that dupes users by a surface level understanding, but lacks a grasp of the complex, symbolic structure that underlies human cognitive ability.
