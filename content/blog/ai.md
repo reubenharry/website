@@ -36,6 +36,21 @@ draft: False
 
 
 
+<script
+  type="application/javascript"
+  src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
+></script>
+<script>
+  var config = {
+    startOnLoad: true,
+    theme:'{{ if site.Params.mermaid.theme }}{{ site.Params.mermaid.theme }}{{ else }}dark{{ end }}',
+    align:'{{ if site.Params.mermaid.align }}{{ site.Params.mermaid.align }}{{ else }}center{{ end }}',
+  };
+  mermaid.initialize(config);
+</script>
+
+
+
 {{< figure src="img/narcissus2.jpg" imageMaxWidth="1000px" width="750" >}}
 *(Like Narcissus attempting to identify a stranger in his reflection in a pool, discourses about AI often look for systems with a "true understanding" which is strangely elusive)*
 
