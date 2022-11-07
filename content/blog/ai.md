@@ -603,4 +603,4 @@ the state of the world is a sufficient statistic for actions given data:
 graph LR
     A((A)) --> B((B))
 </div>
-<script async src="https://unpkg.com/mermaid@9.2.0/dist/mermaid.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
