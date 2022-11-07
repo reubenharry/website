@@ -597,10 +597,10 @@ further factorizations are possible: we can now ask: what about other...
 the state of the world is a sufficient statistic for actions given data:
     an agent's decision of how to act should only depend on the data up to the information the data gives about the latent state of the world. -->
 
-{{<mermaid align="left">}}
+
+
+<div class="mermaid">
 graph LR;
-    A[Hard edge] -->|Link text| B(Round edge)
-    B --> C{Decision}
-    C -->|One| D[Result one]
-    C -->|Two| E[Result two]
-{{< /mermaid >}}
+  A-->B;
+</div>
+<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
