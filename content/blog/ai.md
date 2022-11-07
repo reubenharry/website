@@ -599,8 +599,10 @@ the state of the world is a sufficient statistic for actions given data:
 
 
 
-<div class="mermaid">
-graph LR;
-  A((A)) --> B((B));
+<div class="mermaid" markdown="0" >
+    graph TD
+    A[Client] -->|tcp_123| B(Load Balancer)
+    B -->|tcp_456| C[Server1]
+    B -->|tcp_456| D[Server2]
 </div>
 <script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
