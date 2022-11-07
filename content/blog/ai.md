@@ -601,6 +601,6 @@ the state of the world is a sufficient statistic for actions given data:
 
 <div class="mermaid">
 graph LR;
-  A-->B;
+  A((A)) --> B((B));
 </div>
 <script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
