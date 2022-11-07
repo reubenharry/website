@@ -1,7 +1,7 @@
 ---
 title: "The siren call of symbolic AI"
 date: 2022-06-22T18:11:57+01:00
-draft: True
+draft: False
 ---
 
 <script type="text/javascript" async
