@@ -294,7 +294,7 @@ As an example, it rules out distributions in which all pairs of a phonological s
 
 And it allows distributions in which precisely those phonological structures which correspond to sentences about chairs have higher probability than not of appearing with scene graphs containing chairs.
 
-# Conditional independency and abstraction
+# Abstraction
 
 
 
@@ -596,3 +596,26 @@ further factorizations are possible: we can now ask: what about other...
 
 the state of the world is a sufficient statistic for actions given data:
     an agent's decision of how to act should only depend on the data up to the information the data gives about the latent state of the world. -->
+
+graph TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+
+$$ graph TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]$$
+
+```
+graph TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```

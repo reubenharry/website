@@ -16,6 +16,8 @@ tramp
 .org-id-locations
 *_archive
 
+.vscode
+
 # flymake-mode
 *_flymake.*
 
