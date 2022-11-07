@@ -35,10 +35,10 @@ draft: False
 </script>
 
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({ startOnLoad: true });
-  </script> -->
+  </script>
 
 
 
@@ -605,4 +605,4 @@ the state of the world is a sufficient statistic for actions given data:
     B -->|tcp_456| C[Server1]
     B -->|tcp_456| D[Server2]
 </div>
-<script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script>
+<!-- <script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script> -->
