@@ -1,7 +1,7 @@
 ---
 title: "The siren call of symbolic AI"
 date: 2022-06-22T18:11:57+01:00
-draft: True
+draft: False
 ---
 
 <script type="text/javascript" async
@@ -600,9 +600,9 @@ the state of the world is a sufficient statistic for actions given data:
 
 
 <div class="mermaid" markdown="0" >
-    graph TD
-    A[Client] -->|tcp_123| B(Load Balancer)
-    B -->|tcp_456| C[Server1]
-    B -->|tcp_456| D[Server2]
+graph TD
+A[Client] -->|tcp_123| B(Load Balancer)
+B -->|tcp_456| C[Server1]
+B -->|tcp_456| D[Server2]
 </div>
 <!-- <script async src="https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js"></script> -->
