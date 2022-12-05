@@ -75,7 +75,7 @@ What it has to do with it is the foundational premise of so-called classical AI 
 
 In programming languages, the content - what the program is about - is the world of numbers, functions and data, like the state of the chessboard.
 
-In a human language, what is the content? What is the equivalent of the chessboard, when interpreting a sentence like "If Archduke Ferdinand had not been assasinated, the First World War would still have happened."?
+In a human language, what is the content? What is the equivalent of the chessboard, when interpreting a sentence like "If Archduke Ferdinand had not been assassinated, the First World War would still have happened."?
 
 A fundamental idea of classical AI is that the "chessboard of the mind", as it were, is the world itself, and concepts like causes, wars and beginnings, as well as specific historical events like the First World War, are to be defined in terms of this chessboard.
 
@@ -93,11 +93,11 @@ This view of meaning in terms of a logical semantics in which the "state space" 
 
 This reliance on the "bridge" holds true also for more contemporary varieties of classical cognitive science, like its Bayesian incarnation, in which an agent performs inference to answer the question: what must the world (the manifest image) be like given the sensory data I am receiving?
 
-Even many practioners of statistical AI have internalized this perspective, so that their efforts are put towards extracting semantic content from neural models, on the principle that this is what it *means* to talk about understanding in an intelligent system.
+Even many practitioners of statistical AI have internalized this perspective, so that their efforts are put towards extracting semantic content from neural models, on the principle that this is what it *means* to talk about understanding in an intelligent system.
 
 And it's not hard to see why this perspective is so pervasive. We constantly make use of the idea of form and content in our everyday interaction with the world. Take the four pictures in this article. Each is of Narcissus, a character from Greek myth made famous by Ovid's *Metamorphoses*, who stares longingly at what he believes is a stranger looking up at him from the surface of a pond. Each image differs entirely in form (the color values of the pixels in the respective images) but shares some abstract *content*.
 
-For a linguistic example, consider that if I talk to someone about the Harry Potter books who has read them in French, we are not talking about the form (the sequence of letters that make up the book) but about some sort of content: the events that happen, the social instituitions in the world, the characters, their intentions.
+For a linguistic example, consider that if I talk to someone about the Harry Potter books who has read them in French, we are not talking about the form (the sequence of letters that make up the book) but about some sort of content: the events that happen, the social institutions in the world, the characters, their intentions.
 To happily accept that a book can be translated or that a painting can be done in a new style is implicitly to admit some notion of content, as on the left bank[^3].
 
 [^3]: Douglas Hofstadter's *Gödel, Escher, Bach* is in part an attempt to evoke the fundamental importance of translation, in the general sense of form-changing content-preserving copying, for how we think about thinking.
@@ -196,7 +196,7 @@ Dan Dennett likes to give the example of biologist William Bateson, who rejected
 
 <!-- that inevitably involve the word "merely" used misleadingly. -->
 
-> ``The properties of living things are in some way atached to a material basis, perhaps in some special degree to nuclear chromatin and yet it is invconcievable that particles of chromatin or of any other substance, however complex, can possess those powers which must be assigned to our factors or genes. The supposition that particles of chromatin, indistinguisable from each other and indeed almost homogenous under any known test, can by their material nature confer all the properties of life surpasses the range of even the most convinced materialism'' - Bateson
+> ``The properties of living things are in some way atached to a material basis, perhaps in some special degree to nuclear chromatin and yet it is inconceivable that particles of chromatin or of any other substance, however complex, can possess those powers which must be assigned to our factors or genes. The supposition that particles of chromatin, indistinguishable from each other and indeed almost homogeneous under any known test, can by their material nature confer all the properties of life surpasses the range of even the most convinced materialism'' - Bateson
 
 This was written before the discovery of just such a substance, DNA.
 In the same way, innovations in statistical AI lend credence to the suspicion that the root of the issue is simply a lack of imagination.
@@ -226,7 +226,7 @@ Produce a really weird sentence that is a tautology
 
 ----
 
-Now it is to produce that nonsense sentence in the second example, it is *merely* producing words which are likely, according to its learned distribution, to follow the prompt "Produce a grammatically correct sentence where each word is really unlikely.", but is that really *mere* prediction?
+Now it is true that to produce that nonsense sentence in the second example, it is *merely* producing words which are likely, according to its learned distribution, to follow the prompt "Produce a grammatically correct sentence where each word is really unlikely.", but is that really *mere* prediction?
 
 It is also easy to convince yourself that *mere* prediction could not be able to summarize a book:
 
@@ -258,16 +258,22 @@ What makes him the main character?
 
 ----
 
-Here, the system is able to say why, in a way that an English speaker can understand, Harry Potter is the main character. This requires understanding not just what a character is, what a main character is, who Harry Potter is, what an adventure is, the idea that a narrative arc has a main character who truimphs, but also what "why" means.
+Here, the system is able to say why, in a way that an English speaker can understand, Harry Potter is the main character. This requires understanding not just what a character is, what a main character is, who Harry Potter is, what an adventure is, the idea that a narrative arc has a main character who triumphs, but also what "why" means.
 
-Of course, this is just *mere* prediction of the next word, but is that any more of a relevant observation than to say that a person is a "mere" bag of jostling atoms?
+Of course, this is just *mere* prediction of the next word, but is that any more relevant than to say that a person is a "mere" bag of jostling atoms?
 
-On the classical viewpoint, the answer is yes, it *is* more relevant, and the above demonstration has no understanding. Or to the extent that classical AI researchers will concede that systems like GPTChat exhibit understanding, it is by the fact that they have learned, albeit through brute force, some true semantic representation, in the course of their word prediction objective.
+On the classical viewpoint, the answer is yes, it *is* more relevant, and the above demonstration has no understanding. Or to the extent that classical AI researchers will concede that systems like GPTChat exhibit understanding, it is by the fact that they have learned, albeit through brute force, some true semantic representation, in the course of their word prediction objective. Tasks like few-shot learning are then intended to expose the inefficiency of this approach.
+
+An alternative classical response, more defeatist in nature, is to say that what the success of systems like these show is that these aspects of intelligence simply are not interesting, because they can be solved by hacks[^5].
+
+But in either case, there is no concession on the truth of the dichotomy between true and "mere" understanding; according to the classical perspective, the realist conception of the space of human concepts (the manifest image) as analogous to the space of programs or mathematical entities is never questioned, and so the idea that *mere* intelligence might be true intelligence is never seriously considered.
+
+[^5]: For example, Ron Kaplan put this point to me when I asked him about the success of speech recognition systems a few years ago.
 
 
 <!-- And once behaviors of neural nets started to show glimmers of these features, a fallback position of classical AI was that even if neural networks *could* learn the true semantics of language, they were doing so inefficiently.  -->
 
-Tasks like few-shot learning were intended to expose the inefficiency of this approach, but GPTChat, and presumably the many systems that will follow, have impressive few-shot learning abilities in many tasks.
+<!-- Tasks like few-shot learning were intended to expose the inefficiency of this approach, but GPTChat, and presumably the many systems that will follow, have impressive few-shot learning abilities in many tasks. -->
 
 <!-- GPTChat reasons systematically, in the sense that it gives answers to questions that if thoughts to have been produced by humans, would be regarded as instances of human-level reasoning.  -->
 
@@ -297,7 +303,7 @@ If Quine and BF Skinner were alive to see modern AI, they would be doing whateve
 
 In Narcissus' case, he realizes that what is behind his elusive interlocutor is not a person lying underneath the surface of the pond and mirroring his every move, but his own reflection. At this point he has a huge tantrum and turns into a flower.
 
-But how does the analogous motif play out in AI? Will there be a philosophical sea-change, in which the essentialist convictions about linguistic meaning so fundamental to work on natural language semantics in the past 50 years give rise to something new? Or, with Skinner and Quine in mind, something old?
+But how does the analogous motif play out in AI? Will there be a philosophical sea-change, in which the bridge between logical and natural language meaning so fundamental to work on linguistics in the past 50 years give rise to something new? Or, with Skinner and Quine in mind, something old?
 
 My strong desire never to hear the phrase *mere pattern recognition* again means that I hope the answer is yes.
 
