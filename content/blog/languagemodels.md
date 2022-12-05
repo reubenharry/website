@@ -8,7 +8,7 @@ draft: False
 ![](/img/narcissus.jpg)
 
 
-The phrase "mere pattern recognition" and compatriots appear regularly in debates about AI:
+The phrase "mere pattern recognition" and friends appear regularly in debates about AI:
 
 > "Human perception, even in its most basic forms, involves remarkable amounts of abstraction and reasoning. It is far more than mere pattern recognition." - [François Chollet](https://twitter.com/fchollet/status/1034331102712758272)
 
