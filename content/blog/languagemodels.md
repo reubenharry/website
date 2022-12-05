@@ -18,7 +18,7 @@ The phrase "mere pattern recognition" and friends appear regularly in debates ab
 
 What is being gestured at by these criticisms of modern statistical AI is a perceived dichotomy between true conceptual understanding and a shallow surface level hack which tricks the interlocutor into the impression that they are talking to an agent with real understanding.
 
-The perceived distinction is neatly embodied by the difference between an echo and Echo.
+The apparent distinction is neatly embodied by the difference between an echo and Echo.
 
 An echo doesn't *understand* what you said - you could scream in Amharic, Swahili or English, and the distortion it produces would happen in the same way.
 
