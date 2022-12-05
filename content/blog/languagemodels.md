@@ -1,6 +1,6 @@
 ---
 title: "The nature of things"
-date: 2022-06-22T18:11:57+01:00
+date: 2022-12-5T18:11:57+01:00
 draft: False
 ---
 
