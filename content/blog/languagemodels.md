@@ -26,7 +26,7 @@ Echo, a person on the other hand, understands what the sound you made *means* an
 
 In an abstract sense, Echo and an echo are similar, both being machines which take in a sound and spit out a sound in return. But in another sense, this viewpoint goes, they couldn't be more different.
 
-A system like GPTChat has the same functional form as a human on the other end of a conversation, in the sense that it returns words when given words. Here is a conversation I had with it:
+In this vein, a system like GPTChat has the same functional form as a human on the other end of a conversation, in the sense that it returns words when given words. Here is a conversation I had with it:
 
 ---
 
@@ -51,11 +51,9 @@ But the perennial accusation against modern statistical AI, no matter how impres
 That this criticism is so pervasive, despite the extraordinarily meaning-like behaviour of modern AI systems, is a testament to an enduring analogy between the mind and a computer.
 <!-- , sometimes explicitly and sometimes implicitly at the heart of how we understand understanding. -->
 
-Indeed, the echo-Echo distinction, and concomitant criticism, is intuitively familiar to a programmer.
+Indeed, the distinction between echo and Echo, and concomitant criticism of confusing the two, is familiar to programmers, if not in those terms; programs are sequences of characters, while their *meanings*, their *content*, are numbers or functions or other sorts of mathematically precise entities.
 
-Programs are sequences of characters, while their *meanings*, their *content* are numbers, or functions, or other sorts of mathematically precise entities.
-
-One can imagine all possible program *forms* living in Borges' imagined infinite library of Babel, which contains every possible sequence of characters. One can also imagine all possible program *meanings* living serenely in an infinite library of mathematical functions. The relationship between the two has been a fruitful area of study in computer science and mathematical logic for many decades, but it is equally relevant in quotidian coding tasks: one designs a program by thinking about content space, not form space.
+One can imagine all possible program *forms* living in one space (picture Borges' imagined infinite library from the short story *The Library of Babel*, if you are that way inclined), which contains every possible sequence of characters. One can also imagine all possible program *meanings* living serenely in another, a space of mathematical functions. The relationship between the two "libraries" has been a fruitful area of study in computer science and mathematical logic for many decades, but it is equally relevant in quotidian coding tasks: you design a program by thinking about content space, but produce a result that lives in form space.
 
 <!-- The two libraries are related, but not to be confused. The form library is perfectly understood - no mysteries there - while the content library contains, among other things, the as yet unproven Riemann hypothesis, wildly complex programs for solving hard problems, and so on.
 And, importantly, the act of programming is a search through the library of content but not through the library of form. -->
@@ -63,7 +61,7 @@ And, importantly, the act of programming is a search through the library of cont
 
 Moreover, programs themselves work by manipulating not form but content. For example, a chess program might take a string of characters like "8/8/8/4p1K1/2k1P3/8/8/8 b - - 0 1" (form) and extract from this the state of a chess board (content). It could then perform some calculation on the basis of this content, like determining whether black can capture any pieces and print the answer (Yes/No) to the screen.
 
-This is indeed a function from form (string of characters) to form (Yes/No), but trying to write this function without routing it through the content, the state of the chess board, and the surrounding concepts (the rules of chess defined in terms of this state, and so on) would be a doomed exercise.
+This is a function from form (string of characters) to form (Yes/No), but trying to write this function without routing it through the content, the state of the chess board, and the surrounding concepts (the rules of chess defined in terms of this state, and so on) would be a doomed exercise.
 
 Or even if not doomed, it would be pointless. There is a simple, reliable and correct way to write this function, in terms of the content.
 In fact, a program that commits this sin of being echo-not-Echo, and trying to avoid the content, has a name: it is a *hacky* program.
@@ -74,7 +72,7 @@ All this is to say that in the domain of computer science, the importance of wor
 
 ![](/img/narcissus2.jpg)
 
-What it has to do with it is the foundational premise of so-called classical AI that human language is not fundamentally unlike a programming language. In a programming language, the form is a series of characters. Likewise the form is a series of characters (or often an acoustic signal) in a human language.
+What it has to do with it is the foundational premise of what is often called classical AI, which is that human language is not fundamentally unlike a programming language. In a programming language, the form is a series of characters. Likewise the form is a series of characters (or often an acoustic signal) in a human language.
 
 In programming languages, the content - what the program is about - is the world of numbers, functions and data, like the state of the chessboard.
 
@@ -82,7 +80,7 @@ In a human language, what is the content? What is the equivalent of the chessboa
 
 A fundamental idea of classical AI is that the "chessboard of the mind", as it were, is the world itself, and concepts like causes, wars and beginnings, as well as specific historical events like the First World War, are to be defined in terms of this chessboard.
 
-The process of assessing the truth of the above sentence about the First World War would be based on an understanding of a geopolitical situation at the beginning of the 20th century, a knowledge of how wars start, what it means for wars to start, a model of how else the war could have started, and so on. It would need to take into account possibilities like a concession being reached which would have defused the various tensions, judging this on the basis of the negotiating abilities of the relevant leaders.
+The process of assessing the truth of the above sentence about the First World War would be based on an understanding of a geopolitical situation at the beginning of the 20th century, a knowledge of how wars start, what it means for wars to start, a model of how else the war could have started, and so on. It would need to take into account possibilities like a concession being reached which would have defused the various tensions, judging this on the basis of the negotiating abilities of the relevant leaders. And so on.
 
 The natural language chessboard around which this process of interpretation revolves is not exactly the world in the physical sense. The world that natural language is concerned with is filled with all sorts of entities, from events like wars, birthdays and unexpected embarrassing encounters, to concepts like moral responsibility, regret and luck.
 
@@ -107,7 +105,7 @@ To happily accept that a book can be translated or that a painting can be done i
 
 
 
-From this classical perspective, the problem with modern AI is that it is exactly like Borges' *The Library of Babel*. In the story, the library is populated with scholars, who search for truths about the world by perusing the infinite collection of books. This search through form space not content space is how classical AI researchers perceived the efforts of statistical AI.
+From this classical perspective, the problem with modern AI is that it is exactly like Borges' *The Library of Babel*. In the story, the library is populated with scholars, who search for truths about the world by perusing the infinite collection of books. This search through form space not content space is how classical AI researchers perceive the efforts of statistical AI.
 
 <!-- Borges story rolled into one. It is like *The Library of Babel*, because it undertakes a search through form space like the scholars searching sequences of words for truth, agnostic to the obvious content inherent in the problem. -->
 
@@ -136,11 +134,11 @@ The criticism of modern statistical AI as "echo not Echo" succeeds or fails on t
 
 And in turn the quality of this bridge lives or dies on whether it even makes sense to describe the manifest image with the kind of rigour that we reserve for mathematics, logic and computer science. Or equivalently, to imagine all concepts, ideas and things in the world living in an infinite library, indexed by a precise and formal language of thought.
 
-Anyone who has tried, and subsequently failed, to pin down something as simple as what a government or a fight is in formal terms will know that things in the manifest image are strangely elusive, even things as seemingly concrete and exact as physical objects or what a word is. (An exercise that cannot be recommended enough is to just try it. Try writing down an algorithm to define, say, a house, and then play the one person Socratic dialogue of finding counterexamples.)
+Anyone who has tried, and subsequently failed, to pin down something as simple as what a government or a fight is in formal terms will know that things in the manifest image are strangely elusive, even things as seemingly concrete and exact as physical objects or what a word is. (An exercise that cannot be recommended enough is to just try it. Try writing down an algorithm to define, say, a house, and then carry out both parts in the Socratic dialogue of finding counterexamples and amendments.)
 
 If Echo-not-echo is the motif of the classical AI perspective, then perhaps Narcissus staring at his reflection in a pond, trying to work out the true nature of his unrequiting beloved, is the modern response to the search for "true" meaning.
 
-Indeed, there is a long history of scepticism of the classical view, broadly arranged around the idea that treating things in the manifest image with formal tools is a kind of hysterical literalism. Two famous such sceptics are Skinner and Quine:
+There is a long history of scepticism of the classical view, broadly arranged around the idea that treating things in the manifest image with formal tools is a kind of hysterical literalism. Two famous such sceptics are Skinner and Quine:
 
 > "I *accuse* cognitive scientists of relaxing standards of definition and logical thinking and releasing a flood of speculation characteristic of metaphysics, literature, and daily intercourse, perhaps suitable enough for such purposes but inimical to science" - BF Skinner
 
@@ -195,7 +193,7 @@ There is a sleight of hand where "pile of atom" is first invoked in the sense of
 A sceptic of the dichotomy between true and ersatz understanding might also point to the history of similar dichotomies that turned out to be false, on the basis of a lack of imagination about what the thing being described as "mere" can be like.
 
 <!-- , which is subsequently dispelled by further empirical discoveries.  -->
-Dan Dennett likes to give the example of biologist William Bateson, who rejected the possibility of a physical information carrying mechanism in living things on the grounds of implausibility:
+The philosopher Dan Dennett, who has dedicated much of his career to dismantling the dichotomy between true and apparent understanding (and many other similar distinctions) likes to give the example of biologist William Bateson, who rejected the possibility of a physical information carrying mechanism in living things on the grounds of implausibility:
 
 <!-- that inevitably involve the word "merely" used misleadingly. -->
 
@@ -204,9 +202,9 @@ Dan Dennett likes to give the example of biologist William Bateson, who rejected
 This claim about the limits of what mere physical matter could do was written before the discovery of just such a substance, DNA.
 In the same way, innovations in statistical AI lend credence to the suspicion that the root of the issue is simply a lack of imagination.
 
-It seems nearly impossible to imagine that all the structured, abstact, systematic and complex reasoning, analogy-making, planning, translating, summarizing, rewriting, and creating behaviors displayed by humans can arise from next-word prediction, until one sees (at least some small subset of these) in a language model like GPTChat.
+<!-- For example, it seems nearly impossible without evidence to imagine that (even a small subset) of the structured, abstact, creative, systematic and complex reasoning, analogy-making, planning and translating behaviors displayed by humans can arise from next-word prediction, until one sees (at least some small subset of these) in a language model like GPTChat. -->
 
-For example, it is easy to convince yourself that a system that only does next-word prediction could never produce ungrammatical sentences, meaningless grammatical sentences, or novel tautologies, simply because it is *merely* an unintelligent copying machine. And yet:
+For example, it is easy to convince yourself that a system that only does next-word prediction could never produce ungrammatical sentences, meaningless grammatical sentences, or novel tautologies, because it is *merely* an unintelligent copying machine which hasn't *understood* the notion of grammaticality or meaningfulness. Nevertheless:
 
 ----
 
@@ -216,22 +214,35 @@ Produce sentences with weird grammar.
 > He not happy was.
 > They to the party went too.
 
+Explain why the first sentence is weird.
+
+> The first sentence is weird because it does not follow the normal subject-verb-object order of English grammar. The sentence should be "I went to the store yesterday."
+
+----
 
 Produce a grammatically correct sentence where each word is really unlikely.
 
 > "Foxtrottingly, the unicycle glowered balefully at the hailstorm."
 
+Why is the word "glowered" unlikely?
+
+> The word "glowered" is unlikely because it is typically used to describe a facial expression, which would not be possible for an inanimate object like a unicycle.
+
+----
 
 Produce a really weird sentence that is a tautology
 
 > The round circle is circularly round.
 
+Why is this a tautology?
+
+> This is a tautology because the phrase "round circle" is redundant, as a circle is always round by definition. Therefore, the phrase "circularly round" is saying the same thing twice.
 
 ----
 
 Now it is true that to produce that nonsense sentence in the second example, GPTChat is *merely* producing words which are likely, according to its learned distribution, to follow the prompt "Produce a grammatically correct sentence where each word is really unlikely.", but is that really *mere* prediction?
 
-It is also easy to convince yourself that *mere* prediction could not be able to summarize a book:
+It is also easy to convince yourself that *mere* prediction could not be able to summarize a book. But...
 
 ----
 
@@ -261,11 +272,13 @@ What makes him the main character?
 
 ----
 
-The system is able to say that the Harry Potter books are about a boy. But in producing the word "boy", one might accuse the system of having no understanding of the *referent* of that word, the character Harry Potter. On the other hand, if you ask which boy is being referred to, the system has no trouble answering correctly.
+Again we can take what Dennett calls the *intentional stance* and analyze what GPTChat as an agent that has knowledge and beliefs and understanding. The ease with which we can assume the intentional stance towards this system is a jump from its predecessors, and explains the excitement around it.
+
+The system is able to say that the Harry Potter books are about a boy. In producing the word "boy", one might worry that the system has no understanding of the *referent* of that word, the character Harry Potter. Not so, since if you ask which boy is being referred to, the system has no trouble answering correctly.
 
 The system is also able to say why, in a way that an English speaker can understand, Harry Potter is the main character. This requires understanding not just what a character is, what a main character is, who Harry Potter is, what an adventure is, the idea that a narrative arc has a main character who triumphs, but also what "why" means.
 
-And last but not least, it is hard to imagine how next-word prediction could be able to reason coherently in answer to questions about counterfactuals involving the history of the world:
+Last but not least, it is hard to imagine how next-word prediction could be able to reason coherently in answer to questions about counterfactuals involving the history of the world. And yet:
 
 ----
 
@@ -282,9 +295,17 @@ On the classical viewpoint, the answer is yes, it *is* more relevant, and the ab
 
 An alternative classical response, more defeatist in nature, is to say that what the success of systems like these show is that these aspects of intelligence simply are not interesting, because they can be solved by hacks[^5].
 
-But in either case, there is no concession on the dichotomy between true and merely producing words in a way that gives the impression of understanding; according to the classical perspective, the realist conception of the space of human concepts (the manifest image) as analogous to the space of programs or mathematical entities is never questioned, and so the idea that *mere* intelligence might be true intelligence is never seriously considered.
+But in either case, there is no concession on the dichotomy between true and merely producing words in a way that gives the impression of understanding; equally, the view of the space of human concepts (the manifest image) as analogous to the space of programs or mathematical entities is never questioned.
+
+Constrast this to Dennett's perspective, under which there is no fundamental difference between taking the intentional stance towards GPTChat and taking it towards a person, although for now, still a difference of degree[^6].
+
+
+
+<!-- , and so the idea that *mere* intelligence might be true intelligence is never seriously considered. -->
 
 [^5]: For example, Ron Kaplan put this point to me when I asked him about the success of speech recognition systems a few years ago.
+
+[^6]: Dennett was a student of Quine's, and it shows.
 
 
 <!-- And once behaviors of neural nets started to show glimmers of these features, a fallback position of classical AI was that even if neural networks *could* learn the true semantics of language, they were doing so inefficiently.  -->
@@ -316,7 +337,6 @@ But in either case, there is no concession on the dichotomy between true and mer
 
 
 If Quine and BF Skinner were alive to see modern AI, they would be doing whatever the opposite of rolling is in their respective graves. GPTChat's success is about the closest thing to a vindication of Skinner's behaviorism and Quine's rejection of essentialist conceptions of meaning that it is possible to have.
-
 
 
 In Narcissus' case, he realizes that what is behind his elusive interlocutor is not a person lying underneath the surface of the pond and mirroring his every move, but his own reflection. At this point he has a huge tantrum and turns into a flower.
