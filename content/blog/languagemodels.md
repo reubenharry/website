@@ -26,7 +26,7 @@ Echo, a person on the other hand, understands what the sound you made *means* an
 
 In an abstract sense, Echo and an echo are similar, both being machines which take in a sound and spit out a sound in return. But in another sense, this viewpoint goes, they couldn't be more different.
 
-In this vein, a system like GPTChat has the same functional form as a human on the other end of a conversation, in the sense that it returns words when given words. Here is a conversation I had with it:
+In this vein, a system like ChatGPT has the same functional form as a human on the other end of a conversation, in the sense that it returns words when given words. Here is a conversation I had with it:
 
 ---
 
@@ -44,7 +44,7 @@ What about a conductive hard wood?
 
 ----
 
-If deep learning systems from the 2010s onwards began to gesture towards semantic understanding, GPTChat practically flaunts its flexible, fluent ability to reason counterfactually, taking into account both linguistic style and world knowledge.
+If deep learning systems from the 2010s onwards began to gesture towards semantic understanding, ChatGPT practically flaunts its flexible, fluent ability to reason counterfactually, taking into account both linguistic style and world knowledge.
 
 But the perennial accusation against modern statistical AI, no matter how impressive it gets, is that it is more like an echo than Echo, an operation on form when it should be an operation on content.
 
@@ -92,7 +92,11 @@ This view of meaning in terms of a logical semantics in which the "state space" 
 
 [^2]: Fodor and other philosophers take this to its most literal conclusion by envisioning a *Language of Thought*, which, like a programming language, is a compositional, and is used by the mind to describe the manifest image.
 
-This reliance on the "bridge" holds true also for more contemporary varieties of classical cognitive science, like its Bayesian incarnation, in which an agent performs inference to answer the question: what must the world (the manifest image) be like given the sensory data I am receiving?
+As far as linguistic meaning goes, this bridge is probably most famously represented by Montague's assertion that
+
+> There is in my opinion no important theoretical difference between natural languages and the artificial languages of logicians...
+
+The reliance on the "bridge" holds true also for more contemporary varieties of classical cognitive science, like its Bayesian incarnation, in which an agent performs inference to answer the question: what must the world (the manifest image) be like given the sensory data I am receiving?
 
 Even many practitioners of statistical AI have internalized this perspective, so that their efforts are put towards extracting semantic content from neural models, on the principle that this is what it *means* to talk about understanding in an intelligent system.
 
@@ -202,7 +206,7 @@ The philosopher Dan Dennett, who has dedicated much of his career to dismantling
 This claim about the limits of what mere physical matter could do was written before the discovery of just such a substance, DNA.
 In the same way, innovations in statistical AI lend credence to the suspicion that the root of the issue is simply a lack of imagination.
 
-<!-- For example, it seems nearly impossible without evidence to imagine that (even a small subset) of the structured, abstact, creative, systematic and complex reasoning, analogy-making, planning and translating behaviors displayed by humans can arise from next-word prediction, until one sees (at least some small subset of these) in a language model like GPTChat. -->
+<!-- For example, it seems nearly impossible without evidence to imagine that (even a small subset) of the structured, abstact, creative, systematic and complex reasoning, analogy-making, planning and translating behaviors displayed by humans can arise from next-word prediction, until one sees (at least some small subset of these) in a language model like ChatGPT. -->
 
 For example, it is easy to convince yourself that a system that only does next-word prediction could never produce ungrammatical sentences, meaningless grammatical sentences, or novel tautologies, because it is *merely* an unintelligent copying machine which hasn't *understood* the notion of grammaticality or meaningfulness. Nevertheless:
 
@@ -240,7 +244,7 @@ Why is this a tautology?
 
 ----
 
-Now it is true that to produce that nonsense sentence in the second example, GPTChat is *merely* producing words which are likely, according to its learned distribution, to follow the prompt "Produce a grammatically correct sentence where each word is really unlikely.", but is that really *mere* prediction?
+Now it is true that to produce that nonsense sentence in the second example, ChatGPT is *merely* producing words which are likely, according to its learned distribution, to follow the prompt "Produce a grammatically correct sentence where each word is really unlikely.", but is that really *mere* prediction?
 
 It is also easy to convince yourself that *mere* prediction could not be able to summarize a book. But...
 
@@ -272,7 +276,7 @@ What makes him the main character?
 
 ----
 
-Again we can take what Dennett calls the *intentional stance* and analyze what GPTChat as an agent that has knowledge and beliefs and understanding. The ease with which we can assume the intentional stance towards this system is a jump from its predecessors, and explains the excitement around it.
+Again we can take what Dennett calls the *intentional stance* and analyze what ChatGPT as an agent that has knowledge and beliefs and understanding. The ease with which we can assume the intentional stance towards this system is a jump from its predecessors, and explains the excitement around it.
 
 The system is able to say that the Harry Potter books are about a boy. In producing the word "boy", one might worry that the system has no understanding of the *referent* of that word, the character Harry Potter. Not so, since if you ask which boy is being referred to, the system has no trouble answering correctly.
 
@@ -291,13 +295,13 @@ Last but not least, it is hard to imagine how next-word prediction could be able
 
 Of course, this is just *mere* prediction of the next word, but is that any more relevant than to say that a person is a "mere" bag of jostling atoms?
 
-On the classical viewpoint, the answer is yes, it *is* more relevant, and the above demonstration has no understanding. Or to the extent that strong proponents of the classical view will concede that systems like GPTChat exhibit understanding, it is by the fact that they have learned, albeit through brute force, some true semantic representation, in the course of their word prediction objective. Tasks like few-shot learning are then intended to expose the inefficiency of this approach.
+On the classical viewpoint, the answer is yes, it *is* more relevant, and the above demonstration has no understanding. Or to the extent that strong proponents of the classical view will concede that systems like ChatGPT exhibit understanding, it is by the fact that they have learned, albeit through brute force, some true semantic representation, in the course of their word prediction objective. Tasks like few-shot learning are then intended to expose the inefficiency of this approach.
 
 An alternative classical response, more defeatist in nature, is to say that what the success of systems like these show is that these aspects of intelligence simply are not interesting, because they can be solved by hacks[^5].
 
 But in either case, there is no concession on the dichotomy between true and merely producing words in a way that gives the impression of understanding; equally, the view of the space of human concepts (the manifest image) as analogous to the space of programs or mathematical entities is never questioned.
 
-Constrast this to Dennett's perspective, under which there is no fundamental difference between taking the intentional stance towards GPTChat and taking it towards a person, although for now, still a difference of degree[^6].
+Constrast this to Dennett's perspective, under which there is no fundamental difference between taking the intentional stance towards ChatGPT and taking it towards a person, although for now, still a difference of degree[^6].
 
 
 
@@ -310,9 +314,9 @@ Constrast this to Dennett's perspective, under which there is no fundamental dif
 
 <!-- And once behaviors of neural nets started to show glimmers of these features, a fallback position of classical AI was that even if neural networks *could* learn the true semantics of language, they were doing so inefficiently.  -->
 
-<!-- Tasks like few-shot learning were intended to expose the inefficiency of this approach, but GPTChat, and presumably the many systems that will follow, have impressive few-shot learning abilities in many tasks. -->
+<!-- Tasks like few-shot learning were intended to expose the inefficiency of this approach, but ChatGPT, and presumably the many systems that will follow, have impressive few-shot learning abilities in many tasks. -->
 
-<!-- GPTChat reasons systematically, in the sense that it gives answers to questions that if thoughts to have been produced by humans, would be regarded as instances of human-level reasoning.  -->
+<!-- ChatGPT reasons systematically, in the sense that it gives answers to questions that if thoughts to have been produced by humans, would be regarded as instances of human-level reasoning.  -->
 
 <!-- ----- -->
 
@@ -323,7 +327,7 @@ Constrast this to Dennett's perspective, under which there is no fundamental dif
 <!-- ---- -->
 
 
-<!-- GPTChat isn't trained to do this explicitly. It hasn't seen training data about assumptions of sentences. It has just learned to explain sentences in the process of "mere" statistical understanding. -->
+<!-- ChatGPT isn't trained to do this explicitly. It hasn't seen training data about assumptions of sentences. It has just learned to explain sentences in the process of "mere" statistical understanding. -->
 
 
 
@@ -336,7 +340,7 @@ Constrast this to Dennett's perspective, under which there is no fundamental dif
 ![](/img/narcissus4.jpg)
 
 
-If Quine and BF Skinner were alive to see modern AI, they would be doing whatever the opposite of rolling is in their respective graves. GPTChat's success is about the closest thing to a vindication of Skinner's behaviorism and Quine's rejection of essentialist conceptions of meaning that it is possible to have.
+If Quine and BF Skinner were alive to see modern AI, they would be doing whatever the opposite of rolling is in their respective graves. ChatGPT's success is about the closest thing to a vindication of Skinner's behaviorism and Quine's rejection of essentialist conceptions of meaning that it is possible to have.
 
 
 In Narcissus' case, he realizes that what is behind his elusive interlocutor is not a person lying underneath the surface of the pond and mirroring his every move, but his own reflection. At this point he has a huge tantrum and turns into a flower.
