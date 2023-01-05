@@ -199,28 +199,6 @@ essential gender
 
 data - world + gender - actions
 
-## manifest image
-
- Sellars
-        distinguishes between the scientific image - the world
-            and the manifest image - the world
-                full of ideas, trombones, emotions, elbows, longing, and death. Among other things.
-                    propositions, percepts,
-
-    The debate is really about objects in the manifest image:
-        are they to be handled
-            or dissolved
-                as linguistic
-
-        two camps
-        Also discussed often, but less,
-            is the connection to philosophy
-    What is less often discussed is that this kind of thinking is part of a larger debate in philosophy:
-        of *essentialist* thinking vs ...
-
-
-key question at the heart of AI is: what is the nature of things?
-
 
 
 # Tutorial

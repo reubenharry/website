@@ -40,7 +40,30 @@ draft: True
     mermaid.initialize({ startOnLoad: true });
   </script> -->
 
+todo:
+    maybe more like:  
 
+        The notion of independence (and its sibling, *conditional independence*)  
+
+        diagrams like this represent joint probability distributions between a set of variables. Here, the variables are
+
+        But the presence (and absence) of lines is very important. What this particular diagram says is that $A$ and $B$ are related, but $C$ is independent of both.
+
+        One can understand this to mean: if I learn something about $A$, I will learn something about $B$, but I will learn nothing about $C$.
+
+        Accordingly, we say that $C$ is independent of $A$ and of $B$.
+
+        In this diagram, however,
+
+        diagram todo
+
+        all three variables are related. But notice that there is no direct line between $A$ and $C$. Rather, they are only connected through $C$.
+
+            One can understand this to mean: if I know everything about $B$, then learning more about $A$ will not teach me more about $C$.
+            One says that $C$ is *conditionally independent* of $A$, given $B$.
+
+        Despite the apparently informal nature of diagrams like these, it's important to understand that they have precise meanings
+            example formula
 
 {{< figure src="img/narcissus.jpg" imageMaxWidth="1000px" width="750" >}}
 *(Like Narcissus attempting to identify a stranger in his reflection in a pool, discourses about AI often look for systems with a "true understanding" which is strangely elusive)*
@@ -98,7 +121,7 @@ Skinner works from the premise that everything one can say about an agent's ling
        (This in itself assumes a clear-cut separation of an agent from their environment, that will be worth coming back to in future.)
         -->
 
-To be concrete, let's say that $I$ (short for *input*) is an acoustic signal corresponding to a natural language polar question (like "Were there sharks in the ocean before there were trees on land?"), and $O$ (short for *output*) is a boolean choice between "Yes" and "No". Our scientific interest is in characterizing how humans are able to answer a huge variety of such questions, previously unheard. Our engineering interest is to replicate this ability in a computer.
+To be concrete, let's say that $I$ (short for *input*) is an acoustic signal corresponding to a natural language polar question (like "Were there sharks in the ocean before there were trees on land?"), and $O$ (short for *output*) is a boolean choice between "Yes" and "No". Our scientific interest is in characterizing the mapping from $I$ to $O$, which describes how humans are able to answer a huge variety of such questions, previously unheard. Our engineering interest is to replicate this ability in a computer.
 
 We choose these sets as $I$ and $O$ for the sake of a concrete example, but if you are more abstractly inclined, imagine $I$ as all sensory data received by an agent over all time until the present, and $O$ as all future actions.
 

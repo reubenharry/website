@@ -140,6 +140,10 @@ And in turn the quality of this bridge lives or dies on whether it even makes se
 
 Anyone who has tried, and subsequently failed, to pin down something as simple as what a government or a fight is in formal terms will know that things in the manifest image are strangely elusive, even things as seemingly concrete and exact as physical objects or what a word is. (An exercise that cannot be recommended enough is to just try it. Try writing down an algorithm to define, say, a house, and then carry out both parts in the Socratic dialogue of finding counterexamples and amendments.)
 
+<!-- And if anyone has tried and failed to replicate Echo, it is classical AI researchers. In some ways, this is unfairly polemic, since classical AI has had many successes, but it's worth noting that these are often in problems which have clear formal specifications, like playing chess. For tasks where the hard of content is harder to grasp, like translation where the content is the meaning of a sentence, or
+But probably the truest
+is the spectacular lack of progress made in classical AI to pin down Echo, as it were. That is a statement that should be qualified, since classical AI has a long and varied history of achievements. But where it fails is in tasks which  -->
+
 If Echo-not-echo is the motif of the classical AI perspective, then perhaps Narcissus staring at his reflection in a pond, trying to work out the true nature of his unrequiting beloved, is the modern response to the search for "true" meaning.
 
 There is a long history of scepticism of the classical view, broadly arranged around the idea that treating things in the manifest image with formal tools is a kind of hysterical literalism. Two famous such sceptics are Skinner and Quine:
@@ -151,7 +155,7 @@ There is a long history of scepticism of the classical view, broadly arranged ar
 
 To Quine and Skinner, the problem with classical AI is that it is exactly like Borges' *The Library of Babel*. In the story, the scholars try to interpret the books in the library, which are randomly generated collections of symbols, as if they are in unknown languages, and to extract the underlying meaning[^4].
 
-[^4]: "Five hundred years ago, the chief of an upper hexagon came upon a book as confusing as the others, but which had nearly two pages of homogeneous lines. He showed his find to a wandering decoder who told him the lines were written in Portuguese; others said they were Yiddish. Within a century, the language was established: a Samoyedic Lithuanian dialect of Guarani, with classical Arabian inflections."
+[^4]: A quote from *The Library of Babel* on that theme: "Five hundred years ago, the chief of an upper hexagon came upon a book as confusing as the others, but which had nearly two pages of homogeneous lines. He showed his find to a wandering decoder who told him the lines were written in Portuguese; others said they were Yiddish. Within a century, the language was established: a Samoyedic Lithuanian dialect of Guarani, with classical Arabian inflections."
 
 <!-- There is the perceived dichotomy between living organisms and *mere* physical systems, the latter being inert and unresponsive.
 
@@ -246,7 +250,7 @@ Why is this a tautology?
 
 Now it is true that to produce that nonsense sentence in the second example, ChatGPT is *merely* producing words which are likely, according to its learned distribution, to follow the prompt "Produce a grammatically correct sentence where each word is really unlikely.", but is that really *mere* prediction?
 
-It is also easy to convince yourself that *mere* prediction could not be able to summarize a book. But...
+It is also easy to convince yourself that *mere* prediction could not be able to summarize a book, or understand the referent behind a word like "boy" that it produces. But...
 
 ----
 
