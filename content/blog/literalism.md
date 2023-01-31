@@ -1,7 +1,7 @@
 ---
 title: "The problem is philosophy, not engineering"
 date: 2022-12-05T18:11:57+01:00
-draft: False
+draft: True
 ---
 
 

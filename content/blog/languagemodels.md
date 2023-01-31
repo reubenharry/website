@@ -4,8 +4,15 @@ date: 2022-12-05T18:11:57+01:00
 draft: True
 ---
 
+todos:
+    rathering
+    hofstaderian knob-turning
+    explanation through asking: just ask it
+
 
 ![](/img/narcissus.jpg)
+
+
 
 
 The phrase "mere pattern recognition" and friends appear regularly in debates about AI, not least on Twitter:
@@ -16,71 +23,75 @@ The phrase "mere pattern recognition" and friends appear regularly in debates ab
 
 > "gentle reminder: all large language models are good at is predict the next word in a sequence based on previous words they've seen. that's all. there's no understanding of meaning whatsoever" - [Abeba Birhane](https://twitter.com/Abebab/status/1597859803287912448)
 
-What is being gestured at by these criticisms of modern statistical AI is a perceived dichotomy between true conceptual understanding and a shallow surface level hack which tricks the interlocutor into the impression that they are talking to an agent with real understanding.
+What is being gestured at by this dismissive "mere" is a perceived dichotomy between true understanding and a shallow surface level hack which tricks an interlocutor into the impression that they are talking to an agent that understands.
 
 The apparent distinction is neatly embodied by the difference between an echo and Echo.
 
-An echo doesn't *understand* what you said - you could scream in Amharic, Swahili or English, and the distortion it produces would happen in the same way.
+An echo doesn't *understand* what you said - you could scream in Amharic, Swahili or English, and the distortion it produces would be much the same.
 
-Echo, a person on the other hand, understands what the sound you made *means* and says the words back to you. When you say "Where are you?", it isn't just a series of vibrations in the air that she apprehends, it's information, meaning, *content*. (In this case, the information is that you're a busybody, to which she replies tauntingly: Where are *you*?)
+Echo, a person on the other hand, understands what the sound you made *means* and says the words back to you. When you say "Where are you?", it isn't just a series of vibrations in the air that she apprehends, it's the information, the meaning, the *content*. (In this case, the information is that you're a busybody, to which she replies tauntingly: Where are *you*?)
 
-In an abstract sense, Echo and an echo are similar, both being machines which take in a sound and spit out a sound in return. But in another sense, this viewpoint goes, they couldn't be more different.
+In an abstract sense, Echo and an echo are similar, both being machines which receive a sound and spit out a sound in return. But in another sense, they couldn't be more different. One merely gives the *impression* of being a mordant interlocutor, the other actually is one.
 
-In this vein, a system like ChatGPT has the same functional form as a human on the other end of a conversation, in the sense that it returns words when given words. Here is a conversation I had with it:
+As for a conversational AI system like the zeitgeisty ChatGPT, it too has the trappings of a real interlocutor, returning back words in answer to the words you give it.
 
----
+You ask:
 
 If computers were made of wood, would they work?
 
 > No, computers need electricity and metal components to function.
 
-Why?
+You: Why?
 
 > Wood is an insulator, meaning it does not conduct electricity. Without electricity, a computer cannot function. Additionally, wood is not strong or durable enough to withstand the physical pressures of a computer's components.
 
-What about a conductive hard wood?
+You: What about a conductive hard wood?
 
 > While some hard woods may be slightly conductive, it would still not be enough to power a computer. The conductivity of the wood would be far too low to support the electrical components of a computer.
 
-----
+And so on.
 
-If deep learning systems from the 2010s onwards began to gesture towards semantic understanding, ChatGPT practically flaunts its flexible, fluent ability to reason counterfactually, taking into account both linguistic style and world knowledge.
+If deep learning systems from the 2010s onwards began to gesture towards semantic understanding, ChatGPT practically flaunts its flexible, fluent ability to reason counterfactually, smoothly taking into account both linguistic style and world knowledge.
 
-But the perennial accusation against modern statistical AI, no matter how impressive it gets, is that it is more like an echo than Echo, an operation on form when it should be an operation on content.
+But the perennial accusation against modern statistical AI, no matter how impressive it gets, is that it is less like Echo than her lowercase cousin, an operation on form when it should be an operation on content.
+The meaning you perceive from its responses, on this view, is only what you project onto it, a more elaborate version of perceiving a mocking tone in an echo.
+
+The warning given by a host of like-minded linguists and cognitive scientists, is that purely statistical approaches, being conceptually flawed, will hit a hard wall soon enough, with all the hubris of Icarus flying too near the sun, and triggering an AI winter as the stock of OpenAI plummets into the icy Adriatic.
+
+> "it is clear that these systems are doomed to a shallow understanding that will never approximate the full-bodied thinking we see in humans" - https://www.noemamag.com/ai-and-the-limits-of-language/
+    todo: find better quote: gary marcus
 
 That this criticism is so pervasive, despite the extraordinarily meaning-like behaviour of modern AI systems, is a testament to an enduring analogy between the mind and a computer.
-<!-- , sometimes explicitly and sometimes implicitly at the heart of how we understand understanding. -->
 
-Indeed, the distinction between echo and Echo, and concomitant criticism of confusing the two, is familiar to programmers, if not in those terms; programs are sequences of characters, while their *meanings*, their *content*, are numbers or functions or other sorts of mathematically precise entities.
+As far as programming is concerned are concerned, the difference between echo and Echo, and concomitant danger of confusing the two, is a familiar theme (though perhaps without the Ovidian motifs).
 
-One can imagine all possible program *forms* living in one space (picture Borges' imagined infinite library from the short story *The Library of Babel*, if you are that way inclined), which contains every possible sequence of characters. One can also imagine all possible program *meanings* living serenely in another, a space of mathematical functions. The relationship between the two "libraries" has been a fruitful area of study in computer science and mathematical logic for many decades, but it is equally relevant in quotidian coding tasks: you design a program by thinking about content space, but produce a result that lives in form space.
+Programs are sequences of characters, while their *meaning*, or their *content*, are numbers or functions or other sorts of mathematically exact entities. One could imagine all possible program *forms* living in one space (picture Borges' imagined infinite library from the short story *The Library of Babel*, if you are that way inclined), which contains every possible sequence of characters. One could also imagine all possible program *meanings* living serenely in another, a space of mathematical functions.
 
-<!-- The two libraries are related, but not to be confused. The form library is perfectly understood - no mysteries there - while the content library contains, among other things, the as yet unproven Riemann hypothesis, wildly complex programs for solving hard problems, and so on.
-And, importantly, the act of programming is a search through the library of content but not through the library of form. -->
+The relationship between the two "libraries" is at the bedrock of computer science and mathematical logic, but it is equally relevant to everyday programming tasks: programs work by manipulating content, not form.
 
+For example, a chess program might take a string of characters like "8/8/8/4p1K1/2k1P3/8/8/8 b - - 0 1" (form) as input and extract from this the state of a chess board (content), shown in the figure. It might then perform some calculation on the basis of this content, like determining whether black can capture any pieces, and print the answer (Yes/No) to the screen.
 
-Moreover, programs themselves work by manipulating not form but content. For example, a chess program might take a string of characters like "8/8/8/4p1K1/2k1P3/8/8/8 b - - 0 1" (form) and extract from this the state of a chess board (content). It could then perform some calculation on the basis of this content, like determining whether black can capture any pieces and print the answer (Yes/No) to the screen.
-
-This is a function from form (string of characters) to form (Yes/No), but trying to write this function without routing it through the content, the state of the chess board, and the surrounding concepts (the rules of chess defined in terms of this state, and so on) would be a doomed exercise.
-
-Or even if not doomed, it would be pointless. There is a simple, reliable and correct way to write this function, in terms of the content.
+This is a machine that takes form (string of characters) and produces form (Yes/No), but trying to write this function without routing it through the content, the state of the chess board, and the surrounding concepts (the rules of chess defined in terms of this state, and so on) would be a doomed exercise.
 In fact, a program that commits this sin of being echo-not-Echo, and trying to avoid the content, has a name: it is a *hacky* program.
 
-All this is to say that in the domain of computer science, the importance of working with content rather than form is a well understood principle.
+<!-- So all in all, the importance of working with content rather than form is a familiar principle to a programmer. -->
 
 # But what does this intuition about programming have to do with AI?
 
 ![](/img/narcissus2.jpg)
 
-What it has to do with it is the foundational premise of what is often called classical AI, which is that human language is not fundamentally unlike a programming language. In a programming language, the form is a series of characters. Likewise the form is a series of characters (or often an acoustic signal) in a human language.
+What it has to do with it is a foundational premise of what is often called classical AI, which is that human language is not fundamentally unlike a programming language. In a programming language, the form is a series of letters. Likewise in a human language, the form is a series of letter, or a sound.
 
-In programming languages, the content - what the program is about - is the world of numbers, functions and data, like the state of the chessboard.
+But what is the content? In programming languages, the content - what the program is about - is the world of numbers, functions and data, like the state of the chessboard.
 
-In a human language, what is the content? What is the equivalent of the chessboard, when interpreting a sentence like "If Archduke Ferdinand had not been assassinated, the First World War would still have happened."?
+What is the equivalent of the chessboard, when interpreting a sentence like "If Archduke Ferdinand had not been assassinated, the First World War would still have happened."?
 
-A fundamental idea of classical AI is that the "chessboard of the mind", as it were, is the world itself, and concepts like causes, wars and beginnings, as well as specific historical events like the First World War, are to be defined in terms of this chessboard.
+A fundamental idea of classical AI is that the "chessboard of the mind", as it were, is the world, and concepts like causes, wars and beginnings, as well as specific historical events like the First World War, are to be defined in terms of this chessboard.
 
-The process of assessing the truth of the above sentence about the First World War would be based on an understanding of a geopolitical situation at the beginning of the 20th century, a knowledge of how wars start, what it means for wars to start, a model of how else the war could have started, and so on. It would need to take into account possibilities like a concession being reached which would have defused the various tensions, judging this on the basis of the negotiating abilities of the relevant leaders. And so on.
+    > ' 'Boston' ' contains six letters and just one pair of quotation marks; 'Boston' contains six letters and no quotation marks; and Boston contains some 800,000 people.
+        - Quine todo
+
+The process of assessing the truth of the above sentence about the First World War would be based on an understanding of a geopolitical situation at the beginning of the 20th century, a knowledge of how wars start, a consideration of how else the war could have started, and so on. It would need to take into account possibilities like a concession being reached which would have defused the various tensions, judging this on the basis of the negotiating abilities of the relevant leaders. And so on.
 
 The natural language chessboard around which this process of interpretation revolves is not exactly the world in the physical sense. The world that natural language is concerned with is filled with all sorts of entities, from events like wars, birthdays and unexpected embarrassing encounters, to concepts like moral responsibility, regret and luck.
 
@@ -88,45 +99,113 @@ Sellars, a philosopher of language, terms this world, of human things, the *mani
 
 [^1]: Dan Dennett makes heavy use of this distinction in his thinking about the mind, see e.g. *Intuition Pumps and Other Tools for Thinking*
 
-This view of meaning in terms of a logical semantics in which the "state space" is the manifest image is deeply rooted in thinking about AI, though not often described in exactly that language. One can picture it as a bridge, where on the left bank is the well-behaved world of mathematical form and content, and on right, the world of the manifest image. The bridge comes equipped with a friendly sign that says: don't worry, you can cross for free! [^2]
+In short, the key idea of classical AI is to make a bridge between the notions of form and content, so important for computer science, to the very human mystery of intelligence.
 
-[^2]: Fodor and other philosophers take this to its most literal conclusion by envisioning a *Language of Thought*, which, like a programming language, is a compositional, and is used by the mind to describe the manifest image.
+This bridge is deeply rooted in thinking about AI. On the left bank is the well-behaved world of mathematical form and content, and on right, the world of the manifest image. The bridge comes equipped with a friendly sign that says: don't worry, you can cross for free! [^2]
 
-As far as linguistic meaning goes, this bridge is probably most famously represented by Montague's assertion that
 
-> There is in my opinion no important theoretical difference between natural languages and the artificial languages of logicians...
+[^2]: Fodor and other philosophers take this to its most literal conclusion by envisioning a *Language of Thought*, which, like a programming language is compositional, and is used by the mind to describe the manifest image.
 
-The reliance on the "bridge" holds true also for more contemporary varieties of classical cognitive science, like its Bayesian incarnation, in which an agent performs inference to answer the question: what must the world (the manifest image) be like given the sensory data I am receiving?
-
-Even many practitioners of statistical AI have internalized this perspective, so that their efforts are put towards extracting semantic content from neural models, on the principle that this is what it *means* to talk about understanding in an intelligent system.
+    todo: come back later: ...still rests on the premise that understanding *is* this notion of...
+<!-- Even many practitioners of statistical AI have internalized this perspective, so that their efforts are put towards extracting semantic content from neural models, on the principle that this is what it *means* to talk about understanding in an intelligent system. -->
 
 And it's not hard to see why this perspective is so pervasive. We constantly make use of the twin notions of form and content in our everyday interaction with the world. Take the four pictures in this article. Each is of Narcissus, a character from Greek myth made famous by Ovid's *Metamorphoses*, who stares longingly at what he believes is a stranger looking up at him from the surface of a pond. Each image differs entirely in form (the color values of the pixels in the respective images) but shares some abstract *content*.
 
-For a linguistic example, consider that if I talk to someone about the Harry Potter books who has read them in French, we are not talking about the form (the sequence of letters that make up the book) but about some sort of content: the events that happen, the social institutions in the world, the characters, their intentions.
-To happily accept that a book can be translated or that a painting can be done in a new style is implicitly to admit some notion of content, as on the left bank[^3].
+For a linguistic example, consider that if you talk to someone about the Harry Potter books who has read them in French, you are not talking about the form (the sequence of letters that make up the book) but about some sort of content: the events that happen, the social institutions in the world, the characters, their intentions.
+To happily accept that a book can be translated or that a painting can be done in a new style is implicitly to admit some notion of content on the "right bank"[^3].
 
 [^3]: Douglas Hofstadter's *Gödel, Escher, Bach* is in part an attempt to evoke the fundamental importance of translation, in the general sense of form-changing content-preserving copying, for how we think about thinking.
 
 
 
-From this classical perspective, the problem with modern AI is that it is exactly like Borges' *The Library of Babel*. In the story, the library is populated with scholars, who search for truths about the world by perusing the infinite collection of books. This search through form space not content space is how classical AI researchers perceive the efforts of statistical AI.
 
-<!-- Borges story rolled into one. It is like *The Library of Babel*, because it undertakes a search through form space like the scholars searching sequences of words for truth, agnostic to the obvious content inherent in the problem. -->
-
-<!-- It is like *Pierre Menard, Author of the Quixote* because what content-like objects exist are entirely dependent on the context of the system they are part of, much like how the context of Don Quixote so determines the content that Menard can change it entirely by shifting the context while keeping the form word for word the same.
-
-And worst of all, it is like *Funes the Memorious*, because a neural net remembers everything, but understands nothing. -->
+#
 
 
-<!-- Explainability can mean many things, but one thing it often means is the act of extracting a more -->
+Statistical AI, on the other hand, exhibits none of the principles that the bridge implies.
+A system like ChatGPT embodies this strange fact perfectly: it may respond cogently to questions with long linguistically complex sentences, but if you take it apart, you won't find a grammatical description of English anywhere.
 
-<!-- The idea that meaning in natural language might work like this is quite old, and actually predates computers entirely.
+It might answer questions that require considered counterfactual reasoning or detailed knowledge about the world, but nowhere inside the machine will you find rules by which it reasons, or a database of things that it knows.
+
+This is hardly a surprise, because no-one put those things in. No programmer sat down and painstakingly explained the rules of English grammar to ChatGPT in its inchoate form, or wrote down a list of world events for it. Everything it knows, it knows only from the vast reams of text it has "read".
+
+With this in mind, it not surprising that a consistent reaction among many old-school researchers of language and congition to the AI developments of the last few years (and to their spiritual predecessors through the decades) is one of distaste.
 
 
-Classical AI more generally is built on analogies like this between notions in computation and cognition.
-    In particular, the idea of shallow understanding...
-    human planning versus planning algorithms,
-    natural language grammar versus formal language grammars -->
+    the worldview of the bridge provides context for the raft of criticisms that follow in the wake of the hype that emerges each time a statistical AI system credibly performs a new task previously out of its reach.
+
+Cognitive scientist
+    and author of the cult favorite book about intelligence,
+        Godel, Escher, Back
+     points to the failure of understanding implied by the nonsensical answers to questions given by the language model GPT3:
+
+D&D:
+
+>What do fried eggs (sunny side up) eat for breakfast?
+
+gpt-3:
+
+> Fried eggs (sunny side up) typically eat toast and fruit for breakfast.
+
+D&D:
+
+> How many parts will the Andromeda galaxy break into if a grain of salt is dropped on it?
+
+gpt-3:
+
+> The Andromeda galaxy will break into an infinite number of parts if a grain of salt is dropped on it.
+
+Things like this tend to trigger aha! moments from critics, as if the mask has been yanked off, and the babbling meaningless brook of semantic white noise has been exposed.
+    the subtext: ELIZA
+
+And when a successive system appears to do better, like ChatGPT here
+
+> "Fried eggs, also known as sunny side up eggs, do not eat anything for breakfast because they are not a living organism. Fried eggs are a type of egg preparation in which eggs are cooked by being fried on one side with the yolk remaining runny."
+
+and here
+
+> It is not possible to answer this question with any degree of accuracy, as it is based on a numer of assumptions that are not grounded in reality. First, the Andromeda galaxy is a vast collection of stars, gas, dust, and other matter that is held together by its own gravity, It is not a solid object that can be broken into pieces, as you might break a piece of glass or ceramic by dropping something on it. Second, even if we assume that the Andromeda galaxy were a solid object that could be broken into pieces, the number of pieces into which it would break would depend on a number of factors, such as the size, shape, and composition of the galaxy, as well as the size, shape, and mass of the grain of salt.
+
+focus shifts to a new failing. This might be the huge amount of data needed by these systems to learn anything (purportedly contrasting to humans), or the factually innacurate statements that ChatGPT will produce with total confidence (has it learned to perform masculinity?).
+
+A final hold-out, if you really showcase the successes
+    is the assertion that ChatGPT does do tasks like summary or translation well, but that this is evidence that the tasks were not interesting after all.
+
+
+Like a friend
+    icy
+    couple who keep having the same petty arguments,
+    these reactions point to an underlying tension:
+
+        which, if you kept pushing them
+    You feel as if classical AI proponents constantly want to scream: this is ridiculous! It's all echo! None of this has anything to do with intelligence!
+
+    Or forsaking the Ovidian metaphor for something more contemporary, it is like every absurd Borges story in one:
+        import
+        From this classical perspective, the success of modern AI is like every absurd Borges story rolled into one. It is like the Library of Babel, because it pursues a search through form space like the scholars searching sequences of words for truth, agnostic to the obvious content inherent in the problem.
+
+<!-- It is like Pierre Menard, Author of the Quixote because what content-like objects exist are entirely dependent on the context of the system they are part of, much like how the context of Don Quixote so determines the content that Menard can change it entirely by shifting the context while keeping the form word for word the same. -->
+
+	And worst of all, it is like Funes the Memorious, because a neural net remembers everything, but understands nothing.
+
+<!-- that it is exactly like Borges' *The Library of Babel*. In the story, the library is populated with scholars, who search for truths about the world by perusing the infinite collection of books. This search through form space not content space is how classical AI researchers perceive the efforts of statistical AI. -->
+
+
+
+there are also serious ethical concerns
+
+and these criticisms are common:
+
+    "First and foremost, ChatGPT lacks the ability to truly understand the complexity of human language and conversation. It is simply trained to generate words based on a given input, but it does not have the ability to truly comprehend the meaning behind those words. This means that any responses it generates are likely to be shallow and lacking in depth and insight." - atlantic
+
+
+
+
+    to understand the animosity
+    like an old enemy back from the grave
+
+
+important: discuss valid political criticisms of modern AI
 
 
 # On the other hand
@@ -134,26 +213,51 @@ Classical AI more generally is built on analogies like this between notions in c
 ![](/img/narcissus3.jpg)
 
 
-The criticism of modern statistical AI as "echo not Echo" succeeds or fails on the quality of the proposed bridge between meaning in the sense of computer programs and meaning in natural language.
+The idea of an intelligent system in the image of ChatGPT is much older than you might assume. It would be easy to get the impression that until
+    a set of poorly-read Silicon Valley engineers set about it, the idea of statistical AI which eschewed hand-coded knowledge was simply unheard of.
 
-And in turn the quality of this bridge lives or dies on whether it even makes sense to describe the manifest image with the kind of rigour that we reserve for mathematics, logic and computer science. Or equivalently, to imagine all concepts, ideas and things in the world living in an infinite library, indexed by a precise and formal language of thought.
+The truth is that speculation about the nature of the mind, both natural and artificial,
+    encompassed the possibility of systems like
+    even at the dawn of the information age.
 
-Anyone who has tried, and subsequently failed, to pin down something as simple as what a government or a fight is in formal terms will know that things in the manifest image are strangely elusive, even things as seemingly concrete and exact as physical objects or what a word is. (An exercise that cannot be recommended enough is to just try it. Try writing down an algorithm to define, say, a house, and then carry out both parts in the Socratic dialogue of finding counterexamples and amendments.)
+    ...
+Behaviorism avoids attempts to theorize about beliefs, intentions, goals, desires, plans and so on, in favor of just talking about behavior: the way that an agent takes sensory data as input and produces actions.
+
+In response to classical AI, which attempts to define precisely those concepts in terms using the toolkit of computer science,
+    the psychologist BF Skinner, a staunch behaviorist, had this to say:
+
+> "I *accuse* cognitive scientists of relaxing standards of definition and logical thinking and releasing a flood of speculation characteristic of metaphysics, literature, and daily intercourse, perhaps suitable enough for such purposes but inimical to science" - BF Skinner
+
+Similar sentiments regarding language, and attempts to describe the meaning of sentences in the same way one might describe the meaning of a computer program or a mathematical formula,
+    quine
+
+> "the myth of a museum in which the exhibits are meanings and the words are labels. To switch languages is to change the labels." - Quine
+
+Views like Skinner's and Quine's are part of a long history of scepticism about the sturdiness of the proposed bridge between meaning in computer programs and meaning in natural language.
+
+This skepticism is broadly arranged around the idea that the manifest image is much less easy to describe in mathematical precision than people tend to imagine.
+
+    with formal tools is a kind of clumsy and excessive literalism.
+
+    And in turn the quality of this bridge lives or dies on whether it even makes sense to describe the manifest image with the kind of rigour that we reserve for mathematics, logic and computer science. Or equivalently, to imagine all concepts, ideas and things in the world living in an infinite library, indexed by a precise and formal language of thought.
+
+
+Anyone who has tried, and subsequently failed, to pin down something as simple as what a government or a fight is in formal terms will know that things in the manifest image are strangely elusive, even things as seemingly concrete and exact as physical objects or what a word is.
+    socratic premise of questioning the obvious
+        becomes operationalized
+    (An exercise that cannot be recommended enough is to just try it. Try writing down an algorithm to define, say, a house, and then carry out both parts in the Socratic dialogue of finding counterexamples and amendments.)
+
+
+
+
 
 <!-- And if anyone has tried and failed to replicate Echo, it is classical AI researchers. In some ways, this is unfairly polemic, since classical AI has had many successes, but it's worth noting that these are often in problems which have clear formal specifications, like playing chess. For tasks where the hard of content is harder to grasp, like translation where the content is the meaning of a sentence, or
 But probably the truest
 is the spectacular lack of progress made in classical AI to pin down Echo, as it were. That is a statement that should be qualified, since classical AI has a long and varied history of achievements. But where it fails is in tasks which  -->
 
-If Echo-not-echo is the motif of the classical AI perspective, then perhaps Narcissus staring at his reflection in a pond, trying to work out the true nature of his unrequiting beloved, is the modern response to the search for "true" meaning.
+If Echo-not-echo is the motif of the classical AI perspective, then perhaps Narcissus staring at his reflection in a pond, trying to work out the true nature of his unrequiting beloved, is the skeptics' response to the search for "true" meaning.
 
-There is a long history of scepticism of the classical view, broadly arranged around the idea that treating things in the manifest image with formal tools is a kind of hysterical literalism. Two famous such sceptics are Skinner and Quine:
-
-> "I *accuse* cognitive scientists of relaxing standards of definition and logical thinking and releasing a flood of speculation characteristic of metaphysics, literature, and daily intercourse, perhaps suitable enough for such purposes but inimical to science" - BF Skinner
-
-> "Uncritical semantics is the myth of a museum in which the exhibits are meanings and the words are labels. To switch languages is to change the labels." - Quine
-
-
-To Quine and Skinner, the problem with classical AI is that it is exactly like Borges' *The Library of Babel*. In the story, the scholars try to interpret the books in the library, which are randomly generated collections of symbols, as if they are in unknown languages, and to extract the underlying meaning[^4].
+Or once again moving from Ovid to Borges, it is rather like *The Library of Babel*. In that story, the scholars try to interpret the books in the library, which are randomly generated collections of symbols, as if they are in unknown languages, and to extract the underlying meaning[^4]. It's a futile search for meaning which simply isn't there to be found.
 
 [^4]: A quote from *The Library of Babel* on that theme: "Five hundred years ago, the chief of an upper hexagon came upon a book as confusing as the others, but which had nearly two pages of homogeneous lines. He showed his find to a wandering decoder who told him the lines were written in Portuguese; others said they were Yiddish. Within a century, the language was established: a Samoyedic Lithuanian dialect of Guarani, with classical Arabian inflections."
 
@@ -167,10 +271,49 @@ s
         *rathering* -->
 
 
+#
+
+The most recognizable modern philosopher who
+    represents this kind of stance is Daniel Dennett
+        a student of Quine's
+
+is firmly of the belief
+    that while mathematical arguments
+    philosophy is mostly about intuitions
+        some misleading, and some useful.
+
+One kind of misleading
+     he terms a *deepity*
+
+> "A deepity is a proposition that seems  both important and true and profound but that achieves this effect by being ambiguous. On one reading it is manifestly false, but it would be earth-shaking if it were true; on the other reading it is true but trivial. The unwary listener picks up the glimmer of truth from the second reading, and the devastating importance from the first reading, and thinks, Wow! That’s a deepity."
+
+Dennett goes on to give the example "Love is just a word", which has a trivial and true sense,
+    and a non-trivial
+
+but hang on! A human, if you choose to look at it that way, is also a machine that
+
+The statement "Large language models are mere stochastic parrots" is a perfect example of a deepity. It has a true but tautological meaning, and an interesting but false one.
+
+The true uninteresting meaning is that it produces words as a stochastic function of previous words. Well of course! You could say the same about a person.
+
+The other meaning is the one which suggests that it has no understanding of communicative intent, so that when you ask it a question, it could only response correctly in limited cases where it has seen the question, or else give awkward ill-fitting answers.
+
+But in this sense, ChatGPT is obviously not a stochastic parrot. You can ask it all sorts of subtle things that require
 
 
+As for the dichotomy between true understanding and mere pattern recognition,
 
-As an example of a more obviously false dichotomy, one could dismiss a human's understanding of the world by saying that  they are *merely* using a network of electrical signal processing systems to transmute sense data into motor actions, and while true, the implication of this "merely" that people don't have "true" understanding would strike most of us as misleading.
+    deepities, rathering
+
+
+it is interesting to
+    with the founders of AI:
+        scaling maximalism, famously embodied by Andrew Ng: data is all you need
+
+todo: false dichotomy
+
+
+As an example of a more obviously false dichotomy, one could dismiss a human's understanding of the world by saying that they are *merely* using a network of electrical signal processing systems to transmute sense data into motor actions, and while true, the implication of this "merely" that people don't have "true" understanding would strike most of us as misleading.
 
 <!-- > "When we say we are a pile of atoms, we do not mean we are merely a pile of atoms, because a pile of atoms which is not repeated from one to the other might well have the possibilities which you see before you in the mirror." - Feynman
 
@@ -309,35 +452,10 @@ Constrast this to Dennett's perspective, under which there is no fundamental dif
 
 
 
-<!-- , and so the idea that *mere* intelligence might be true intelligence is never seriously considered. -->
-
+ll
 [^5]: For example, Ron Kaplan put this point to me when I asked him about the success of speech recognition systems a few years ago.
 
 [^6]: Dennett was a student of Quine's, and it shows.
-
-
-<!-- And once behaviors of neural nets started to show glimmers of these features, a fallback position of classical AI was that even if neural networks *could* learn the true semantics of language, they were doing so inefficiently.  -->
-
-<!-- Tasks like few-shot learning were intended to expose the inefficiency of this approach, but ChatGPT, and presumably the many systems that will follow, have impressive few-shot learning abilities in many tasks. -->
-
-<!-- ChatGPT reasons systematically, in the sense that it gives answers to questions that if thoughts to have been produced by humans, would be regarded as instances of human-level reasoning.  -->
-
-<!-- ----- -->
-
-<!-- What is assumed by saying "When are you going to Peru?"?
-
-> The assumption is that the person being asked the question is planning to go to Peru in the near future. -->
-
-<!-- ---- -->
-
-
-<!-- ChatGPT isn't trained to do this explicitly. It hasn't seen training data about assumptions of sentences. It has just learned to explain sentences in the process of "mere" statistical understanding. -->
-
-
-
-
-<!-- And yet, if you believe in the classical view, as many linguists and cognitive scientists still do, then no. On that view, it has precisely no understanding. -->
-
 
 # in conclusion...
 
@@ -349,46 +467,4 @@ If Quine and BF Skinner were alive to see modern AI, they would be doing whateve
 
 In Narcissus' case, he realizes that what is behind his elusive interlocutor is not a person lying underneath the surface of the pond and mirroring his every move, but his own reflection. At this point he has a huge tantrum and turns into a flower.
 
-But how does the analogous motif play out in AI? Will there be a philosophical sea-change, in which the bridge between logical and natural language meaning so fundamental to work on linguistics in the past 50 years give rise to something new? Or, with Skinner and Quine in mind, something old?
-
-My strong desire never to hear the phrase *mere pattern recognition* again means that I hope the answer is yes.
-
-
-
-
-
-
-<!-- is that our intuitions of what next word prediction can do are quite limited
-    how could a system know that the word "dog" is more likely that "cat" here, except if...
-But -->
-
-
-<!-- ---
-
-If computers were made of wood, would they work?
-
-> No, computers need electricity and metal components to function.
-
-Why?
-
-> Wood is an insulator, meaning it does not conduct electricity. Without electricity, a computer cannot function. Additionally, wood is not strong or durable enough to withstand the physical pressures of a computer's components.
-
-What about a conductive hard wood?
-
-> While some hard woods may be slightly conductive, it would still not be enough to power a computer. The conductivity of the wood would be far too low to support the electrical components of a computer.
-
----
-
-If computers were made of cats, would they work?
-
-> No, computers require electricity and cats cannot provide that.
-
-Why not?
-
-> Cats are not capable of producing electricity. They lack the necessary components and processes to generate electricity.
-
-But there is electricity in their brains, no?
-
-> No, the electricity in a cat's brain is not enough to power a computer. The electricity in a cat's brain is used for basic biological functions, not to power a computer.
-
---- -->
+But how does the analogous motif play out in AI? Will there be a philosophical sea-change, in which the distinction between true understanding and mere pattern recognition gives way to something new? Or, with Skinner and Quine in mind, something old?
