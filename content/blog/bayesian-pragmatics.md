@@ -1,7 +1,7 @@
 ---
 title: "Bayesian Pragmatics in Haskell"
 date: 2017-08-10
-draft: false
+draft: True
 ---
 
 Haskell is already well-known to be great for natural language (NL) semantics. This is unsurprising, since NL semantics, following Montague's seminal work, makes heavy use of the simply typed lambda calculus. Chris Barker and Ken Shan have in turn come up with more ways to borrow ideas from type theory into NL semantics: continuations and monads respectively.
