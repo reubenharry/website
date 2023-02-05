@@ -41,6 +41,10 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
+# Information theory
+
+Suppose you have a distribution over some set $A$, $p : D(A)$, from which you will be given a sample. Your goal is to come up with a function $f : A \to [Bool]$ (i.e. from $A$ to arbitrary length bitstrings) such that $E_x\tilde p[len(f(x))]$
+
 Suppose you want a function $H$ on discrete distributions (which for convenience we'll represent as a k-tuple $(p\_1\ldots p\_k)$ ) which measures uncertainty. Specifically, it should have the following properties:
 
 - $H$ is continuous in $(p\_1\ldots p\_k)$

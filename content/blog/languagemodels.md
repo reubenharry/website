@@ -1,6 +1,11 @@
 ![](/Users/reubencohn-gordon/Dropbox/Reuben/writing/book/graphics/narcissus1.jpg)
 
 
+notes:
+    more rathering:
+        able to
+            but no real intention or creativity. it can repeat, but it can't invent new things.
+
 
 The phrase "mere pattern recognition" and its friends appear regularly in debates about AI, not least on Twitter:
 
@@ -425,7 +430,20 @@ The fact is, it is remarkably easy to treat ChatGPT as an agent with beliefs, kn
 
 
 
-Of course, this is just *mere* prediction of the next word, but is that any more relevant than to say that a person is a "mere" bag of jostling atoms? From the viewpoint of classical AI, the answer is emphatically yes, it *is* more relevant, and the above demonstration has no understanding. There is no concession on the dichotomy between true and merely producing words in a way that gives the impression of understanding; equally, the view of the space of human concepts (the manifest image) as analogous to the space of programs or mathematical entities is never questioned.
+Of course, this is just *mere* prediction of the next word, but is that any more relevant than to say that a person is a "mere" bag of jostling atoms? From the viewpoint of classical AI, the answer is emphatically yes, it *is* more relevant, and the above demonstration has no understanding.
+
+It is hard to overstate how deeply wedged this way of thinking
+AI researchers who have spent their whole careers
+    merely regurgitating from an enormous
+    and unable to truly think,
+    as if the crisp distinction
+        as a matter of scientific fact, and not
+            speculation.
+    Then from others
+        grapes which are not just sour, but have reached a state of unbearable acidity
+
+
+There is no concession on the dichotomy between true and merely producing words in a way that gives the impression of understanding; equally, the view of the space of human concepts (the manifest image) as analogous to the space of programs or mathematical entities is never questioned.
 
 
 
