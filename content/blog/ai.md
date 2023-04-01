@@ -35,6 +35,14 @@ draft: True
 </script>
 
 
+## Language
+
+
+the relationship between sound and meaning is arbitrary, in the sense that once you have taken into account historical accident and
+	morphological structure, the way a word sounds and what it means are independent.
+
+
+
 A Bayesian perspective
 
 Though it isn't traditionally associated with classical cognitive science and AI, I think the language of probability (graphical models and conditional independence assumptions in particular) provides a very useful framing.
