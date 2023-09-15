@@ -1,4 +1,4 @@
-I'm a researcher [at UBC](https://plai.cs.ubc.ca/) and Berkeley, interested in computational physics, statistical mechanics and Bayesian inference.
+<!-- I'm a researcher [at UBC](https://plai.cs.ubc.ca/) and Berkeley, interested in computational physics, statistical mechanics and Bayesian inference. -->
 
 I occasionally write things for magazines/journals:
 
