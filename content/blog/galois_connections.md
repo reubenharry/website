@@ -9,13 +9,13 @@ draft: false
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
-Here is an elementary observation (I mean "elementary" in the sense mathematicians sometimes use it: i.e. straightforward if you already understand it, otherwise gibberish) that I talked about at MIT's [category theory seminar](http://brendanfong.com/seminar.html), relating [Grice's maxims of Quantity and Quality](http://www.glottopedia.org/index.php/Gricean_maxims) to the mathematical notion of a Galois connection.
+Here is an observation that I talked about at MIT's [category theory seminar](http://brendanfong.com/seminar.html) at some point, relating [Grice's maxims of Quantity and Quality](http://www.glottopedia.org/index.php/Gricean_maxims) to the mathematical notion of a Galois connection.
 
-### Inscrutable Summary:
+### Abstract Summary:
 
 For a state space W, the left adjoint of a monotone map (i.e. a left Galois connection), \\(L_0\\), from a set of utterances U to the poset (ordered by inclusion) \\(\mathcal{P}(W)\\) is the monotone map \\(S_1: \mathcal{P}(W)\to U\\) which takes a set of states and returns the strongest true utterance with respect to \\(L_0\\). This happens to be a very natural way to encode Grice's maxims of Quality (roughly: speak truthfully) and Quantity (roughly: be as informative as possible, relative to what is relevant) simultaneously.
 
-### Scrutable Explanation:
+### Concrete Explanation:
 
 Each \\(w \in W\\) is a state of the world, or, so that each element of \\(\mathcal{P}(W)\\) is a set of states.
 

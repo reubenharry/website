@@ -1,7 +1,7 @@
 ---
-title: "Differential Forms"
+title: "Differential geometry"
 date: 2020-01-26T17:07:24+01:00
-draft: False
+draft: True
 ---
 
 <script type="text/javascript" async
@@ -40,9 +40,169 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
-### Motivation
+## Quick $\R^n$ calculus primer
 
-Differential forms are the mathematics for doing integration on oriented surfaces. They abstract and simplify concepts like divergence, gradient and curl, and unify Green's theorem, Gauss' theorem and others. It's quite elegant, and useful for electrodynamics and complex analysis, among other things.
+Given the category of vector spaces and differentiable maps $f: \R^n \to \R^m$, we say that the derivative $D(f)$ is a map $\R^n \to (\R^n \multimap \R^m)$ (using $\multimap$ to denote a linear map), so that $D(p)$ is the Jacobian. 
+
+In normal notation, $D(f)(p) = \frac{\partial f(x)_i}{\partial x_j}|_p$. Note that $\frac{\partial f(x)_i}{\partial x_j}$ is a matrix, and is written in the standard basis.
+
+# New take
+
+Introductions to integration on manifolds often start with a lot of definitions and build up to Stokes' theorem. But it's much more enlightening to take Stokes' theorem as a starting point and build up a theory in which it's true.
+
+##
+
+The fundamental theorem of calculus says that integrating a function along a path is the same as integrating (summing) the integral of that function at the end points of the path.
+
+In higher dimensions, there are several generalizations of this result, like Stokes' (specific) theorem, Green's theorem, and the divergence theorem.
+
+The question arises: is there any nice refactoring of multidimensional calculus that allows all these theorems to be expressed by a single statement? 
+
+If $M$ is a space we want to integrate, and  $\partial M$ is its boundary, we want something like:
+
+$$
+\int_M d\alpha = \int_{\partial M} \alpha
+$$
+
+The goal is to find suitable objects $\alpha$ and $d$, and an appropriate definition of $\int$ which makes the above "pseudocode" literally true.
+
+### Manifolds
+
+The objects we are integrating over need not be $\R^n$, since we would like to be able to integrate things like the surface of a sphere, or a curved spacetime. The appropriate objects are (differentiable) *manifolds*.
+
+Speaking very informally, a manifold $M$ is a set along with (differentiable) *bijections* $\phi : U \to \R^n$, where $U$ are open subsets of $M$. The intuition is that $\phi$ provides coordinates, so that we can label a point on $M$ by a point in $R^n$. $\phi$ isn't unique, but we stipulate that if the domains of $\phi$ and $\psi$ overlap, then the map between them is continuous and (for a differentiable manifold) differentiable.
+
+As with bases in linear algebra, we are ultimately interested in doing calculations in some particular coordinates, but by formulating as much of the mathematics as possible in coordinate-agnostic ways, our life becomes a lot easier.
+
+Manifolds form a category $\mathcal{M}$, with the maps being smooth functions between manifolds.
+
+Naturally, we want a notion of a derivative, so that for $f : \mathcal{M} \to \mathcal{N}$, $D(f)(p)$ is a linear map. 
+
+Indeed, $\phi \circ f \circ \psi^{-1} : \R^n \to \R^m$ (for charts $\phi$ and $\psi$), so we can define the derivative for morphisms in the category.
+
+This notion of the derivative depends on the charts, however. In particular, the source and target of the linear map, $\R^n$ and $\R^m$ makes use of the standard bases relative to $\phi$ and $\psi$. To avoid this, we we introduce the notion of a tangent space $T\mathcal{M}(p)$, so that $D(f)(p) : T\mathcal{M}(p) \to T\mathcal{N}(p)$. 
+
+
+
+Tangent space elements have type: $(\mathcal{M} \to \R) \to (\R \multimap \R)$, but since $(\R \multimap \R) \sim \R$, this is often treated as $(\mathcal{M} \to \R) \to \R$.
+
+Given a functor $\gamma : \R \to \mathcal{M}$, one can construct an element of the tangent space $T\mathcal{M}(p)$ by:
+
+$$
+X_p = \lambda f \mapsto \frac{d}{dt}(f \circ \gamma)|_p
+$$
+
+We can then define an element $\partial_i$ of $T\mathcal{M}(p)$ as follows:
+
+$$
+\partial_i(f) = \frac{\partial(f \circ \phi^{-1})}{\partial x^i}|_p
+$$
+
+For example, with the chart function $x^i : \mathcal{M} \to \R$ defined such that $x^i(m) = \phi(m)_i$, we have that $\partial_i(x^j) = \delta_{i}^j$.
+
+From the definition of $X$, it follows that 
+
+$$
+v = \lambda f \mapsto \frac{d}{dt}(f \circ \phi^{-1} \circ \phi \circ \gamma)|_p
+$$
+
+TODO
+
+So we have that $X_p = X_p(x^i)\frac{\partial}{\partial x^i}$. We find that 
+
+todo:
+  elements of tangent space are chart invariant
+
+
+
+
+Ranging over $i$, these $\partial_i$ form a basis for $T\mathcal{M}(p)$. In a confusing abuse of notation, they are sometimes written like the standard partial derivative $\frac{\partial}{\partial x^i}$
+
+
+$$
+\frac{\partial}{\partial x^i} :
+$$
+
+We can now define the derivative of morphisms in the category by its action on elements of the tangent spaces.
+
+
+Moreover,
+
+
+$$
+T(f : \R \to \mathcal{M})(g : \mathcal{M} \to \R) = \frac{d}{dt}(g \circ \phi^{-1} \circ \phi \circ f)(t_0)
+$$
+$$
+= \frac{\partial((g \circ \phi^{-1})(\phi(f(t)))}{\partial (\phi(f(t)))_j} \frac{d((\phi \circ f)(t_0))_j}{dt}
+$$
+
+$$
+= \frac{\partial((g \circ \phi^{-1})(\phi \circ f))_i}{\partial (\phi \circ f)_j} T(f)(x_i)(t_0)
+$$
+$$
+=  
+$$
+
+$\R^n \to \R^n $
+
+
+todo....
+
+
+So the tangent space to the manifold at a point $p$ , namely $\mathcal{T}_pM$, is spanned by operators $\frac{\partial}{\partial x^i}$ aka $\partial_i$, aka $x_{,i}$.
+
+Given another chart $y(x)$, the chain rule gives $\frac{\partial}{\partial x^i}\frac{\partial x^i}{\partial y^k} = \frac{\partial}{\partial y^k} = D(\phi^{-1})^i_k\frac{\partial}{\partial x^i} $ 
+
+### Pushforward
+
+Derivatives of morphisms are then easy to define. Given a morphism $h$, we define $D(h)$, or $h_*$ as:
+
+$$
+D(h) : ((\mathcal{M}\to\R)\to (\R \multimap \R))  \to ((\mathcal{N}\to\R)\to (\R \multimap \R) )
+$$
+$$
+D(h)(X)(f) = X(f \circ h) 
+$$
+## Flows 
+
+A flow is a functor from the additive group on the reals to $\mathcal{M}$, which is to say that for $s, t \in \R$, $F(s) : \mathcal{M} \to \mathcal{M}$, with $F(s) \circ F(t) = F(s+t)$ and $F(0)=id$.
+
+## Differential forms
+
+The objects we integrate we'll call (differential) forms.
+
+$\int_M \alpha$ = $
+invariance under pullback:
+  should be a contravariant functor:
+    why a functor?
+    why contravariant?
+
+This means we can define the integral on a form by a pullback to $\R^n$. 
+
+## (Exterior) derivative
+
+d^2 = 0 (from Stokes' theorem)
+
+leibnitz
+
+should align with ordinary derivative for..
+
+should commute with the pullback
+
+
+
+
+## Manifolds
+
+The absolutely critical thing is to avoid reading any maths textbook on manifolds and instead read physics notes, which tend to be primers for general relativity. These are less concerned with the horrid analytic details and focus on the algebraic ones. This gives you the shape of the subject without the suffering.
+
+
+
+## Differential forms
+
+Differential forms are the mathematics for doing integration on oriented manifolds. They abstract and simplify concepts like divergence, gradient and curl, and provide the language for Stokes' generalized theorem, which unifies Green's theorem, Gauss' theorem and others. 
+
+It's quite elegant, and useful for electrodynamics and complex analysis, among other things.
 
 <!-- These notes are a bit sparser than some of the other notes on this page. Mostly based on [these notes](http://math.stanford.edu/~eliash/Public/math177/177-diff-forms.pdf), and bolstered with a bit of category theory. See also [Terence Tao](https://www.math.ucla.edu/~tao/preprints/forms.pdf). -->
 

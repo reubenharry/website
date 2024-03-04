@@ -1,7 +1,7 @@
 ---
 title: "Statistics"
 date: 2020-01-26T17:07:24+01:00
-draft: False
+draft: True
 
 ---
 
@@ -40,12 +40,22 @@ $\newcommand{\C}{\mathbb{C}}$
 $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
-I thought this online book was great: https://www.statlect.com/.
 
 
 ## Overview
 
-A key idea in statistics is fitting a model to data. A (parametric) model is a probability distribution $P(x;\theta)$, parameterized by some $\theta$. In Bayesian terms, the idea is to assume the model, then find the posterior distribution over $\theta$. One frequentist approach is to find the single value of $\theta$ which maximizes the likelihood of the data.
+These notes are about the application of probability to the real-world problem of updating beliefs given data. See [here](/notes/probability.md) for notes on the mathematics of probability (including how to do inference).
+
+(n.b. This is an extremely Bayesian perspective, roughly following Jaynes' *Probability Theory: The Logic of Science*).
+
+The general form of this problem is this. Let $A$ be the set of ways the world (or rather, the system you are studying) can be. What is the optimal distribution $P(A)$ to represent your beliefs, given some constraints on $P$?
+
+A concrete example is fitting a model to data. In this case $A = \Theta \times X$ is the joint space of values that the parameters of your model $\theta$ and realizations of data $x$. The constraint is that you know the actual value of $x$ - that is your data, and also a likelihood $P(x|\theta)$. 
+
+
+A frequentist approach would be to find the single value of $\theta$ which, say, maximizes the likelihood $\lambda \theta . P(x|\theta)$ of the data. This is useful in a range of common applications, but problematic in general. It's better to think of this as a rough approximation of Bayesian inference that happens to be effective to compute in some useful settings.
+
+# Common problems
 
 ### Regression
 
@@ -82,6 +92,122 @@ In general, we say that $E[y]=g^{-1}(X\theta)$, where $g$ is a link function. Th
 
 Logistic regression. Key observation: let $g(x)=log(\frac{x}{1-x})$. Let $f(x)=\frac{1}{1+e^{-x}}$. $g$ (log odds function) and $f$ (sigmoid function) are inverses.
 
+
+## Monte Carlo for Bayesian inference
+
+Bayes' rule takes the form
+
+$$ \forall a\forall b. P(B=b|A=a) = \frac{P(A=a,B=b)}{P(A=a)} = \frac{P(A=a|B=b)\cdot P(B=b)}{\sum_{b'} P(A=a|B=b')\cdot P(B)} $$
+
+where $B$ is the latent variable, $A$ is the observed variable, $P(B)$ is our prior, which we can calculate tractably (most likely), and $P(A|B)$ is our likelihood, corresponding to the generative process generating the data from the latent variable.
+
+Now the denominator $P(A=a)=\sum_{b'} P(A=a|B=b')\cdot P(B=b')$ could well be totally intractable to compute. But this is constant in $b$, so the numerator is proportional to $P(B=b|A=a)$. This means that to sample from $P(B|A)$ we need only apply Monte Carlo to the unnormalized distribution constituting the numerator. We can sample from this ancestrally, i.e. by first sampling from the prior and then inputting that sample into the likelihood.
+
+
+# The Principle of Maximum Entropy
+
+This mathematical structure allows you to understand Bayesian probability as movement along the manifold. You start somewhere, at a point on the manifold representing your prior.
+
+Given information, which can always be formulated as a constraint on the space of possible distributions, you then move along the manifold to the distribution with the greatest entropy relative to your starting point which satisfies this constraint.
+
+TODO: show that this gives Bayes' theorem
+
+
+
+
+
+
+TODO:
+
+A good reference here is chapter 
+  of Ariel Caticha's todo 
+
+Bayesian probability can be derived from a single principle, namely: your belief about the world should maximize entropy up to known constraints.
+
+That is, you should be absolutely no more certain about the state of the world than you have to, given the data or constraints you are working with.
+
+One can derive Bayes' rule from this principle as follows. Suppose you begin with a joint distribution $p(x,y)$. You then find the particular value of $y$, which is to say, you learn that any possible belief $q$ about $(x,y)$ must obey the constraint $\int_x q(x,y) = \delta(y-y^*)$.
+
+Following the principle of maximum entropy, you choose $q^*(x,y)$ to maximize entropy, subject to this constraint, namely:
+
+$$ \forall q. H(q^*) = -E_{x \sim q^*}[\log q(x)] \geq H(q) $$
+$$ \int_x q(x,y) = \delta(y-y^*) $$
+
+
+## notes 
+
+H is concave 
+
+the log normalizer of the exponential family is convex
+
+the bregman divergence of the log normalizer is the kl divergence
+
+convexity is preserved under affine pullback
+
+convex differentiable <==> psd hessian
+
+## Optimal experiment design
+
+Bayesian probability explains how to optimally update beliefs, but a natural extension of this toolkit is to a setting where you can take actions.
+
+Suppose the world is modeled as a conditional distribution $p(y|d)$, where $d$ is an action you "give" to it, and $y$ is an observation it gives you in return. In particular, $p(y|d) = \int d\theta p(y,\theta | d) = \int d\theta p(y| \theta)p(\theta|d)$. That is, the observation and action are conditionally independent given $\theta$.
+
+As an agent, your objective is to gain information about the marginal $p(\theta)$, so the question is: how to choose $d$ optimally, in the interest of gaining information?
+
+This boils down to the following. Suppose that $p$ is your marginal prior over models, so that your information **b**efore doing anything, relative to a reference measure is:
+
+$$ 
+K_b = K[p, \mu] = \int d\theta p(\theta) \log \frac{p(\theta)}{\mu(\theta)}
+$$
+
+If $q(\theta)=p(\theta|d, y)$ is your posterior **a**fter feeding the world your decision $d$ and subsequently observing $y$, then 
+
+$$ 
+K_a(d)(y) = K[q, \mu] = \int d\theta p(\theta|d,y) \log \frac{p(\theta|d,y)}{\mu(\theta)}
+$$
+
+The idea is that, before taking the action, you want to calculate the expectation $I(d) = E_{y \sim p(\cdot|d)}[K_a(y)]$, which amounts to:
+
+$$
+I(d) = \int dy \quad p(y|d) \int d\theta\quad p(\theta|d,y) \log \frac{p(\theta|d,y)}{\mu(\theta)}
+$$
+
+$$
+= \int d\theta \int dy \quad  p(\theta, y|d) \log \frac{p(\theta|d,y)}{p(\theta)}\frac{p(\theta)}{\mu(\theta)}
+$$
+
+$$
+= \int d\theta \int dy \quad  p(\theta, y|d) \log \frac{p(\theta|d,y)}{\mu(\theta)} + \int d\theta \int dy \quad  p(\theta, y|d) \log \frac{p(\theta)}{\mu(\theta)}
+$$
+
+
+$$
+= \int d\theta \int dy \quad  p(\theta, y|d) \log \frac{p(\theta|d,y)}{p(\theta)} + \int d\theta \quad  p(\theta|d) \log \frac{p(\theta)}{\mu(\theta)}
+$$
+
+$$
+= \int d\theta \int dy \quad  p(\theta, y|d) \log \frac{p(\theta, y|d)}{p(y|d)p(\theta|d)} + \int d\theta \quad  p(\theta) \log \frac{p(\theta)}{\mu(\theta)}
+$$
+
+(here I have used the conditional independence of $p(y|d) = p(y|\theta)p(\theta |d)$)
+
+TODO: have I??
+
+$$
+= MI(\theta, y | d) + K_b
+$$
+
+that is, the new information, given $d$, is the mutual information (conditional on $d$) of the model parameters and $y$, plus your prior information.
+
+Thus, the *expected information gain* is $EIG(d) = E_{y \sim p(\cdot|d)}[K_a(y)] - K_b = MI(\theta, y|d)$.
+
+A non-insane thing to do is to choose $d$ to maximize $EIG(d)$.
+
+This is known as *optimal experiment design* (OED). It is very difficult in practice, because calculating $EIG(d)$ is extremely costly, and you have to do it for every potential value of $d$. The general tools used to speed up Bayesian inference (MCMC, SMC, amortization) are relevant here.
+
+OED is particularly relevant in a sequential setting, where $d$ is a sequence of actions, and $y$ is a corresponding sequence of observations. Here, the procedure is exactly the same, but the inference problem is even harder, because they are likely to be extremely important dependencies between actions in $d$. For example, if you learn that your keys are not in your car, this informs where you should search next.
+
+
 ## Frequestist statistics
 
 A sample is a vector of independent, identically distributed draws from the model. An estimator is a function on the sample. The sample, and in turn the estimator, are random variables themselves, and a key method of frequentist statistics is to find the distribution of a given estimator, or a good approximation of it in the limit of large sample size.
@@ -103,13 +229,3 @@ $$ \sqrt{nI(\theta_0)}(\hat{\theta}-\theta_0) \approx N(0,1) $$
 ### Cramer-Rao (general form)
 
 Variance of any estimator $\hat{\theta}$ is bounded by: $$ \frac{\tau'(\theta)}{nI(\theta_0)} $$ where $\tau(\theta)$ is $E[\hat{\theta}]$
-
-## Monte Carlo for Bayesian inference
-
-Bayes' rule takes the form
-
-$$ \forall a\forall b. P(B=b|A=a) = \frac{P(A=a,B=b)}{P(A=a)} = \frac{P(A=a|B=b)\cdot P(B=b)}{\sum_{b'} P(A=a|B=b')\cdot P(B)} $$
-
-where $B$ is the latent variable, $A$ is the observed variable, $P(B)$ is our prior, which we can calculate tractably (most likely), and $P(A|B)$ is our likelihood, corresponding to the generative process generating the data from the latent variable.
-
-Now the denominator $P(A=a)=\sum_{b'} P(A=a|B=b')\cdot P(B=b')$ could well be totally intractable to compute. But this is constant in $b$, so the numerator is proportional to $P(B=b|A=a)$. This means that to sample from $P(B|A)$ we need only apply Monte Carlo to the unnormalized distribution constituting the numerator. We can sample from this ancestrally, i.e. by first sampling from the prior and then inputting that sample into the likelihood.

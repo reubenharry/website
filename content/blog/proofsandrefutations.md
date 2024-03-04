@@ -1,7 +1,7 @@
 ---
 title: "Proofs, Refutations and Zombies"
 date: 2016-08-20T15:10:55-04:00
-draft: false
+draft: True
 ---
 -
 

@@ -1,7 +1,7 @@
 ---
 title: "Medieval Type Theory"
 date: 2017-06-22T21:33:50+01:00
-draft: false
+draft: True
 ---
 -
 

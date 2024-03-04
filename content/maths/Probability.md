@@ -1,7 +1,7 @@
 ---
 title: "Probability"
 date: 2020-01-26T17:07:24+01:00
-draft: False
+draft: True
 
 ---
 
@@ -42,6 +42,8 @@ $\newcommand{\N}{\mathbb{N}}$
 $\newcommand{\Z}{\mathbb{Z}}$
 
 Highly recommend *Machine Learning: A Probabilistic Perspective* by Kevin Murphy as a no-nonsense reference for a whole lot of probabilistic models and inference strategies.
+
+A useful online reference for basic facts about probability and distributions: https://www.statlect.com/.
 
 ## PDF of function of random variable
 
@@ -363,3 +365,4 @@ A linear dynamical system is one where the temporal transitions and production o
 In the case where the transition and observation models are not linear, one option (the Extended Kalman Filter) is to take the Jacobian in order to obtain a linear approximation, and basically do a Kalman filter with that. The unscented Kalman filter is similar, but instead first passes the distribution (or sample points) through the non-linear function, and then fits a Gaussian.
 
 <!-- ### Binomial Distribution Approximations -->
+

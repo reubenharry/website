@@ -421,6 +421,35 @@ $$ a\_-\ket{n} = K\ket{n+1} \Rightarrow \bra{n}a\_+a\_-\ket{n} = K^2 \inner{n+1}
 
 $$ \Rightarrow n = K^2 \Rightarrow K = \sqrt{n} $$
 
-### Quantization of a field
+## Interaction picture
 
-Consider a wave in 1D. We could express in a basis of periodic functions, via the Fourier transform, and then view this as a sum of independent harmonic oscillators. But then we can treat each as a *quantum* harmonic oscillator. Under this perspective, each quantum of energy of one of these oscillators is a photon. Note that the quantization will freeze out the infinite of oscillators with negligible energy. (more to clarify here, but my understanding needs to catch up).
+Given a Hamiltonian $H_0 + H_1$, we have states $|psi_S(t)\rangle$ in the Schroedinger picture, and observables $O_S$. We then define:
+
+$$
+|\psi_I(t)\rangle := e^{iH_0t/\hbar}|\psi_S(t)\rangle
+$$
+
+and 
+
+$$
+O_I(t) = e^{iH_0t/\hbar}O_Se^{-iH_0t/\hbar}
+$$
+
+The important result is:
+
+$$
+i\hbar \frac{d}{dt}|\psi_I(t)\rangle = H_{I,1}(t)|\psi_I(t)\rangle \\
+$$
+and 
+
+$$
+i\hbar \frac{d}{dt}O_I(t) = [O_I(t), H_{0,S}]
+$$
+
+so states evolve with the interaction Hamiltonian $H_{I,1}$, and operators with the Schroedinger Hamiltonian $H_{S,0}$. Convenient.
+
+## Aharonov-Bohm
+
+Principles of Quantum Mechanics gives the best explanation. Deferring to it for the details, the point is that a magnetic field at a point can be detected by a loop around that point. That is, the integral of $A$ around the loop amounts to $\nabla \times A = B$ in the enclosed volume (Stokes' theorem).
+
+A classical path from point $a$ to a different point $b$ is not a loop, so Stokes' theorem does not apply, but a quantum path can be (i.e. by taking one path over the point and one path under), in the path integral sense. This means that in quantum mechanics, a particle is aware of a magnetic field it does not pass through, by being aware of the vector potential.
