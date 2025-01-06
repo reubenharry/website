@@ -5,6 +5,12 @@ date: 2018-06-26T17:07:24+01:00
 
 ---
 
+## Current Research
+
+I currently work on MCMC methods, in the general vicinity of Hamiltonian Monte Carlo.
+
+## PhD
+
 During my PhD, I worked on unifying logical and statistical perspectives on meaning in natural language using [probabilistic models of pragmatic reasoning](https://reubencohngordon.com/blog/social-reasoning-in-arcadia/).
 
 The general idea is to model the interpretation of a linguistic expression (e.g. a sentence) as a process of Bayesian inference, to ask: given that this sentence is true (or, more to the point, given that someone said it) what must the world be like. This turns out to be a nice viewpoint for integrating a traditional logical perspective on meaning with an information-theoretic one, as well as handling semantic and pragmatic meaning in a single framework. I say a little bit more about that in the introduction of my [dissertation](/docs/ReubenCG-thesis.pdf).
