@@ -41,6 +41,11 @@ params:
   sidebar: true
   submitted: true
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 permalinks:
   blog: "blog/:slug/"
 

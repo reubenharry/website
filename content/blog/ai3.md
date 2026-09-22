@@ -3,7 +3,12 @@ title: "Thing"
 date: 2022-06-22T18:11:57+01:00
 draft: True
 ---
+
+hacks: how they fit in
   
+conditional independence: e.g. phonology to semantics: fun to write about, and telling
+
+refocus as a piece about conditional independence
 
 ## Symbolic AI
 

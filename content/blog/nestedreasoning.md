@@ -30,7 +30,7 @@ draft: True
 
 ### A tour of the Bayesian perspective on pragmatics
 
-This is an introduction to the nested reasoning models (*I think that you think that I think...*) that I work on. I've tried to make this light on mathematical detail (barring the occasional technical digression) in favour of the big picture point, that Bayesian inference and nested reasoning are really great tools for thinking about language and meaning.
+This is an introduction to the nested reasoning models (*I think that you think that I think...*) that I worked on in my Phd. I've tried to make this light on mathematical detail (barring the occasional technical digression) in favour of the big picture point, that Bayesian inference and nested reasoning are really great tools for thinking about language and meaning.
 
 ----------------------------
 
