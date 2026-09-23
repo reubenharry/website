@@ -19,13 +19,15 @@ I'm also interested in how numerical methods in the applied sciences can be bols
 
 ## Functional programming
 
-After my PhD, I worked in industry for a few years, on a variety of projects. One was a natural language interpreter. I think symbolic AI is conceptually misguided, but the opportunity to code full-time in Haskell was very appealing. One thing I worked on was incorporating [multi-world expressions in a compositional semantics and grammar](/docs/language.html) via very general recursion schemes from category theory (histomorphisms). The result was a formalization of the spirit of construction grammar. I continue to think that the connection between free functors and fragment grammars is very beautiful, and would love to finish this project some day.
+After my PhD, I worked in industry for a few years, on a variety of projects. One was a natural language interpreter. I think symbolic AI is conceptually misguided, but the opportunity to code full-time in Haskell was very appealing. One thing I worked on was incorporating [multi-world expressions in a compositional semantics and grammar](/docs/language.html) via very general recursion schemes from category theory (histomorphisms). The result was [fairly fancy natural language parser and interpreter](https://github.com/reubenharry/natural-language) in the spirit of construction grammar. I continue to think that the connection between free functors and fragment grammars is very beautiful, and would love to finish this project some day. 
 
-A more recent project I've been working on is to extend reactive programming to handle stocahsticity, a project that Manuel Bärenz is [mainly responsible for](https://www.tweag.io/blog/2023-10-12-rhine-bayes/), to get [online particle filters expressed as Feynman-Kac processes](/blog/browser-spike). This is really cool!
+I also finally [worked out how to use dependent types for categorial grammars](https://github.com/reubenharry/combinatory-categorial-grammar), and how to parse by [lazily generating all possible sentences and folding them into a parser](/docs/language.html).
 
-## Language
+A more recent thing I've worked on is to extend reactive programming to handle stochasticity, a project that Manuel Bärenz is [mainly responsible for](https://www.tweag.io/blog/2023-10-12-rhine-bayes/), to get [online particle filters expressed as Feynman-Kac processes](/blog/browser-spike). This is really cool!
 
-During my PhD, I worked on unifying logical and statistical perspectives on meaning in natural language using [probabilistic models of pragmatic reasoning](https://reubencohngordon.com/blog/social-reasoning-in-arcadia/).
+## Bayesian models of communication
+
+During my PhD, I worked on unifying logical and statistical perspectives on meaning in natural language using [probabilistic models of pragmatic reasoning](/blog/social-reasoning-in-arcadia/).
 
 The general idea is to model the interpretation of a linguistic expression (e.g. a sentence) as a process of Bayesian inference, to ask: given that this sentence is true (or, more to the point, given that someone said it) what must the world be like. This turns out to be a nice viewpoint for integrating a traditional logical perspective on meaning with an information-theoretic one, as well as handling semantic and pragmatic meaning in a single framework. I say a little bit more about that in the introduction of my [dissertation](/docs/ReubenCG-thesis.pdf).
 
