@@ -18,7 +18,7 @@ The standard solution is to return a sum type, i.e. `Int -> Either () Int`. This
 Dependent types allow a degree of expressivity which solves this problem. In pseudocode, the desired type would be:
 
 ```haskell
-foreach (x :: Int) -> if x < 10 then Int else ()
+foreach (x :: Int) -> if x < 10 then x else ()
 ```
 
 Two key things to note about this:
@@ -93,7 +93,7 @@ type Syntactic a = Sing a
 `Syntactic a` is a convenient synonym for the singleton library's `Type`-kinded `Sing a`.
 
 
-With this, we can now give a beautiful dependent type for lexicons:
+With this, we can now give a dependent type for lexicons, which beautifully expresses the intent:
 
 ```haskell
 type Lexicon = forall (a :: Category). Syntactic a -> Text -> Semantic a
@@ -148,15 +148,17 @@ type family Semantic e (s :: Category) where    Semantic e Number  = e
     Semantic e (Branch a b) = (Semantic e b -> Semantic e a)
 
 
-lexicon :: forall (a :: Category). Syntactic a -> Semantic a
 ```
 
-This type states its intent beautifully. For any type of kind `Category`, the syntactic representation (of kind `Type`) is mapped to the semantic representation (also of kind `Type`).
+For instance:
+
 
 ```haskell
 examples
 exampleLexicon Proposition "True"
+>>> True
 exampleLexicon Number "3"
+>>> 3
 exampleLexicon (Number `To` Number) "-"
 >>> No instance for (Show (Int -> Int))
 (exampleLexicon (Number `To` Number) "-") 5

@@ -282,7 +282,7 @@ The conversation continues, but the fact of Joey’s marriage has slid into the 
 <p>Haskell functions must have a single return type, so you could either have <code>Int -&gt; Int</code> or <code>Int -&gt; ()</code>, but a function cannot sometimes return an <code>Int</code> and sometimes return a <code>()</code>, depending on the input.</p>
 <p>The standard solution is to return a sum type, i.e. <code>Int -&gt; Either () Int</code>. This works, but it is then the job of the consumer of this function to handle the <code>Either</code>, and moreover, we don’t have a static guarantee that when the input is less than <span class="math inline">\(10\)</span>, the returned <code>Either () Int</code> is really a <code>Left ()</code>.</p>
 <p>Dependent types allow a degree of expressivity which solves this problem. In pseudocode, the desired type would be:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>foreach (<span class="ot">x ::</span> <span class="dt">Int</span>) <span class="ot">-&gt;</span> <span class="kw">if</span> x <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">then</span> <span class="dt">Int</span> <span class="kw">else</span> ()</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>foreach (<span class="ot">x ::</span> <span class="dt">Int</span>) <span class="ot">-&gt;</span> <span class="kw">if</span> x <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">then</span> x <span class="kw">else</span> ()</span></code></pre></div>
 <p>Two key things to note about this:</p>
 <ul>
 <li>the types here are treated like values, to the extent that we can write an if-statement involving <em>types</em></li>
@@ -331,7 +331,7 @@ The conversation continues, but the fact of Joey’s marriage has slid into the 
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Syntactic</span> a <span class="ot">=</span> <span class="dt">Sing</span> a</span></code></pre></div>
 <p><code>Category</code> is a new type, but also gets lifted, so that it’s a new <em>kind</em>. We then write a type family, <code>Semantic</code>, on types of this kind, that takes a type like <code>N</code> (standing for “number”) and gives the type that a number’s meaning should have, which for our purposes is <code>Int</code>.</p>
 <p><code>Syntactic a</code> is a convenient synonym for the singleton library’s <code>Type</code>-kinded <code>Sing a</code>.</p>
-<p>With this, we can now give a beautiful dependent type for lexicons:</p>
+<p>With this, we can now give a dependent type for lexicons, which beautifully expresses the intent:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Lexicon</span> <span class="ot">=</span> <span class="kw">forall</span> (<span class="ot">a ::</span> <span class="dt">Category</span>)<span class="op">.</span> <span class="dt">Syntactic</span> a <span class="ot">-&gt;</span> <span class="dt">Text</span> <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a</span></code></pre></div>
 <p>An example of a lexicon, as we might need for an interpreter, is:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">example ::</span> <span class="dt">Maybe</span> <span class="dt">Integer</span></span>
@@ -375,17 +375,17 @@ The conversation continues, but the fact of Joey’s marriage has slid into the 
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Semantic</span> e (<span class="ot">s ::</span> <span class="dt">Category</span>) <span class="kw">where</span>    <span class="dt">Semantic</span> e <span class="dt">Number</span>  <span class="ot">=</span> e</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> _ <span class="dt">Proposition</span> <span class="ot">=</span> <span class="dt">Bool</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> e (<span class="dt">Branch</span> a b) <span class="ot">=</span> (<span class="dt">Semantic</span> e b <span class="ot">-&gt;</span> <span class="dt">Semantic</span> e a)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ot">lexicon ::</span> <span class="kw">forall</span> (<span class="ot">a ::</span> <span class="dt">Category</span>)<span class="op">.</span> <span class="dt">Syntactic</span> a <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a</span></code></pre></div>
-<p>This type states its intent beautifully. For any type of kind <code>Category</code>, the syntactic representation (of kind <code>Type</code>) is mapped to the semantic representation (also of kind <code>Type</code>).</p>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<p>For instance:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>examples</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="dt">Proposition</span> <span class="st">&quot;True&quot;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="dt">Number</span> <span class="st">&quot;3&quot;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dt">No</span> <span class="kw">instance</span> for (<span class="dt">Show</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>(exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span>) <span class="dv">5</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> (<span class="op">-</span><span class="dv">5</span>)</span></code></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dt">True</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="dt">Number</span> <span class="st">&quot;3&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dv">3</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dt">No</span> <span class="kw">instance</span> for (<span class="dt">Show</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>(exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span>) <span class="dv">5</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> (<span class="op">-</span><span class="dv">5</span>)</span></code></pre></div>
   </div>
 </article>
 
