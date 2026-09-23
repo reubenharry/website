@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title$</title>
+  <link rel="stylesheet" href="/css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml">
+  $if(webppl)$
+  <link rel="stylesheet" href="/webppl-editor.css">
+  <link rel="stylesheet" href="/webppl-viz.css">
+  $endif$
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="/">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/research/">Research</a>
+        <a href="/blog/">Blog</a>
+        <a href="/stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      $body$
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  $if(webppl)$
+  <script src="/webppl.js"></script>
+  <script src="/webppl-editor.js"></script>
+  <script src="/webppl-viz.js"></script>
+  <script>
+    Array.prototype.slice.call(document.querySelectorAll("pre")).forEach(function (el) {
+      editor.setup(el, { language: "webppl" });
+    });
+  </script>
+  $endif$
+</body>
+</html>

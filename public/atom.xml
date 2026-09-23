@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Reuben Cohn-Gordon</title>
+    <link href="https://reubenharry.github.io/atom.xml" rel="self" />
+    <link href="https://reubenharry.github.io" />
+    <id>https://reubenharry.github.io/atom.xml</id>
+    <author>
+        <name>Reuben Cohn-Gordon</name>
+        
+        <email>reubenharry@gmail.com</email>
+        
+    </author>
+    <updated>2026-09-22T18:40:00Z</updated>
+    <entry>
+    <title>Functional Reactive Probabilistic Programming</title>
+    <link href="https://reubenharry.github.io/blog/browser-spike/index.html" />
+    <id>https://reubenharry.github.io/blog/browser-spike/index.html</id>
+    <published>2026-09-22T18:40:00Z</published>
+    <updated>2026-09-22T18:40:00Z</updated>
+    <summary type="html"><![CDATA[Interactive demos: Rhine-Bayes on the web]]></summary>
+</entry>
+<entry>
+    <title>The Unfolding of Language</title>
+    <link href="https://reubenharry.github.io/blog/the-unfolding-of-language/index.html" />
+    <id>https://reubenharry.github.io/blog/the-unfolding-of-language/index.html</id>
+    <published>2026-09-21T21:00:00Z</published>
+    <updated>2026-09-21T21:00:00Z</updated>
+    <summary type="html"><![CDATA[How languages come to exist, treated as a dynamical systems problem.]]></summary>
+</entry>
+<entry>
+    <title>The One with the Common Ground</title>
+    <link href="https://reubenharry.github.io/blog/the-one-with-the-common-ground/index.html" />
+    <id>https://reubenharry.github.io/blog/the-one-with-the-common-ground/index.html</id>
+    <published>2020-01-26T16:07:24Z</published>
+    <updated>2020-01-26T16:07:24Z</updated>
+    <summary type="html"><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The One with the Common Ground</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">The One with the Common Ground</h1>
+    
+    <p class="post-meta">26 January 2020</p>
+    
+  </header>
+  <div class="post-body">
+    <ul>
+<li></li>
+</ul>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  // Autonumbering by mathjax
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+
+</script>
+<blockquote>
+<p>“They think they are so slick messing with us. But they don’t know that we <em>know</em> that they know”</p>
+</blockquote>
+<p>Somewhere in my PhD between feeling anxious about research and feeling frustrated by it, there was this halcyon time period (on reflection, no actual continuous stretch of time but more like a badly pieced-together action montage) where I paced around poorly lit rooms and thought really hard about the way <a href="https://reubencohngordon.com/docs/irony.pdf">common ground</a> works in language.</p>
+<!-- Everyone who has spent a long time doing one thing is susceptible to the bias of believing that thing to be noteworthy or unique (maybe everything really is, with enough attention), and
+   it is that
+  we haven't yet understood very much.
+
+    understanding how to think about the common ground was the one thing I really took away from my own research.
+ -->
+<p>The common ground is this shimmering mirage of a concept. It’s the information everyone in a conversation not only knows but acts as if everyone else knows (and knows they know, and so on), and it sort of only exists on the basis of a shared pretense perpetuated by all the people taking part. Really there’s only one cultural touchstone which can make this tangible, and I’m going to surprise you by saying that no, it’s not Friends.</p>
+<p>Okay, I lied, it’s Friends. What happens is that Monica and Chandler (party 1) are covertly sleeping together - Joey knows but that’s it. Joey for the purposes of this example is not relevant. For reasons that will become apparent, it will be convenient to call this fact, that Chandler and Monica are, both literally and figuratively in bed together: <span class="math inline">\(\phi_0\)</span>. That is, <span class="math inline">\(\phi_0\)</span> is the proposition: Monica and Chandler are sleeping together.</p>
+<p>Then Rachel and Phoebe (party 2) find out. Let’s denote by <span class="math inline">\(\phi_1\)</span> the proposition: Party 2 knows <span class="math inline">\(\phi_0\)</span>. So <span class="math inline">\(\phi_1\)</span> and furthermore, party 1 do not know that <span class="math inline">\(\phi_1\)</span>. In fact, maybe that deserves a handy shorthand too; let’s say that <span class="math inline">\(\psi_1\)</span> is the proposition: Party 1 do not know <span class="math inline">\(\phi_1\)</span>.</p>
+<p>In a commendably sly turn, party 2 realize that <span class="math inline">\(\psi_1\)</span> makes the situation ripe for trickery (“we could not tell them we know, and have a little fun of our own”). Party 2’s plan is that Phoebe will maintain the pretense that <span class="math inline">\(\phi_0\)</span> is false, so as to preserve <span class="math inline">\(\psi_1\)</span>, but do so in such a way as to mess with Chandler and Monica. So the upshot is that Phoebe flirts with Chandler, who is unaware that this is a pretense, and is taken aback.</p>
+<p>So far, so good. But this is where the epistemic game theorists must have infiltrated the script writers’ meeting, because then party 1 infer that party 2’s weird behavior can only be explained by <span class="math inline">\(\phi_1\)</span> being true. Immediately, <span class="math inline">\(\psi_1\)</span> ceases to be true, but <span class="math inline">\(\phi_2\)</span> and <span class="math inline">\(\psi_2\)</span> become true instead.</p>
+<p>For the sake of clarity, and I mean that in the broadest possible sense, I’ll introduce the following definitions. Here, <span class="math inline">\(X_n\)</span> is 2 when <span class="math inline">\(n\)</span> is odd, and <span class="math inline">\(1\)</span> when <span class="math inline">\(n\)</span> is even (for <span class="math inline">\(n&gt;0\)</span>):</p>
+<ul>
+<li><span class="math inline">\(\phi_n\)</span>: Party <span class="math inline">\(X_n\)</span> know that <span class="math inline">\(\phi_{n-1}\)</span>.</li>
+<li><span class="math inline">\(\psi_n\)</span>: Party <span class="math inline">\(X_{n+1}\)</span> do not know that <span class="math inline">\(\phi_{n}\)</span>.</li>
+</ul>
+<p>“The messers become the messees” and Chandler flirts back, alarming Phoebe who then is led to believe that his commitment to Monica is somewhat less than exemplary. This eventually makes <em>her</em> realize that <em>of course</em>! they know we know (<span class="math inline">\(\phi_2\)</span>), but - aha!! - now we know that (<span class="math inline">\(\phi_3\)</span>), and they don’t know we know they know we know (<span class="math inline">\(\psi_3\)</span>). One again armed with the upper hand, Phoebe accepts Chandler invitation to “have all the sex”, beckoning in the final act of the episode.</p>
+<p>To paraphrase Lemony Snicket, I don’t need to drag you any further through the predictable details of this narrative, other than to say that eventually Chandler abandons the pretense, confesses his love for Monica, and, as Joey exclaims in self-aware theatricality, like the chorus at the end of Oedipus Rex, finally everyone knows! (Except Ross, cue the after-credit scene).</p>
+<p>I am writing this right after turning 26, on the eve of moving to a new city and starting a new job, so I rewatched The One Where Everybody Finds Out with a closer-than-normal eye for its tropes and a strange sense of whatever the reverse of foreboding is (watching the future solidify from a fine mist to a concrete slab, but <em>without</em> a sense of dread?)</p>
+<p>But inner turmoil aside, let me pause here to take stock (<a href="https://www.youtube.com/watch?v=3MWpHQQ-wQg&amp;t=70s&amp;ab_channel=FunEnglishLessons">I hate to, but may I?</a>). Granted, the convoluted plot of the episode is noteworthy for showcasing the potential nuance of social interaction (obviously the show has made a comical point out of this nuance, a point which, yes, I am knowingly grinding into a fine dust), but how does it shed light on the idea of the common ground?</p>
+<p>The idea is this: by the end of the episode, <span class="math inline">\(\phi_0\)</span>, the fact that Monica and Chandler are dating, is in the common ground (among Rachel, Phoebe, Joey, Monica and Chandler). But at every stage before this, even though everyone knows <span class="math inline">\(\phi_0\)</span>, and then knows that everyone knows, and so on, it isn’t in the common ground, as shown by the fact that no-one acts like it’s true.
+In a sense, the episode could almost have been designed as a thought experiment to show that any degree of higher order knowledge of a fact (we know that they know that…) is qualitatively different to that fact being in the common ground</p>
+<!-- : higher order knowledge of $\phi_0$ is compatible with both parties acting as if $\phi_0$ is false. On the other hand, $\phi_0$ being in the common ground is *not* compatible with that. -->
+<p>But why spend time thinking about such a niche idea as common ground anyway? The answer, maybe predictably, is that it’s not niche at all. The notion of common ground doesn’t just arise in the contrived scenario above, but rather it’s a basic element of communication generally.</p>
+<p>Everything from the rule that we drive on the right (or left) to the fact that certain words refer to certain objects is not just something everyone knows, but something that everyone knows everyone knows, and so on.</p>
+<p>For example, I know what “My hair is on fire - please help” means, and you know what “My hair is on fire - please help” means, but in order for say it to any effect, I must also assume that you know, and in hearing my frenzied request, you must assume that I know you know, and have issued this series of strangely but deliberately choreographed noises with the intent of it being understood to mean that my hair is on fire (please help).
+To put it much more succinctly, the <em>convention</em> that words mean particular things is true only because everyone acts according to that convention. It’s not enough that we all know English - our knowledge of English has to also be in the common ground.</p>
+<!-- If you were *certain* that I did not speak English, or *certain* that I did not know you spoke English, you would have to conclude that I was just making noises, and in the absence of any other evidence (in this particular case there would probably be some other evidence), continue about your day. -->
+<p>Actually, that leads to a working definition what the common ground is, namely: The common ground between some set of people is set of all facts that they all know and that everyone assumes are in the common ground. (Note how this definition is recursive)</p>
+<!-- It's probably worth noting explicitly that the fact that the common ground is defined in terms of itself (i.e. recursively) is not an accident. -->
+<p>One of the consequences of this definition is that the common ground <span class="math inline">\(C\)</span> is such that some fact <span class="math inline">\(x\)</span> being in <span class="math inline">\(C\)</span> and everyone acting as if <span class="math inline">\(x\in C\)</span> amount to the same thing. There is something profoundly abnormal about that: imagine if everyone acting like it never rains in England actually makes it true. Or imagine playing a version of Guess the Weight of the Fruit Cake<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> in which the cake’s weight depends on what everyone believes the weight to be.</p>
+<p>In that vein, I like to think of the common ground from a sort of magical realist point of view, as if it’s this mutable object which metamorphoses into what everyone acts as if it is, like in the book American Gods, where the old-world gods disappear when people stop believing in them.</p>
+<p>There are many questions you have, ranging from: how do you build a precise (let alone testable) model of communication that encodes the idea of common ground in the right way? to: if he can get this much mileage out of the social nuances of Friends, would he ever shut up about Seinfeld?</p>
+<!-- which would be something like: the common ground is the prior knowledge of a hypothetical agent that forms the base case of a mutual recursion consisting of the interlocutors reasoning about each other. -->
+<p>And then there’s one question <a href="https://www.youtube.com/watch?v=tGxAYeeyoIc&amp;ab_channel=63CAMART">best put by Baldrick, to Blackadder</a>:</p>
+<blockquote>
+<p>Baldrick: the way I see it, these days there’s a war on, right, and ages ago there wasn’t, right, so there must have been a moment when there not being a war on went away and there being a war on came along, so, what I want to know is, how did we get from the one case of affairs to the other case of affairs?</p>
+</blockquote>
+<blockquote>
+<p>Blackadder: Do you mean, how did the war start?</p>
+</blockquote>
+<p><!-- (The joke of Baldrick finding the most laborious possible way to ask a simple question is less funny if you've ever read a philosophy paper). --></p>
+<p>Baldrick, in the tradition of philosophers the world over, has phrased his simple question with so much care that it seems complicated. He’s asking about how the 1st world war started, but in this case, this analogous question might be:</p>
+<blockquote>
+<p>How did we go from the one case of affairs, where <span class="math inline">\(\phi_0\)</span> wasn’t in the common ground, to another state, where it was?</p>
+</blockquote>
+<p>How, in fact, does anything enter the common ground?</p>
+<!-- You could be forgiven for thinking that I'm stating the obvious. This is surely a perfect instance of someone believing something is profound after spending a long time thinking about it. Let me resort to another example to try to convince you that -->
+<p>Let me make the following broad claim: things can enter the common ground in (at least) two ways. The first is by some collectively witnessed event. For example, if Joey (now counterfactually relevant) had said in the presence of both parties: “I assert that <span class="math inline">\(\phi_0\)</span> is true” (this is the sort of offhand remark that Joey often makes, to reliable comic effect), then <span class="math inline">\(\phi_0\)</span> would be in the common ground. This is the power of public announcements, like group emails, or shouting “I’m so lonely” in the middle of a large crowd<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Chandler’s concession to Phoebe at the end of the episode has the same effect re. <span class="math inline">\(\phi_0\)</span>.</p>
+<p>As an aside, this first way of things entering the common ground requires that the triggering event be sufficiently “strong” evidence. For example, certain events which provide evidence towards <span class="math inline">\(\phi_0\)</span>, like party 2 walking in on party 1 standing unusually close, would be sufficiently compatible with <span class="math inline">\(\phi_0\)</span> being false that both parties could, in a strangely collaborative act, tacitly agree to ignore it. This, by the way, seems to be what happens when something very awkward happens at a social gathering: all parties simply agree that it in fact has not happened. (Think: someone forgetting your name at a cocktail party and you acting as in they have not forgotten and taking pains not to put them in a position in which this lack of knowledge will be clearly exposed).
+Some events, on the other hand, like party 2 walking in on party 1 <em>in flagrante delictu</em> - I’m assuming that if unfamiliar, the meaning of this phrase is recoverable from context - would be just too compelling evidence for either party to ignore.
+That is, Rachel and Monica couldn’t walk in on Chandler and Monica having sex, make eye contact, leave the room, and then pretend that nothing had happened. Actually, as I write that, I realize that pretending you have not walked in on someone having sex is an extremely plausible scenario, so I’ll revise my point. What I really mean is just that based on my model of how the cast of Friends would behave in a counterfactual version of this episode, I think this scenario would trigger an end to the pretense that <span class="math inline">\(\phi_0\)</span> is false<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>So things can enter the common ground through collectively witnessed events. What about the second way? The second way is stranger. In a nutshell it’s that everyone in a conversation can simply pretend that something was already in the common ground, and lo and behold, it starts to be there, by virtue of always having been there.</p>
+<!-- In essence, it's this: people can summon things into the common ground just by collectively acting as if they were already there.  -->
+<p>I’ll need another example. In the interest of continuity, let’s say it’s also from Friends, but as this one will be strictly contrived, so let’s say it’s from the as yet unreleased, much feted (but sadly delayed) Friends reunion show.</p>
+<p>We start watching with baited breath as the screen pans from the New York skyline, much as it ever was, to Phoebe and Joey holding umbrellas and standing in a fountain. Finally, the significance of the opening credits scene is going to be revealed.</p>
+<p>This is their first time seeing each other in years, so as the dialog begins, it’s unclear what is and isn’t in the common ground.</p>
+<p>Phoebe might not be sure, for example, if Joey remembers her song Smelly Cat. Perhaps, at one point, their conversation goes like this:</p>
+<blockquote>
+<p>Phoebe: I played Smelly Cat the other day</p>
+</blockquote>
+<blockquote>
+<p>Joey: no way!</p>
+</blockquote>
+<p>This exchange shores things up: the existence of Smelly Cat is back in the common ground, on account of Phoebe <em>acting</em> as if it <em>already was</em> in the common ground, and Joey acting the same way too.</p>
+<p>What’s interesting about this is that you can assume information was already in the common ground even if it couldn’t have possibly been there before.</p>
+<p>For example, suppose Joey wants it in the common ground that he is married. He could announce this fact - that was method one for entering something into the common ground - but he could also just say:</p>
+<blockquote>
+<p>The other day, my partner said the funniest thing to me…</p>
+</blockquote>
+<p>And Phoebe might reply:</p>
+<blockquote>
+<p>Oh, what was that?</p>
+</blockquote>
+<!-- Here, Phoebe is taking for granted (at a linguist might say, *presupposing*) that Monica remembers who Emily is - a character who after 15 years she might plausibly have forgotten. And perhaps  -->
+<!-- (Recreating the tone of an average Friends dialog is actually pretty hard): -->
+<p>In this exchange, Joey has simply acted as if it was already in common ground that he was married, and Phoebe has not challenged him. His marriage is a presupposition of his utterance.
+The conversation continues, but the fact of Joey’s marriage has slid into the DMs of their common ground.</p>
+<p>To see that this way of entering a fact into the common ground is different from a direct announcement, note that there are some things which, when asserted directly are just surprising, but when presupposed, make you sound unhinged.</p>
+<p>For example: if say to a new acquaintance: “I have a pet alpaca”, then sure, they may be surprised or even doubtful, but if I say, without first mentioning the previous fact: “Last week, while I was taking my pet alpaca for a walk, I had an interesting idea”, you would be confused, because while it’s implausible that I have a pet alpaca, it is much much more implausible that the fact of my having one was already in the common ground. (This is context dependent: if this conversation took place at an alpaca conference, the presupposition of alpaca ownership might be downright plausible.)</p>
+<!-- : more compelling example: Or more to the point, think about language; you never sat down with anyone and agreed what every word means, but we act as if they all have fixed meanings (of which we might have some uncertainty) and that everyone else who speaks the language knows those meanings too. -->
+<p>I’ll wind up with a second example, of a great party game (to my knowledge nameless) which works like this. Person 1 starts with a sufficiently vague statement about an event, like:</p>
+<blockquote>
+<p>Gosh, wasn’t that thing we went to last week fantastic?</p>
+</blockquote>
+<p>To be clear, there is no actual event - the point of the game is that both people just make it up as they go along. As such, Person 2 responds in assent, accommodating the presupposition that they shared this collective experience, and maybe adding some details:</p>
+<blockquote>
+<p>Oh man, that was so good - I love the way they were dressed!</p>
+</blockquote>
+<p>The conversation continues in this vein until, after a while, both participants feel they have established to some degree of clarity what musical/flood/funeral/baking show they collaboratively conjured out of the ether, and compare notes.
+(I really love this game, but admittedly, it is also the kind of thing I imagine people who describe themselves as thespians doing in large groups).</p>
+<p>If there’s any punchline, it’s that language is exactly like this game. No-one goes through the dictionary, carefully checking with the friends, neighbors and loved ones that they are all in agreement about the meanings of each word. But without doing this, we all agree that there is some incredibly complex and baroque set of rules, that we already are in agreement on those rules, and then just sort of talk to each other on this basis. In my soon-to-be-professional opinion, having thought about it for several years, I can confirm that language is pretty odd.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Game played at an English country fair, rules self-explanatory<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>In fact, <a href="https://xkcd.com/blue_eyes.html">this puzzle</a> and the <a href="https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/">follow up discussion</a> are a good, if obviously idealized, example of how public announcements of a proposition can have a very surprising effect even if that proposition was already known by everyone (but not in the common ground). If you read it, consider that in the analogy with Friends, Joey plays the role of the impartial Guru - ostensibly a flesh and blood human, but for all intents and purposes exempt from the complexity of the social machinations.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>You might wonder (and indeed I think this is an empirically fascinating question which at some point in the future we will have the tools to investigate rigorously): what is the threshold where an event provides sufficiently strong evidence of <span class="math inline">\(\phi_0\)</span> that it enters the common ground? In other words, how undeniable does the evidence have to be before all parties abandon any pretense? I think, if I had to really pinpoint why I’m fixating on this point, it is because strength of evidence is a continuous variable, but the effect of something entering the common ground is not continuous. That is, you can imagine increasingly strong signs of Monica and Chandler’s romance being ignored until some threshold, at which point <span class="math inline">\(\phi_0\)</span> enters the common ground and everyone starts to behave entirely differently, sort of like a phase transition.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>
+]]></summary>
+</entry>
+<entry>
+    <title>Dependent Types</title>
+    <link href="https://reubenharry.github.io/blog/dependent-types/index.html" />
+    <id>https://reubenharry.github.io/blog/dependent-types/index.html</id>
+    <published>2020-01-26T16:07:24Z</published>
+    <updated>2020-01-26T16:07:24Z</updated>
+    <summary type="html"><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dependent Types</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Dependent Types</h1>
+    
+    <p class="post-meta">26 January 2020</p>
+    
+  </header>
+  <div class="post-body">
+    <p>Dependent types are most easily understood by looking at a program that requires them. I’ll first give a contrived example, then a real one.</p>
+<h2 id="contrived-example">Contrived example</h2>
+<p>Suppose we want a function that takes an integer, and returns it if it is less than <span class="math inline">\(10\)</span>, and otherwise returns the unit value <code>()</code>.</p>
+<p>Haskell functions must have a single return type, so you could either have <code>Int -&gt; Int</code> or <code>Int -&gt; ()</code>, but a function cannot sometimes return an <code>Int</code> and sometimes return a <code>()</code>, depending on the input.</p>
+<p>The standard solution is to return a sum type, i.e. <code>Int -&gt; Either () Int</code>. This works, but it is then the job of the consumer of this function to handle the <code>Either</code>, and moreover, we don’t have a static guarantee that when the input is less than <span class="math inline">\(10\)</span>, the returned <code>Either () Int</code> is really a <code>Left ()</code>.</p>
+<p>Dependent types allow a degree of expressivity which solves this problem. In pseudocode, the desired type would be:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>foreach (<span class="ot">x ::</span> <span class="dt">Int</span>) <span class="ot">-&gt;</span> <span class="kw">if</span> x <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">then</span> <span class="dt">Int</span> <span class="kw">else</span> ()</span></code></pre></div>
+<p>Two key things to note about this:</p>
+<ul>
+<li>the types here are treated like values, to the extent that we can write an if-statement involving <em>types</em></li>
+<li>the <code>foreach</code> keyword associates a value with the type <code>Int</code>, so that this value can be used later on in the type.</li>
+</ul>
+<p>This isn’t a valid Haskell type, and won’t be for a while.</p>
+<h2 id="real-example">Real example</h2>
+<p>Suppose I want to write an interpreter. The idea is that I’ll parse my input expression (say “4 + 3 = 8”) into a syntax tree like:</p>
+<pre><code>       /\
+      /  \
+     /    \
+    /\     \  
+   /\ \    /\  
+  4 +  3  =  8</code></pre>
+<p>I then assign a value to each leaf, and recursively compute the nodes of the tree until I get to the top.</p>
+<p>But what values should I assign to the leafs? The typical functional answer would be:</p>
+<ul>
+<li>“4” –&gt; <code>4 :: Int</code></li>
+<li>“+” –&gt; <code>(+) :: (Int -&gt; Int -&gt; Int)</code></li>
+<li>“3” –&gt; <code>3 :: Int</code></li>
+<li>“=” –&gt; <code>(=) :: (Int -&gt; Int -&gt; Bool)</code></li>
+<li>“8” –&gt; <code>8 :: Int</code></li>
+</ul>
+<p>Think of this as a <em>lexicon</em>, which takes strings to their meanings.</p>
+<p>But note that the values have different types. So if I want a function that implemented this lexicon, i.e. that takes the strings and returns their meaning, without dependent types I would need to make a sum type like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Expression</span> <span class="ot">=</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Number</span> <span class="dt">Int</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Operator</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Prop</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>)</span></code></pre></div>
+<p>and then a lexicon of type:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">LexiconNaive</span> <span class="ot">=</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Expression</span></span></code></pre></div>
+<p>This is a workable solution, but it causes pain points down the road. In particular, when it comes to combining nodes of the tree, one has the awkward task of pattern matching on all possible cases, and throwing an error if neither the lefthand expression can be applied to the right nor vice versa. This scales poorly.</p>
+<p>A nicer solution is dependently typed, and uses the implementation of dependent types from the singletons library (which the reader need not understand in depth):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE TypeOperators, PatternSynonyms, TypeFamilies, FlexibleContexts, TypeApplications, ScopedTypeVariables,</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">    GADTs, AllowAmbiguousTypes, DataKinds, TemplateHaskell, StandaloneKindSignatures, PolyKinds #-}</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Category</span> <span class="ot">=</span>  <span class="dt">P</span> <span class="op">|</span> <span class="dt">N</span> <span class="op">|</span> <span class="dt">BS</span> <span class="dt">Category</span> <span class="dt">Category</span> <span class="op">|</span> <span class="dt">FS</span> <span class="dt">Category</span> <span class="dt">Category</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>genSingletons ['<span class="dt">'Category</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Semantic</span> (<span class="ot">s ::</span> <span class="dt">Category</span>) <span class="kw">where</span>  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> <span class="dt">N</span>  <span class="ot">=</span> <span class="dt">Int</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> <span class="dt">P</span> <span class="ot">=</span> <span class="dt">Bool</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> (<span class="dt">FS</span> a b) <span class="ot">=</span> (<span class="dt">Semantic</span> b <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> (<span class="dt">BS</span> a b) <span class="ot">=</span> (<span class="dt">Semantic</span> b <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Syntactic</span> a <span class="ot">=</span> <span class="dt">Sing</span> a</span></code></pre></div>
+<p><code>Category</code> is a new type, but also gets lifted, so that it’s a new <em>kind</em>. We then write a type family, <code>Semantic</code>, on types of this kind, that takes a type like <code>N</code> (standing for “number”) and gives the type that a number’s meaning should have, which for our purposes is <code>Int</code>.</p>
+<p><code>Syntactic a</code> is a convenient synonym for the singleton library’s <code>Type</code>-kinded <code>Sing a</code>.</p>
+<p>With this, we can now give a beautiful dependent type for lexicons:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Lexicon</span> <span class="ot">=</span> <span class="kw">forall</span> (<span class="ot">a ::</span> <span class="dt">Category</span>)<span class="op">.</span> <span class="dt">Syntactic</span> a <span class="ot">-&gt;</span> <span class="dt">Text</span> <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a</span></code></pre></div>
+<p>An example of a lexicon, as we might need for an interpreter, is:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">example ::</span> <span class="dt">Maybe</span> <span class="dt">Integer</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>example <span class="ot">=</span> (<span class="fu">fmap</span> <span class="op">.</span> <span class="fu">fmap</span>) <span class="fu">sum</span> <span class="dt">Just</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ot">exampleLexicon ::</span> <span class="dt">Lexicon</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="ot">=</span> \<span class="kw">case</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Number</span> <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;1&quot;</span> <span class="ot">-&gt;</span> <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;2&quot;</span> <span class="ot">-&gt;</span> <span class="dv">2</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;3&quot;</span> <span class="ot">-&gt;</span> <span class="dv">3</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;4&quot;</span> <span class="ot">-&gt;</span> <span class="dv">4</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;5&quot;</span> <span class="ot">-&gt;</span> <span class="dv">5</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;6&quot;</span> <span class="ot">-&gt;</span> <span class="dv">6</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;7&quot;</span> <span class="ot">-&gt;</span> <span class="dv">7</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;8&quot;</span> <span class="ot">-&gt;</span> <span class="dv">8</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;9&quot;</span> <span class="ot">-&gt;</span> <span class="dv">9</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Proposition</span> <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;True&quot;</span> <span class="ot">-&gt;</span> <span class="dt">True</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;False&quot;</span> <span class="ot">-&gt;</span> <span class="dt">False</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Number</span> <span class="ot">`ForwardSlash`</span> <span class="dt">Number</span> <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;-&quot;</span> <span class="ot">-&gt;</span> <span class="fu">negate</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    (<span class="dt">Proposition</span> <span class="ot">`BackSlash`</span> <span class="dt">Number</span> ) <span class="ot">`ForwardSlash`</span> <span class="dt">Number</span>  <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;=&quot;</span> <span class="ot">-&gt;</span> (<span class="op">==</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    (<span class="dt">Number</span> <span class="ot">`ForwardSlash`</span> <span class="dt">Number</span> ) <span class="ot">`BackSlash`</span> <span class="dt">Number</span>  <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;+&quot;</span> <span class="ot">-&gt;</span> (<span class="op">+</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    _ <span class="ot">-&gt;</span> <span class="fu">error</span> <span class="st">&quot;not implemented&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Category</span> <span class="ot">=</span>  </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Proposition</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Number</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Branch</span> <span class="dt">Category</span> <span class="dt">Category</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>genSingletons ['<span class="dt">'Category</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Semantic</span> e (<span class="ot">s ::</span> <span class="dt">Category</span>) <span class="kw">where</span>    <span class="dt">Semantic</span> e <span class="dt">Number</span>  <span class="ot">=</span> e</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> _ <span class="dt">Proposition</span> <span class="ot">=</span> <span class="dt">Bool</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> e (<span class="dt">Branch</span> a b) <span class="ot">=</span> (<span class="dt">Semantic</span> e b <span class="ot">-&gt;</span> <span class="dt">Semantic</span> e a)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ot">lexicon ::</span> <span class="kw">forall</span> (<span class="ot">a ::</span> <span class="dt">Category</span>)<span class="op">.</span> <span class="dt">Syntactic</span> a <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a</span></code></pre></div>
+<p>This type states its intent beautifully. For any type of kind <code>Category</code>, the syntactic representation (of kind <code>Type</code>) is mapped to the semantic representation (also of kind <code>Type</code>).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>examples</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="dt">Proposition</span> <span class="st">&quot;True&quot;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="dt">Number</span> <span class="st">&quot;3&quot;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dt">No</span> <span class="kw">instance</span> for (<span class="dt">Show</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>(exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span>) <span class="dv">5</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> (<span class="op">-</span><span class="dv">5</span>)</span></code></pre></div>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>
+]]></summary>
+</entry>
+<entry>
+    <title>Social Reasoning in Arcadia</title>
+    <link href="https://reubenharry.github.io/blog/social-reasoning-in-arcadia/index.html" />
+    <id>https://reubenharry.github.io/blog/social-reasoning-in-arcadia/index.html</id>
+    <published>2018-06-26T16:07:24Z</published>
+    <updated>2018-06-26T16:07:24Z</updated>
+    <summary type="html"><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social Reasoning in Arcadia</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <link rel="stylesheet" href="../../webppl-editor.css">
+  <link rel="stylesheet" href="../../webppl-viz.css">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Social Reasoning in Arcadia</h1>
+    
+    <p class="post-meta">26 June 2018</p>
+    
+  </header>
+  <div class="post-body">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+<h3 id="a-tour-of-the-bayesian-perspective-on-pragmatics">A tour of the Bayesian perspective on pragmatics</h3>
+<p>This is an introduction to the nested reasoning models (<em>I think that you think that I think…</em>) that I worked on in my Phd. I’ve tried to make this light on mathematical detail (barring the occasional technical digression) in favour of the big picture point, that Bayesian inference and nested reasoning are really great tools for thinking about language and meaning.</p>
+<hr />
+<p>Picture the scene: it’s midday in Arcadia and Echo is waiting for Narcissus to finish his lengthy beauty routine:</p>
+<blockquote>
+<p>Echo: Will you be done soon?</p>
+</blockquote>
+<blockquote>
+<p>Narcissus: Don’t hold your breath.</p>
+</blockquote>
+<p>We gather from Narcissus’ response that the answer is no, but how? After all, if Echo had asked “what is a useful piece of advice when deep sea diving”, Narcissus’ reply would take on a totally different character. So it would seem that the meaning we infer from Narcissus’ utterance depends not only on the utterance itself, but the context in which it is said.</p>
+<p>Meaning, to understate the issue, is a bit of a head scratcher. We could venture to say that Narcissus’ statement has <strong>semantic</strong> content (it’s a recommendation to not hold your breath), and meanings in different contexts (“No I won’t be ready any time soon.”, “Holding your breath is a poor way to dive.”), which is <em>inferred</em> from the context. (Deciding what content belongs to the statement as opposed to the context is often tricky. For instance, “don’t hold your breath” is an idiom in English - the meaning “It will take a long time” is at least somewhat baked into its semantic content.)</p>
+<figure style="max-width: 1000px">
+<img src="../../img/diagram2.png" alt>
+</figure>
+<p>This inference to obtain the “full” meaning from the semantic content and context, which we make so easily, is complicated to spell out, even if a vague, informal way:</p>
+<blockquote>
+<p>if Narcissus had been able to answer truthfully that he would be done soon, he would have done, but he did not. Given that, and since “Don’t hold your breath” is relevant advice in situations where you’re going to have to wait a long time, it seems that Narcissus is trying to convey that he won’t be done soon.</p>
+</blockquote>
+<p>The study of the semantic content belongs to the field of <em>semantics</em>, while the richer meaning derived from reasoning about the situation - the pragmatic content - is the focus of <em>pragmatics</em> (The distinction was described as follows by a student in a class I TA’ed: <em>“Semantics is about what things mean, and pragmatics is about what they like actually mean.”</em>. Relatedly, I’ve always wanted to write a philosophy paper introducing a <em>like actually</em> operator LA, such that LA(P) iff P is like actually true.). The hope is that by factoring the relation between language and the world into these two pieces, we can simplify and refine our understanding of how that relationship works.</p>
+<p>I want to show how we can boil down the essence of the above reasoning, and get out a paradigm for formalizing pragmatics which involves <em>nested inference</em>: an inference about another agent’s inference. What I’ll describe is the <a href="http://langcog.stanford.edu/papers_new/goodman-2016-tics.pdf">Rational Speech Acts (RSA)</a> paradigm, and comes from <a href="http://www.home.uni-osnabrueck.de/michfranke/Papers/Franke_PhD_thesis.pdf">previous work on game theory</a> going back to <a href="https://www.princeton.edu/~harman/Courses/PHI534-2012-13/Nov26/lewis-convention1.pdf">Lewis</a>.</p>
+<figure style="max-width: 100px">
+<img src="../../img/nested.png" alt>
+</figure>
+<p>My goal here is to show why the language of Bayesian probability (and in particular, recursive inference models like RSA) are the Right Tool for the Job: they neatly incorporate and generalize a logical semantics, can be <a href="http://www.problang.org/">computationally modeled</a>, <a href="https://psyarxiv.com/f9y6b/">experimentally tested</a>, <a href="https://nlp.stanford.edu/pubs/monroe2015learning.pdf">integrated with machine learning</a>, and what for my money matters most, formalize the essence of social reasoning. In short, <strong>they are for pragmatics what classical logic is for semantics</strong>.</p>
+<h1 id="starting-simple">Starting Simple</h1>
+<p>OK, so in the interest of tractability, let’s exchange our complex example from above for something much simpler and more mundane. Our Classical couple are looking for two sheep that have wandered off from the herd (shepherding is really the only profession in Arcadia):</p>
+<blockquote>
+<p>Echo: Did you find both sheep?</p>
+</blockquote>
+<blockquote>
+<p>Narcissus: I found one of them.</p>
+</blockquote>
+<p>This example, or something similar, is the <em><a href="https://www.ncbi.nlm.nih.gov/pubmed/22530382">drosophila</a></em> of pragmatics: a scalar implicature. It’s like the previous example in that the semantic and pragmatic content differ; Narcissus doesn’t explicitly say that he didn’t find both of them. That’s a state of affairs compatible with his utterance. After all, if you’ve found both, it’s true that you’ve found one. A logician might represent the <strong>semantic content</strong> of his utterance as</p>
+<p><span class="math display">\[ (1) \quad \exists s. found(N,s)\]</span></p>
+<p>However, if it was true that he’d found both sheep, he would have said as much, so we can <em>infer</em> that he found one but not both. We could represent this <strong>pragmatic content</strong> as</p>
+<p><span class="math display">\[(2) \quad \exists s. found(N,s) \wedge \neg\forall s. found(N,s)\]</span></p>
+<p>Note that (1) does not logically imply (2). That is, knowing that (1) is true is not enough in itself to know that (2) is true. And yet, we do know, or at least strongly suspect (2) is the case on the basis of Narcissus’ utterance.</p>
+<p>So if we can’t get from (1) to (2) by logical means, we’ll need something else, capable of representing the counterfactual reasoning: “since (2) is a more informative statement than (1) (on account of implying (1)), if Narcissus been in a position to say (2), he would have. But he didn’t, so he wasn’t.”.</p>
+<p>Fortunately, this example is simple enough that we can <strong>formalize</strong> it - i.e. build a model (with nice interactive code) which captures everything we are presently interested in about it. So let’s.</p>
+<h1 id="preliminaries">Preliminaries</h1>
+<p>We’re going to refer to the set of all utterances as <strong>U</strong>. <strong>U</strong> represents all the things Narcissus could have said as a reply to Echo’s question. Because this is a simple model, we’ll replace the infinitude of possible utterances with a more modest number, 2. <strong>U</strong> = { <em>I found one of the sheep</em>, <em>I found both of the sheep</em>}.</p>
+<p>There’s another set we need to consider, the set <strong>W</strong> of all possible states (i.e. things which could be the case in the world). Again, our present purposes allow us to keep this simple too</p>
+<ul>
+<li><em>one</em>: the state in which Narcissus has found exactly 1 sheep</li>
+<li><em>two</em>: the state in which Narcissus has found exactly 2 sheep</li>
+</ul>
+<p>We’re now in a position to talk about literal meaning. In a state <em>w</em> <span class="math inline">\(\in\)</span> <strong>W</strong>, an utterance is either true or false. For example, if Narcissus has found one sheep, so that the world state is <em>one</em>, then saying <em>I found both of the sheep</em> is untrue. He’d be deluded or deceitful to say it.</p>
+<p>OK, so formally, that all means that the semantics is a <strong>relation</strong>, which is a function of type <span class="math inline">\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\)</span>) (we write <span class="math inline">\(\llbracket u \rrbracket(w)\)</span> to mean that the thing <em>u</em> means is compatible with the world <em>w</em>). More visually, a world <em>w</em> and an utterance <em>u</em> are related if there’s a line between them, as in the diagram below:</p>
+<figure style="max-width: 1000px">
+<img src="../../img/diagram3.png" alt>
+</figure>
+<p>To make things a bit more interactive, here’s some code to play with in a probabilistic programming language (<a href="https://probmods.org/">this introduction</a> uses PPLs to model cognition) which represents the semantics. Nothing probabilistic yet, but WebPPL will feature again below in a more sophisticated capacity.</p>
+<pre>
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
+
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+meaning("I found both of the sheep",{totalSheepFound:1})
+
+</pre>
+<h1 id="overview-of-the-model">Overview of The Model</h1>
+<p>And now for the Bayesian part. We’ll start by modeling literal interpretation, via a model I’ll call <span class="math inline">\(L_0\)</span>, which is hardly anything more than the semantics we already have in a slightly different shape. We’ll use <span class="math inline">\(L_0\)</span> to build a model of production (i.e. choice of utterance given world state) called <span class="math inline">\(S_1\)</span>, which in turn we’ll use to build our end goal, <span class="math inline">\(L_1\)</span>. <span class="math inline">\(L_1\)</span> is a model of interpretation which accounts not just for semantic meaning, but for pragmatic meaning. We can think of <span class="math inline">\(L_1\)</span> as a model which reasons about a speaker <span class="math inline">\(S_1\)</span> which is itself reasoning about <span class="math inline">\(L_0\)</span>. Sorry if that’s a bit of a mouthful. The big picture idea is that by reasoning about your interlocutor reasoning about you, you can infer extra, <em>pragmatic</em>, meaning beyond the semantic content of what you hear.</p>
+<figure style="max-width: 1000px">
+<img src="../../img/diagram1.png" alt>
+</figure>
+<p>This image graphically represents the overview above. On the left we have the space of utterances, and on the right, the space of worlds. Models of interpretation, often called “listeners”, are shown as red arrows (in a precise sense discussed below) from <strong>U</strong> to <strong>W</strong>, while models of production, sometimes called “speakers”, are depicted as blue arrows in the opposite direction. Finally, the vertical arrow between speaker and listener models are there to suggest that the <span class="math inline">\(L_1\)</span> is build from the <span class="math inline">\(S_1\)</span>, and the <span class="math inline">\(S_1\)</span> from the <span class="math inline">\(L_0\)</span>.</p>
+<p>(Brief digression with technical hat on: for the computer scientists, there’s a more general recursive definition: <span class="math inline">\(S_n\)</span> is defined in terms of <span class="math inline">\(L_n\\__1\)</span>, which is defined in terms of <span class="math inline">\(S_n\\__1\)</span>, and so on. <span class="math inline">\(L_0\)</span> is the base case of the recursion, and the fix point <span class="math inline">\(L_m\)</span> such that <span class="math inline">\(L_m\)</span> = <span class="math inline">\(L_m\\__1\)</span> represents the ideal listener, which is closely related to the notion of a game theoretic equilibrium.)</p>
+<h1 id="the-literal-listener-l_0">The Literal Listener <span class="math inline">\(L_0\)</span></h1>
+<p>First of all, what type of thing is <span class="math inline">\(L_0\)</span>? It’s going to be a function which takes <em>u</em> <span class="math inline">\(\in\)</span> <em>U</em> and returns a distribution over all <em>w</em> <span class="math inline">\(\in\)</span> W. This is just a way of saying it’s a conditional distribution <span class="math inline">\(L_0\)</span>(w|u), but I prefer the function perspective (*<em>putting on the pointiest most arcane ivory tower shaped hat*</em>, a conditional distribution is a morphism in a very special <a href="https://plato.stanford.edu/entries/category-theory/#2">category</a> - the Kleisli category of the distribution monad - which is precisely why it makes sense to view them as arrows, and implicitly is what we’re doing when we do probabilistic programming. If you do probabilistic programming in Haskell, then it’s also explicitly what you’re doing.).</p>
+<p>Here’s the (simplest possible) definition of <span class="math inline">\(L_0\)</span> (I’m ignoring things like cost, non-uniform priors on worlds and utterances, rationality parameters - all useful, but unnecessary for deriving scalar implicatures):</p>
+<p><span class="math display">\[L_0(w|u) = \frac{\llbracket u \rrbracket(w)}{\sum_{w'} \llbracket u \rrbracket(w')}\]</span></p>
+<p>If you’re like me, this equation might seem less than helpful. Here’s an explanation of what it actually amounts to: After hearing an utterance u, <span class="math inline">\(L_0\)</span> thinks all worlds <em>compatible with the utterance they just heard</em> are equally likely. Here’s code that implements the <span class="math inline">\(L_0\)</span>:</p>
+<pre>
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
+
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+var l0 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds);
+    condition(meaning(utterance, world))
+    return world}})}
+
+viz(l0("I found one of the sheep"))
+viz(l0("I found both of the sheep"))
+
+</pre>
+<p>So <span class="math inline">\(L_0\)</span> is a simple generalization of a logical semantics. Probabilistic programming is useful for defining this sort of model, particularly when things start getting complicated. Oh, and here’s a visualization of the <span class="math inline">\(L_0\)</span> posterior conditional distributions:</p>
+<figure style="max-width: 1000px">
+<img src="../../img/diagram4.png" alt>
+</figure>
+<h1 id="the-informative-speaker-s_1">The Informative Speaker <span class="math inline">\(S_1\)</span></h1>
+<p>There’s a sense in which <em>production is the dual of interpretation</em>. A production model is a conditional distribution p(u|w); given a state, it gives a distribution over utterances. The particular production model we’re interested in is <span class="math inline">\(S_1\)</span>, defined as:</p>
+<p><span class="math display">\[S_1(u|w) = \frac{L_0(w|u)}{\sum_{u'} L_0(w|u')}\]</span></p>
+<p>This production model’s goal is to maximize informativity; it has some state <em>w</em> it wants to convey, and it put the most weight on the utterance <em>u</em> which gets the literal listener <span class="math inline">\(L_0\)</span> to place the most weight on <em>w</em> after hearing u. Again, code, to make that interactive:</p>
+<pre>
+
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
+
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+var l0 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds);
+    condition(meaning(utterance, world))
+    return world}})}
+
+var s1 = function(world){
+  Infer({model: function(){
+    var utterance = uniformDraw(utterances)
+    factor(l0(utterance).score(world))
+    return utterance}})}
+
+viz(s1({totalSheepFound:1}))
+viz(s1({totalSheepFound:2}))
+
+</pre>
+<p>And a diagram of the conditional distributions:</p>
+<figure style="max-width: 1000px">
+<img src="../../img/diagram5.png" alt>
+</figure>
+<h1 id="the-pragmatic-listener-l_1">The Pragmatic Listener <span class="math inline">\(L_1\)</span></h1>
+<p>OK, so we had a listener <span class="math inline">\(L_0\)</span>. And we had <span class="math inline">\(S_1\)</span> thinking about <span class="math inline">\(L_0\)</span>. Now we’re going to have <span class="math inline">\(L_1\)</span>, which is a model of a listener who thinks about <span class="math inline">\(S_1\)</span> thinking about <span class="math inline">\(L_0\)</span>:</p>
+<p><span class="math display">\[L_1(w|u) = \frac{S_1(u|w)}{\sum_{w'} S_1(u|w')}\]</span></p>
+<p>You can think of <span class="math inline">\(L_1\)</span> hearing an utterance <em>u</em> and asking the following question: what world state must <span class="math inline">\(S_1\)</span> have been in to have said u. See what happens when you run the code.</p>
+<pre>
+
+var worlds = [{totalSheepFound:1},{totalSheepFound:2}]
+var utterances = [
+	"I found one of the sheep",
+	"I found both of the sheep"]
+
+var meaning = function(utterance, world){
+  (utterance === "I found one of the sheep")
+  && (world['totalSheepFound']>0)  ? true :
+  (utterance === "I found both of the sheep")
+  && (world['totalSheepFound']==2)  ? true :
+  false}
+
+var l0 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds);
+    condition(meaning(utterance, world))
+    return world}})}
+
+var s1 = function(world){
+  Infer({model: function(){
+    var utterance = uniformDraw(utterances)
+    factor(l0(utterance).score(world))
+    return utterance}})}
+
+// pragmatic listener
+var l1 = function(utterance){
+  Infer({model: function(){
+    var world = uniformDraw(worlds)
+    factor(s1(world).score(utterance))
+    return world }})}
+
+viz(l1("I found one of the sheep"))
+viz(l1("I found both of the sheep"))
+
+</pre>
+<p>Or just see the figure below:</p>
+<figure style="max-width: 1000px">
+<img src="../../img/diagram6.png" alt>
+</figure>
+<p>The takeaway is that <span class="math inline">\(L_1\)</span> hears <em>I found one of the sheep</em> and <strong>infers</strong> that it’s more likely to be the case that <em>only</em> one sheep has been found. Tada, it’s a scalar implicature!</p>
+<p>So to wrap up, we’ve seen how to model a simple type of pragmatic meaning using nested Bayesian models. This example was simple, but the core idea of <em>pragmatic phenomena arising naturally from a semantics and nested reasoning</em> is powerful. All sorts of pragmatic phenomena can be tackled with tools of this ilk, like <a href="https://web.stanford.edu/~danlass/Lassiter-Goodman-adjectival-vagueness-Synthese.pdf">vagueness</a>, <a href="https://mindmodeling.org/cogsci2014/papers/132/paper132.pdf">metaphor</a>, <a href="http://www.pnas.org/content/111/33/12002">hyperbole</a>, <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/tops.12144">focus</a>, <a href="http://semprag.org/article/view/sp.9.20/pdf">m-implicature</a>, <a href="https://stuhlmueller.org/papers/qa-cogsci2015.pdf">questions</a>, <a href="https://pdfs.semanticscholar.org/58e0/e256b3191603513f564acec4a984b6e8f3e1.pdf">generic language</a> and <a href="https://stanford.edu/~mtessler/papers/YoonTessler2016-cogsci.pdf">politeness</a>.</p>
+<p>With a logical semantics, we had a way to get from utterances to compatible world states, but no way to handle pragmatic meaning formally. By making things probabilistic, we get to do semantics and pragmatics in a unified framework: pragmatic and semantic meanings exist in the same space. That’s good.</p>
+<p>Moreover, in this paradigm, pragmatic meaning arises naturally from a recursive process of inter-agent reasoning where the base case is a semantics, i.e. a conventional relationship between states of the world and utterances.</p>
+<p>Next time, we’ll see that by changing <em>U</em> and <em>W</em> to represent different spaces, similar models take on a different character and can be used to model sociolinguistic phenomena.</p>
+<h1 id="faq-addendum">FAQ Addendum:</h1>
+<ol type="1">
+<li><p><strong>Q</strong>: Why start with a literal listener, not a literal speaker? <strong>A</strong>: No reason - the other way works too. In fact, we could also start with both and do a mutual recursion. I’m becoming increasingly convinced that this is the right thing to do.</p></li>
+<li><p><strong>Q</strong>: Can we add more layers above <span class="math inline">\(L_1\)</span>? <strong>A</strong>: Yes! the more we add, the closer the model gets to making hard (i.e. non-probabilistic) decisions. See the above digression about fix points.</p></li>
+<li><p><strong>Q</strong>: Do we ever need more? <strong>A</strong>: Yes. But only for more complicated phenomena. For scalar implicature, this many layers does just fine.</p></li>
+<li><p><strong>Q</strong>: What is Bayesian probability adding here? <strong>A</strong>: there are many answers, but here’s my favourite: in classical logic, an implication <span class="math inline">\(p\to q\)</span> allows information to flow from p to q. But if you know the value of q, you don’t know anything about p. The essence of Bayesian probability is precisely that if you have <span class="math inline">\(p\to q\)</span> and you know about q, you know about p. <strong>Information flows backwards</strong>. That’s a pretty abstract answer, but can be made precise, albeit with more technical details added. That said, there are non-probabilistic approaches available too.</p></li>
+</ol>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+  <script src="../../webppl.js"></script>
+  <script src="../../webppl-editor.js"></script>
+  <script src="../../webppl-viz.js"></script>
+  <script>
+    Array.prototype.slice.call(document.querySelectorAll("pre")).forEach(function (el) {
+      editor.setup(el, { language: "webppl" });
+    });
+  </script>
+  
+</body>
+</html>
+]]></summary>
+</entry>
+<entry>
+    <title>Informativity and Galois Connections</title>
+    <link href="https://reubenharry.github.io/blog/informativity-and-galois-connections/index.html" />
+    <id>https://reubenharry.github.io/blog/informativity-and-galois-connections/index.html</id>
+    <published>2015-06-26T16:07:24Z</published>
+    <updated>2015-06-26T16:07:24Z</updated>
+    <summary type="html"><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informativity and Galois Connections</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Informativity and Galois Connections</h1>
+    
+    <p class="post-meta">26 June 2015</p>
+    
+  </header>
+  <div class="post-body">
+    <ul>
+<li></li>
+</ul>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+<p>Here is an observation that I talked about at MIT’s <a href="http://brendanfong.com/seminar.html">category theory seminar</a> at some point, relating <a href="http://www.glottopedia.org/index.php/Gricean_maxims">Grice’s maxims of Quantity and Quality</a> to the mathematical notion of a Galois connection.</p>
+<h3 id="abstract-summary">Abstract Summary:</h3>
+<p>For a state space W, the left adjoint of a monotone map (i.e. a left Galois connection), <span class="math inline">\(L_0\)</span>, from a set of utterances U to the poset (ordered by inclusion) <span class="math inline">\(\mathcal{P}(W)\)</span> is the monotone map <span class="math inline">\(S_1: \mathcal{P}(W)\to U\)</span> which takes a set of states and returns the strongest true utterance with respect to <span class="math inline">\(L_0\)</span>. This happens to be a very natural way to encode Grice’s maxims of Quality (roughly: speak truthfully) and Quantity (roughly: be as informative as possible, relative to what is relevant) simultaneously.</p>
+<h3 id="concrete-explanation">Concrete Explanation:</h3>
+<p>Each <span class="math inline">\(w \in W\)</span> is a state of the world, or, so that each element of <span class="math inline">\(\mathcal{P}(W)\)</span> is a set of states.</p>
+<p>As usual, the simplest possible example is a reference game, where “state” just means the intended referent. Concretely, say that W = <span class="math inline">\(\\{R_1, R_2, R_3\\}\)</span> as pictured below, and U = {<em>red dress</em>, <em>dress</em>, <em>hat</em>, <em>silence</em>}. Obviously arbitrary choices, but just for illustration.</p>
+<figure style="max-width: 1000px">
+<img src="../../img/referents.png" alt>
+</figure>
+<p>Say that the literal listener <span class="math inline">\(L_0\)</span> maps an utterance <em>u</em> to the set of referents (i.e. states, i.e. worlds) compatible with <em>u</em>, mapping <em>red dress</em> to <span class="math inline">\(\\{R_1\\}\)</span>, <em>dress</em> to <span class="math inline">\(\\{R_1, R_2\\}\)</span> , <em>hat</em> to <span class="math inline">\(\\{R_3\\}\)</span> and <em>silence</em> to <span class="math inline">\(\\{R_1, R_2, R_3\\}\)</span>.</p>
+<p>Note that we can make U a poset by defining the partial ordering on U where <span class="math inline">\(u \leq u' \leftrightarrow L_0(u) \leq L_0(u')\)</span>. For example, <span class="math inline">\(\mathit{dress} \leq \mathit{silence}\)</span>. Note that <span class="math inline">\(u \leq u'\)</span> means that u is <em>stronger</em> than u’.</p>
+<p>It then follows (by the definition of the ordering on U) that <span class="math inline">\(L_0\)</span> is a monotone map (i.e. a function that preserves the poset ordering) from U to W.</p>
+<h3 id="galois-connections">Galois Connections</h3>
+<!-- The idea of a Galois connection (I think invented by Galois in his proof that there's no general formula for quintic equations) -->
+<p>So far just definitions. Just one more: for monotone maps f and g, f is the left Galois connection of g iff:</p>
+<p><span class="math display">\[f(s) \leq u \leftrightarrow s \leq g(u)\]</span></p>
+<p>It takes a bit of thinking to make sense of this strange definition, but the intuition is this: there’s no obvious notion of an exact inverse of g, because g might well not be surjective (or injective). But for a monotone map, there’s a notion of the best approximation of such an inverse. That approximation is f, as defined above. (In fact there are two, the left and right Galois connections, and more broadly, the left and right adjoints of a functor. A monotone map is a very simple case of a functor between very simple categories, namely posets).</p>
+<p>Maybe this direct corollary of the above definition will help: if I know g, then its left adjoint f is defined as:</p>
+<p><span class="math display">\[f(s) = \bigwedge(\\{u : s \leq g(u)\\})\]</span>.</p>
+<p>I write <span class="math inline">\(\bigwedge(X)\)</span> for a poset X to mean the greatest lower bound of X.</p>
+<p>OK, so now you can ask: what’s the left Galois connection of the literal listener <span class="math inline">\(L_0\)</span>? Let’s call this left Galois connection <span class="math inline">\(S_1\)</span>, for reasons that will soon be clear. Again, note that <span class="math inline">\(L_0\)</span> can’t just be inverted, because it’s in general not the case that for any subset s of W (i.e. element of <span class="math inline">\(\mathcal{P}(W)\)</span>), there’s an expression which means exactly s under <span class="math inline">\(L_0\)</span>.</p>
+<p>It’s illustrative to work through an example, to see what <span class="math inline">\(S_1\)</span> looks like. Using our case from above, what’s <span class="math inline">\(S_1(\\{R_2\\})\)</span>?</p>
+<p>Well, <span class="math inline">\(S_1(\\{R_2\\}) = \bigwedge\\{u : \\{R_2\\} \leq L_0(u)\\})\)</span> = <span class="math inline">\(\bigwedge(\\{dress, silence\\})\)</span> = <span class="math inline">\(dress\)</span>.</p>
+<p>First you find all the utterances that map to supersets of <span class="math inline">\(\\{R_2\\}\)</span>. These are all the true utterances (<em>Quality</em>). Then you take the greatest lower bound (<em>Quantity</em>).</p>
+<p>So in other words, the definition of an left Galois connection gives you the following informative speaker <span class="math inline">\(S_1\)</span>: consider the set of all utterances compatible with your (possibly singleton) set of worlds, and choose the strongest of these. There’s something nice about how the maxims of Quality and Quantity fall out from this.</p>
+<!-- That's \\(\\{dress, silence\\}\\). Then you take the greatest lower bound.  -->
+<!-- The notion of "Galois connection" formalizes "best approximation of the inverse of a monotone map between posets". (More abstractly, a Galois connection is a kind of adjoint functor, but that's by the by.) -->
+<p>We also obtain similar results for pragmatic implicatures (that I won’t sketch out here for reasons of laziness) namely that a literal speaker, in the form of a monotone map <span class="math inline">\(S_0\)</span> from w <span class="math inline">\(\in\)</span> W to <em>us</em> in <span class="math inline">\(\mathcal{P}(U)\)</span>, admits a left Galois connection <span class="math inline">\(L_1\)</span> which returns the exhaustification (linguistics term) of the literal meaning of <em>us</em>. So this would model, for example, the fact that the pragmatic interpretation of a (possibly singleton) set of utterances <em>us</em> should give the smallest set of possible worlds that could have produced every <span class="math inline">\(u \in \mathit{us}\)</span>.</p>
+<p>The niceness of this correspondence between Galois connections and pragmatics suggests that something relatively deep is going on here, but I haven’t thought about it too much further. The sensible thing to do would be to consider the categorical generalization of Galois connections, namely adjoint functors, and to see if we get the same effect when we invert a more sophisticated functorial semantics.</p>
+<p>I came up with this idea thanks to John Baez’s fantastic <a href="https://forum.azimuthproject.org/categories/applied-category-theory-course">category theory course</a>, based off of David Spivak and Brendan Fong’s <em><a href="http://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf">Seven Sketches in Compositionality</a></em>.</p>
+<p>Summary:</p>
+<p>*An informative speaker is a left Galois connection to a literal listener</p>
+<p>*A pragmatic listener is a left Galois connection to a literal speaker</p>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>
+]]></summary>
+</entry>
+<entry>
+    <title>Eulogy</title>
+    <link href="https://reubenharry.github.io/blog/eulogy/index.html" />
+    <id>https://reubenharry.github.io/blog/eulogy/index.html</id>
+    <published>2015-05-26T07:01:22Z</published>
+    <updated>2015-05-26T07:01:22Z</updated>
+    <summary type="html"><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eulogy</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Eulogy</h1>
+    
+    <p class="post-meta">26 May 2015</p>
+    
+  </header>
+  <div class="post-body">
+    <p>–</p>
+<h1 id="to-my-father-late">To my father (late)</h1>
+<p>I dream about you all the time. Sometimes we’re in a car, and I try to gently remind you that it is dangerous for people who have suffered a fatal heart attack to drive.</p>
+<p>Living in memory doesn’t really suit you, with its proclivity for the grandiose. Epithets like “wise” and “gentle” roll off you slightly awkwardly, though true. They misleadingly suggest an air of purposeful humility. In my mother’s words, you were “the rare case of a man without an ego”.</p>
+<h3 id="some-assorted-thoughts">Some assorted thoughts:</h3>
+<ul>
+<li><p>You loved to be early - to airports, especially. This, part of a perennial but mild neuroticism.</p></li>
+<li><p>You cooked wonderful food <em>every day</em> - your homespun repertoire, now lost for good, was of vaguely hippyish vegetarian rice dishes, which you’d experiment on over time.</p></li>
+<li><p>You loved to do chores (who loves to do chores?) and were sometimes comically meticulous. When I sent you an email asking if I’d left some item of clothing at home, I’d get 10 photos of potential culprits in return, with an offer to send any of them over immediately.</p></li>
+<li><p>You didn’t get angry.</p></li>
+<li><p>You drove us, as children, to playgrounds and amusement parks, and later sports events and parties, unfailingly, at all hours of the day, and without complaint.</p></li>
+<li><p>When I lost my temper, you knew exactly how to defuse my anger with a joke that indicated you understood my side.</p></li>
+<li><p>You had a subtle sense of humor - we would often send each other comedy skits - and I keep old emails of yours marked unread in my inbox that still make me laugh, like memories of your jocular expressions, slightly ludicrous but self aware.</p></li>
+<li><p>On the other hand, you were subdued in the presence of strangers. Even old friends remarked on your quietness.</p></li>
+<li><p>You’d clean my room against my will every time I left for a term at uni. You claimed, computer scientist that you were, that this process was “structure preserving” - you just mapped the books and clothes strewn over my floor to new, tidier positions. This was not true.</p></li>
+<li><p>You owned at least 20 pairs of glasses, lost behind every sofa in the house, like some mad academic. In your later years you’d start to prefer ones with perfectly round, small lenses, that made you look like a 19th century German professor. “They’re quite good, aren’t they”, you’d say with a wry grin to my mother’s disparagement, that makes me smile.</p></li>
+<li><p>You’d pick mushrooms in the fields, and point them out when we went on walks and talked about logic and my half baked thoughts about philosophy.</p></li>
+<li><p>Your chair is empty at dinner now, like the chair left for Elijah at passover, who is always welcome but never shows up.</p></li>
+</ul>
+<h3 id="more-thoughts">More thoughts:</h3>
+<p>I remember you, in an atemporal sort of way, sitting in your room reading a spy novel in your shirt and boxers, while watching the news. You once picked me up from the station wearing that. You once cut onions wearing a snorkeling mask to protect your eyes. I miss all your small absurdities.</p>
+<p>I remember your inflexible hands and carpal-tunnel-ridden handwriting. A characteristically forthright hotel manager in the Midlands had once suggested I do your signature for you. You were also of a departing generation of computer scientists who typed slower than they wrote.</p>
+<p>I remember once finding a book in the house and noticing with surprise that you had written it. It had just never occurred to you to mention that. You didn’t have a retirement party, because the whole idea was “embarrassing”. Even in your death. you were unassuming; you just dropped the pan you were holding, fell back, and that was pretty much that.</p>
+<p>I remember how you booked me into an arachnophobia course without telling me (you had cured your own arachnophobia by capturing and keeping a spider as a pet, but then, that approach isn’t for everyone).</p>
+<p>I remember how I once turned up for an interview, only to find that my interviewer was an old friend of yours. you had deliberately avoided mentioning this, feeling uncomfortable with any possibility of nepotism.</p>
+<p>I remember how you would always check the lights were off at night (usually several times), and find me downstairs. There would always be some thought you had to share, or some mild concern. I always teased you about worrying too much. You’d exaggerate it in turn. In the afternoon, you’d drop in to my room to ask what I wanted for dinner. I also remember my excitement in early childhood to hear the sound of your keys in the door, coming home from work.</p>
+<h3 id="and-also-and-also.">And also, and also.</h3>
+<p>You talked about your work so little that my own nascent interests in logic at university seemed like a coincidence when I found out about your limitless knowledge about that topic. Months before your death we’d stood on a beach in California, near where you are now buried, and worked out some logical definition with a stick in the sand.</p>
+<p>I inherited your social awkwardness, sense of humour, academic interests and as I’ve been occasionally told, your appearance.</p>
+<p>I always hoped, or rather assumed, that you’d be around to help me out my whole life, but as soon as you died, it became suddenly apparent that you inhabited a now distant seeming past, impossibly far away and inaccessible. This was cemented by the influx of consolatory emails, all so kind, from former students, colleagues and friends, which exposed a legacy of mentoring that, unbeknown to me, had characterized your career.</p>
+<p>I admired your intellectual patience, identified with your wry humour and I hoped you knew how much I loved you. That’s all my mother and brother and I wanted to say to you in hospital - that we loved you and that you should stay with us. you weren’t the sort of person I felt comfortable expressing that kind of emotion to at any less pressing time. It was just a bit too embarrassing and we were a bit too British.</p>
+<p>Your love for us was shown through acts not words - through books you’d recommend, emails with talks or papers you thought I’d enjoy about mathematics or Derrida or puddles in Yorkshire, and the ceaseless performance of a thousand and one small chores - whatever you thought would help us in our life. You were a perfect example of how to be good, and I miss you so so much.</p>
+<p>I take comfort that you lived a happy life to the almost very end, a self-made man whose own father had died in your early youth, and who had built your own family life from scratch.</p>
+<p>I hope to remember you when I cook meals from your mysterious recipes, and when I laugh uncomfortably during small talk. I’ll also remember you when I raise my eyebrows in that strained expression we both assume when talking to shop assistants and when I paw at my phone over the top of my glasses. And maybe, if I read The Cat in the Hat to children of my own or carry them up the stairs after they fall asleep on the sofa, I’ll remember your unassuming parenting, which was quietly gentle and wise.</p>
+<figure style="max-width: 1000px">
+<img src="../../img/meandmike.jpeg" alt>
+</figure>
+<p>(On display: the tendency our hair has to stick up at the back - his hidden by a hat)</p>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>
+]]></summary>
+</entry>
+
+</feed>

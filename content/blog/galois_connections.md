@@ -21,7 +21,7 @@ Each \\(w \in W\\) is a state of the world, or, so that each element of \\(\math
 
 As usual, the simplest possible example is a reference game, where "state" just means the intended referent. Concretely, say that W = \\(\\{R_1, R_2, R_3\\}\\) as pictured below, and U = {*red dress*, *dress*, *hat*, *silence*}. Obviously arbitrary choices, but just for illustration.
 
-{{< figure src="img/referents.png" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/referents.png" alt=""></figure>
 
 Say that the literal listener \\(L_0\\) maps an utterance *u* to the set of referents (i.e. states, i.e. worlds) compatible with *u*, mapping *red dress* to \\(\\{R_1\\}\\), *dress* to \\(\\{R_1, R_2\\}\\) , *hat* to \\(\\{R_3\\}\\) and *silence* to \\(\\{R_1, R_2, R_3\\}\\).
 

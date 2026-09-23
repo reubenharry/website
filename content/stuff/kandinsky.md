@@ -6,34 +6,17 @@ date: 2018-02-26T17:07:24+01:00
 draft: False
 
 ---
--
 
 "Being, somehow, Cervantes, and arriving thereby at the Quixote - that looked to Menard less challenging (and therefore less interesting) than continuing to be Pierre Menard and coming to the Quixote *through the experiences of Pierre Menard*." - Pierre Menard, Author of the Quixote (Borges)
 
-<html>
-<head>
-  <meta charset=utf-8 />
-  <title></title>
-  <style>
-    div.container {
-      display:inline-block;
-    }
-
-    p {
-      text-align:center;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <img src="/img/delicatetensionoriginal.jpg" height="200" width="300" />
-  </div>
-  <div class="container">
-    <img class="middle-img" src="/img/kandinsky.jpg"/ height="180" width="253" />
-
+<div class="img-row">
+<figure>
+<img src="/img/delicatetensionoriginal.jpg" height="200" width="300" alt="Delicate Tension, No.85 (original)">
+</figure>
+<figure>
+<img src="/img/kandinsky.jpg" height="180" width="253" alt="Delicate Tension (found objects)">
+</figure>
 </div>
-</body>
-</html>
 
 I found this set of objects, arranged exactly like Kandinsky's Delicate Tension No. 85, on the floor of my bedroom after I hadn't cleaned for a few weeks.
 

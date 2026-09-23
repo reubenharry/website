@@ -1,0 +1,13 @@
+<section class="listing">
+  <h1 class="post-title">$title$</h1>
+  <ul class="post-list">
+    $for(posts)$
+    <li>
+      <a href="$url$">$title$</a>
+      $if(date)$
+      <span class="post-meta">$date$</span>
+      $endif$
+    </li>
+    $endfor$
+  </ul>
+</section>

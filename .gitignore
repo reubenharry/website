@@ -1,4 +1,13 @@
-public/*
+# Hakyll / Cabal
+_cache/
+_site/
+dist-newstyle/
+.ghc.environment.*
+cabal.project.local
+_demos_build/
+
+# public/ is committed so Netlify can publish without a Haskell build
+
 # Created by https://www.gitignore.io/api/emacs
 
 ### Emacs ###

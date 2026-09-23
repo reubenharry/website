@@ -1,7 +1,7 @@
 ---
 title: "Dependent Types"
 date: 2020-01-26T17:07:24+01:00
-draft: True
+draft: false
 
 ---
 
@@ -153,6 +153,7 @@ lexicon :: forall (a :: Category). Syntactic a -> Semantic a
 
 This type states its intent beautifully. For any type of kind `Category`, the syntactic representation (of kind `Type`) is mapped to the semantic representation (also of kind `Type`).
 
+```haskell
 examples
 exampleLexicon Proposition "True"
 exampleLexicon Number "3"
@@ -160,3 +161,4 @@ exampleLexicon (Number `To` Number) "-"
 >>> No instance for (Show (Int -> Int))
 (exampleLexicon (Number `To` Number) "-") 5
 >>> (-5)
+```

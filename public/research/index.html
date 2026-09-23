@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research</title>
+  <link rel="stylesheet" href="../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../">Home</a>
+        <a href="../research/">Research</a>
+        <a href="../blog/">Blog</a>
+        <a href="../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="page">
+  <header class="post-header">
+    <h1 class="post-title">Research</h1>
+  </header>
+  <div class="post-body">
+    <h2 id="what-im-interested-in-at-the-moment">What I’m interested in at the moment</h2>
+<p>Recently I’ve been thinking about <a href="../blog/browser-spike">reactive probabilistic programming languages</a> and using them to build <a href="../blog/the-unfolding-of-language">dynamical systems models of cooperation between agents</a>. This is appealing because it pulls together a lot of the things I like: functional programming, non-equilibrium statistical mechanics, and a longstanding curiosity about cognition and convention.</p>
+<h2 id="physics">Physics</h2>
+<p>At Berkeley, I worked at the intersection of computational statistics and physics. These fields turn out to be very deeply connected, although there is surprisingly little cross-talk (possibly because both statisticians and physicists each have a different, totally incomprehensible jargon).</p>
+<p>In particular, I worked on the <a href="https://microcanonical-monte-carlo.netlify.app/">Microcanonical Hamiltonian Monte Carlo sampler</a>, which is inspired, as the name suggests, by the microcanonical ensemble in statistical mechanics. I worked on applying this to many-body problems in condensed matter physics. I also spent time thinking about flow-based models, and non-equilibrium physics, which led to <a href="https://arxiv.org/abs/2602.21272">counterdiabatic Hamiltonian Monte Carlo</a>.</p>
+<p>I’m also interested in how numerical methods in the applied sciences can be bolstered by theorem provers like Lean. As a step in that direction, I’ve been working on <a href="https://github.com/reubenharry/typed-fusion">using the <em>type system</em> of a statically typed language to enforce correctness of the fusion rules</a> for Lie group representations (and other fusion categories). Physicists never get exposed to this kind of computer science (try asking a physicist what the lambda calculus is), but I think this sort of approach will prove increasingly powerful in the future.</p>
+<h2 id="functional-programming">Functional programming</h2>
+<p>After my PhD, I worked in industry for a few years, on a variety of projects. One was a natural language interpreter. I think symbolic AI is conceptually misguided, but the opportunity to code full-time in Haskell was very appealing. One thing I worked on was incorporating <a href="../docs/language.html">multi-world expressions in a compositional semantics and grammar</a> via very general recursion schemes from category theory (histomorphisms). The result was a formalization of the spirit of construction grammar. I continue to think that the connection between free functors and fragment grammars is very beautiful, and would love to finish this project some day.</p>
+<p>A more recent project I’ve been working on is to extend reactive programming to handle stocahsticity, a project that Manuel Bärenz is <a href="https://www.tweag.io/blog/2023-10-12-rhine-bayes/">mainly responsible for</a>, to get <a href="../blog/browser-spike">online particle filters expressed as Feynman-Kac processes</a>. This is really cool!</p>
+<h2 id="language">Language</h2>
+<p>During my PhD, I worked on unifying logical and statistical perspectives on meaning in natural language using <a href="https://reubencohngordon.com/blog/social-reasoning-in-arcadia/">probabilistic models of pragmatic reasoning</a>.</p>
+<p>The general idea is to model the interpretation of a linguistic expression (e.g. a sentence) as a process of Bayesian inference, to ask: given that this sentence is true (or, more to the point, given that someone said it) what must the world be like. This turns out to be a nice viewpoint for integrating a traditional logical perspective on meaning with an information-theoretic one, as well as handling semantic and pragmatic meaning in a single framework. I say a little bit more about that in the introduction of my <a href="../docs/ReubenCG-thesis.pdf">dissertation</a>.</p>
+<p>Below are some of the projects I never quite finished; for one reason or another, a lot of the most interesting projects in grad school never ended up published. (For the others, see Google Scholar.)</p>
+<h3 id="direction-1-of-phd-research-scaling-the-models">Direction 1 of PhD research: scaling the models</h3>
+<ul>
+<li><p><a href="../docs/metaphor.pdf">Metaphor and Linguistic Creativity</a> <br />
+This paper explores the technical and conceptual consequences of a model of meaning where the listener’s prior is over a vector space. This allows integration with word embeddings. <br />
+(Cohn-Gordon and Bergen).</p></li>
+<li><p><a href="https://arxiv.org/abs/1902.09514">Lost in Machine Translation: A Method to Reduce Meaning Loss</a>
+<br />
+This and some related papers look at models of meaning where the utterance space is recursively generated. This allows for integration with a neural semantics, in particular a conditional language model.
+<br />
+(NAACL 2019 - Cohn-Gordon and Goodman).</p></li>
+</ul>
+<h3 id="direction-2-of-phd-research-enriching-the-models">Direction 2 of PhD research: enriching the models</h3>
+<!-- In particular, I was interested in scaling probabilistic models of meaning in computationally tractable ways to handle real-world natural language, as well as enriching them on the theoretical side. -->
+<ul>
+<li><a href="../docs/irony.pdf">Verbal Irony, Pretense, and the Common Ground</a>
+<br /> This paper looks at models where the listener is uncertain not only of the state of the world, but also the state of the common ground. In a nutshell, if I tell you something, you learn not only that thing, but also that I believed you didn’t already know it (an inference about my belief about your prior). A speaker can leverage this to communicate and that yields a very satisfying account of a very distinctive feature of <em>natural</em> languages, namely sarcasm.
+<br /> (Cohn-Gordon and Bergen).</li>
+</ul>
+<!-- [**Various other publications**](https://scholar.google.com/citations?user=AG4_QecAAAAJ&hl=en&oi=ao) -->
+<ul>
+<li><a href="../docs/salt.pdf">The Pragmatics of Multiparty Communication</a>
+<br /> This project looked at what novel dynamics emerge when there are multiple listeners, so any one can explain away a speaker’s utterance on the assumption that it was directed towards a different listener. The interesting idea lurking in the background is that the joint common ground is not the union of the pairwise common grounds; at some point I should sit down and write out clearly what this means. It also gives a nice model of the semantics of proper names as <em>presupposed</em> variable assignments, which shows how parts of a 1st order logical semantics can be lifted into a Bayesian model.
+<br /> (Cohn-Gordon, Levy, and Bergen).</li>
+</ul>
+<!-- ### Figurative Language -->
+<!-- ### Social Meaning -->
+<!--
+(Similar work presented at CompPrag 2018 - Cohn-Gordon and Potts)
+[Communication-based Evaluation for Natural Language Generation](https://arxiv.org/pdf/1909.07290.pdf) <br/> (SCiL 2020, ACL Proceedings - Newman, Cohn-Gordon, and Potts)
+[Modeling "Non-literal" Social Meaning with Bayesian Pragmatics](https://semanticsarchive.net/Archive/Tg3ZGI2M/Cohn.pdf) ([slides](/docs/sub_slides.pdf)) <br/>(Sinn und Bedeutung 2018 - Cohn-Gordon and Qing)
+
+[Non-descriptive/use-conditional meaning in Rational Speech-Act models](https://semanticsarchive.net/Archive/Tg3ZGI2M/Qing.pdf) <br/> (Sinn und Bedeutung 2018 - Qing and Cohn-Gordon)
+ -->
+<!-- ### Past Work
+
+[Intransitive Object Marking in Amharic](/docs/amharic.pdf) ([description](/docs/dares-and-warnings-in-amharic/)) <br/> (Presented as a [poster](/docs/amharicposter.pdf) at LSA 2017)
+
+[Ability Modals](/docs/modals.pdf) ([description](/docs/ability-modals/))
+
+[Monads for NL Semantics](/docs/monads.pdf) (draft)
+
+[Resultativity in Latin](/docs/resultatives.pdf) ([description](/docs/resultativity-in-latin/)) -->
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>

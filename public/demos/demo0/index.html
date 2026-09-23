@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>demo0</title>
+    <style>
+      html, body { margin: 0; padding: 0; background: #faf9f6; color: #111; }
+      body {
+        font-family: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 0.5rem 0.25rem 0.75rem;
+      }
+      #sim {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        background: #fff;
+        border: 1px solid #c8c8c8;
+        cursor: crosshair;
+      }
+      .controls {
+        margin-top: 0.75rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      button {
+        font-size: 0.9rem;
+        padding: 0.35rem 0.85rem;
+        border: 1px solid #c8c8c8;
+        border-radius: 4px;
+        background: #fff;
+        cursor: pointer;
+      }
+      button:active { background: #eee; }
+      #status {
+        margin-top: 0.5rem;
+        color: #555;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="sim" width="960" height="720"></canvas>
+    <div class="controls">
+      <button type="button" data-btn="particles">Toggle particles</button>
+    </div>
+    <p id="status">Loading…</p>
+    <script type="module" src="./run.js"></script>
+  </body>
+</html>

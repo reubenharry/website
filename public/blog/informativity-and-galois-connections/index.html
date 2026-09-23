@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informativity and Galois Connections</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Informativity and Galois Connections</h1>
+    
+    <p class="post-meta">26 June 2015</p>
+    
+  </header>
+  <div class="post-body">
+    <ul>
+<li></li>
+</ul>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+<p>Here is an observation that I talked about at MIT’s <a href="http://brendanfong.com/seminar.html">category theory seminar</a> at some point, relating <a href="http://www.glottopedia.org/index.php/Gricean_maxims">Grice’s maxims of Quantity and Quality</a> to the mathematical notion of a Galois connection.</p>
+<h3 id="abstract-summary">Abstract Summary:</h3>
+<p>For a state space W, the left adjoint of a monotone map (i.e. a left Galois connection), <span class="math inline">\(L_0\)</span>, from a set of utterances U to the poset (ordered by inclusion) <span class="math inline">\(\mathcal{P}(W)\)</span> is the monotone map <span class="math inline">\(S_1: \mathcal{P}(W)\to U\)</span> which takes a set of states and returns the strongest true utterance with respect to <span class="math inline">\(L_0\)</span>. This happens to be a very natural way to encode Grice’s maxims of Quality (roughly: speak truthfully) and Quantity (roughly: be as informative as possible, relative to what is relevant) simultaneously.</p>
+<h3 id="concrete-explanation">Concrete Explanation:</h3>
+<p>Each <span class="math inline">\(w \in W\)</span> is a state of the world, or, so that each element of <span class="math inline">\(\mathcal{P}(W)\)</span> is a set of states.</p>
+<p>As usual, the simplest possible example is a reference game, where “state” just means the intended referent. Concretely, say that W = <span class="math inline">\(\\{R_1, R_2, R_3\\}\)</span> as pictured below, and U = {<em>red dress</em>, <em>dress</em>, <em>hat</em>, <em>silence</em>}. Obviously arbitrary choices, but just for illustration.</p>
+<figure style="max-width: 1000px">
+<img src="../../img/referents.png" alt>
+</figure>
+<p>Say that the literal listener <span class="math inline">\(L_0\)</span> maps an utterance <em>u</em> to the set of referents (i.e. states, i.e. worlds) compatible with <em>u</em>, mapping <em>red dress</em> to <span class="math inline">\(\\{R_1\\}\)</span>, <em>dress</em> to <span class="math inline">\(\\{R_1, R_2\\}\)</span> , <em>hat</em> to <span class="math inline">\(\\{R_3\\}\)</span> and <em>silence</em> to <span class="math inline">\(\\{R_1, R_2, R_3\\}\)</span>.</p>
+<p>Note that we can make U a poset by defining the partial ordering on U where <span class="math inline">\(u \leq u' \leftrightarrow L_0(u) \leq L_0(u')\)</span>. For example, <span class="math inline">\(\mathit{dress} \leq \mathit{silence}\)</span>. Note that <span class="math inline">\(u \leq u'\)</span> means that u is <em>stronger</em> than u’.</p>
+<p>It then follows (by the definition of the ordering on U) that <span class="math inline">\(L_0\)</span> is a monotone map (i.e. a function that preserves the poset ordering) from U to W.</p>
+<h3 id="galois-connections">Galois Connections</h3>
+<!-- The idea of a Galois connection (I think invented by Galois in his proof that there's no general formula for quintic equations) -->
+<p>So far just definitions. Just one more: for monotone maps f and g, f is the left Galois connection of g iff:</p>
+<p><span class="math display">\[f(s) \leq u \leftrightarrow s \leq g(u)\]</span></p>
+<p>It takes a bit of thinking to make sense of this strange definition, but the intuition is this: there’s no obvious notion of an exact inverse of g, because g might well not be surjective (or injective). But for a monotone map, there’s a notion of the best approximation of such an inverse. That approximation is f, as defined above. (In fact there are two, the left and right Galois connections, and more broadly, the left and right adjoints of a functor. A monotone map is a very simple case of a functor between very simple categories, namely posets).</p>
+<p>Maybe this direct corollary of the above definition will help: if I know g, then its left adjoint f is defined as:</p>
+<p><span class="math display">\[f(s) = \bigwedge(\\{u : s \leq g(u)\\})\]</span>.</p>
+<p>I write <span class="math inline">\(\bigwedge(X)\)</span> for a poset X to mean the greatest lower bound of X.</p>
+<p>OK, so now you can ask: what’s the left Galois connection of the literal listener <span class="math inline">\(L_0\)</span>? Let’s call this left Galois connection <span class="math inline">\(S_1\)</span>, for reasons that will soon be clear. Again, note that <span class="math inline">\(L_0\)</span> can’t just be inverted, because it’s in general not the case that for any subset s of W (i.e. element of <span class="math inline">\(\mathcal{P}(W)\)</span>), there’s an expression which means exactly s under <span class="math inline">\(L_0\)</span>.</p>
+<p>It’s illustrative to work through an example, to see what <span class="math inline">\(S_1\)</span> looks like. Using our case from above, what’s <span class="math inline">\(S_1(\\{R_2\\})\)</span>?</p>
+<p>Well, <span class="math inline">\(S_1(\\{R_2\\}) = \bigwedge\\{u : \\{R_2\\} \leq L_0(u)\\})\)</span> = <span class="math inline">\(\bigwedge(\\{dress, silence\\})\)</span> = <span class="math inline">\(dress\)</span>.</p>
+<p>First you find all the utterances that map to supersets of <span class="math inline">\(\\{R_2\\}\)</span>. These are all the true utterances (<em>Quality</em>). Then you take the greatest lower bound (<em>Quantity</em>).</p>
+<p>So in other words, the definition of an left Galois connection gives you the following informative speaker <span class="math inline">\(S_1\)</span>: consider the set of all utterances compatible with your (possibly singleton) set of worlds, and choose the strongest of these. There’s something nice about how the maxims of Quality and Quantity fall out from this.</p>
+<!-- That's \\(\\{dress, silence\\}\\). Then you take the greatest lower bound.  -->
+<!-- The notion of "Galois connection" formalizes "best approximation of the inverse of a monotone map between posets". (More abstractly, a Galois connection is a kind of adjoint functor, but that's by the by.) -->
+<p>We also obtain similar results for pragmatic implicatures (that I won’t sketch out here for reasons of laziness) namely that a literal speaker, in the form of a monotone map <span class="math inline">\(S_0\)</span> from w <span class="math inline">\(\in\)</span> W to <em>us</em> in <span class="math inline">\(\mathcal{P}(U)\)</span>, admits a left Galois connection <span class="math inline">\(L_1\)</span> which returns the exhaustification (linguistics term) of the literal meaning of <em>us</em>. So this would model, for example, the fact that the pragmatic interpretation of a (possibly singleton) set of utterances <em>us</em> should give the smallest set of possible worlds that could have produced every <span class="math inline">\(u \in \mathit{us}\)</span>.</p>
+<p>The niceness of this correspondence between Galois connections and pragmatics suggests that something relatively deep is going on here, but I haven’t thought about it too much further. The sensible thing to do would be to consider the categorical generalization of Galois connections, namely adjoint functors, and to see if we get the same effect when we invert a more sophisticated functorial semantics.</p>
+<p>I came up with this idea thanks to John Baez’s fantastic <a href="https://forum.azimuthproject.org/categories/applied-category-theory-course">category theory course</a>, based off of David Spivak and Brendan Fong’s <em><a href="http://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf">Seven Sketches in Compositionality</a></em>.</p>
+<p>Summary:</p>
+<p>*An informative speaker is a left Galois connection to a literal listener</p>
+<p>*A pragmatic listener is a left Galois connection to a literal speaker</p>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>

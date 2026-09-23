@@ -1,0 +1,6 @@
+packages: .
+
+with-compiler: ghc-9.8.4
+
+constraints:
+  hakyll >= 4.16.7 && < 4.17

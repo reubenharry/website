@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dependent Types</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Dependent Types</h1>
+    
+    <p class="post-meta">26 January 2020</p>
+    
+  </header>
+  <div class="post-body">
+    <p>Dependent types are most easily understood by looking at a program that requires them. I’ll first give a contrived example, then a real one.</p>
+<h2 id="contrived-example">Contrived example</h2>
+<p>Suppose we want a function that takes an integer, and returns it if it is less than <span class="math inline">\(10\)</span>, and otherwise returns the unit value <code>()</code>.</p>
+<p>Haskell functions must have a single return type, so you could either have <code>Int -&gt; Int</code> or <code>Int -&gt; ()</code>, but a function cannot sometimes return an <code>Int</code> and sometimes return a <code>()</code>, depending on the input.</p>
+<p>The standard solution is to return a sum type, i.e. <code>Int -&gt; Either () Int</code>. This works, but it is then the job of the consumer of this function to handle the <code>Either</code>, and moreover, we don’t have a static guarantee that when the input is less than <span class="math inline">\(10\)</span>, the returned <code>Either () Int</code> is really a <code>Left ()</code>.</p>
+<p>Dependent types allow a degree of expressivity which solves this problem. In pseudocode, the desired type would be:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>foreach (<span class="ot">x ::</span> <span class="dt">Int</span>) <span class="ot">-&gt;</span> <span class="kw">if</span> x <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">then</span> <span class="dt">Int</span> <span class="kw">else</span> ()</span></code></pre></div>
+<p>Two key things to note about this:</p>
+<ul>
+<li>the types here are treated like values, to the extent that we can write an if-statement involving <em>types</em></li>
+<li>the <code>foreach</code> keyword associates a value with the type <code>Int</code>, so that this value can be used later on in the type.</li>
+</ul>
+<p>This isn’t a valid Haskell type, and won’t be for a while.</p>
+<h2 id="real-example">Real example</h2>
+<p>Suppose I want to write an interpreter. The idea is that I’ll parse my input expression (say “4 + 3 = 8”) into a syntax tree like:</p>
+<pre><code>       /\
+      /  \
+     /    \
+    /\     \  
+   /\ \    /\  
+  4 +  3  =  8</code></pre>
+<p>I then assign a value to each leaf, and recursively compute the nodes of the tree until I get to the top.</p>
+<p>But what values should I assign to the leafs? The typical functional answer would be:</p>
+<ul>
+<li>“4” –&gt; <code>4 :: Int</code></li>
+<li>“+” –&gt; <code>(+) :: (Int -&gt; Int -&gt; Int)</code></li>
+<li>“3” –&gt; <code>3 :: Int</code></li>
+<li>“=” –&gt; <code>(=) :: (Int -&gt; Int -&gt; Bool)</code></li>
+<li>“8” –&gt; <code>8 :: Int</code></li>
+</ul>
+<p>Think of this as a <em>lexicon</em>, which takes strings to their meanings.</p>
+<p>But note that the values have different types. So if I want a function that implemented this lexicon, i.e. that takes the strings and returns their meaning, without dependent types I would need to make a sum type like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Expression</span> <span class="ot">=</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Number</span> <span class="dt">Int</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Operator</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Prop</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>)</span></code></pre></div>
+<p>and then a lexicon of type:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">LexiconNaive</span> <span class="ot">=</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Expression</span></span></code></pre></div>
+<p>This is a workable solution, but it causes pain points down the road. In particular, when it comes to combining nodes of the tree, one has the awkward task of pattern matching on all possible cases, and throwing an error if neither the lefthand expression can be applied to the right nor vice versa. This scales poorly.</p>
+<p>A nicer solution is dependently typed, and uses the implementation of dependent types from the singletons library (which the reader need not understand in depth):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{-# LANGUAGE TypeOperators, PatternSynonyms, TypeFamilies, FlexibleContexts, TypeApplications, ScopedTypeVariables,</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ot">    GADTs, AllowAmbiguousTypes, DataKinds, TemplateHaskell, StandaloneKindSignatures, PolyKinds #-}</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Category</span> <span class="ot">=</span>  <span class="dt">P</span> <span class="op">|</span> <span class="dt">N</span> <span class="op">|</span> <span class="dt">BS</span> <span class="dt">Category</span> <span class="dt">Category</span> <span class="op">|</span> <span class="dt">FS</span> <span class="dt">Category</span> <span class="dt">Category</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>genSingletons ['<span class="dt">'Category</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Semantic</span> (<span class="ot">s ::</span> <span class="dt">Category</span>) <span class="kw">where</span>  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> <span class="dt">N</span>  <span class="ot">=</span> <span class="dt">Int</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> <span class="dt">P</span> <span class="ot">=</span> <span class="dt">Bool</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> (<span class="dt">FS</span> a b) <span class="ot">=</span> (<span class="dt">Semantic</span> b <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> (<span class="dt">BS</span> a b) <span class="ot">=</span> (<span class="dt">Semantic</span> b <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Syntactic</span> a <span class="ot">=</span> <span class="dt">Sing</span> a</span></code></pre></div>
+<p><code>Category</code> is a new type, but also gets lifted, so that it’s a new <em>kind</em>. We then write a type family, <code>Semantic</code>, on types of this kind, that takes a type like <code>N</code> (standing for “number”) and gives the type that a number’s meaning should have, which for our purposes is <code>Int</code>.</p>
+<p><code>Syntactic a</code> is a convenient synonym for the singleton library’s <code>Type</code>-kinded <code>Sing a</code>.</p>
+<p>With this, we can now give a beautiful dependent type for lexicons:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">Lexicon</span> <span class="ot">=</span> <span class="kw">forall</span> (<span class="ot">a ::</span> <span class="dt">Category</span>)<span class="op">.</span> <span class="dt">Syntactic</span> a <span class="ot">-&gt;</span> <span class="dt">Text</span> <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a</span></code></pre></div>
+<p>An example of a lexicon, as we might need for an interpreter, is:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ot">example ::</span> <span class="dt">Maybe</span> <span class="dt">Integer</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>example <span class="ot">=</span> (<span class="fu">fmap</span> <span class="op">.</span> <span class="fu">fmap</span>) <span class="fu">sum</span> <span class="dt">Just</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ot">exampleLexicon ::</span> <span class="dt">Lexicon</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="ot">=</span> \<span class="kw">case</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Number</span> <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;1&quot;</span> <span class="ot">-&gt;</span> <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;2&quot;</span> <span class="ot">-&gt;</span> <span class="dv">2</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;3&quot;</span> <span class="ot">-&gt;</span> <span class="dv">3</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;4&quot;</span> <span class="ot">-&gt;</span> <span class="dv">4</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;5&quot;</span> <span class="ot">-&gt;</span> <span class="dv">5</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;6&quot;</span> <span class="ot">-&gt;</span> <span class="dv">6</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;7&quot;</span> <span class="ot">-&gt;</span> <span class="dv">7</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;8&quot;</span> <span class="ot">-&gt;</span> <span class="dv">8</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;9&quot;</span> <span class="ot">-&gt;</span> <span class="dv">9</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Proposition</span> <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;True&quot;</span> <span class="ot">-&gt;</span> <span class="dt">True</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;False&quot;</span> <span class="ot">-&gt;</span> <span class="dt">False</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Number</span> <span class="ot">`ForwardSlash`</span> <span class="dt">Number</span> <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;-&quot;</span> <span class="ot">-&gt;</span> <span class="fu">negate</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    (<span class="dt">Proposition</span> <span class="ot">`BackSlash`</span> <span class="dt">Number</span> ) <span class="ot">`ForwardSlash`</span> <span class="dt">Number</span>  <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;=&quot;</span> <span class="ot">-&gt;</span> (<span class="op">==</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    (<span class="dt">Number</span> <span class="ot">`ForwardSlash`</span> <span class="dt">Number</span> ) <span class="ot">`BackSlash`</span> <span class="dt">Number</span>  <span class="ot">-&gt;</span> \<span class="kw">case</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;+&quot;</span> <span class="ot">-&gt;</span> (<span class="op">+</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    _ <span class="ot">-&gt;</span> <span class="fu">error</span> <span class="st">&quot;not implemented&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Category</span> <span class="ot">=</span>  </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Proposition</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Number</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">|</span> <span class="dt">Branch</span> <span class="dt">Category</span> <span class="dt">Category</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>genSingletons ['<span class="dt">'Category</span>]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="kw">family</span> <span class="dt">Semantic</span> e (<span class="ot">s ::</span> <span class="dt">Category</span>) <span class="kw">where</span>    <span class="dt">Semantic</span> e <span class="dt">Number</span>  <span class="ot">=</span> e</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> _ <span class="dt">Proposition</span> <span class="ot">=</span> <span class="dt">Bool</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">Semantic</span> e (<span class="dt">Branch</span> a b) <span class="ot">=</span> (<span class="dt">Semantic</span> e b <span class="ot">-&gt;</span> <span class="dt">Semantic</span> e a)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ot">lexicon ::</span> <span class="kw">forall</span> (<span class="ot">a ::</span> <span class="dt">Category</span>)<span class="op">.</span> <span class="dt">Syntactic</span> a <span class="ot">-&gt;</span> <span class="dt">Semantic</span> a</span></code></pre></div>
+<p>This type states its intent beautifully. For any type of kind <code>Category</code>, the syntactic representation (of kind <code>Type</code>) is mapped to the semantic representation (also of kind <code>Type</code>).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>examples</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="dt">Proposition</span> <span class="st">&quot;True&quot;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>exampleLexicon <span class="dt">Number</span> <span class="st">&quot;3&quot;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dt">No</span> <span class="kw">instance</span> for (<span class="dt">Show</span> (<span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>(exampleLexicon (<span class="dt">Number</span> <span class="ot">`To`</span> <span class="dt">Number</span>) <span class="st">&quot;-&quot;</span>) <span class="dv">5</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> (<span class="op">-</span><span class="dv">5</span>)</span></code></pre></div>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>

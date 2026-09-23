@@ -7,15 +7,23 @@ date: 2018-06-26T17:07:24+01:00
 
 ## What I'm interested in at the moment
 
-Recently I've been thinking about [reactive probabilistic programming languages](https://functional-reactive-ppl.netlify.app/reactive/) and using them to build dynamical systems models of cooperation between agents. This is appealing because it pulls together a lot of the things I like: functional programming, non-equilibrium statistical mechanics, and a longstanding curiosity about how language emerges.
+Recently I've been thinking about [reactive probabilistic programming languages](/blog/browser-spike) and using them to build [dynamical systems models of cooperation between agents](/blog/the-unfolding-of-language). This is appealing because it pulls together a lot of the things I like: functional programming, non-equilibrium statistical mechanics, and a longstanding curiosity about cognition and convention. 
 
-## Postdoc
+## Physics
 
-At Berkeley, I worked at the intersection of computational statistics and physics. These fields turn out to be very deeply connected, although there is surprisingly little cross-talk (possibly because both statisticians and physicists have very different cultures).
+At Berkeley, I worked at the intersection of computational statistics and physics. These fields turn out to be very deeply connected, although there is surprisingly little cross-talk (possibly because both statisticians and physicists each have a different, totally incomprehensible jargon).
 
-In particular, I worked on the [Microcanonical Hamiltonian Monte Carlo sampler](https://microcanonical-monte-carlo.netlify.app/), which is inspired, as the name suggests, by the microcanonical ensemble in statistical mechanics. I worked on applying this to many-body problems in condensed matter physics. I also thought about flow-based models, and non-equilibrium physics, which led to [counterdiabatic Hamiltonian Monte Carlo](https://arxiv.org/abs/2602.21272).
+In particular, I worked on the [Microcanonical Hamiltonian Monte Carlo sampler](https://microcanonical-monte-carlo.netlify.app/), which is inspired, as the name suggests, by the microcanonical ensemble in statistical mechanics. I worked on applying this to many-body problems in condensed matter physics. I also spent time thinking about flow-based models, and non-equilibrium physics, which led to [counterdiabatic Hamiltonian Monte Carlo](https://arxiv.org/abs/2602.21272).
 
-## PhD
+I'm also interested in how numerical methods in the applied sciences can be bolstered by theorem provers like Lean. As a step in that direction, I've been working on [using the *type system* of a statically typed language to enforce correctness of the fusion rules](https://github.com/reubenharry/typed-fusion) for Lie group representations (and other fusion categories). Physicists never get exposed to this kind of computer science (try asking a physicist what the lambda calculus is), but I think this sort of approach will prove increasingly powerful in the future.
+
+## Functional programming
+
+After my PhD, I worked in industry for a few years, on a variety of projects. One was a natural language interpreter. I think symbolic AI is conceptually misguided, but the opportunity to code full-time in Haskell was very appealing. One thing I worked on was incorporating [multi-world expressions in a compositional semantics and grammar](/docs/language.html) via very general recursion schemes from category theory (histomorphisms). The result was a formalization of the spirit of construction grammar. I continue to think that the connection between free functors and fragment grammars is very beautiful, and would love to finish this project some day.
+
+A more recent project I've been working on is to extend reactive programming to handle stocahsticity, a project that Manuel Bärenz is [mainly responsible for](https://www.tweag.io/blog/2023-10-12-rhine-bayes/), to get [online particle filters expressed as Feynman-Kac processes](/blog/browser-spike). This is really cool!
+
+## Language
 
 During my PhD, I worked on unifying logical and statistical perspectives on meaning in natural language using [probabilistic models of pragmatic reasoning](https://reubencohngordon.com/blog/social-reasoning-in-arcadia/).
 

@@ -6,37 +6,19 @@ date: 2020-02-26T17:07:24+01:00
 draft: False
 
 ---
--
 
 "The Cervantes text and the Menard text are verbally identical, but the second is almost infinitely richer" - Pierre Menard, Author of the Quixote (Borges)
 
 <!-- "Composing the *Quixote* in the early seventeenth century was a reasonable, necessary, perhaps even inevitable undertaking; in the early twentieth, it is virtually impossible." - Pierre Menard, Author of the Quixote (Borges) -->
 
-<html>
-<head>
-  <meta charset=utf-8 />
-  <title></title>
-  <style>
-    div.container {
-      display:inline-block;
-    }
-
-    p {
-      text-align:center;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <img src="/img/meninasoriginal.jpeg" height="200" width="300" />
-  </div>
-  <div class="container">
-    <img class="middle-img" src="/img/velazquez.jpg"/ height="180" width="247" />
-
+<div class="img-row">
+<figure>
+<img src="/img/meninasoriginal.jpeg" height="200" width="300" alt="Las Meninas (original)">
+</figure>
+<figure>
+<img src="/img/velazquez.jpg" height="180" width="247" alt="Las Meninas (reproduction)">
+</figure>
 </div>
-</body>
-</html>
-
 
 (To clarify, the right-hand image is my one, and the left-hand one is the original.)
 

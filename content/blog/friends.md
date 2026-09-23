@@ -1,7 +1,7 @@
 ---
 title: "The One with the Common Ground"
 date: 2020-01-26T17:07:24+01:00
-draft: True
+draft: false
 
 ---
 -
@@ -49,20 +49,20 @@ Somewhere in my PhD between feeling anxious about research and feeling frustrate
 
 The common ground is this shimmering mirage of a concept. It's the information everyone in a conversation not only knows but acts as if everyone else knows (and knows they know, and so on), and it sort of only exists on the basis of a shared pretense perpetuated by all the people taking part. Really there's only one cultural touchstone which can make this tangible, and I'm going to surprise you by saying that no, it's not Friends.
 
-Okay, I lied, it's Friends. What happens is that Monica and Chandler (party 1) are covertly sleeping together - Joey knows but that's it. Joey for the purposes of this example is not relevant. For reasons that will become apparent, it will be convenient to call this fact, that Chandler and Monica are, both literally and figuratively in bed together: $\phi\_0$. That is, $\phi\_0$ is the proposition: Monica and Chandler are sleeping together.
+Okay, I lied, it's Friends. What happens is that Monica and Chandler (party 1) are covertly sleeping together - Joey knows but that's it. Joey for the purposes of this example is not relevant. For reasons that will become apparent, it will be convenient to call this fact, that Chandler and Monica are, both literally and figuratively in bed together: $\phi_0$. That is, $\phi_0$ is the proposition: Monica and Chandler are sleeping together.
 
-Then Rachel and Phoebe (party 2) find out. Let's denote by $\phi\_1$ the proposition: Party 2 knows $\phi\_0$. So $\phi\_1$ and furthermore, party 1 do not know that $\phi\_1$. In fact, maybe that deserves a handy shorthand too; let's say that  $\psi\_1$ is the proposition: Party 1 do not know $\phi\_1$.
+Then Rachel and Phoebe (party 2) find out. Let's denote by $\phi_1$ the proposition: Party 2 knows $\phi_0$. So $\phi_1$ and furthermore, party 1 do not know that $\phi_1$. In fact, maybe that deserves a handy shorthand too; let's say that  $\psi_1$ is the proposition: Party 1 do not know $\phi_1$.
 
-In a commendably sly turn, party 2 realize that $\psi\_1$ makes the situation ripe for trickery ("we could not tell them we know, and have a little fun of our own"). Party 2's plan is that Phoebe will maintain the pretense that $\phi\_0$ is false, so as to preserve $\psi\_1$, but do so in such a way as to mess with Chandler and Monica. So the upshot is that Phoebe flirts with Chandler, who is unaware that this is a pretense, and is taken aback.
+In a commendably sly turn, party 2 realize that $\psi_1$ makes the situation ripe for trickery ("we could not tell them we know, and have a little fun of our own"). Party 2's plan is that Phoebe will maintain the pretense that $\phi_0$ is false, so as to preserve $\psi_1$, but do so in such a way as to mess with Chandler and Monica. So the upshot is that Phoebe flirts with Chandler, who is unaware that this is a pretense, and is taken aback.
 
-So far, so good. But this is where the epistemic game theorists must have infiltrated the script writers' meeting, because then party 1 infer that party 2's weird behavior can only be explained by $\phi\_1$ being true. Immediately, $\psi\_1$ ceases to be true, but $\phi\_2$ and $\psi\_2$ become true instead.
+So far, so good. But this is where the epistemic game theorists must have infiltrated the script writers' meeting, because then party 1 infer that party 2's weird behavior can only be explained by $\phi_1$ being true. Immediately, $\psi_1$ ceases to be true, but $\phi_2$ and $\psi_2$ become true instead.
 
-For the sake of clarity, and I mean that in the broadest possible sense, I'll introduce the following definitions. Here, $X\_n$ is 2 when $n$ is odd, and $1$ when $n$ is even (for $n>0$):
+For the sake of clarity, and I mean that in the broadest possible sense, I'll introduce the following definitions. Here, $X_n$ is 2 when $n$ is odd, and $1$ when $n$ is even (for $n>0$):
 
-- $\phi\_n$: Party $X\_n$ know that $\phi\_{n-1}$.
-- $\psi\_n$: Party $X\_{n+1}$ do not know that $\phi\_{n}$.
+- $\phi_n$: Party $X_n$ know that $\phi_{n-1}$.
+- $\psi_n$: Party $X_{n+1}$ do not know that $\phi_{n}$.
 
-"The messers become the messees" and Chandler flirts back, alarming Phoebe who then is led to believe that his commitment to Monica is somewhat less than exemplary. This eventually makes *her* realize that *of course*! they know we know ($\phi\_2$), but - aha!! - now we know that ($\phi\_3$), and they don't know we know they know we know ($\psi\_3$). One again armed with the upper hand, Phoebe accepts Chandler invitation to "have all the sex", beckoning in the final act of the episode.
+"The messers become the messees" and Chandler flirts back, alarming Phoebe who then is led to believe that his commitment to Monica is somewhat less than exemplary. This eventually makes *her* realize that *of course*! they know we know ($\phi_2$), but - aha!! - now we know that ($\phi_3$), and they don't know we know they know we know ($\psi_3$). One again armed with the upper hand, Phoebe accepts Chandler invitation to "have all the sex", beckoning in the final act of the episode.
 
 To paraphrase Lemony Snicket, I don't need to drag you any further through the predictable details of this narrative, other than to say that eventually Chandler abandons the pretense, confesses his love for Monica, and, as Joey exclaims in self-aware theatricality, like the chorus at the end of Oedipus Rex, finally everyone knows! (Except Ross, cue the after-credit scene).
 
@@ -71,10 +71,10 @@ I am writing this right after turning 26, on the eve of moving to a new city and
 
 But inner turmoil aside, let me pause here to take stock ([I hate to, but may I?](https://www.youtube.com/watch?v=3MWpHQQ-wQg&t=70s&ab_channel=FunEnglishLessons)). Granted, the convoluted plot of the episode is noteworthy for showcasing the potential nuance of social interaction (obviously the show has made a comical point out of this nuance, a point which, yes, I am knowingly grinding into a fine dust), but how does it shed light on the idea of the common ground?
 
-The idea is this: by the end of the episode, $\phi\_0$, the fact that Monica and Chandler are dating, is in the common ground (among Rachel, Phoebe, Joey, Monica and Chandler). But at every stage before this, even though everyone knows $\phi\_0$, and then knows that everyone knows, and so on, it isn't in the common ground, as shown by the fact that no-one acts like it's true.
+The idea is this: by the end of the episode, $\phi_0$, the fact that Monica and Chandler are dating, is in the common ground (among Rachel, Phoebe, Joey, Monica and Chandler). But at every stage before this, even though everyone knows $\phi_0$, and then knows that everyone knows, and so on, it isn't in the common ground, as shown by the fact that no-one acts like it's true.
 In a sense, the episode could almost have been designed as a thought experiment to show that any degree of higher order knowledge of a fact (we know that they know that...) is qualitatively different to that fact being in the common ground
 
-<!-- : higher order knowledge of $\phi\_0$ is compatible with both parties acting as if $\phi\_0$ is false. On the other hand, $\phi\_0$ being in the common ground is *not* compatible with that. -->
+<!-- : higher order knowledge of $\phi_0$ is compatible with both parties acting as if $\phi_0$ is false. On the other hand, $\phi_0$ being in the common ground is *not* compatible with that. -->
 
 But why spend time thinking about such a niche idea as common ground anyway? The answer, maybe predictably, is that it's not niche at all. The notion of common ground doesn't just arise in the contrived scenario above, but rather it's a basic element of communication generally.
 
@@ -108,18 +108,18 @@ And then there's one question [best put by Baldrick, to Blackadder](https://www.
 
 Baldrick, in the tradition of philosophers the world over, has phrased his simple question with so much care that it seems complicated. He's asking about how the 1st world war started, but in this case, this analogous question might be:
 
-> How did we go from the one case of affairs, where $\phi\_0$ wasn't in the common ground, to another state, where it was?
+> How did we go from the one case of affairs, where $\phi_0$ wasn't in the common ground, to another state, where it was?
 
 How, in fact, does anything enter the common ground?
 
 
 <!-- You could be forgiven for thinking that I'm stating the obvious. This is surely a perfect instance of someone believing something is profound after spending a long time thinking about it. Let me resort to another example to try to convince you that -->
 
-Let me make the following broad claim: things can enter the common ground in (at least) two ways. The first is by some collectively witnessed event. For example, if Joey (now counterfactually relevant) had said in the presence of both parties: "I assert that $\phi\_0$ is true" (this is the sort of offhand remark that Joey often makes, to reliable comic effect), then $\phi\_0$ would be in the common ground. This is the power of public announcements, like group emails, or shouting "I'm so lonely" in the middle of a large crowd[^2]. Chandler's concession to Phoebe at the end of the episode has the same effect re. $\phi\_0$.
+Let me make the following broad claim: things can enter the common ground in (at least) two ways. The first is by some collectively witnessed event. For example, if Joey (now counterfactually relevant) had said in the presence of both parties: "I assert that $\phi_0$ is true" (this is the sort of offhand remark that Joey often makes, to reliable comic effect), then $\phi_0$ would be in the common ground. This is the power of public announcements, like group emails, or shouting "I'm so lonely" in the middle of a large crowd[^2]. Chandler's concession to Phoebe at the end of the episode has the same effect re. $\phi_0$.
 
-As an aside, this first way of things entering the common ground requires that the triggering event be sufficiently "strong" evidence. For example, certain events which provide evidence towards $\phi\_0$, like party 2 walking in on party 1 standing unusually close, would be sufficiently compatible with $\phi\_0$ being false that both parties could, in a strangely collaborative act, tacitly agree to ignore it. This, by the way, seems to be what happens when something very awkward happens at a social gathering: all parties simply agree that it in fact has not happened. (Think: someone forgetting your name at a cocktail party and you acting as in they have not forgotten and taking pains not to put them in a position in which this lack of knowledge will be clearly exposed).
+As an aside, this first way of things entering the common ground requires that the triggering event be sufficiently "strong" evidence. For example, certain events which provide evidence towards $\phi_0$, like party 2 walking in on party 1 standing unusually close, would be sufficiently compatible with $\phi_0$ being false that both parties could, in a strangely collaborative act, tacitly agree to ignore it. This, by the way, seems to be what happens when something very awkward happens at a social gathering: all parties simply agree that it in fact has not happened. (Think: someone forgetting your name at a cocktail party and you acting as in they have not forgotten and taking pains not to put them in a position in which this lack of knowledge will be clearly exposed).
 Some events, on the other hand, like party 2 walking in on party 1 *in flagrante delictu* - I'm assuming that if unfamiliar, the meaning of this phrase is recoverable from context - would be just too compelling evidence for either party to ignore.
-That is, Rachel and Monica couldn't walk in on Chandler and Monica having sex, make eye contact, leave the room, and then pretend that nothing had happened. Actually, as I write that, I realize that pretending you have not walked in on someone having sex is an extremely plausible scenario, so I'll revise my point. What I really mean is just that based on my model of how the cast of Friends would behave in a counterfactual version of this episode, I think this scenario would trigger an end to the pretense that $\phi\_0$ is false[^3].
+That is, Rachel and Monica couldn't walk in on Chandler and Monica having sex, make eye contact, leave the room, and then pretend that nothing had happened. Actually, as I write that, I realize that pretending you have not walked in on someone having sex is an extremely plausible scenario, so I'll revise my point. What I really mean is just that based on my model of how the cast of Friends would behave in a counterfactual version of this episode, I think this scenario would trigger an end to the pretense that $\phi_0$ is false[^3].
 
 So things can enter the common ground through collectively witnessed events. What about the second way? The second way is stranger. In a nutshell it's that everyone in a conversation can simply pretend that something was already in the common ground, and lo and behold, it starts to be there, by virtue of always having been there.
 
@@ -180,6 +180,6 @@ If there's any punchline, it's that language is exactly like this game. No-one g
 
 [^1]: Game played at an English country fair, rules self-explanatory
 
-[^2]: In fact, [this puzzle](https://xkcd.com/blue\_eyes.html) and the [follow up discussion](https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/) are a good, if obviously idealized, example of how public announcements of a proposition can have a very surprising effect even if that proposition was already known by everyone (but not in the common ground). If you read it, consider that in the analogy with Friends, Joey plays the role of the impartial Guru - ostensibly a flesh and blood human, but for all intents and purposes exempt from the complexity of the social machinations.
+[^2]: In fact, [this puzzle](https://xkcd.com/blue_eyes.html) and the [follow up discussion](https://terrytao.wordpress.com/2008/02/05/the-blue-eyed-islanders-puzzle/) are a good, if obviously idealized, example of how public announcements of a proposition can have a very surprising effect even if that proposition was already known by everyone (but not in the common ground). If you read it, consider that in the analogy with Friends, Joey plays the role of the impartial Guru - ostensibly a flesh and blood human, but for all intents and purposes exempt from the complexity of the social machinations.
 
-[^3]: You might wonder (and indeed I think this is an empirically fascinating question which at some point in the future we will have the tools to investigate rigorously): what is the threshold where an event provides sufficiently strong evidence of $\phi\_0$ that it enters the common ground? In other words, how undeniable does the evidence have to be before all parties abandon any pretense?  I think, if I had to really pinpoint why I'm fixating on this point, it is because strength of evidence is a continuous variable, but the effect of something entering the common ground is not continuous. That is, you can imagine increasingly strong signs of Monica and Chandler's romance being ignored until some threshold, at which point $\phi\_0$ enters the common ground and everyone starts to behave entirely differently, sort of like a phase transition.
+[^3]: You might wonder (and indeed I think this is an empirically fascinating question which at some point in the future we will have the tools to investigate rigorously): what is the threshold where an event provides sufficiently strong evidence of $\phi_0$ that it enters the common ground? In other words, how undeniable does the evidence have to be before all parties abandon any pretense?  I think, if I had to really pinpoint why I'm fixating on this point, it is because strength of evidence is a continuous variable, but the effect of something entering the common ground is not continuous. That is, you can imagine increasingly strong signs of Monica and Chandler's romance being ignored until some threshold, at which point $\phi_0$ enters the common ground and everyone starts to behave entirely differently, sort of like a phase transition.

@@ -1,7 +1,9 @@
 ---
 title: "Social Reasoning in Arcadia"
+slug: "social-reasoning-in-arcadia"
 date: 2018-06-26T17:07:24+01:00
-draft: True
+draft: false
+webppl: true
 ---
 
 
@@ -9,22 +11,6 @@ draft: True
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<script type="text/javascript"
-  src="/webppl.js">
-</script>
-
-<script type="text/javascript"
-  src="/webppl-editor.js">
-</script>
-
-<script type="text/javascript"
-  src="/webppl-viz.js">
-</script>
-
-<link rel="stylesheet" href='/webppl-editor.css'>
-
-<link rel="stylesheet" href='/webppl-viz.css'>
 
 
 
@@ -44,7 +30,7 @@ We gather from Narcissus' response that the answer is no, but how? After all, if
 
 Meaning, to understate the issue, is a bit of a head scratcher. We could venture to say that Narcissus' statement has **semantic** content (it's a recommendation to not hold your breath), and meanings in different contexts ("No I won't be ready any time soon.", "Holding your breath is a poor way to dive."), which is *inferred* from the context. (Deciding what content belongs to the statement as opposed to the context is often tricky. For instance, "don't hold your breath" is an idiom in English - the meaning "It will take a long time" is at least somewhat baked into its semantic content.)
 
-{{< figure src="img/diagram2.png" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/diagram2.png" alt=""></figure>
 
 This inference to obtain the "full" meaning from the semantic content and context, which we make so easily, is complicated to spell out, even if a vague, informal way:
 
@@ -54,7 +40,7 @@ The study of the semantic content belongs to the field of *semantics*, while the
 
 I want to show how we can boil down the essence of the above reasoning, and get out a paradigm for formalizing pragmatics which involves *nested inference*: an inference about another agent's inference. What I'll describe is the [Rational Speech Acts (RSA)](http://langcog.stanford.edu/papers_new/goodman-2016-tics.pdf) paradigm, and comes from [previous work on game theory](http://www.home.uni-osnabrueck.de/michfranke/Papers/Franke_PhD_thesis.pdf) going back to [Lewis](https://www.princeton.edu/~harman/Courses/PHI534-2012-13/Nov26/lewis-convention1.pdf).
 
-{{< figure src="img/nested.png" imageMaxWidth="100px"  >}}
+<figure style="max-width: 100px"><img src="/img/nested.png" alt=""></figure>
 
 My goal here is to show why the language of Bayesian probability (and in particular, recursive inference models like RSA) are the Right Tool for the Job: they neatly incorporate and generalize a logical semantics, can be [computationally modeled](http://www.problang.org/), [experimentally tested](https://psyarxiv.com/f9y6b/), [integrated with machine learning](https://nlp.stanford.edu/pubs/monroe2015learning.pdf), and what for my money matters most, formalize the essence of social reasoning. In short, **they are for pragmatics what classical logic is for semantics**.
 
@@ -91,9 +77,9 @@ There's another set we need to consider, the set **W** of all possible states (i
 
 We're now in a position to talk about literal meaning. In a state *w* \\(\in\\) **W**, an utterance is either true or false. For example, if Narcissus has found one sheep, so that the world state is *one*, then saying *I found both of the sheep* is untrue. He'd be deluded or deceitful to say it.
 
-OK, so formally, that all means that the semantics is a **relation**, which is a function of type \\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\\)) (we write \[u\]\(w\) to mean that the thing *u* means is compatible with the world *w*). More visually, a world *w* and an utterance *u* are related if there's a line between them, as in the diagram below:
+OK, so formally, that all means that the semantics is a **relation**, which is a function of type \\(((U,W)\to\\{\mathit{True},\mathit{False}\\}\\)) (we write $\llbracket u \rrbracket(w)$ to mean that the thing *u* means is compatible with the world *w*). More visually, a world *w* and an utterance *u* are related if there's a line between them, as in the diagram below:
 
-{{< figure src="img/diagram3.png" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/diagram3.png" alt=""></figure>
 
 
 To make things a bit more interactive, here's some code to play with in a probabilistic programming language ([this introduction](https://probmods.org/) uses PPLs to model cognition) which represents the semantics. Nothing probabilistic yet, but WebPPL will feature again below in a more sophisticated capacity.
@@ -120,7 +106,7 @@ meaning("I found both of the sheep",{totalSheepFound:1})
 
 And now for the Bayesian part. We'll start by modeling literal interpretation, via a model I'll call \\(L_0\\), which is hardly anything more than the semantics we already have in a slightly different shape. We'll use \\(L_0\\) to build a model of production (i.e. choice of utterance given world state) called \\(S_1\\), which in turn we'll use to build our end goal, \\(L_1\\). \\(L_1\\) is a model of interpretation which accounts not just for semantic meaning, but for pragmatic meaning. We can think of \\(L_1\\) as a model which reasons about a speaker \\(S_1\\) which is itself reasoning about \\(L_0\\). Sorry if that's a bit of a mouthful. The big picture idea is that by reasoning about your interlocutor reasoning about you, you can infer extra, *pragmatic*, meaning beyond the semantic content of what you hear.
 
-{{< figure src="img/diagram1.png" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/diagram1.png" alt=""></figure>
 
 This image graphically represents the overview above. On the left we have the space of utterances, and on the right, the space of worlds. Models of interpretation, often called "listeners", are shown as red arrows (in a precise sense discussed below) from **U** to **W**, while models of production, sometimes called "speakers", are depicted as blue arrows in the opposite direction. Finally, the vertical arrow between speaker and listener models are there to suggest that the \\(L_1\\) is build from the \\(S_1\\), and the \\(S_1\\) from the \\(L_0\\).
 
@@ -135,7 +121,7 @@ First of all, what type of thing is \\(L_0\\)? It's going to be a function which
 
 Here's the (simplest possible) definition of \\(L_0\\) (I'm ignoring things like cost, non-uniform priors on worlds and utterances, rationality parameters - all useful, but unnecessary for deriving scalar implicatures):
 
-$$L0(w|u) =  \frac{\[u\]\(w\)}{\sum_{w'} \[u\]\(w'\)} $$
+$$L_0(w|u) = \frac{\llbracket u \rrbracket(w)}{\sum_{w'} \llbracket u \rrbracket(w')}$$
 
 If you're like me, this equation might seem less than helpful. Here's an explanation of what it actually amounts to: After hearing an utterance u, \\(L_0\\) thinks all worlds *compatible with the utterance they just heard* are equally likely. Here's code that implements the \\(L_0\\):
 
@@ -165,13 +151,13 @@ viz(l0("I found both of the sheep"))
 
 So \\(L_0\\) is a simple generalization of a logical semantics. Probabilistic programming is useful for defining this sort of model, particularly when things start getting complicated. Oh, and here's a visualization of the \\(L_0\\) posterior conditional distributions:
 
-{{< figure src="img/diagram4.png" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/diagram4.png" alt=""></figure>
 
 # The Informative Speaker \\(S_1\\)
 
 There's a sense in which *production is the dual of interpretation*. A production model is a conditional distribution p(u|w); given a state, it gives a distribution over utterances. The particular production model we're interested in is \\(S_1\\), defined as:
 
-$$S1(u|w) = \frac{L0(w|u)}{\sum_{u'} L0(w|u')}$$
+$$S_1(u|w) = \frac{L_0(w|u)}{\sum_{u'} L_0(w|u')}$$
 
 This production model's goal is to maximize informativity; it has some state *w* it wants to convey, and it put the most weight on the utterance *u* which gets the literal listener \\(L_0\\) to place the most weight on *w* after hearing u. Again, code, to make that interactive:
 
@@ -209,13 +195,13 @@ viz(s1({totalSheepFound:2}))
 
 And a diagram of the conditional distributions:
 
-{{< figure src="img/diagram5.png" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/diagram5.png" alt=""></figure>
 
 # The Pragmatic Listener \\(L_1\\)
 
 OK, so we had a listener \\(L_0\\). And we had \\(S_1\\) thinking about \\(L_0\\). Now we're going to have \\(L_1\\), which is a model of a listener who thinks about \\(S_1\\) thinking about \\(L_0\\):
 
-$$L1(w|u) = \frac{S1(u|w)}{\sum_{w'} S1(w'|u)}$$
+$$L_1(w|u) = \frac{S_1(u|w)}{\sum_{w'} S_1(u|w')}$$
 
 You can think of \\(L_1\\) hearing an utterance *u* and asking the following question: what world state must \\(S_1\\) have been in to have said u. See what happens when you run the code.
 
@@ -260,7 +246,7 @@ viz(l1("I found both of the sheep"))
 
 Or just see the figure below:
 
-{{< figure src="img/diagram6.png" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/diagram6.png" alt=""></figure>
 
 The takeaway is that \\(L_1\\) hears *I found one of the sheep* and **infers** that it's more likely to be the case that *only* one sheep has been found. Tada, it's a scalar implicature!
 
@@ -281,9 +267,3 @@ Next time, we'll see that by changing *U* and *W* to represent different spaces,
 3. **Q**: Do we ever need more? **A**: Yes. But only for more complicated phenomena. For scalar implicature, this many layers does just fine.
 
 4. **Q**: What is Bayesian probability adding here? **A**: there are many answers, but here's my favourite: in classical logic, an implication \\(p\to q\\) allows information to flow from p to q. But if you know the value of q, you don't know anything about p. The essence of Bayesian probability is precisely that if you have \\(p\to q\\) and you know about q, you know about p. **Information flows backwards**. That's a pretty abstract answer, but can be made precise, albeit with more technical details added. That said, there are non-probabilistic approaches available too.
-
-<script>
-// find all <pre> elements and set up the editor on them
-var preEls = Array.prototype.slice.call(document.querySelectorAll("pre"));
-preEls.map(function(el) { editor.setup(el, {language: 'webppl'}); });
-</script>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Functional Reactive Probabilistic Programming</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Functional Reactive Probabilistic Programming</h1>
+    
+    <p class="post-meta">22 September 2026</p>
+    
+  </header>
+  <div class="post-body">
+    <div class="rti-demo-block">
+<iframe class="rti-demo-frame" title="Interactive demo" loading="lazy" src="../../demos/browser-spike/index.html"></iframe>
+</div>
+
+<p>Shown above is an example of real time inference. The system receives as data noisy observations (in red) of the position of a particle (green, unseen to the system), and uses them to obtain a posterior distribution, by running a particle filter.</p>
+<p>The code that generates this simulation is written in a <em>reactive probabilistic programming library</em> in Haskell.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Here’s how the code looks. First, the prior captures how the particle is believed to move:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">prior ::</span> () <span class="op">&gt;--&gt;</span> <span class="dt">Position</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">=</span> proc _ <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span>brownianMotion1D<span class="op">-&lt;</span> ()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span>brownianMotion1D<span class="op">-&lt;</span> ()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  returnA <span class="op">-&lt;</span> <span class="dt">V2</span> x y</span></code></pre></div>
+<p>Note the types! (<code>a &gt;--&gt; b</code>) is the type of stochastic dynamical systems<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>So the type (<code>() &gt;--&gt; Position</code>) of <code>prior</code> means that it takes nothing (or rather the trivial signal <span class="math inline">\(\lambda x : ()\)</span> ) as input, and returns a signal as output with the value <code>Position</code> at each time point.</p>
+<p><code>prior</code> describes the system’s prior knowledge of how the green particle moves. Note that <code>prior</code> is a <em>time-varying</em> distribution, i.e. a stochastic process. This is reflected in the type of <code>prior</code>. Next, the generative model:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">observationModel ::</span> <span class="dt">Position</span> <span class="op">&gt;--&gt;</span> <span class="dt">Observation</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>observationModel <span class="ot">=</span> proc p <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  xNoise <span class="ot">&lt;-</span>(uncorrelated (normal <span class="dv">0</span> std))<span class="op">-&lt;</span> ()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  yNoise <span class="ot">&lt;-</span>(uncorrelated (normal <span class="dv">0</span> std))<span class="op">-&lt;</span> ()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  returnA <span class="op">-&lt;</span> p <span class="op">+</span> <span class="dt">V2</span> xNoise yNoise</span></code></pre></div>
+<p><code>observationModel</code> generates a process describing observations <em>given</em> the process describing the true position. The is what we see in the red dots in the above gif. In this case, the observations are just the positions perturbed by uncorrelated Gaussian noise. Again, this is reflected in its type. Then the posterior:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">posterior ::</span> <span class="dt">Observation</span> <span class="op">&gt;-/-&gt;</span> <span class="dt">Position</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>posterior <span class="ot">=</span> proc (<span class="dt">V2</span> oX oY) <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  latent<span class="op">@</span>(<span class="dt">V2</span> trueX trueY) <span class="ot">&lt;-</span>prior<span class="op">-&lt;</span> ()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  () <span class="ot">&lt;-</span>observe<span class="op">-&lt;</span> normalPdf oY std trueY <span class="op">*</span> normalPdf oX std trueX</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  returnA<span class="op">-&lt;</span> latent</span></code></pre></div>
+<p>Given a process representing incoming observations, <code>posterior</code> is a process representing the inferred position of the particle. We cannot sample from it yet, because it is unnormalized. This is reflected in the fact that they type has <code>&gt;-/-&gt;</code>, not <code>&gt;--&gt;</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">inference ::</span> <span class="dt">Observation</span> <span class="op">&gt;--&gt;</span> [(<span class="dt">Position</span>, <span class="dt">Log</span> <span class="dt">Double</span>)]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>inference <span class="ot">=</span> particleFilter params posterior</span></code></pre></div>
+<p>The <code>particleFilter</code> inference method takes an unnormalized signal function (here the posterior), and produces a (normalized) signal function representing the position of a set of particles and their corresponding weights, given the observations. This is what we sample from to obtain the purple particles shown in the first gif above.</p>
+<p>Finally, we wrap the whole system in a signal function that expresses the behavior to be displayed to screen:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">main ::</span> <span class="dt">Text</span> <span class="op">&gt;--&gt;</span> <span class="dt">Picture</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> proc message <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  actualPosition <span class="ot">&lt;-</span>prior<span class="op">-&lt;</span> ()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  measuredPosition <span class="ot">&lt;-</span>observationModel<span class="op">-&lt;</span> actualPosition</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  samples <span class="ot">&lt;-</span>inference<span class="op">-&lt;</span> measuredPosition</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  (showObs, showParts) <span class="ot">&lt;-</span>interpretMessage<span class="op">-&lt;</span> message</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  renderObjects<span class="op">-&lt;</span> <span class="dt">Result</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    (<span class="kw">if</span> showObs <span class="kw">then</span> measuredPosition <span class="kw">else</span> <span class="dv">0</span>) </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    actualPosition </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="kw">if</span> showParts <span class="kw">then</span> samples <span class="kw">else</span> [])</span></code></pre></div>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Around the same time, it occured to Manuel Bärenz and I that reactive programming and probabilistic programming could be combined - Manuel worked out how to write a particle filter, and built <a href="https://www.tweag.io/blog/2023-10-12-rhine-bayes/">a library</a> on top of some of his existing software.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>A signal <span class="math inline">\(s \in S(A)\)</span> is a function from the time domain to some value space <span class="math inline">\(A\)</span>. A filter is a function from functions of time to functions of time, i.e. <span class="math inline">\(f \in S(A) \to S(B)\)</span>. With the additional requirement (known as causality) that <span class="math inline">\(f(s_o)(t)\)</span> is only a function of <span class="math inline">\(s_i(t')\)</span> for <span class="math inline">\(t' \leq t\)</span>, it becomes a <em>dynamical system</em>. By stochastic, I mean that the dynamical system is really <span class="math inline">\(f : S(A) \to D(S(B))\)</span>, i.e. a distribution over signals, conditional on an input signal.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>

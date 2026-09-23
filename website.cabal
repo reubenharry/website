@@ -1,0 +1,20 @@
+cabal-version:      2.4
+name:               website
+version:            0.1.0.0
+synopsis:           Personal site (Hakyll)
+license:            BSD-3-Clause
+author:             Reuben Cohn-Gordon
+maintainer:         reubenharry@gmail.com
+build-type:         Simple
+
+executable site
+  main-is:          site.hs
+  build-depends:    base >= 4.14 && < 5
+                  , hakyll >= 4.16 && < 4.17
+                  , filepath
+                  , pandoc
+                  , pandoc-types
+                  , containers
+                  , text
+  ghc-options:      -threaded -rtsopts -with-rtsopts=-N -Wall
+  default-language: Haskell2010

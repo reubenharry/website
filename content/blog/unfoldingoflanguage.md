@@ -2,7 +2,7 @@
 title: "The Unfolding of Language"
 slug: "the-unfolding-of-language"
 date: 2026-09-21T17:00:00-04:00
-draft: true
+draft: false
 description: "How languages come to exist, treated as a dynamical systems problem."
 ---
 
@@ -32,11 +32,6 @@ description: "How languages come to exist, treated as a dynamical systems proble
 
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-  mermaid.initialize({ startOnLoad: true });
-</script>
-
 How do languages come to exist?
 
 I first got sold on the enduring appeal of this question by Guy Deutscher's book *The Unfolding of Language*, which I read as a teenager. The impression I remember getting is that while the details of any particular language's history are complicated and interesting, the problem in general is quite abstract. Imagine the experiment, that for obvious reasons cannot be run, in which a group of children are left to their own devices from birth. Does a language emerge between them? If so, how? 
@@ -55,27 +50,55 @@ With these two influences in mind, I want to describe how I envision a model of 
 
 Schematically, what I have in mind is a dynamical system, comprised of two agents coupled to a world. Graphically:
 
-<div class="mermaid">
+```mermaid
 flowchart LR
-  Agent1 -->|Action| Environment
-  Environment -->|Observation| Agent2
-</div>
+  A1[Agent 1] -->|Actions| Environment
+  Environment -->|Observations| A1
+  A2[Agent 2] -->|Actions| Environment
+  Environment -->|Observations| A2
+```
 
 What this diagram is meant to convey is that the world "outputs" a stream of pairs of observations $(o_1, o_2)$, that depends on a stream of incoming actions from both agents, $(a_1, a_2)$. Conversely, each agent takes in the stream of observations from the world, and the stream of actions from the other agent, and produces a stream of actions. This is, in its entirety, described by a stochastic process over $(o_1, o_2, a_1, a_2)$.
 
-The reason I want to frame the problem as a dynamical system is that I want to eventually ask questions about the dynamics, and in particular whether a language-like state is an attractor.
+The reason I want to frame the problem as a dynamical system is that I want to eventually ask questions about the dynamics, and in particular whether a certain "language-exhibiting" region of the state space is an attractor.
 
-For the sake of some concreteness, let's say that the state of the world is the position $x \in \mathbb{R}$ of a particle moving around stochastically, which the agents noisily observe.
+For the sake of some concreteness, let's say that the state of the world is the position $x \in \mathbb{R}^2$ of a particle moving around stochastically, which the agents noisily observe.
+
+```{.haskell demo=demo0 from=Tutorial.demo0}
+-- Built from real-time-inference's shared core (src/Tutorial.hs).
+-- The fence is showable source; `from=` tells the site build which SF to compile.
+demo :: UserInput >--> Picture
+demo = demo0
+```
+
 
 ## The agents
 
 Let's say that the agents are Bayesian RL agents, so that they update their beliefs about the world based on the observations they receive (and also the actions of the other agent, which they can see), and produce actions to maximize their expected reward. Let's also say that each agent is rewarded according to how accurately they *both* guess the position of the particle, a reward chosen to incentivize cooperation.
 
-Forgetting language for a minute, if they know how the observation is produced, they can obtain a belief about the position of the particle from Bayesian inference, given observations. 
+```mermaid
+flowchart LR
 
-gif goes here
+  subgraph Agent[ Agent ]
+    direction TB
+    subgraph PF[Inference]
+        direction LR
+        AgentSub2{Model of world}
+    end
+    subgraph CA[Policy]
+        direction LR
+        AgentSub3{Model of world}
+    end
+    PF -->|Belief| CA
+  end
 
-(This uses a particle filter, which is the general solution for inference on a time-varying signal.)
+  S{{State}} --> O{{Observation}}
+  O --> PF
+  CA --> S2{{Action}}
+  S2 --> S
+```
+
+Forgetting language for a minute, if they know how the observation is produced, they can obtain a belief about the position of the particle from Bayesian inference, given observations. Toggle the particles button above to see how this looks. (This uses a particle filter, which is the general purpose solution for inference on a time-varying signal.)
 
 ## Language
 
@@ -83,7 +106,15 @@ So what does language mean in the context of this system? I would say that there
 
 We could hardcode this sort of behavior. For instance, define a language (or really, a semantics) $L$ to be a function $(A, O) \to \{0,1\}$, where $A$ and $O$ are respectively the space of actions and observations (so both $\mathbb{R}^2$). This gives a (stochastic) way to translate between actions and observations: given an action $a$, it defines a uniform distribution $p(o \mid a)$ over $\{o \in O \mid L(a, o) = 1\}$, and given an observation $o$, it defines a uniform distribution $p(a \mid o)$ over $\{a \in A \mid L(a, o) = 1\}$. We then define an agent parametrized by $L$ to produce actions drawn from $p(a \mid o)$ given the current observation $o$, and to convert actions of the other agent into observations using $p(o \mid a_2)$.
 
-gif
+
+<!-- "
+```{.haskell demo=demo2 from=Tutorial.demo2}
+-- Built from real-time-inference's shared core (src/Tutorial.hs).
+-- The fence is showable source; `from=` tells the site build which SF to compile.
+demo :: UserInput >--> Picture
+demo = demo2
+``` " -->
+
 
 If both agents are parametrized by the same $L$, then the system has language, in the sense that each agent transmits information to the other. This improves the expected reward, since agents now get double the observations.
 
@@ -105,7 +136,6 @@ Let's put this in mathematical terms. We have a space $D^\mathcal{A}_1$ of agent
 
 There is a certain region (submanifold, if you like) of this space $C \subset D$ in which the two beliefs are the same, $C = \{ (b_1, b_2) \in D \mid b_1 = b_2 \}$. This is the language (or "convention") region, because, as discussed above, if both agents believe the other communicates according to the same rules, then they will communicate according to the same rules, and successfully exchange information.
 
-animation here
 
 In the spirit of physics, we can think about the effective dynamics of just the two beliefs, $b_1$ and $b_2$, with the other degrees of freedom in the system (the observations, actions and particle position) integrated out.
 
@@ -121,10 +151,12 @@ The mathematics of this problem are in the spirit of non-equilibrium physics, wh
 
 <!-- It is also compatible with mechanisms like memetic drift, where the belief of one agent influences the belief of the other, and in turn influences the belief of the first, a self-reinforcing process which seems key to language change. A more coarse-grained model can assume a population of agents which experience an effective force towards aligning their languages, and perhaps towards compositionality and away from complexity, but the goal here is to delve into the details of how these properties arise. -->
 
-## Where this fits in the landscape of ideas
+<!-- ## Where this fits in the landscape of ideas -->
 
 <!-- Coming up with a concrete model that has a "linguistic attractor" with a satisfactorily minimal set of assumptions seems to me like a very interesting problem. I don't think many linguists would agree, but I'd love to convince them. Like any good problem, it is concrete enough to actually work on, but it forces you to think carefully about the assumptions you make, particularly the nature of a convention and whether agents need to reason about each other's policies (and world models). These things are subtle. -->
+<!-- 
+There's a physical analogy I find useful here. When studying molecular dynamics, you can assume that the atoms are interacting according to some potetial energy function, and deduce the behavior of the system as a whole on the basis of that. 
 
 but if you want to understand the origins of that force, you need to delve into the gory details of the quantum mechanical model of the atom. 
 
-Similarly, one can have a statistical mechanical type model of a popluation of agents, each with a degree of freedom corresponding to their language. People do this kind of thing, in the spirit of the XY model or similar. But the goal of the kind of model I'm outlining here would be to describe the "forces" that act on languages at a fundamental level (towards alignment, towards compositionality), rather than taking this as assumed. 
+Similarly, one can have a statistical mechanical type model of a popluation of agents, each with a degree of freedom corresponding to their language. People do this kind of thing, in the spirit of the XY model or similar. But the goal of the kind of model I'm outlining here would be to describe the "forces" that act on languages at a fundamental level (towards alignment, towards compositionality), rather than taking this as assumed.  -->

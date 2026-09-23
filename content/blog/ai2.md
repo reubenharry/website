@@ -42,7 +42,7 @@ draft: True
 
 
 
-{{< figure src="img/narcissus3.jpg" imageMaxWidth="1000px" width="750" >}}
+<figure style="max-width: 1000px"><img src="/img/narcissus3.jpg" alt=""></figure>
 
 the big idea:
     Structure which exists not in our model of the world, but in our model of an agent's model of the world.

@@ -1,15 +1,14 @@
 [build]
-  # No --minify: zen theme JSON-LD has trailing commas that break Hugo's minifier.
-  command = "hugo --gc"
+  # Build locally with ./build.sh (requires GHC + cabal), then push.
+  # Netlify publishes the prebuilt public/ directory.
+  command = "test -f public/index.html"
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.88.1"
-  HUGO_ENV = "production"
-  HUGO_ENABLEGITINFO = "true"
+  NODE_VERSION = "18"
 
 [context.deploy-preview]
-  command = "hugo --gc -b $DEPLOY_PRIME_URL"
+  command = "test -f public/index.html"
 
 [context.branch-deploy]
-  command = "hugo --gc -b $DEPLOY_PRIME_URL"
+  command = "test -f public/index.html"
