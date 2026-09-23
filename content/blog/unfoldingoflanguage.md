@@ -36,9 +36,9 @@ How do languages come to exist?
 
 <!-- I first got sold on the enduring appeal of this question as a teenager, by Guy Deutscher's book *The Unfolding of Language*. -->
 
-The more you think about it, the more impossible it seems. Imagine two people in a room, who speak different languages. Or worse, maybe neither speaks any language at all. How does a language emerge? There is no way for all parties to sit down and state the rules; after all, you can't agree on a language until you have one. And yet, some more convoluted version of this scenario must have happened; after all, we all speak languages, and if you go far enough back, our ancestors did not.
+The more you think about it, the more impossible it seems. Imagine two people in a room, who speak different languages. Or worse, maybe neither speaks any language at all. How does a language emerge? There is no way for all parties to sit down and state the rules; after all, you can't agree on a language until you have one. And yet, some more convoluted version of this scenario must have happened; after all, we all speak languages, and it had to start somewhere.
 
-My perspective on this question has been shaped by two things. The first is that I spent my PhD thinking about Bayesian models of the common ground, the set of things everyone assumes that everyone else knows, and [the ways in which information enters the common ground](/blog/friends). Lots of information is in the common ground, but the most complex examples are surely languages, which exist by virtue of everyone believing that everyone else uses them. From this perspective, the question of how languages come to exist translates to: how do people come to believe they do, or: how do they enter the common ground?
+My perspective on this question has been shaped by two things. The first is that I spent my PhD thinking about [Bayesian models of the common ground](/docs/irony.pdf), the set of things everyone assumes that everyone else knows, and [the ways in which information enters the common ground](/blog/the-one-with-the-common-ground). Lots of information is in the common ground, but the most complex examples are surely languages, which exist by virtue of everyone believing that everyone else uses them. From this perspective, the question of how languages come to exist translates to: how do people come to believe they do, or: how do they enter the common ground?
 
 The second thing is that I've spent the last few years in a physics department. Physicists are good at encountering a phenomenon and then finding the simplest model that captures the essence of it, and then mining it for intuition. A classic example is the (2D) Ising model, which is so simple it can be analytically solved (OK, by a singular genius), but so complex that it exhibits phase transitions, and serves as a laboratory for understanding pretty much everything about statistical physics (renormalization group, conformal field theory, defects, etc.)
 
@@ -69,6 +69,20 @@ For the sake of some concreteness, let's say that the state of the world is the 
 demo :: UserInput >--> Picture
 demo = demo0
 ```
+
+<details class="see-code">
+<summary>See code</summary>
+
+```haskell
+-- Unnormalized posterior: prior, then condition on an observation
+posteriorDistribution :: (Observation, PriorMode) >-/-> State
+posteriorDistribution = proc (obs, mode) -> do
+  latent <- priorModel -< mode
+  observe -< normalPdf2D latent observationStd obs
+  returnA -< latent
+```
+
+</details>
 
 
 ## The agents
@@ -105,7 +119,57 @@ So what does language mean in the context of this system? I would say that there
 
 We could hardcode this sort of behavior. For instance, define a language (or really, a semantics) $L$ to be a function $(A, O) \to \{0,1\}$, where $A$ and $O$ are respectively the space of actions and observations (so both $\mathbb{R}^2$). This gives a (stochastic) way to translate between actions and observations: given an action $a$, it defines a uniform distribution $p(o \mid a)$ over $\{o \in O \mid L(a, o) = 1\}$, and given an observation $o$, it defines a uniform distribution $p(a \mid o)$ over $\{a \in A \mid L(a, o) = 1\}$. We then define an agent parametrized by $L$ to produce actions drawn from $p(a \mid o)$ given the current observation $o$, and to convert actions of the other agent into observations using $p(o \mid a_2)$.
 
-If both agents are parametrized by the same $L$, then the system has language, in the sense that each agent transmits information to the other. This improves the expected reward, since agents now get double the observations. As a sidenote, the system has what a physicist would call a "gauge freedom": there are many choices of $L$ that will work, and as long as both agents agree on which one is in use, they will decode and encode information correctly. A linguist would call this gauge freedom the "arbitrariness" of a convention.
+```{.haskell demo=demo2 from=Tutorial.demo2}
+-- Built from real-time-inference's shared core (src/Tutorial.hs).
+-- The fence is showable source; `from=` tells the site build which SF to compile.
+demo :: UserInput >--> Picture
+demo = demo2
+```
+
+<details class="see-code">
+<summary>See code</summary>
+
+```haskell
+-- Encode: action = estimated ball position + language offset L
+-- Decode: assume the other agent used the same L
+simpleAgent :: AgentID i -> (Observation, V2 Double) >--> (AgentAction i, Particles State)
+simpleAgent agentID = proc (obs, language) -> do
+  s <- smoothObservation -< obsState agentID obs
+  returnA -< (AgentAction (s + language), ...)
+
+-- | Prior world model: interlocutor is assumed to share @myLang@.
+agentIPrior :: forall i. AgentID i -> (AgentAction i, V2 Double) >--> State
+agentIPrior agentID =
+  feedback (zeroAction :: AgentAction (Other i)) $
+    proc ((action, myLang), otherAgentAction) -> do
+      state <- stateModel -< pairActions agentID action otherAgentAction
+      obs <- observationModel -< state
+      (newOtherAgentAction, _) <- simpleAgent (other agentID) -< (obs, myLang)
+      returnA -< (state, newOtherAgentAction)
+
+-- Posterior: condition on own observation, and (if communicating)
+-- on the other agent's action interpreted via myLang
+agentIPosterior ::
+  AgentID i ->
+  (Observation, Bool, V2 Double, AgentAction i) >-/-> State
+agentIPosterior agentID = proc (observation, communicate, myLang, agentIAction) -> do
+  statePred <- agentIPrior agentID -< (agentIAction, myLang)
+  observe -< normalPdf2D (obsState agentID observation) obsStd (ball statePred)
+  if communicate
+    then do
+      let action = unAgentAction (obsAction (other agentID) observation)
+          predictedAction = unAgentAction (actionOf (other agentID) (actions statePred))
+      observe -< normalPdf2D action actionStd predictedAction
+    else returnA -< ()
+  returnA -< statePred
+```
+
+</details>
+
+
+If both agents are parametrized by the same $L$, then the system has language, in the sense that each agent transmits information to the other. This improves the expected reward, since agents now get double the observations. You can play with this in the above demo by changing the language $L$ (dragging around the diamonds on the right), with "communication" turned on. (In this example, the language $L$ is parametrized by a 2D vector, which is added/subtracted to convert between the action and observation).
+
+As a sidenote, the system has what a physicist would call a "gauge freedom": there are many choices of $L$ that will work, and as long as both agents agree on which one is in use, they will decode and encode information correctly. A linguist would call this gauge freedom the "arbitrariness" of a convention.
 
 Of course the point is to *not* hardcode, and instead understand how this behavior can emerge in Bayesian RL agents with as few artificial assumptions as possible. That is the game we are playing here. Let's think through how this could work. The key is to realize that for a Bayesian agent, if they *believe* that the other agent functions according to a language $L$, then they will also act according to $L$. 
 
@@ -117,12 +181,19 @@ So suppose that agent 1 and agent 2 both believe that the other is using languag
 
 Because of the Bayesian RL setting, there is a natural way to approach this question. Each agent should have uncertainty not only over the position of the particle, but also over the other agent's behavior. For example, let's say that agent 1 believes that agent 2 is parametrized by a language $L$, but has a distribution over possible values of $L$. As time passes, agent 1's belief about $L$ evolves, as it receives evidence in the form of the actions of agent 2, as a function of the inferred position of the particle. Similarly for agent 2.
 
+```{.haskell demo=demo3 from=Tutorial.demo3}
+demo :: UserInput >--> Picture
+demo = demo3
+```
+
+Here, the right hand side of the above simulation shows the belief about the language itself, which also evolves over time. Simulations like this are instructive, because you can play with them to see under what conditions the belief of each agent align, for example. 
+
 Let's put this in mathematical terms. We have a space $D^\mathcal{A}_1$ of agent 1's *beliefs* about agent 2. That is, every point is a distribution over (the parameters of) an agent's policy and world model. Then the full space we are interested in is the product space $D = (D^\mathcal{A}_1, D^\mathcal{A}_2)$.
 
 There is a certain region (submanifold, if you like) of this space $C \subset D$ in which the two beliefs are the same, $C = \{ (b_1, b_2) \in D \mid b_1 = b_2 \}$. This is the language (or "convention") region, because, as discussed above, if both agents believe the other communicates according to the same rules, then they will communicate according to the same rules, and successfully exchange information.
 
 
-In the spirit of physics, we can think about the effective dynamics of just the two beliefs, $b_1$ and $b_2$, with the other degrees of freedom in the system (the observations, actions and particle position) integrated out.
+In the spirit of physics, we can think about the effective dynamics of just the two beliefs, $b_1$ and $b_2$, with the other degrees of freedom in the system (the observations, actions and particle position) integrated out. Visualized, this would look something like the right hand of the above simulation, although here we have restricted possible beliefs to a 2D space.
 
 The question is then: what assumptions are needed to make this submanifold an attractor under the effective belief dynamics? That is, under what conditions will the belief dynamics flow towards the language submanifold? Secondly, what are the dynamics within the language submanifold? I would say that the first question addresses how a language forms, and the second: how a language evolves.
 

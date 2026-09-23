@@ -100,6 +100,8 @@ demo_hash() {
   local demo_hs="$1"
   {
     shasum -a 256 "$demo_hs"
+    # Include package cabal (linker --export flags live here).
+    [[ -f "$SPIKE/browser-spike.cabal" ]] && shasum -a 256 "$SPIKE/browser-spike.cabal"
     find "$RTI_ROOT/src" "$SPIKE/app" "$SPIKE/src" \
       \( -name '*.hs' -o -name '*.cabal' \) -type f \
       ! -name 'Demo.hs' \

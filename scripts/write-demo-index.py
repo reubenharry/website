@@ -15,6 +15,7 @@ CONTROLS: dict[str, list[tuple[str, str]]] = {
         ("mouse", "Use mouse"),
     ],
     "demo2": [("communicate", "Toggle communicate")],
+    "demo3": [],
 }
 
 # Alias used by the browser-spike post.
@@ -30,11 +31,18 @@ def resolve_symbol(from_expr: str | None, demo_id: str) -> str:
 
 
 def buttons_html(symbol: str, demo_id: str) -> str:
-    keys = CONTROLS.get(symbol) or CONTROLS.get(demo_id) or CONTROLS["demo1"]
-    return "\n".join(
+    if symbol in CONTROLS:
+        keys = CONTROLS[symbol]
+    elif demo_id in CONTROLS:
+        keys = CONTROLS[demo_id]
+    else:
+        keys = CONTROLS["demo1"]
+    lines = [
         f'      <button type="button" data-btn="{key}">{label}</button>'
         for key, label in keys
-    )
+    ]
+    lines.append('      <button type="button" data-restart>Restart</button>')
+    return "\n".join(lines)
 
 
 TEMPLATE = """\

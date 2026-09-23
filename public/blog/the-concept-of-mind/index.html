@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>There's no such thing as interpretability</title>
+  <link rel="stylesheet" href="../../css/default.css">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-title" href="../../">Reuben Cohn-Gordon</a>
+      <nav class="site-nav">
+        <a href="../../">Home</a>
+        <a href="../../research/">Research</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../../stuff/">Misc</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">There's no such thing as interpretability</h1>
+    
+    <p class="post-meta">21 September 2026</p>
+    
+  </header>
+  <div class="post-body">
+    <blockquote>
+<p>“La casa no existe<br />
+La fiesta no existe<br />
+Europa no existe<br />
+Y ya no estoy triste<br />
+Y ya no estoy triste”</p>
+</blockquote>
+<p>In Atlanta, Donald Glover’s Afro-surrealist TV show, Darius is telling Earn to watch out for Florida Man. Who? asks Earn reasonably enough. “Florida Man!”, repeats Darius, and getting the sense that more explanation is warranted, reels off a string of headlines:</p>
+<blockquote>
+<p>“Florida Man Shoots Unarmed Black Teenager. Florida Man Bursts Into Ex’s Delivery Room and Fights New Boyfriend as She’s Giving Birth. Florida Man Beats a Flamingo To Death. Florida Man Found Eating Another Man’s Face.”</p>
+</blockquote>
+<p>Who <em>is</em> Florida Man?!</p>
+<p>What an AI system knows is hard to say. The better they get, the more this problem rankles. An image classifier in 2012 “knew” what a flower was — it could pretty reliably distinguish one in a pixelated image, but this knowledge was easy to write off as a fancy kind of pattern recognition. Less easy to dismiss, though not for lack of trying, are the things that Claude, or ChatGPT, or Copilot seem to know, in light of their smooth ability to provide reasonable answers to people’s varied and peculiar questions.</p>
+<p>Have you smashed a beloved ceramic bowl in a fit of pique? It proffers advice on how to glue it back together. Are you struggling to make conversation with your dull colleague, who is passionate about Byzantine architecture? It will give you talking points, handily enumerated. But where is that knowledge of language and social interaction and clay and history lurking in its silicon innards?</p>
+<p>What is particularly vexing is the failure of AI to deliver on its scientific promise, namely that by recreating intelligence artificially, we would finally understand something about the human mind. Because unlike a brain, where physical practicalities understandably prevent you from reaching in and rooting around, it feels like a large language model should lay bare its secrets more easily.</p>
+<p>And in a sense it does. You can trace, step by step, how a sequence of words is hoovered into an array of numbers, follow as that array is scrambled around, and observe how what comes out is, some time later, is a number. Maybe 31, 25 or 4000, pointing to the 31st, or 25th or 4000th entry in a list: this is the model’s suggestion for the next word in the sentence. Clear as day.</p>
+<p>Opinions about the location of this knowledge fall into two broad camps. Camp 1, populated by a motley collection of linguists, philosophers and cognitive scientists, holds that modern AI is artifice yes, but intelligence not at all. Like the chess-playing Mechanical Turk, the apparently brilliant machine that turned out to be a magic trick, the view is that LLMs display the superficial guise of knowledge and intelligence, but none of the substance.</p>
+<p>Meanwhile, camp 2 holds that there is more work to be done unpicking the know-how from the neural circuits, rather like chipping away at a rock to find the statue underneath. These investigations, some of which are referred to under the heading of interpretability, are often conducted in the way common sense would suggest, by taking a simple skill a neural network displays, like the ability to add numbers, and carefully identifying the sequence of operations involved.</p>
+<p>Camp 1 and Camp 2 don’t see eye to eye, but all the same, are united in the conviction that modern AI is a black box, a system whose inner workings remain opaque. There is a thing called intelligence, which is hidden inside the fleshy details of the brain, and may or may not also be hidden in the parameters of a large language model too.</p>
+<p>If the headlines are to be believed, Florida Man is everywhere and nowhere, a killer and a vigilante, an everyman and a recluse. When he is not wrestling alligators in Tampa, he is swimming for treasure in the Keys. He is, in Darius’ words, “responsible for a percentage of abnormal incidents that occur in Florida…an alt-right Johnny Appleseed.”</p>
+<p>The name for this mistake, of believing that there is an actual guy referred to as Florida Man is a category error. The term was coined around the 1950s by the philosopher Gilbert Ryle, who, despite predating Atlanta by some decades, provides a rather similar illustration. He imagines someone reading about the average taxpayer, as in “The average taxpayer has two cars.” or “The average taxpayer has 1.5 children”, and mistakenly concluding that this is a specific person. As Ryle points out, if you tried to find a person who satisfied every true sentence about the average taxpayer, you would conclude they were both a man and a woman, who lives all over America, has a strangely fractional number of children, is never seen, but with a fastidious reliability that rivals the rising of the sun, pays their taxes. He would be “an elusive insubstantial man, a ghost who is everywhere yet nowhere.”.</p>
+<p>The mistake committed is a category error in the sense that the average taxpayer is not in the same category of object as a real person, even though one can talk about them as if they were. Which goes for Florida Man too of course.</p>
+<p>Ryle’s interest in category errors is not motivated by tax, so much as an interest in unpicking the mystery of human intelligence. Specifically, he has a hunch that there is a profound mistake in the way we think about the mind. “One big mistake and a mistake of a special kind”, as he put it in his book, The Concept of Mind. Which is what? The answer comes by way of an account of Descartes’ view of intelligence, which for Ryle is the most flagrant and therefore most illustrative example of the misconception at hand.</p>
+<p>Descartes is trying to originate a theory of cognition, and is doing so at a time where scientific theories of matter - the cosmos and its motion - had begun to take concrete form. The context is relevant, as Descartes is both inspired and concerned by this progress. Inspired because it opens the possibility of understanding nature in a principled way, but concerned because it suggests that humans are also physical machines, constrained and explained by the same laws. He puts it like this: “as a man of scientific genius [Descartes] could not but endorse the claims of mechanics, yet as a religious and moral man he could not accept…that human nature differs only in degree of complexity from clockwork.”</p>
+<p>Ryle doesn’t object to the premise that physics is not in a totally literal sense the solution to everything; thoughts and feeling, obviously, are not made of atoms. What he objects to is what Descartes settles on as a solution: that if the mind is not made of matter, it is made of a second kind of thing, just as real, but residing in a separate place, and connected to the body only God knows how. Maybe in the pineal gland, Descartes speculates. At any rate, it is a substance that can be characterised and studied with the same scientific attitude physicists of his generation had applied to the material world. To this conclusion, Ryle offer a derisive paraphrase:</p>
+<blockquote>
+<p>“minds are not bits of clockwork, they are just bits of not-clockwork”.</p>
+</blockquote>
+<p>This is the big mistake of a special kind. In Ryle’s eyes, Descartes has committed a flagrant category error. Just as you would find no modicum of success in searching Tampa house by house to find Florida Man, so you would have little to show for your efforts if you examined your friend’s brain in search of the special substance, the not-clockwork that consciousness was made of. In fact, he sees Descartes’ worldview as little more than the familiar religious concept of a soul, dressed in “the new syntax of Galileo”.</p>
+<p>What Ryle is interested in isn’t Descartes per se, but rather in showing that the same category error muddies 20th century intuitions about the mind. An exemplary case is symbolic AI, the view of artificial intelligence that dominated among Ryle’s contemporaries throughout the sixties and seventies. Symbolic AI can be summed up in the motto: if brains are hardware, then minds are the software. The scientific project this motto implies is to uncover that software, and in so doing, to cleave the mathematical purity of the mind from the happenstance details of our biology.</p>
+<p>Software is often compositional, or aims to be. That is, to solve a hard problem, you should reduce it to a collection of simpler ones, which can be solved and composed together. A calculator separates the task of calculating “3+4 + 8” into calculating “3+4=7” and then “15=7 + 8”, for example. This and other similar precepts are at the core of symbolic AI: reproduce a hard thing like thought by breaking it into its natural subparts. Linguistics plays a central role in this vision, knowledge of a language appearing as just the sort of mathematical object which is surely independent of the neurons of a brain. In this picture of the mind, language is compositional too; to understand a sentence like “Big cats run fast”, you should understand “big cats” and “run fast” separately, before combining the corresponding meanings together .</p>
+<p>To “minds are software”, one can imagine Ryle’s disparaging verdict. Faced with understanding the mind, which is distinct from the biological clockwork of the brain, symbolic AI has attempted to come up with a new kind of not-clockwork. And arguing about the specific nature of that software is like debating whether the average taxpayer does or does not live in Cincinnati. Another iteration of Descartes’ grand folly, only with the syntax of Turing, not Galileo. Minds are not software, because they are not, in literal terms, things at all.</p>
+<p>At a first impression, the AI landscape half a century after The Concept of Mind has given Ryle the final say. Instead of dividing a hard problem into many easier subparts, a system like a large language model is one impenetrable monolith which ingests text as input and divulges it as output. Nor can you reach into the machine and find the software, in the sense of a database of facts about the world, rules of grammar for English, or instructions on how to be politely deferential to users.</p>
+<p>These rapid developments have not left scientists in the state of zen calm that Ryle might have hoped. The true believers in symbolic AI were never going to get on-board with a project entirely anathema to their principles, but what is more surprising are the views of the people actually working on LLMs. A standard introductory waltz, repeated in hundreds of papers and talks begins by observing the truth universally acknowledged that modern AI is a black box, the inner workings of which remain opaque.</p>
+<p>Interpretability is the name typically given to the project of opening the black box. The implication, presumably, is that if we prised the box open, we would see a system of logical rules and mechanisms. Rules like “if you see a sentence ending with ‘?’, it is a question”. Or, if you see a striped black and white horse, it’s a zebra. Symbolic AI is dead, but its convictions about the software of the mind live on in this pursuit of interpretability.</p>
+<p>Take for example Yann LeCun, a Turing award recipient for foundational contributions to deep neural networks, and also an advocate of the view that large language models are limited, by design, to a shallow understanding of the world. In a remark that directly recalls the attitude of symbolic AI, he describes human language as an “imperfect, incomplete, and low-bandwidth serialization protocol for the internal data structures we call thoughts”. For him, and so many others, it isn’t an analogy to see minds as software, brains as hardware, and thoughts as data: it’s a scientific principle.</p>
+<p>Some time after Descartes, but still before Ryle, 19th century biologists were concerned with the distinction between inert matter and living things. A tension was perceived between the increasingly physical account of biology (cells and chemical processes, and so on), and the specialness of living things. Matter (sand through our hands, splashing water, falling paperclips) is plodding, inert, and to the degree that it is responsive, only in predictable ways, like a rubber band or a spring. How could that, the argument goes, give rise to the fluid, unpredictable, perceiving, thinking, devious behavior of living things? There also had to be an élan vital, a spark of life.</p>
+<p>In folklore and religion, this premise is taken at face value. The Golem of Prague, a creature made of clay, is brought to life with the inscription of a word onto its forehead. “Truth” is that word in one version of the story. In Hebrew it has the convenient property that with the first letter removed it goes from אמת to מת, “truth” to “death”, and the Golem becomes clay once again. There is an essential property, crisp and clear, that separates living and not living thing.</p>
+<p>This isn’t really how the world is. There is of course something to the intuition that living things are different to clay in an important way, but looking for the élan vital or consciousness in the body is like searching for Florida Man in the suburbs of Miami. It is a mistake of a special kind, a category error.</p>
+<p>These dichotomies are reminiscent of a particularly virulent criticism of LLMs, that they are “mere” next-word predicting machines. This is an idea that has filtered into the lay understanding of modern AI; a 2025 article in the New Yorker states confidently that “Large language models like ChatGPT don’t “think” in the human sense—when you ask ChatGPT a question, it draws from the data sets it has been trained on and builds an answer based on predictable word patterns.” The appeal is to intuition: how could mere next word prediction give rise to intelligence? How could clockwork give rise to not-clockwork?</p>
+<p>Sticking to the dualist intuition about the mind gives rise to two possible conclusion. Either there is a secret sauce in the brain, or — worse luck yet — its absence means that we aren’t really thinking at all. These two alternatively repeat themselves when it comes to the contemporary AI discourse: either the LLM is really a good old fashioned logical reasoner in disguise or it is a cheap trick.The former leads to interpretability research where the goal is to extract the “real” symbolic model hiding in the weights of the neural network. The latter leads to work like the now famous stochastic parrots paper. To me, both seem hopelessly confused.</p>
+<p>As for Ryle, he isn’t exactly forthcoming about what he thinks intelligence is, or how it works, though in apology you might argue that that isn’t really the point. Being wise to the difficulty of the hard questions about how brains gives rise to intelligence, he tries answering a different one: why does it seem inconceivable that it should?</p>
+  </div>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>Contact: reubenharry at gmail dot com</p>
+      <p>Built with <a href="https://jaspervdj.be/hakyll/">Hakyll</a></p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    if (document.querySelector(".mermaid")) {
+      mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+      mermaid.run();
+    }
+  </script>
+  
+</body>
+</html>

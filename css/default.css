@@ -362,3 +362,36 @@ pre.CodeMirror,
   border: 0;
   background: transparent;
 }
+
+.see-code {
+  margin: -1rem 0 2rem;
+  font-family: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.see-code > summary {
+  cursor: pointer;
+  color: var(--muted);
+  list-style: none;
+}
+
+.see-code > summary::-webkit-details-marker {
+  display: none;
+}
+
+.see-code > summary::before {
+  content: "▸ ";
+  color: var(--muted);
+}
+
+.see-code[open] > summary::before {
+  content: "▾ ";
+}
+
+.see-code > summary:hover {
+  color: var(--link-hover);
+}
+
+.see-code pre {
+  margin-top: 0.75rem;
+}
