@@ -61,7 +61,7 @@ flowchart LR
 
 What this diagram is meant to convey is that the world "outputs" a stream of pairs of observations $(o_1, o_2)$, that depends on a stream of incoming actions from both agents, $(a_1, a_2)$. Conversely, each agent takes in the stream of observations from the world, and the stream of actions from the other agent, and produces a stream of actions. This is, in its entirety, described by a stochastic process over $(o_1, o_2, a_1, a_2)$. The reason I want to frame the problem as a dynamical system is that I want to eventually ask questions about the dynamics, and in particular whether a certain "language-exhibiting" region of the state space is an attractor.
 
-For the sake of some concreteness, let's say that the state of the world is the position $x \in \mathbb{R}^2$ of a particle moving around stochastically, which the agents noisily observe, as in this [simulation](/blog/browser-spike):
+For the sake of some concreteness, let's say that the state of the world is the position $x \in \mathbb{R}^2$ of a particle moving around stochastically, which the agents noisily observe, as in this simulation made with a [probabilistic reactive program](/blog/browser-spike):
 
 ```{.haskell demo=demo0 from=Tutorial.demo0}
 -- Built from real-time-inference's shared core (src/Tutorial.hs).

@@ -1,6 +1,6 @@
 I'm a postdoc in the physics department at UC Berkeley, where I work on [using ideas from physics to develop sampling algorithms](https://blackjax-devs.github.io/sampling-book/algorithms/mclmc), and on using tools from statistics to study physics. Before that I worked on [Bayesian models of communication](/docs/ReubenCG-thesis.pdf) to try to understand how people exchange information.
 
-I'm currently interested in putting these strands (physics and cognitive science) together, and building dynamical systems models of multi-agent coordination. Here's a description of [the sort of approach I'm interested in pursuing](/blog/the-unfolding-of-language/).
+I'm currently interested in putting these strands (physics and cognitive science) together, and building dynamical systems models of multi-agent coordination. Here's a description of [what I've been thinking about](/blog/the-unfolding-of-language/).
 
 Please reach out if you're interested in collaborating!
 
